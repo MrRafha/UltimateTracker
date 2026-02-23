@@ -1,0 +1,5018 @@
+[
+  {
+    "kind": "polygon",
+    "name": "Adrens Hill [-226.1, 117.0]",
+    "lat": -226.1220628142945,
+    "lng": 117.00469319930218
+  },
+  {
+    "kind": "marker",
+    "name": "Adrens Hill [-226.1, 117.0]",
+    "lat": -226.12206281429448,
+    "lng": 117.00469319930218
+  },
+  {
+    "kind": "polygon",
+    "name": "Anklesnag Mire [-201.7, 136.3]",
+    "lat": -201.73875260042828,
+    "lng": 136.25157703933925
+  },
+  {
+    "kind": "marker",
+    "name": "Anklesnag Mire [-201.7, 136.3]",
+    "lat": -201.73875260042826,
+    "lng": 136.25157703933925
+  },
+  {
+    "kind": "polygon",
+    "name": "Arthur's Rest [-107.1, 98.7]",
+    "lat": -107.08831572059415,
+    "lng": 98.68043459403552
+  },
+  {
+    "kind": "marker",
+    "name": "Arthur's Rest [-107.1, 98.7]",
+    "lat": -107.08831572059415,
+    "lng": 98.68043459403552
+  },
+  {
+    "kind": "polygon",
+    "name": "Aspenwood [-216.7, 167.7]",
+    "lat": -216.69649392239938,
+    "lng": 167.6935518464435
+  },
+  {
+    "kind": "marker",
+    "name": "Aspenwood [-216.7, 167.7]",
+    "lat": -216.69649392239938,
+    "lng": 167.6935518464435
+  },
+  {
+    "kind": "polygon",
+    "name": "Astolat [-235.6, 137.2]",
+    "lat": -235.64596435106017,
+    "lng": 137.16984083948336
+  },
+  {
+    "kind": "marker",
+    "name": "Astolat [-235.6, 137.2]",
+    "lat": -235.64596435106017,
+    "lng": 137.16984083948333
+  },
+  {
+    "kind": "polygon",
+    "name": "Avalanche Incline [-68.7, 91.5]",
+    "lat": -68.65063258256532,
+    "lng": 91.52168350483538
+  },
+  {
+    "kind": "marker",
+    "name": "Avalanche Incline [-68.7, 91.5]",
+    "lat": -68.65063258256532,
+    "lng": 91.52168350483538
+  },
+  {
+    "kind": "polygon",
+    "name": "Avalanche Ravine [-63.3, 86.7]",
+    "lat": -63.31329601556621,
+    "lng": 86.65864565611078
+  },
+  {
+    "kind": "marker",
+    "name": "Avalanche Ravine [-63.3, 86.7]",
+    "lat": -63.31329601556621,
+    "lng": 86.65864565611078
+  },
+  {
+    "kind": "polygon",
+    "name": "Battlebrae Flatland [-100.5, 89.2]",
+    "lat": -100.53719237225519,
+    "lng": 89.17748568337126
+  },
+  {
+    "kind": "marker",
+    "name": "Battlebrae Flatland [-100.5, 89.2]",
+    "lat": -100.53719237225519,
+    "lng": 89.17748568337126
+  },
+  {
+    "kind": "polygon",
+    "name": "Battlebrae Grassland [-104.5, 104.4]",
+    "lat": -104.46578083327736,
+    "lng": 104.41890690215145
+  },
+  {
+    "kind": "marker",
+    "name": "Battlebrae Grassland [-104.5, 104.4]",
+    "lat": -104.46578083327736,
+    "lng": 104.41890690215145
+  },
+  {
+    "kind": "polygon",
+    "name": "Battlebrae Lake [-108.7, 107.2]",
+    "lat": -108.65057105937949,
+    "lng": 107.21045725041384
+  },
+  {
+    "kind": "marker",
+    "name": "Battlebrae Lake [-108.7, 107.2]",
+    "lat": -108.65057105937949,
+    "lng": 107.21045725041384
+  },
+  {
+    "kind": "polygon",
+    "name": "Battlebrae Meadow [-103.8, 93.6]",
+    "lat": -103.76885457207949,
+    "lng": 93.55774494039976
+  },
+  {
+    "kind": "marker",
+    "name": "Battlebrae Meadow [-103.8, 93.6]",
+    "lat": -103.76885457207949,
+    "lng": 93.55774494039977
+  },
+  {
+    "kind": "polygon",
+    "name": "Battlebrae Peaks [-110.8, 103.1]",
+    "lat": -110.77882905950038,
+    "lng": 103.12914298673597
+  },
+  {
+    "kind": "marker",
+    "name": "Battlebrae Peaks [-110.8, 103.1]",
+    "lat": -110.77882905950038,
+    "lng": 103.12914298673596
+  },
+  {
+    "kind": "polygon",
+    "name": "Battlebrae Plain [-100.2, 98.2]",
+    "lat": -100.21054458023087,
+    "lng": 98.22737246010658
+  },
+  {
+    "kind": "marker",
+    "name": "Battlebrae Plain [-100.2, 98.2]",
+    "lat": -100.21054458023089,
+    "lng": 98.22737246010658
+  },
+  {
+    "kind": "polygon",
+    "name": "Bellever Tor [-235.1, 111.1]",
+    "lat": -235.1097020352559,
+    "lng": 111.09173528227583
+  },
+  {
+    "kind": "marker",
+    "name": "Bellever Tor [-235.1, 111.1]",
+    "lat": -235.1097020352559,
+    "lng": 111.09173528227585
+  },
+  {
+    "kind": "polygon",
+    "name": "Birchcopse [-226.2, 172.6]",
+    "lat": -226.20581389910325,
+    "lng": 172.60436793870764
+  },
+  {
+    "kind": "marker",
+    "name": "Birchcopse [-226.2, 172.6]",
+    "lat": -226.20581389910325,
+    "lng": 172.60436793870764
+  },
+  {
+    "kind": "polygon",
+    "name": "Birken Fell [-214.8, 132.4]",
+    "lat": -214.7993316327818,
+    "lng": 132.4248649330582
+  },
+  {
+    "kind": "marker",
+    "name": "Birken Fell [-214.8, 132.4]",
+    "lat": -214.7993316327818,
+    "lng": 132.4248649330582
+  },
+  {
+    "kind": "polygon",
+    "name": "Black Monastery [-66.5, 104.3]",
+    "lat": -66.47208546495028,
+    "lng": 104.3487613964942
+  },
+  {
+    "kind": "marker",
+    "name": "Black Monastery [-66.5, 104.3]",
+    "lat": -66.47208546495028,
+    "lng": 104.3487613964942
+  },
+  {
+    "kind": "polygon",
+    "name": "Blackthorn Quarry [-222.7, 113.8]",
+    "lat": -222.70079148107308,
+    "lng": 113.77349850454047
+  },
+  {
+    "kind": "marker",
+    "name": "Blackthorn Quarry [-222.7, 113.8]",
+    "lat": -222.70079148107305,
+    "lng": 113.77349850454047
+  },
+  {
+    "kind": "polygon",
+    "name": "Bleachskull Desert [-80.3, 71.5]",
+    "lat": -80.29970089750614,
+    "lng": 71.47338814524096
+  },
+  {
+    "kind": "marker",
+    "name": "Bleachskull Desert [-80.3, 71.5]",
+    "lat": -80.29970089750614,
+    "lng": 71.47338814524096
+  },
+  {
+    "kind": "polygon",
+    "name": "Bleachskull Steppe [-74.6, 66.5]",
+    "lat": -74.59630922414013,
+    "lng": 66.50373450098758
+  },
+  {
+    "kind": "marker",
+    "name": "Bleachskull Steppe [-74.6, 66.5]",
+    "lat": -74.59630922414013,
+    "lng": 66.50373450098759
+  },
+  {
+    "kind": "polygon",
+    "name": "Bonepool Marsh [-203.3, 106.0]",
+    "lat": -203.30784585412073,
+    "lng": 106.04967247810168
+  },
+  {
+    "kind": "marker",
+    "name": "Bonepool Marsh [-203.3, 106.0]",
+    "lat": -203.30784585412073,
+    "lng": 106.0496724781017
+  },
+  {
+    "kind": "polygon",
+    "name": "Bowscale Fell [-207.6, 117.9]",
+    "lat": -207.56261234773507,
+    "lng": 117.93919647035152
+  },
+  {
+    "kind": "marker",
+    "name": "Bowscale Fell [-207.6, 117.9]",
+    "lat": -207.56261234773507,
+    "lng": 117.93919647035152
+  },
+  {
+    "kind": "polygon",
+    "name": "Braemore Lowland [-51.7, 66.6]",
+    "lat": -51.70722861761417,
+    "lng": 66.59532682300056
+  },
+  {
+    "kind": "marker",
+    "name": "Braemore Lowland [-51.7, 66.6]",
+    "lat": -51.70722861761416,
+    "lng": 66.59532682300056
+  },
+  {
+    "kind": "polygon",
+    "name": "Braemore Upland [-50.9, 59.5]",
+    "lat": -50.892643370625784,
+    "lng": 59.53557366998559
+  },
+  {
+    "kind": "marker",
+    "name": "Braemore Upland [-50.9, 59.5]",
+    "lat": -50.89264337062578,
+    "lng": 59.53557366998558
+  },
+  {
+    "kind": "polygon",
+    "name": "Brambleshore Hinterlands [-9.3, 134.7]",
+    "lat": -9.316211252880294,
+    "lng": 134.68013913269746
+  },
+  {
+    "kind": "marker",
+    "name": "Brambleshore Hinterlands [-9.3, 134.7]",
+    "lat": -9.316211252880294,
+    "lng": 134.68013913269746
+  },
+  {
+    "kind": "polygon",
+    "name": "Brent Knoll [-218.8, 101.7]",
+    "lat": -218.75865375284698,
+    "lng": 101.68819056044154
+  },
+  {
+    "kind": "marker",
+    "name": "Brent Knoll [-218.8, 101.7]",
+    "lat": -218.75865375284698,
+    "lng": 101.68819056044154
+  },
+  {
+    "kind": "polygon",
+    "name": "Bridgewatch [-246.6, 133.0]",
+    "lat": -246.62838483777767,
+    "lng": 132.96949079473325
+  },
+  {
+    "kind": "marker",
+    "name": "Bridgewatch [-246.6, 133.0]",
+    "lat": -246.62838483777765,
+    "lng": 132.96949079473325
+  },
+  {
+    "kind": "polygon",
+    "name": "Bridgewatch Portal [-138.3, 103.9]",
+    "lat": -138.27789915945198,
+    "lng": 103.89889693971978
+  },
+  {
+    "kind": "marker",
+    "name": "Bridgewatch Portal [-138.3, 103.9]",
+    "lat": -138.27789915945198,
+    "lng": 103.89889693971978
+  },
+  {
+    "kind": "polygon",
+    "name": "Broken Fell [-230.2, 124.8]",
+    "lat": -230.24706401298965,
+    "lng": 124.83336675651358
+  },
+  {
+    "kind": "marker",
+    "name": "Broken Fell [-230.2, 124.8]",
+    "lat": -230.24706401298965,
+    "lng": 124.83336675651358
+  },
+  {
+    "kind": "polygon",
+    "name": "Brons Hill [-242.1, 115.3]",
+    "lat": -242.12291538851846,
+    "lng": 115.26808329444532
+  },
+  {
+    "kind": "marker",
+    "name": "Brons Hill [-242.1, 115.3]",
+    "lat": -242.12291538851844,
+    "lng": 115.26808329444532
+  },
+  {
+    "kind": "polygon",
+    "name": "Bryn Gorge [-186.7, 151.9]",
+    "lat": -186.6824684248827,
+    "lng": 151.90069818258664
+  },
+  {
+    "kind": "marker",
+    "name": "Bryn Gorge [-186.7, 151.9]",
+    "lat": -186.68246842488267,
+    "lng": 151.90069818258664
+  },
+  {
+    "kind": "polygon",
+    "name": "Caerleon [-220.6, 137.0]",
+    "lat": -220.56421369650587,
+    "lng": 136.95624639516677
+  },
+  {
+    "kind": "marker",
+    "name": "Caerleon [-220.6, 137.0]",
+    "lat": -220.56421369650587,
+    "lng": 136.95624639516677
+  },
+  {
+    "kind": "polygon",
+    "name": "Cairn Camain [-200.5, 147.6]",
+    "lat": -200.47796853821913,
+    "lng": 147.62410528253608
+  },
+  {
+    "kind": "marker",
+    "name": "Cairn Camain [-200.5, 147.6]",
+    "lat": -200.47796853821916,
+    "lng": 147.62410528253608
+  },
+  {
+    "kind": "polygon",
+    "name": "Cairn Cloch [-184.4, 134.0]",
+    "lat": -184.44012579405774,
+    "lng": 134.0065182133779
+  },
+  {
+    "kind": "marker",
+    "name": "Cairn Cloch [-184.4, 134.0]",
+    "lat": -184.44012579405774,
+    "lng": 134.0065182133779
+  },
+  {
+    "kind": "polygon",
+    "name": "Cairn Darg [-205.5, 159.8]",
+    "lat": -205.50621436275182,
+    "lng": 159.8044562976224
+  },
+  {
+    "kind": "marker",
+    "name": "Cairn Darg [-205.5, 159.8]",
+    "lat": -205.50621436275182,
+    "lng": 159.8044562976224
+  },
+  {
+    "kind": "polygon",
+    "name": "Cairn Drain [-208.6, 156.1]",
+    "lat": -208.60121327695774,
+    "lng": 156.12296604853762
+  },
+  {
+    "kind": "marker",
+    "name": "Cairn Drain [-208.6, 156.1]",
+    "lat": -208.60121327695774,
+    "lng": 156.12296604853765
+  },
+  {
+    "kind": "polygon",
+    "name": "Cairn Fidair [-196.1, 142.7]",
+    "lat": -196.07287815742382,
+    "lng": 142.74296391629392
+  },
+  {
+    "kind": "marker",
+    "name": "Cairn Fidair [-196.1, 142.7]",
+    "lat": -196.07287815742382,
+    "lng": 142.74296391629392
+  },
+  {
+    "kind": "polygon",
+    "name": "Cairn Glascore [-195.3, 133.0]",
+    "lat": -195.3362043567202,
+    "lng": 132.97403347496976
+  },
+  {
+    "kind": "marker",
+    "name": "Cairn Glascore [-195.3, 133.0]",
+    "lat": -195.3362043567202,
+    "lng": 132.97403347496976
+  },
+  {
+    "kind": "polygon",
+    "name": "Cairn Gorm [-191.4, 137.8]",
+    "lat": -191.42065067562834,
+    "lng": 137.7766678865666
+  },
+  {
+    "kind": "marker",
+    "name": "Cairn Gorm [-191.4, 137.8]",
+    "lat": -191.42065067562834,
+    "lng": 137.7766678865666
+  },
+  {
+    "kind": "polygon",
+    "name": "Camlann [-205.5, 131.6]",
+    "lat": -205.5265833372592,
+    "lng": 131.6265291582934
+  },
+  {
+    "kind": "marker",
+    "name": "Camlann [-205.5, 131.6]",
+    "lat": -205.5265833372592,
+    "lng": 131.6265291582934
+  },
+  {
+    "kind": "polygon",
+    "name": "Carns Hill [-234.0, 121.7]",
+    "lat": -234.00095158785612,
+    "lng": 121.74019568505277
+  },
+  {
+    "kind": "marker",
+    "name": "Carns Hill [-234.0, 121.7]",
+    "lat": -234.00095158785612,
+    "lng": 121.74019568505277
+  },
+  {
+    "kind": "polygon",
+    "name": "Caulder Fissure [-181.3, 139.7]",
+    "lat": -181.28586137552492,
+    "lng": 139.69504881019986
+  },
+  {
+    "kind": "marker",
+    "name": "Caulder Fissure [-181.3, 139.7]",
+    "lat": -181.28586137552492,
+    "lng": 139.6950488101999
+  },
+  {
+    "kind": "polygon",
+    "name": "Cedarcopse [-196.6, 165.1]",
+    "lat": -196.64758377588512,
+    "lng": 165.08795771409996
+  },
+  {
+    "kind": "marker",
+    "name": "Cedarcopse [-196.6, 165.1]",
+    "lat": -196.64758377588515,
+    "lng": 165.08795771409996
+  },
+  {
+    "kind": "polygon",
+    "name": "Chillhag [-183.5, 115.0]",
+    "lat": -183.46441326752495,
+    "lng": 114.993109062585
+  },
+  {
+    "kind": "marker",
+    "name": "Chillhag [-183.5, 115.0]",
+    "lat": -183.46441326752495,
+    "lng": 114.993109062585
+  },
+  {
+    "kind": "polygon",
+    "name": "Citadel of Ash [-32.2, 123.0]",
+    "lat": -32.24582328798612,
+    "lng": 123.02811409317752
+  },
+  {
+    "kind": "marker",
+    "name": "Citadel of Ash [-32.2, 123.0]",
+    "lat": -32.24582328798613,
+    "lng": 123.02811409317752
+  },
+  {
+    "kind": "polygon",
+    "name": "Cracked Earth [-238.6, 170.1]",
+    "lat": -238.60209337656943,
+    "lng": 170.0671635903213
+  },
+  {
+    "kind": "marker",
+    "name": "Cracked Earth [-238.6, 170.1]",
+    "lat": -238.60209337656948,
+    "lng": 170.0671635903213
+  },
+  {
+    "kind": "polygon",
+    "name": "Creag Dhor [-202.3, 142.9]",
+    "lat": -202.3198400555797,
+    "lng": 142.88139709584246
+  },
+  {
+    "kind": "marker",
+    "name": "Creag Dhor [-202.3, 142.9]",
+    "lat": -202.31984005557968,
+    "lng": 142.88139709584246
+  },
+  {
+    "kind": "polygon",
+    "name": "Creag Garr [-207.4, 146.1]",
+    "lat": -207.39435691140568,
+    "lng": 146.09567734384984
+  },
+  {
+    "kind": "marker",
+    "name": "Creag Garr [-207.4, 146.1]",
+    "lat": -207.39435691140568,
+    "lng": 146.09567734384984
+  },
+  {
+    "kind": "polygon",
+    "name": "Creag Meagir [-206.4, 141.4]",
+    "lat": -206.427162000826,
+    "lng": 141.4151535982759
+  },
+  {
+    "kind": "marker",
+    "name": "Creag Meagir [-206.4, 141.4]",
+    "lat": -206.427162000826,
+    "lng": 141.4151535982759
+  },
+  {
+    "kind": "polygon",
+    "name": "Creag Morr [-214.6, 139.8]",
+    "lat": -214.6477256761537,
+    "lng": 139.75388258341047
+  },
+  {
+    "kind": "marker",
+    "name": "Creag Morr [-214.6, 139.8]",
+    "lat": -214.6477256761537,
+    "lng": 139.75388258341047
+  },
+  {
+    "kind": "polygon",
+    "name": "Croker Hill [-231.7, 115.4]",
+    "lat": -231.71555893854753,
+    "lng": 115.43887458539768
+  },
+  {
+    "kind": "marker",
+    "name": "Croker Hill [-231.7, 115.4]",
+    "lat": -231.71555893854753,
+    "lng": 115.43887458539767
+  },
+  {
+    "kind": "polygon",
+    "name": "Crose Gorge [-189.3, 157.3]",
+    "lat": -189.29015824070632,
+    "lng": 157.2939838212855
+  },
+  {
+    "kind": "marker",
+    "name": "Crose Gorge [-189.3, 157.3]",
+    "lat": -189.29015824070632,
+    "lng": 157.2939838212855
+  },
+  {
+    "kind": "polygon",
+    "name": "Curlew Fen [-208.2, 100.2]",
+    "lat": -208.17355871608282,
+    "lng": 100.24002704787887
+  },
+  {
+    "kind": "marker",
+    "name": "Curlew Fen [-208.2, 100.2]",
+    "lat": -208.17355871608282,
+    "lng": 100.24002704787887
+  },
+  {
+    "kind": "polygon",
+    "name": "Daemonium Keep [-125.7, 133.0]",
+    "lat": -125.65180054472995,
+    "lng": 133.02943365305072
+  },
+  {
+    "kind": "marker",
+    "name": "Daemonium Keep [-125.7, 133.0]",
+    "lat": -125.65180054472997,
+    "lng": 133.02943365305072
+  },
+  {
+    "kind": "polygon",
+    "name": "Darkbough Snag [-76.7, 139.4]",
+    "lat": -76.68789528631623,
+    "lng": 139.36509457102756
+  },
+  {
+    "kind": "marker",
+    "name": "Darkbough Snag [-76.7, 139.4]",
+    "lat": -76.68789528631623,
+    "lng": 139.36509457102756
+  },
+  {
+    "kind": "polygon",
+    "name": "Darkground Swamp [-199.1, 129.6]",
+    "lat": -199.14068751481665,
+    "lng": 129.59683921868955
+  },
+  {
+    "kind": "marker",
+    "name": "Darkground Swamp [-199.1, 129.6]",
+    "lat": -199.14068751481665,
+    "lng": 129.59683921868955
+  },
+  {
+    "kind": "polygon",
+    "name": "Deadpine Forest [-57.7, 121.5]",
+    "lat": -57.74874805097535,
+    "lng": 121.46680987523828
+  },
+  {
+    "kind": "marker",
+    "name": "Deadpine Forest [-57.7, 121.5]",
+    "lat": -57.74874805097535,
+    "lng": 121.46680987523827
+  },
+  {
+    "kind": "polygon",
+    "name": "Deadvein Gully [-228.0, 133.3]",
+    "lat": -227.96848787305169,
+    "lng": 133.29828368172815
+  },
+  {
+    "kind": "marker",
+    "name": "Deadvein Gully [-228.0, 133.3]",
+    "lat": -227.9684878730517,
+    "lng": 133.29828368172815
+  },
+  {
+    "kind": "polygon",
+    "name": "Deathreach Priory [-103.0, 84.4]",
+    "lat": -102.99371671937743,
+    "lng": 84.44727430230179
+  },
+  {
+    "kind": "marker",
+    "name": "Deathreach Priory [-103.0, 84.4]",
+    "lat": -102.99371671937743,
+    "lng": 84.44727430230179
+  },
+  {
+    "kind": "polygon",
+    "name": "Deathwisp Bog [-73.2, 107.1]",
+    "lat": -73.21603542961896,
+    "lng": 107.0746904630569
+  },
+  {
+    "kind": "marker",
+    "name": "Deathwisp Bog [-73.2, 107.1]",
+    "lat": -73.21603542961896,
+    "lng": 107.0746904630569
+  },
+  {
+    "kind": "polygon",
+    "name": "Deathwisp Sink [-58.5, 103.6]",
+    "lat": -58.46420844459662,
+    "lng": 103.64772756512832
+  },
+  {
+    "kind": "marker",
+    "name": "Deathwisp Sink [-58.5, 103.6]",
+    "lat": -58.46420844459662,
+    "lng": 103.6477275651283
+  },
+  {
+    "kind": "polygon",
+    "name": "Deeproot Wood [-229.7, 156.0]",
+    "lat": -229.73974940429923,
+    "lng": 155.9826769682469
+  },
+  {
+    "kind": "marker",
+    "name": "Deeproot Wood [-229.7, 156.0]",
+    "lat": -229.73974940429923,
+    "lng": 155.9826769682469
+  },
+  {
+    "kind": "polygon",
+    "name": "Deepwood Copse [-58.8, 146.1]",
+    "lat": -58.77974277397414,
+    "lng": 146.1296168854276
+  },
+  {
+    "kind": "marker",
+    "name": "Deepwood Copse [-58.8, 146.1]",
+    "lat": -58.779742773974135,
+    "lng": 146.1296168854276
+  },
+  {
+    "kind": "polygon",
+    "name": "Deepwood Dell [-51.7, 156.8]",
+    "lat": -51.72985377187043,
+    "lng": 156.76558039207072
+  },
+  {
+    "kind": "marker",
+    "name": "Deepwood Dell [-51.7, 156.8]",
+    "lat": -51.729853771870424,
+    "lng": 156.76558039207072
+  },
+  {
+    "kind": "polygon",
+    "name": "Deepwood Gorge [-52.9, 148.7]",
+    "lat": -52.920524067221315,
+    "lng": 148.72339022885723
+  },
+  {
+    "kind": "marker",
+    "name": "Deepwood Gorge [-52.9, 148.7]",
+    "lat": -52.92052406722131,
+    "lng": 148.72339022885723
+  },
+  {
+    "kind": "polygon",
+    "name": "Deepwood Pines [-57.9, 158.4]",
+    "lat": -57.9053168789736,
+    "lng": 158.3721394440059
+  },
+  {
+    "kind": "marker",
+    "name": "Deepwood Pines [-57.9, 158.4]",
+    "lat": -57.90531687897359,
+    "lng": 158.3721394440059
+  },
+  {
+    "kind": "polygon",
+    "name": "Dewleaf Fen [-194.8, 105.3]",
+    "lat": -194.7695115591662,
+    "lng": 105.34705475017338
+  },
+  {
+    "kind": "marker",
+    "name": "Dewleaf Fen [-194.8, 105.3]",
+    "lat": -194.76951155916623,
+    "lng": 105.34705475017338
+  },
+  {
+    "kind": "polygon",
+    "name": "Domhain Chasm [-211.8, 144.4]",
+    "lat": -211.7750248422126,
+    "lng": 144.36241991709542
+  },
+  {
+    "kind": "marker",
+    "name": "Domhain Chasm [-211.8, 144.4]",
+    "lat": -211.7750248422126,
+    "lng": 144.36241991709542
+  },
+  {
+    "kind": "polygon",
+    "name": "Driftwood Glen [-53.7, 90.0]",
+    "lat": -53.73382742578193,
+    "lng": 89.99099124053018
+  },
+  {
+    "kind": "marker",
+    "name": "Driftwood Glen [-53.7, 90.0]",
+    "lat": -53.733827425781925,
+    "lng": 89.99099124053018
+  },
+  {
+    "kind": "polygon",
+    "name": "Driftwood Hollow [-64.1, 98.8]",
+    "lat": -64.09718871006119,
+    "lng": 98.77043333495158
+  },
+  {
+    "kind": "marker",
+    "name": "Driftwood Hollow [-64.1, 98.8]",
+    "lat": -64.0971887100612,
+    "lng": 98.77043333495156
+  },
+  {
+    "kind": "polygon",
+    "name": "Driftwood Vale [-59.1, 96.8]",
+    "lat": -59.149819021243175,
+    "lng": 96.75768332057358
+  },
+  {
+    "kind": "marker",
+    "name": "Driftwood Vale [-59.1, 96.8]",
+    "lat": -59.149819021243175,
+    "lng": 96.75768332057358
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownfield Course [-26.5, 116.9]",
+    "lat": -26.52787048711582,
+    "lng": 116.91644649928426
+  },
+  {
+    "kind": "marker",
+    "name": "Drownfield Course [-26.5, 116.9]",
+    "lat": -26.527870487115834,
+    "lng": 116.91644649928426
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownfield Fen [-47.5, 121.2]",
+    "lat": -47.45145022591168,
+    "lng": 121.15456396574564
+  },
+  {
+    "kind": "marker",
+    "name": "Drownfield Fen [-47.5, 121.2]",
+    "lat": -47.451450225911685,
+    "lng": 121.15456396574564
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownfield Mire [-36.2, 117.4]",
+    "lat": -36.190795326465384,
+    "lng": 117.35432774754555
+  },
+  {
+    "kind": "marker",
+    "name": "Drownfield Mire [-36.2, 117.4]",
+    "lat": -36.19079532646538,
+    "lng": 117.35432774754555
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownfield Quag [-44.1, 117.4]",
+    "lat": -44.1270436970202,
+    "lng": 117.43912897077719
+  },
+  {
+    "kind": "marker",
+    "name": "Drownfield Quag [-44.1, 117.4]",
+    "lat": -44.1270436970202,
+    "lng": 117.4391289707772
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownfield Rut [-48.8, 115.9]",
+    "lat": -48.80233621005839,
+    "lng": 115.91364033355902
+  },
+  {
+    "kind": "marker",
+    "name": "Drownfield Rut [-48.8, 115.9]",
+    "lat": -48.8023362100584,
+    "lng": 115.91364033355902
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownfield Sink [-54.1, 117.5]",
+    "lat": -54.14240322746665,
+    "lng": 117.45229722237332
+  },
+  {
+    "kind": "marker",
+    "name": "Drownfield Sink [-54.1, 117.5]",
+    "lat": -54.142403227466644,
+    "lng": 117.45229722237333
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownfield Slough [-41.3, 122.4]",
+    "lat": -41.27642609069828,
+    "lng": 122.39680712246664
+  },
+  {
+    "kind": "marker",
+    "name": "Drownfield Slough [-41.3, 122.4]",
+    "lat": -41.27642609069828,
+    "lng": 122.39680712246664
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownfield Wetland [-28.0, 110.9]",
+    "lat": -28.012231983746844,
+    "lng": 110.8930256054089
+  },
+  {
+    "kind": "marker",
+    "name": "Drownfield Wetland [-28.0, 110.9]",
+    "lat": -28.012231983746844,
+    "lng": 110.8930256054089
+  },
+  {
+    "kind": "polygon",
+    "name": "Drownhorse Basin [-179.0, 127.4]",
+    "lat": -178.99549838779853,
+    "lng": 127.38614306700379
+  },
+  {
+    "kind": "marker",
+    "name": "Drownhorse Basin [-179.0, 127.4]",
+    "lat": -178.99549838779853,
+    "lng": 127.38614306700379
+  },
+  {
+    "kind": "polygon",
+    "name": "Drybasin Oasis [-85.1, 176.0]",
+    "lat": -85.10347364919733,
+    "lng": 175.9762664290588
+  },
+  {
+    "kind": "marker",
+    "name": "Drybasin Oasis [-85.1, 176.0]",
+    "lat": -85.10347364919733,
+    "lng": 175.97626642905882
+  },
+  {
+    "kind": "polygon",
+    "name": "Drybasin Riverbed [-80.6, 180.5]",
+    "lat": -80.63911169992733,
+    "lng": 180.4696553719118
+  },
+  {
+    "kind": "marker",
+    "name": "Drybasin Riverbed [-80.6, 180.5]",
+    "lat": -80.63911169992733,
+    "lng": 180.46965537191178
+  },
+  {
+    "kind": "polygon",
+    "name": "Dryfield Meadow [-242.9, 169.4]",
+    "lat": -242.92291631490014,
+    "lng": 169.37132616789643
+  },
+  {
+    "kind": "marker",
+    "name": "Dryfield Meadow [-242.9, 169.4]",
+    "lat": -242.92291631490014,
+    "lng": 169.3713261678964
+  },
+  {
+    "kind": "polygon",
+    "name": "Drytop Pillars [-15.2, 106.3]",
+    "lat": -15.155371207012777,
+    "lng": 106.34223887048284
+  },
+  {
+    "kind": "marker",
+    "name": "Drytop Pillars [-15.2, 106.3]",
+    "lat": -15.155371207012777,
+    "lng": 106.34223887048283
+  },
+  {
+    "kind": "polygon",
+    "name": "Drytop Riverbed [-11.3, 103.3]",
+    "lat": -11.251670898315297,
+    "lng": 103.31283072875146
+  },
+  {
+    "kind": "marker",
+    "name": "Drytop Riverbed [-11.3, 103.3]",
+    "lat": -11.25167089831531,
+    "lng": 103.31283072875145
+  },
+  {
+    "kind": "polygon",
+    "name": "Dryvein Confluence [-113.3, 115.2]",
+    "lat": -113.25379660013594,
+    "lng": 115.19900985249919
+  },
+  {
+    "kind": "marker",
+    "name": "Dryvein Confluence [-113.3, 115.2]",
+    "lat": -113.25379660013594,
+    "lng": 115.1990098524992
+  },
+  {
+    "kind": "polygon",
+    "name": "Dryvein Cross [-120.8, 110.4]",
+    "lat": -120.80048380888466,
+    "lng": 110.43821977331046
+  },
+  {
+    "kind": "marker",
+    "name": "Dryvein Cross [-120.8, 110.4]",
+    "lat": -120.80048380888466,
+    "lng": 110.43821977331046
+  },
+  {
+    "kind": "polygon",
+    "name": "Dryvein End [-111.5, 121.3]",
+    "lat": -111.45765313073123,
+    "lng": 121.32158681878889
+  },
+  {
+    "kind": "marker",
+    "name": "Dryvein End [-111.5, 121.3]",
+    "lat": -111.45765313073123,
+    "lng": 121.32158681878889
+  },
+  {
+    "kind": "polygon",
+    "name": "Dryvein Oasis [-121.3, 104.0]",
+    "lat": -121.2992964371671,
+    "lng": 103.97473490002051
+  },
+  {
+    "kind": "marker",
+    "name": "Dryvein Oasis [-121.3, 104.0]",
+    "lat": -121.2992964371671,
+    "lng": 103.97473490002051
+  },
+  {
+    "kind": "polygon",
+    "name": "Dryvein Plain [-127.3, 109.3]",
+    "lat": -127.32623046380556,
+    "lng": 109.27064378907988
+  },
+  {
+    "kind": "marker",
+    "name": "Dryvein Plain [-127.3, 109.3]",
+    "lat": -127.32623046380557,
+    "lng": 109.27064378907988
+  },
+  {
+    "kind": "polygon",
+    "name": "Dryvein Riverbed [-119.3, 119.9]",
+    "lat": -119.30936701683422,
+    "lng": 119.94131559700504
+  },
+  {
+    "kind": "marker",
+    "name": "Dryvein Riverbed [-119.3, 119.9]",
+    "lat": -119.30936701683422,
+    "lng": 119.94131559700504
+  },
+  {
+    "kind": "polygon",
+    "name": "Dryvein Steppe [-121.7, 128.9]",
+    "lat": -121.737256722996,
+    "lng": 128.88861566133704
+  },
+  {
+    "kind": "marker",
+    "name": "Dryvein Steppe [-121.7, 128.9]",
+    "lat": -121.73725672299598,
+    "lng": 128.88861566133704
+  },
+  {
+    "kind": "polygon",
+    "name": "Drywater Meadow [-255.8, 139.9]",
+    "lat": -255.84952565198208,
+    "lng": 139.89231372649152
+  },
+  {
+    "kind": "marker",
+    "name": "Drywater Meadow [-255.8, 139.9]",
+    "lat": -255.84952565198208,
+    "lng": 139.89231372649152
+  },
+  {
+    "kind": "polygon",
+    "name": "Dusklight Fen [-189.0, 116.6]",
+    "lat": -188.96105338951327,
+    "lng": 116.60419040745398
+  },
+  {
+    "kind": "marker",
+    "name": "Dusklight Fen [-189.0, 116.6]",
+    "lat": -188.96105338951327,
+    "lng": 116.60419040745398
+  },
+  {
+    "kind": "polygon",
+    "name": "Dusktree Swamp [-201.3, 125.9]",
+    "lat": -201.34378424850365,
+    "lng": 125.88034028257385
+  },
+  {
+    "kind": "marker",
+    "name": "Dusktree Swamp [-201.3, 125.9]",
+    "lat": -201.3437842485036,
+    "lng": 125.88034028257385
+  },
+  {
+    "kind": "polygon",
+    "name": "Eldersleep [-61.8, 144.3]",
+    "lat": -61.79044324615412,
+    "lng": 144.25489330015023
+  },
+  {
+    "kind": "marker",
+    "name": "Eldersleep [-61.8, 144.3]",
+    "lat": -61.79044324615411,
+    "lng": 144.25489330015023
+  },
+  {
+    "kind": "polygon",
+    "name": "Eldon Hill [-212.2, 113.4]",
+    "lat": -212.2351759942833,
+    "lng": 113.39787546277822
+  },
+  {
+    "kind": "marker",
+    "name": "Eldon Hill [-212.2, 113.4]",
+    "lat": -212.2351759942833,
+    "lng": 113.39787546277822
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Crossing [-31.9, 140.6]",
+    "lat": -31.8757453210334,
+    "lng": 140.63115048198597
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Crossing [-31.9, 140.6]",
+    "lat": -31.875745321033392,
+    "lng": 140.63115048198597
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Expanse [-24.2, 123.5]",
+    "lat": -24.15199939565081,
+    "lng": 123.45576774895574
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Expanse [-24.2, 123.5]",
+    "lat": -24.15199939565082,
+    "lng": 123.45576774895574
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Gap [-38.6, 132.1]",
+    "lat": -38.56069436376213,
+    "lng": 132.14695341356992
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Gap [-38.6, 132.1]",
+    "lat": -38.560694363762124,
+    "lng": 132.14695341356992
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Gorge [-34.3, 136.6]",
+    "lat": -34.27424948635065,
+    "lng": 136.55821881646398
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Gorge [-34.3, 136.6]",
+    "lat": -34.27424948635064,
+    "lng": 136.55821881646398
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Incline [-26.1, 128.0]",
+    "lat": -26.092989634348456,
+    "lng": 128.006135424119
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Incline [-26.1, 128.0]",
+    "lat": -26.092989634348456,
+    "lng": 128.00613542411898
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Passage [-19.5, 138.1]",
+    "lat": -19.531038704937288,
+    "lng": 138.1432155239193
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Passage [-19.5, 138.1]",
+    "lat": -19.531038704937288,
+    "lng": 138.1432155239193
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Peak [-23.2, 133.5]",
+    "lat": -23.172234276106252,
+    "lng": 133.50460567422152
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Peak [-23.2, 133.5]",
+    "lat": -23.172234276106252,
+    "lng": 133.50460567422155
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Plain [-28.5, 135.9]",
+    "lat": -28.54951208076767,
+    "lng": 135.85677115226864
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Plain [-28.5, 135.9]",
+    "lat": -28.54951208076767,
+    "lng": 135.85677115226864
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Reach [-13.4, 141.5]",
+    "lat": -13.353756579781646,
+    "lng": 141.46944853791086
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Reach [-13.4, 141.5]",
+    "lat": -13.35375657978166,
+    "lng": 141.46944853791086
+  },
+  {
+    "kind": "polygon",
+    "name": "Everwinter Shores [-20.7, 121.1]",
+    "lat": -20.693272672798493,
+    "lng": 121.09916955991875
+  },
+  {
+    "kind": "marker",
+    "name": "Everwinter Shores [-20.7, 121.1]",
+    "lat": -20.693272672798486,
+    "lng": 121.09916955991874
+  },
+  {
+    "kind": "polygon",
+    "name": "Eye of the Forest [-86.2, 165.5]",
+    "lat": -86.20417353315821,
+    "lng": 165.5439365967504
+  },
+  {
+    "kind": "marker",
+    "name": "Eye of the Forest [-86.2, 165.5]",
+    "lat": -86.20417353315821,
+    "lng": 165.5439365967504
+  },
+  {
+    "kind": "polygon",
+    "name": "Falsestep Marsh [-192.3, 110.9]",
+    "lat": -192.3122007735388,
+    "lng": 110.88356553491039
+  },
+  {
+    "kind": "marker",
+    "name": "Falsestep Marsh [-192.3, 110.9]",
+    "lat": -192.3122007735388,
+    "lng": 110.88356553491039
+  },
+  {
+    "kind": "polygon",
+    "name": "Farshore Bay [-138.7, 91.5]",
+    "lat": -138.6716473505424,
+    "lng": 91.48733730331932
+  },
+  {
+    "kind": "marker",
+    "name": "Farshore Bay [-138.7, 91.5]",
+    "lat": -138.67164735054243,
+    "lng": 91.48733730331932
+  },
+  {
+    "kind": "polygon",
+    "name": "Farshore Cape [-130.7, 84.0]",
+    "lat": -130.73621157578685,
+    "lng": 83.98634748237642
+  },
+  {
+    "kind": "marker",
+    "name": "Farshore Cape [-130.7, 84.0]",
+    "lat": -130.73621157578683,
+    "lng": 83.98634748237642
+  },
+  {
+    "kind": "polygon",
+    "name": "Farshore Drylands [-119.1, 84.8]",
+    "lat": -119.06046628291017,
+    "lng": 84.84618971296534
+  },
+  {
+    "kind": "marker",
+    "name": "Farshore Drylands [-119.1, 84.8]",
+    "lat": -119.06046628291017,
+    "lng": 84.84618971296534
+  },
+  {
+    "kind": "polygon",
+    "name": "Farshore Esker [-116.4, 89.6]",
+    "lat": -116.41630052782779,
+    "lng": 89.55202088943392
+  },
+  {
+    "kind": "marker",
+    "name": "Farshore Esker [-116.4, 89.6]",
+    "lat": -116.41630052782779,
+    "lng": 89.55202088943392
+  },
+  {
+    "kind": "polygon",
+    "name": "Farshore Heath [-120.5, 92.6]",
+    "lat": -120.51537905616019,
+    "lng": 92.59423888710361
+  },
+  {
+    "kind": "marker",
+    "name": "Farshore Heath [-120.5, 92.6]",
+    "lat": -120.51537905616017,
+    "lng": 92.59423888710361
+  },
+  {
+    "kind": "polygon",
+    "name": "Farshore Lagoon [-126.6, 88.7]",
+    "lat": -126.57952418683564,
+    "lng": 88.65706642875388
+  },
+  {
+    "kind": "marker",
+    "name": "Farshore Lagoon [-126.6, 88.7]",
+    "lat": -126.57952418683563,
+    "lng": 88.6570664287539
+  },
+  {
+    "kind": "polygon",
+    "name": "Felniks Hill [-237.8, 117.9]",
+    "lat": -237.83502416661247,
+    "lng": 117.87249423915405
+  },
+  {
+    "kind": "marker",
+    "name": "Felniks Hill [-237.8, 117.9]",
+    "lat": -237.83502416661247,
+    "lng": 117.87249423915405
+  },
+  {
+    "kind": "polygon",
+    "name": "Ferndell [-230.7, 165.9]",
+    "lat": -230.6973554943777,
+    "lng": 165.94964527842734
+  },
+  {
+    "kind": "marker",
+    "name": "Ferndell [-230.7, 165.9]",
+    "lat": -230.6973554943777,
+    "lng": 165.94964527842734
+  },
+  {
+    "kind": "polygon",
+    "name": "Firesink Caldera [-116.9, 140.9]",
+    "lat": -116.93301848913327,
+    "lng": 140.85398156010913
+  },
+  {
+    "kind": "marker",
+    "name": "Firesink Caldera [-116.9, 140.9]",
+    "lat": -116.93301848913327,
+    "lng": 140.85398156010913
+  },
+  {
+    "kind": "polygon",
+    "name": "Firesink Trench [-119.9, 138.5]",
+    "lat": -119.92932709820182,
+    "lng": 138.53920882768898
+  },
+  {
+    "kind": "marker",
+    "name": "Firesink Trench [-119.9, 138.5]",
+    "lat": -119.92932709820182,
+    "lng": 138.53920882768898
+  },
+  {
+    "kind": "polygon",
+    "name": "Flammog Desolation [-79.5, 159.7]",
+    "lat": -79.46248601603291,
+    "lng": 159.74294275941674
+  },
+  {
+    "kind": "marker",
+    "name": "Flammog Desolation [-79.5, 159.7]",
+    "lat": -79.46248601603293,
+    "lng": 159.74294275941674
+  },
+  {
+    "kind": "polygon",
+    "name": "Flammog Fork [-89.2, 153.0]",
+    "lat": -89.1922751667679,
+    "lng": 153.0452258119808
+  },
+  {
+    "kind": "marker",
+    "name": "Flammog Fork [-89.2, 153.0]",
+    "lat": -89.1922751667679,
+    "lng": 153.04522581198083
+  },
+  {
+    "kind": "polygon",
+    "name": "Flammog Valley [-87.7, 157.8]",
+    "lat": -87.742838748862,
+    "lng": 157.80536084328668
+  },
+  {
+    "kind": "marker",
+    "name": "Flammog Valley [-87.7, 157.8]",
+    "lat": -87.742838748862,
+    "lng": 157.80536084328668
+  },
+  {
+    "kind": "polygon",
+    "name": "Flatriver Trough [-237.9, 128.7]",
+    "lat": -237.90641977664365,
+    "lng": 128.72116791065744
+  },
+  {
+    "kind": "marker",
+    "name": "Flatriver Trough [-237.9, 128.7]",
+    "lat": -237.90641977664365,
+    "lng": 128.72116791065744
+  },
+  {
+    "kind": "polygon",
+    "name": "Flatrock Cliffs [-96.4, 184.4]",
+    "lat": -96.39637469958808,
+    "lng": 184.37103026096437
+  },
+  {
+    "kind": "marker",
+    "name": "Flatrock Cliffs [-96.4, 184.4]",
+    "lat": -96.39637469958808,
+    "lng": 184.3710302609644
+  },
+  {
+    "kind": "polygon",
+    "name": "Flatrock Plateau [-99.5, 179.7]",
+    "lat": -99.45107599431398,
+    "lng": 179.73240977638065
+  },
+  {
+    "kind": "marker",
+    "name": "Flatrock Plateau [-99.5, 179.7]",
+    "lat": -99.45107599431398,
+    "lng": 179.73240977638065
+  },
+  {
+    "kind": "polygon",
+    "name": "Flimmerair Steppe [-226.9, 138.6]",
+    "lat": -226.90371607332918,
+    "lng": 138.6241067401362
+  },
+  {
+    "kind": "marker",
+    "name": "Flimmerair Steppe [-226.9, 138.6]",
+    "lat": -226.90371607332918,
+    "lng": 138.6241067401362
+  },
+  {
+    "kind": "polygon",
+    "name": "Floatshoal Bight [-65.9, 175.2]",
+    "lat": -65.90866271381857,
+    "lng": 175.24272152495024
+  },
+  {
+    "kind": "marker",
+    "name": "Floatshoal Bight [-65.9, 175.2]",
+    "lat": -65.90866271381859,
+    "lng": 175.24272152495024
+  },
+  {
+    "kind": "polygon",
+    "name": "Floatshoal Fissure [-65.5, 165.3]",
+    "lat": -65.52271394446575,
+    "lng": 165.34028939122032
+  },
+  {
+    "kind": "marker",
+    "name": "Floatshoal Fissure [-65.5, 165.3]",
+    "lat": -65.52271394446575,
+    "lng": 165.34028939122032
+  },
+  {
+    "kind": "polygon",
+    "name": "Floatshoal Floe [-70.8, 161.9]",
+    "lat": -70.83688447143265,
+    "lng": 161.8997529846572
+  },
+  {
+    "kind": "marker",
+    "name": "Floatshoal Floe [-70.8, 161.9]",
+    "lat": -70.83688447143265,
+    "lng": 161.89975298465717
+  },
+  {
+    "kind": "polygon",
+    "name": "Flynsdell [-221.6, 173.4]",
+    "lat": -221.62248079266396,
+    "lng": 173.44318031582094
+  },
+  {
+    "kind": "marker",
+    "name": "Flynsdell [-221.6, 173.4]",
+    "lat": -221.622480792664,
+    "lng": 173.4431803158209
+  },
+  {
+    "kind": "polygon",
+    "name": "Fog Fen [-187.8, 106.3]",
+    "lat": -187.7754027603492,
+    "lng": 106.29698675177696
+  },
+  {
+    "kind": "marker",
+    "name": "Fog Fen [-187.8, 106.3]",
+    "lat": -187.7754027603492,
+    "lng": 106.29698675177696
+  },
+  {
+    "kind": "polygon",
+    "name": "Forest Cross [-234.5, 177.6]",
+    "lat": -234.5356112037144,
+    "lng": 177.62767827104472
+  },
+  {
+    "kind": "marker",
+    "name": "Forest Cross [-234.5, 177.6]",
+    "lat": -234.5356112037144,
+    "lng": 177.62767827104474
+  },
+  {
+    "kind": "polygon",
+    "name": "Forgotten Woods [-232.4, 88.9]",
+    "lat": -232.3535480117721,
+    "lng": 88.93077592376854
+  },
+  {
+    "kind": "marker",
+    "name": "Forgotten Woods [-232.4, 88.9]",
+    "lat": -232.3535480117721,
+    "lng": 88.93077592376854
+  },
+  {
+    "kind": "polygon",
+    "name": "Fort Sterling [-194.9, 150.7]",
+    "lat": -194.8712926223873,
+    "lng": 150.67826374552817
+  },
+  {
+    "kind": "marker",
+    "name": "Fort Sterling [-194.9, 150.7]",
+    "lat": -194.87129262238727,
+    "lng": 150.67826374552817
+  },
+  {
+    "kind": "polygon",
+    "name": "Fort Sterling Portal [-40.8, 162.9]",
+    "lat": -40.81709156210702,
+    "lng": 162.93382173276484
+  },
+  {
+    "kind": "marker",
+    "name": "Fort Sterling Portal [-40.8, 162.9]",
+    "lat": -40.81709156210701,
+    "lng": 162.9338217327648
+  },
+  {
+    "kind": "polygon",
+    "name": "Fractured Ground [-250.7, 130.0]",
+    "lat": -250.72258039214927,
+    "lng": 130.0154613672472
+  },
+  {
+    "kind": "marker",
+    "name": "Fractured Ground [-250.7, 130.0]",
+    "lat": -250.72258039214927,
+    "lng": 130.0154613672472
+  },
+  {
+    "kind": "polygon",
+    "name": "Frostbite Chasm [-72.3, 54.8]",
+    "lat": -72.34390357003593,
+    "lng": 54.79698430675329
+  },
+  {
+    "kind": "marker",
+    "name": "Frostbite Chasm [-72.3, 54.8]",
+    "lat": -72.34390357003592,
+    "lng": 54.79698430675329
+  },
+  {
+    "kind": "polygon",
+    "name": "Frostbite Mountain [-75.2, 57.2]",
+    "lat": -75.20853363425478,
+    "lng": 57.150236602266226
+  },
+  {
+    "kind": "marker",
+    "name": "Frostbite Mountain [-75.2, 57.2]",
+    "lat": -75.20853363425476,
+    "lng": 57.15023660226623
+  },
+  {
+    "kind": "polygon",
+    "name": "Frostpeak Ascent [-51.4, 178.3]",
+    "lat": -51.41125068957222,
+    "lng": 178.26163649620526
+  },
+  {
+    "kind": "marker",
+    "name": "Frostpeak Ascent [-51.4, 178.3]",
+    "lat": -51.41125068957221,
+    "lng": 178.26163649620526
+  },
+  {
+    "kind": "polygon",
+    "name": "Frostpeak Vista [-46.1, 179.4]",
+    "lat": -46.057597107509785,
+    "lng": 179.41111342051943
+  },
+  {
+    "kind": "marker",
+    "name": "Frostpeak Vista [-46.1, 179.4]",
+    "lat": -46.05759710750978,
+    "lng": 179.41111342051943
+  },
+  {
+    "kind": "polygon",
+    "name": "Frostseep Crevasse [-40.2, 86.5]",
+    "lat": -40.17450391892598,
+    "lng": 86.4821572341067
+  },
+  {
+    "kind": "marker",
+    "name": "Frostseep Crevasse [-40.2, 86.5]",
+    "lat": -40.174503918925964,
+    "lng": 86.4821572341067
+  },
+  {
+    "kind": "polygon",
+    "name": "Frostseep Ravine [-44.7, 80.4]",
+    "lat": -44.73798689752959,
+    "lng": 80.44330874104793
+  },
+  {
+    "kind": "marker",
+    "name": "Frostseep Ravine [-44.7, 80.4]",
+    "lat": -44.737986897529595,
+    "lng": 80.44330874104794
+  },
+  {
+    "kind": "polygon",
+    "name": "Frostspring Passage [-138.2, 122.5]",
+    "lat": -138.15672207802697,
+    "lng": 122.46133646543721
+  },
+  {
+    "kind": "marker",
+    "name": "Frostspring Passage [-138.2, 122.5]",
+    "lat": -138.15672207802697,
+    "lng": 122.46133646543721
+  },
+  {
+    "kind": "polygon",
+    "name": "Frostspring Volcano [-133.6, 125.9]",
+    "lat": -133.5746705613336,
+    "lng": 125.86223653425662
+  },
+  {
+    "kind": "marker",
+    "name": "Frostspring Volcano [-133.6, 125.9]",
+    "lat": -133.5746705613336,
+    "lng": 125.86223653425662
+  },
+  {
+    "kind": "polygon",
+    "name": "Garrow Fell [-224.7, 123.9]",
+    "lat": -224.66261568769744,
+    "lng": 123.87848568626421
+  },
+  {
+    "kind": "marker",
+    "name": "Garrow Fell [-224.7, 123.9]",
+    "lat": -224.66261568769744,
+    "lng": 123.87848568626423
+  },
+  {
+    "kind": "polygon",
+    "name": "Giantweald Copse [-92.5, 164.1]",
+    "lat": -92.49587515216207,
+    "lng": 164.1326626752566
+  },
+  {
+    "kind": "marker",
+    "name": "Giantweald Copse [-92.5, 164.1]",
+    "lat": -92.49587515216206,
+    "lng": 164.1326626752566
+  },
+  {
+    "kind": "polygon",
+    "name": "Giantweald Dale [-98.6, 172.5]",
+    "lat": -98.62662555555315,
+    "lng": 172.53580853963265
+  },
+  {
+    "kind": "marker",
+    "name": "Giantweald Dale [-98.6, 172.5]",
+    "lat": -98.62662555555315,
+    "lng": 172.53580853963265
+  },
+  {
+    "kind": "polygon",
+    "name": "Giantweald Edge [-91.0, 178.3]",
+    "lat": -91.01105051755994,
+    "lng": 178.26162601971117
+  },
+  {
+    "kind": "marker",
+    "name": "Giantweald Edge [-91.0, 178.3]",
+    "lat": -91.01105051755994,
+    "lng": 178.26162601971117
+  },
+  {
+    "kind": "polygon",
+    "name": "Giantweald Glade [-98.5, 161.4]",
+    "lat": -98.45364813933497,
+    "lng": 161.44946679808476
+  },
+  {
+    "kind": "marker",
+    "name": "Giantweald Glade [-98.5, 161.4]",
+    "lat": -98.45364813933499,
+    "lng": 161.44946679808476
+  },
+  {
+    "kind": "polygon",
+    "name": "Giantweald Roots [-94.6, 158.5]",
+    "lat": -94.64548055892877,
+    "lng": 158.54368875342766
+  },
+  {
+    "kind": "marker",
+    "name": "Giantweald Roots [-94.6, 158.5]",
+    "lat": -94.64548055892877,
+    "lng": 158.5436887534277
+  },
+  {
+    "kind": "polygon",
+    "name": "Giantweald Woods [-93.1, 170.6]",
+    "lat": -93.12816297614498,
+    "lng": 170.56722436955272
+  },
+  {
+    "kind": "marker",
+    "name": "Giantweald Woods [-93.1, 170.6]",
+    "lat": -93.12816297614498,
+    "lng": 170.56722436955272
+  },
+  {
+    "kind": "polygon",
+    "name": "Glacierbreak Summit [-132.3, 177.2]",
+    "lat": -132.29750515884007,
+    "lng": 177.18868035975458
+  },
+  {
+    "kind": "marker",
+    "name": "Glacierbreak Summit [-132.3, 177.2]",
+    "lat": -132.2975051588401,
+    "lng": 177.18868035975458
+  },
+  {
+    "kind": "polygon",
+    "name": "Glacierfall Canyon [-54.9, 133.7]",
+    "lat": -54.895869060598635,
+    "lng": 133.68562885686617
+  },
+  {
+    "kind": "marker",
+    "name": "Glacierfall Canyon [-54.9, 133.7]",
+    "lat": -54.89586906059863,
+    "lng": 133.68562885686617
+  },
+  {
+    "kind": "polygon",
+    "name": "Glacierfall Cross [-50.1, 137.4]",
+    "lat": -50.11344138492931,
+    "lng": 137.41805794709677
+  },
+  {
+    "kind": "marker",
+    "name": "Glacierfall Cross [-50.1, 137.4]",
+    "lat": -50.11344138492932,
+    "lng": 137.4180579470968
+  },
+  {
+    "kind": "polygon",
+    "name": "Glacierfall Fissure [-62.9, 133.4]",
+    "lat": -62.89793538289463,
+    "lng": 133.4130058172787
+  },
+  {
+    "kind": "marker",
+    "name": "Glacierfall Fissure [-62.9, 133.4]",
+    "lat": -62.89793538289463,
+    "lng": 133.4130058172787
+  },
+  {
+    "kind": "polygon",
+    "name": "Glacierfall Pass [-51.1, 128.8]",
+    "lat": -51.05102764154462,
+    "lng": 128.7528372434878
+  },
+  {
+    "kind": "marker",
+    "name": "Glacierfall Pass [-51.1, 128.8]",
+    "lat": -51.05102764154462,
+    "lng": 128.75283724348776
+  },
+  {
+    "kind": "polygon",
+    "name": "Glacierfall Passage [-47.4, 143.4]",
+    "lat": -47.39943567736177,
+    "lng": 143.3833184596914
+  },
+  {
+    "kind": "marker",
+    "name": "Glacierfall Passage [-47.4, 143.4]",
+    "lat": -47.399435677361765,
+    "lng": 143.3833184596914
+  },
+  {
+    "kind": "polygon",
+    "name": "Glacierfall Valley [-53.9, 140.5]",
+    "lat": -53.92288945086343,
+    "lng": 140.45122178750148
+  },
+  {
+    "kind": "marker",
+    "name": "Glacierfall Valley [-53.9, 140.5]",
+    "lat": -53.92288945086344,
+    "lng": 140.45122178750148
+  },
+  {
+    "kind": "polygon",
+    "name": "Goffers Knoll [-248.8, 120.6]",
+    "lat": -248.75852874259567,
+    "lng": 120.5979249821122
+  },
+  {
+    "kind": "marker",
+    "name": "Goffers Knoll [-248.8, 120.6]",
+    "lat": -248.75852874259567,
+    "lng": 120.5979249821122
+  },
+  {
+    "kind": "polygon",
+    "name": "Goldshimmer Plain [-236.1, 155.1]",
+    "lat": -236.06555857345205,
+    "lng": 155.0674502200123
+  },
+  {
+    "kind": "marker",
+    "name": "Goldshimmer Plain [-236.1, 155.1]",
+    "lat": -236.06555857345205,
+    "lng": 155.0674502200123
+  },
+  {
+    "kind": "polygon",
+    "name": "Gravemound Brim [-107.9, 60.1]",
+    "lat": -107.93635601090753,
+    "lng": 60.10125203518073
+  },
+  {
+    "kind": "marker",
+    "name": "Gravemound Brim [-107.9, 60.1]",
+    "lat": -107.93635601090753,
+    "lng": 60.10125203518072
+  },
+  {
+    "kind": "polygon",
+    "name": "Gravemound Cliffs [-111.5, 62.5]",
+    "lat": -111.46440816140989,
+    "lng": 62.54502777878249
+  },
+  {
+    "kind": "marker",
+    "name": "Gravemound Cliffs [-111.5, 62.5]",
+    "lat": -111.46440816140989,
+    "lng": 62.54502777878248
+  },
+  {
+    "kind": "polygon",
+    "name": "Gravemound Hills [-105.4, 69.6]",
+    "lat": -105.41613315431205,
+    "lng": 69.61793739450934
+  },
+  {
+    "kind": "marker",
+    "name": "Gravemound Hills [-105.4, 69.6]",
+    "lat": -105.41613315431205,
+    "lng": 69.61793739450934
+  },
+  {
+    "kind": "polygon",
+    "name": "Gravemound Knoll [-106.5, 76.5]",
+    "lat": -106.48820288432927,
+    "lng": 76.52875838225322
+  },
+  {
+    "kind": "marker",
+    "name": "Gravemound Knoll [-106.5, 76.5]",
+    "lat": -106.48820288432925,
+    "lng": 76.52875838225322
+  },
+  {
+    "kind": "polygon",
+    "name": "Gravemound Slope [-101.8, 66.4]",
+    "lat": -101.7957461404805,
+    "lng": 66.35959099860317
+  },
+  {
+    "kind": "marker",
+    "name": "Gravemound Slope [-101.8, 66.4]",
+    "lat": -101.7957461404805,
+    "lng": 66.35959099860318
+  },
+  {
+    "kind": "polygon",
+    "name": "Greenhollow Copse [-97.2, 71.7]",
+    "lat": -97.24763464506613,
+    "lng": 71.6770333143035
+  },
+  {
+    "kind": "marker",
+    "name": "Greenhollow Copse [-97.2, 71.7]",
+    "lat": -97.24763464506613,
+    "lng": 71.6770333143035
+  },
+  {
+    "kind": "polygon",
+    "name": "Greenhollow Vale [-95.1, 76.1]",
+    "lat": -95.05953509183638,
+    "lng": 76.09885173719192
+  },
+  {
+    "kind": "marker",
+    "name": "Greenhollow Vale [-95.1, 76.1]",
+    "lat": -95.0595350918364,
+    "lng": 76.09885173719192
+  },
+  {
+    "kind": "polygon",
+    "name": "Greenshore Bay [-102.6, 185.6]",
+    "lat": -102.57366067140461,
+    "lng": 185.61553525428852
+  },
+  {
+    "kind": "marker",
+    "name": "Greenshore Bay [-102.6, 185.6]",
+    "lat": -102.57366067140461,
+    "lng": 185.61553525428852
+  },
+  {
+    "kind": "polygon",
+    "name": "Greenshore Peninsula [-106.2, 183.5]",
+    "lat": -106.2080906448912,
+    "lng": 183.546983178539
+  },
+  {
+    "kind": "marker",
+    "name": "Greenshore Peninsula [-106.2, 183.5]",
+    "lat": -106.20809064489119,
+    "lng": 183.54698317853897
+  },
+  {
+    "kind": "polygon",
+    "name": "Gutras Hill [-215.3, 119.2]",
+    "lat": -215.29486640818305,
+    "lng": 119.21723642703748
+  },
+  {
+    "kind": "marker",
+    "name": "Gutras Hill [-215.3, 119.2]",
+    "lat": -215.29486640818305,
+    "lng": 119.21723642703748
+  },
+  {
+    "kind": "polygon",
+    "name": "Gwan Gorge [-180.5, 118.9]",
+    "lat": -180.4667187857338,
+    "lng": 118.86240888659304
+  },
+  {
+    "kind": "marker",
+    "name": "Gwan Gorge [-180.5, 118.9]",
+    "lat": -180.4667187857338,
+    "lng": 118.86240888659304
+  },
+  {
+    "kind": "polygon",
+    "name": "Haldon Tor [-228.0, 107.8]",
+    "lat": -228.03509031734018,
+    "lng": 107.84175621101909
+  },
+  {
+    "kind": "marker",
+    "name": "Haldon Tor [-228.0, 107.8]",
+    "lat": -228.03509031734023,
+    "lng": 107.84175621101909
+  },
+  {
+    "kind": "polygon",
+    "name": "Haytor [-210.8, 106.1]",
+    "lat": -210.8033227764411,
+    "lng": 106.10012958153965
+  },
+  {
+    "kind": "marker",
+    "name": "Haytor [-210.8, 106.1]",
+    "lat": -210.8033227764411,
+    "lng": 106.10012958153965
+  },
+  {
+    "kind": "polygon",
+    "name": "Highbole Glen [-217.0, 156.2]",
+    "lat": -217.03262623837173,
+    "lng": 156.23385193181036
+  },
+  {
+    "kind": "marker",
+    "name": "Highbole Glen [-217.0, 156.2]",
+    "lat": -217.03262623837173,
+    "lng": 156.23385193181036
+  },
+  {
+    "kind": "polygon",
+    "name": "Highland Cross [-224.8, 97.2]",
+    "lat": -224.75150817419646,
+    "lng": 97.16911547161564
+  },
+  {
+    "kind": "marker",
+    "name": "Highland Cross [-224.8, 97.2]",
+    "lat": -224.75150817419646,
+    "lng": 97.16911547161564
+  },
+  {
+    "kind": "polygon",
+    "name": "Highstone Grassland [-86.5, 74.8]",
+    "lat": -86.543582683778,
+    "lng": 74.83062124095034
+  },
+  {
+    "kind": "marker",
+    "name": "Highstone Grassland [-86.5, 74.8]",
+    "lat": -86.543582683778,
+    "lng": 74.83062124095034
+  },
+  {
+    "kind": "polygon",
+    "name": "Highstone Loch [-91.4, 82.9]",
+    "lat": -91.38585026075472,
+    "lng": 82.88598135281623
+  },
+  {
+    "kind": "marker",
+    "name": "Highstone Loch [-91.4, 82.9]",
+    "lat": -91.38585026075472,
+    "lng": 82.88598135281623
+  },
+  {
+    "kind": "polygon",
+    "name": "Highstone Meadow [-77.7, 86.7]",
+    "lat": -77.65905065106564,
+    "lng": 86.71111107857179
+  },
+  {
+    "kind": "marker",
+    "name": "Highstone Meadow [-77.7, 86.7]",
+    "lat": -77.65905065106566,
+    "lng": 86.7111110785718
+  },
+  {
+    "kind": "polygon",
+    "name": "Highstone Mound [-70.2, 75.6]",
+    "lat": -70.20658743022466,
+    "lng": 75.5546987659047
+  },
+  {
+    "kind": "marker",
+    "name": "Highstone Mound [-70.2, 75.6]",
+    "lat": -70.20658743022466,
+    "lng": 75.5546987659047
+  },
+  {
+    "kind": "polygon",
+    "name": "Highstone Plains [-82.6, 84.6]",
+    "lat": -82.6064162669486,
+    "lng": 84.56041500767839
+  },
+  {
+    "kind": "marker",
+    "name": "Highstone Plains [-82.6, 84.6]",
+    "lat": -82.6064162669486,
+    "lng": 84.56041500767837
+  },
+  {
+    "kind": "polygon",
+    "name": "Highstone Plateau [-76.3, 76.7]",
+    "lat": -76.34847971856101,
+    "lng": 76.70977555958137
+  },
+  {
+    "kind": "marker",
+    "name": "Highstone Plateau [-76.3, 76.7]",
+    "lat": -76.34847971856102,
+    "lng": 76.70977555958137
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Borderlands [-112.7, 146.3]",
+    "lat": -112.73336999839626,
+    "lng": 146.26645981010955
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Borderlands [-112.7, 146.3]",
+    "lat": -112.73336999839626,
+    "lng": 146.26645981010955
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Cliffs [-137.0, 165.5]",
+    "lat": -136.9800964620148,
+    "lng": 165.4534272907972
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Cliffs [-137.0, 165.5]",
+    "lat": -136.9800964620148,
+    "lng": 165.4534272907972
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Dale [-121.6, 167.7]",
+    "lat": -121.57886582224396,
+    "lng": 167.69463321070182
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Dale [-121.6, 167.7]",
+    "lat": -121.57886582224396,
+    "lng": 167.69463321070182
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Enclave [-133.0, 157.1]",
+    "lat": -133.04292490876176,
+    "lng": 157.12653837860242
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Enclave [-133.0, 157.1]",
+    "lat": -133.04292490876176,
+    "lng": 157.12653837860242
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Glade [-130.1, 164.2]",
+    "lat": -130.06414538628917,
+    "lng": 164.23264022020584
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Glade [-130.1, 164.2]",
+    "lat": -130.06414538628917,
+    "lng": 164.23264022020584
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Hillock [-115.0, 150.1]",
+    "lat": -114.99303280818971,
+    "lng": 150.07357546452693
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Hillock [-115.0, 150.1]",
+    "lat": -114.99303280818971,
+    "lng": 150.07357546452695
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Isle [-123.7, 172.1]",
+    "lat": -123.74758087462504,
+    "lng": 172.14209342982585
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Isle [-123.7, 172.1]",
+    "lat": -123.74758087462504,
+    "lng": 172.14209342982585
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Lake [-109.8, 155.9]",
+    "lat": -109.8498244770557,
+    "lng": 155.9272845536327
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Lake [-109.8, 155.9]",
+    "lat": -109.8498244770557,
+    "lng": 155.9272845536327
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Levee [-125.5, 153.6]",
+    "lat": -125.51786060224903,
+    "lng": 153.62037033444963
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Levee [-125.5, 153.6]",
+    "lat": -125.51786060224903,
+    "lng": 153.62037033444966
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Pass [-107.9, 163.0]",
+    "lat": -107.91373076614158,
+    "lng": 163.03337413117612
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Pass [-107.9, 163.0]",
+    "lat": -107.91373076614158,
+    "lng": 163.03337413117612
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Steep [-112.0, 165.2]",
+    "lat": -112.00929374057725,
+    "lng": 165.18297788614137
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Steep [-112.0, 165.2]",
+    "lat": -112.00929374057725,
+    "lng": 165.18297788614137
+  },
+  {
+    "kind": "polygon",
+    "name": "Hightree Strand [-120.9, 156.2]",
+    "lat": -120.90186979740494,
+    "lng": 156.19989360947648
+  },
+  {
+    "kind": "marker",
+    "name": "Hightree Strand [-120.9, 156.2]",
+    "lat": -120.90186979740496,
+    "lng": 156.19989360947648
+  },
+  {
+    "kind": "polygon",
+    "name": "Hornbeam Wood [-223.2, 159.6]",
+    "lat": -223.20042046130595,
+    "lng": 159.5713821362865
+  },
+  {
+    "kind": "marker",
+    "name": "Hornbeam Wood [-223.2, 159.6]",
+    "lat": -223.20042046130595,
+    "lng": 159.5713821362865
+  },
+  {
+    "kind": "polygon",
+    "name": "Iceburn Cliffs [-61.9, 153.1]",
+    "lat": -61.865114853618266,
+    "lng": 153.05469644948306
+  },
+  {
+    "kind": "marker",
+    "name": "Iceburn Cliffs [-61.9, 153.1]",
+    "lat": -61.865114853618266,
+    "lng": 153.05469644948306
+  },
+  {
+    "kind": "polygon",
+    "name": "Iceburn Firth [-70.7, 139.2]",
+    "lat": -70.68304301651484,
+    "lng": 139.1519921598936
+  },
+  {
+    "kind": "marker",
+    "name": "Iceburn Firth [-70.7, 139.2]",
+    "lat": -70.68304301651483,
+    "lng": 139.15199215989364
+  },
+  {
+    "kind": "polygon",
+    "name": "Iceburn Peaks [-67.3, 149.2]",
+    "lat": -67.27306525339128,
+    "lng": 149.18540588008858
+  },
+  {
+    "kind": "marker",
+    "name": "Iceburn Peaks [-67.3, 149.2]",
+    "lat": -67.27306525339128,
+    "lng": 149.18540588008858
+  },
+  {
+    "kind": "polygon",
+    "name": "Iceburn Tundra [-70.0, 144.7]",
+    "lat": -70.03543265244566,
+    "lng": 144.65991218501995
+  },
+  {
+    "kind": "marker",
+    "name": "Iceburn Tundra [-70.0, 144.7]",
+    "lat": -70.03543265244568,
+    "lng": 144.65991218501995
+  },
+  {
+    "kind": "polygon",
+    "name": "Inis Mon [-211.7, 164.4]",
+    "lat": -211.6518248923354,
+    "lng": 164.37971684677348
+  },
+  {
+    "kind": "marker",
+    "name": "Inis Mon [-211.7, 164.4]",
+    "lat": -211.65182489233538,
+    "lng": 164.37971684677348
+  },
+  {
+    "kind": "polygon",
+    "name": "Kilmar Tor [-244.3, 120.1]",
+    "lat": -244.26881204850213,
+    "lng": 120.08427447038818
+  },
+  {
+    "kind": "marker",
+    "name": "Kilmar Tor [-244.3, 120.1]",
+    "lat": -244.26881204850213,
+    "lng": 120.08427447038818
+  },
+  {
+    "kind": "polygon",
+    "name": "Kindlegrass Steppe [-238.1, 142.6]",
+    "lat": -238.0612983365922,
+    "lng": 142.56353755046683
+  },
+  {
+    "kind": "marker",
+    "name": "Kindlegrass Steppe [-238.1, 142.6]",
+    "lat": -238.06129833659216,
+    "lng": 142.5635375504668
+  },
+  {
+    "kind": "polygon",
+    "name": "Larchroad [-194.2, 160.5]",
+    "lat": -194.1517839802183,
+    "lng": 160.465180720624
+  },
+  {
+    "kind": "marker",
+    "name": "Larchroad [-194.2, 160.5]",
+    "lat": -194.15178398021834,
+    "lng": 160.465180720624
+  },
+  {
+    "kind": "polygon",
+    "name": "Lazygrass Plain [-242.0, 139.6]",
+    "lat": -241.97712083139794,
+    "lng": 139.57286732036178
+  },
+  {
+    "kind": "marker",
+    "name": "Lazygrass Plain [-242.0, 139.6]",
+    "lat": -241.97712083139794,
+    "lng": 139.57286732036178
+  },
+  {
+    "kind": "polygon",
+    "name": "Lewsdon Hill [-207.5, 111.6]",
+    "lat": -207.5128315777912,
+    "lng": 111.59899649026215
+  },
+  {
+    "kind": "marker",
+    "name": "Lewsdon Hill [-207.5, 111.6]",
+    "lat": -207.5128315777912,
+    "lng": 111.59899649026215
+  },
+  {
+    "kind": "polygon",
+    "name": "Longfen Arms [-117.5, 79.8]",
+    "lat": -117.5217995964243,
+    "lng": 79.77764792075408
+  },
+  {
+    "kind": "marker",
+    "name": "Longfen Arms [-117.5, 79.8]",
+    "lat": -117.5217995964243,
+    "lng": 79.77764792075408
+  },
+  {
+    "kind": "polygon",
+    "name": "Longfen Marsh [-111.6, 85.0]",
+    "lat": -111.62280365552756,
+    "lng": 84.96879852157346
+  },
+  {
+    "kind": "marker",
+    "name": "Longfen Marsh [-111.6, 85.0]",
+    "lat": -111.62280365552756,
+    "lng": 84.96879852157346
+  },
+  {
+    "kind": "polygon",
+    "name": "Longfen Veins [-108.2, 88.4]",
+    "lat": -108.15276335994076,
+    "lng": 88.42969598304805
+  },
+  {
+    "kind": "marker",
+    "name": "Longfen Veins [-108.2, 88.4]",
+    "lat": -108.15276335994076,
+    "lng": 88.42969598304805
+  },
+  {
+    "kind": "polygon",
+    "name": "Longmarch Meadow [-251.4, 136.2]",
+    "lat": -251.43265294888175,
+    "lng": 136.23572585490967
+  },
+  {
+    "kind": "marker",
+    "name": "Longmarch Meadow [-251.4, 136.2]",
+    "lat": -251.43265294888175,
+    "lng": 136.23572585490967
+  },
+  {
+    "kind": "polygon",
+    "name": "Longshadow Plain [-243.7, 146.1]",
+    "lat": -243.71264891944813,
+    "lng": 146.05109974844467
+  },
+  {
+    "kind": "marker",
+    "name": "Longshadow Plain [-243.7, 146.1]",
+    "lat": -243.7126489194481,
+    "lng": 146.05109974844464
+  },
+  {
+    "kind": "polygon",
+    "name": "Longtimber Glen [-218.9, 145.9]",
+    "lat": -218.89134703552565,
+    "lng": 145.9259717163651
+  },
+  {
+    "kind": "marker",
+    "name": "Longtimber Glen [-218.9, 145.9]",
+    "lat": -218.89134703552565,
+    "lng": 145.92597171636507
+  },
+  {
+    "kind": "polygon",
+    "name": "Lymhurst [-228.5, 168.7]",
+    "lat": -228.48155504996552,
+    "lng": 168.74098267260132
+  },
+  {
+    "kind": "marker",
+    "name": "Lymhurst [-228.5, 168.7]",
+    "lat": -228.48155504996552,
+    "lng": 168.7409826726013
+  },
+  {
+    "kind": "polygon",
+    "name": "Lymhurst Portal [-118.2, 163.5]",
+    "lat": -118.23000686203653,
+    "lng": 163.53119312169594
+  },
+  {
+    "kind": "marker",
+    "name": "Lymhurst Portal [-118.2, 163.5]",
+    "lat": -118.23000686203653,
+    "lng": 163.53119312169594
+  },
+  {
+    "kind": "polygon",
+    "name": "Malag Crevasse [-209.8, 136.5]",
+    "lat": -209.76698662538575,
+    "lng": 136.53852504407985
+  },
+  {
+    "kind": "marker",
+    "name": "Malag Crevasse [-209.8, 136.5]",
+    "lat": -209.76698662538575,
+    "lng": 136.53852504407982
+  },
+  {
+    "kind": "polygon",
+    "name": "Mardale [-219.2, 128.3]",
+    "lat": -219.15284643691695,
+    "lng": 128.27952236530433
+  },
+  {
+    "kind": "marker",
+    "name": "Mardale [-219.2, 128.3]",
+    "lat": -219.15284643691695,
+    "lng": 128.27952236530436
+  },
+  {
+    "kind": "polygon",
+    "name": "Martlock [-217.9, 109.3]",
+    "lat": -217.879714593252,
+    "lng": 109.32873502097428
+  },
+  {
+    "kind": "marker",
+    "name": "Martlock [-217.9, 109.3]",
+    "lat": -217.879714593252,
+    "lng": 109.32873502097428
+  },
+  {
+    "kind": "polygon",
+    "name": "Martlock Portal [-85.3, 57.5]",
+    "lat": -85.34105584819434,
+    "lng": 57.48327217520309
+  },
+  {
+    "kind": "marker",
+    "name": "Martlock Portal [-85.3, 57.5]",
+    "lat": -85.34105584819434,
+    "lng": 57.48327217520308
+  },
+  {
+    "kind": "polygon",
+    "name": "Mase Knoll [-224.0, 102.9]",
+    "lat": -224.02678934298956,
+    "lng": 102.86893126639121
+  },
+  {
+    "kind": "marker",
+    "name": "Mase Knoll [-224.0, 102.9]",
+    "lat": -224.02678934298956,
+    "lng": 102.86893126639123
+  },
+  {
+    "kind": "polygon",
+    "name": "Mawar Gorge [-196.5, 155.8]",
+    "lat": -196.45399875641988,
+    "lng": 155.82772509546731
+  },
+  {
+    "kind": "marker",
+    "name": "Mawar Gorge [-196.5, 155.8]",
+    "lat": -196.45399875641988,
+    "lng": 155.82772509546731
+  },
+  {
+    "kind": "polygon",
+    "name": "Meltwater Bog [-37.7, 142.6]",
+    "lat": -37.690990810689065,
+    "lng": 142.64499263127277
+  },
+  {
+    "kind": "marker",
+    "name": "Meltwater Bog [-37.7, 142.6]",
+    "lat": -37.69099081068906,
+    "lng": 142.64499263127277
+  },
+  {
+    "kind": "polygon",
+    "name": "Meltwater Channel [-41.2, 139.7]",
+    "lat": -41.230733642457594,
+    "lng": 139.65925178396074
+  },
+  {
+    "kind": "marker",
+    "name": "Meltwater Channel [-41.2, 139.7]",
+    "lat": -41.230733642457594,
+    "lng": 139.65925178396074
+  },
+  {
+    "kind": "polygon",
+    "name": "Meltwater Delta [-31.2, 148.4]",
+    "lat": -31.182335367904074,
+    "lng": 148.4387040607198
+  },
+  {
+    "kind": "marker",
+    "name": "Meltwater Delta [-31.2, 148.4]",
+    "lat": -31.182335367904074,
+    "lng": 148.4387040607198
+  },
+  {
+    "kind": "polygon",
+    "name": "Meltwater Sump [-27.2, 143.5]",
+    "lat": -27.170527370192886,
+    "lng": 143.5190763997283
+  },
+  {
+    "kind": "marker",
+    "name": "Meltwater Sump [-27.2, 143.5]",
+    "lat": -27.170527370192886,
+    "lng": 143.5190763997283
+  },
+  {
+    "kind": "polygon",
+    "name": "Merlyn's Rest [-97.5, 166.2]",
+    "lat": -97.53593893718153,
+    "lng": 166.1792857292338
+  },
+  {
+    "kind": "marker",
+    "name": "Merlyn's Rest [-97.5, 166.2]",
+    "lat": -97.53593893718153,
+    "lng": 166.1792857292338
+  },
+  {
+    "kind": "polygon",
+    "name": "Morgana's Rest [-44.5, 126.5]",
+    "lat": -44.50180237145312,
+    "lng": 126.51342079022902
+  },
+  {
+    "kind": "marker",
+    "name": "Morgana's Rest [-44.5, 126.5]",
+    "lat": -44.501802371453124,
+    "lng": 126.513420790229
+  },
+  {
+    "kind": "polygon",
+    "name": "Mountain Cross [-185.3, 160.3]",
+    "lat": -185.27799429109837,
+    "lng": 160.3440453867834
+  },
+  {
+    "kind": "marker",
+    "name": "Mountain Cross [-185.3, 160.3]",
+    "lat": -185.27799429109834,
+    "lng": 160.3440453867834
+  },
+  {
+    "kind": "polygon",
+    "name": "Mountain Fort [-232.1, 91.0]",
+    "lat": -232.1499062368221,
+    "lng": 90.99892183738295
+  },
+  {
+    "kind": "marker",
+    "name": "Mountain Fort [-232.1, 91.0]",
+    "lat": -232.14990623682212,
+    "lng": 90.99892183738295
+  },
+  {
+    "kind": "polygon",
+    "name": "Mudfoot Mounds [-101.8, 56.4]",
+    "lat": -101.7817010764757,
+    "lng": 56.39035904162628
+  },
+  {
+    "kind": "marker",
+    "name": "Mudfoot Mounds [-101.8, 56.4]",
+    "lat": -101.7817010764757,
+    "lng": 56.39035904162628
+  },
+  {
+    "kind": "polygon",
+    "name": "Mudfoot Sump [-99.0, 61.6]",
+    "lat": -99.03391618783465,
+    "lng": 61.616207677668605
+  },
+  {
+    "kind": "marker",
+    "name": "Mudfoot Sump [-99.0, 61.6]",
+    "lat": -99.03391618783465,
+    "lng": 61.6162076776686
+  },
+  {
+    "kind": "polygon",
+    "name": "Munten Fell [-103.8, 175.2]",
+    "lat": -103.83092976802988,
+    "lng": 175.20584612127183
+  },
+  {
+    "kind": "marker",
+    "name": "Munten Fell [-103.8, 175.2]",
+    "lat": -103.83092976802988,
+    "lng": 175.20584612127183
+  },
+  {
+    "kind": "polygon",
+    "name": "Munten Rise [-107.3, 172.7]",
+    "lat": -107.33946292031695,
+    "lng": 172.68582444504088
+  },
+  {
+    "kind": "marker",
+    "name": "Munten Rise [-107.3, 172.7]",
+    "lat": -107.33946292031693,
+    "lng": 172.68582444504088
+  },
+  {
+    "kind": "polygon",
+    "name": "Munten Tundra [-103.6, 166.5]",
+    "lat": -103.64991102035896,
+    "lng": 166.51691722471935
+  },
+  {
+    "kind": "marker",
+    "name": "Munten Tundra [-103.6, 166.5]",
+    "lat": -103.64991102035896,
+    "lng": 166.51691722471935
+  },
+  {
+    "kind": "polygon",
+    "name": "Murdergulch Cross [-50.0, 102.8]",
+    "lat": -49.95505014476604,
+    "lng": 102.82073532073386
+  },
+  {
+    "kind": "marker",
+    "name": "Murdergulch Cross [-50.0, 102.8]",
+    "lat": -49.95505014476605,
+    "lng": 102.82073532073387
+  },
+  {
+    "kind": "polygon",
+    "name": "Murdergulch Divide [-51.3, 107.6]",
+    "lat": -51.298109305373146,
+    "lng": 107.6414723447516
+  },
+  {
+    "kind": "marker",
+    "name": "Murdergulch Divide [-51.3, 107.6]",
+    "lat": -51.298109305373146,
+    "lng": 107.6414723447516
+  },
+  {
+    "kind": "polygon",
+    "name": "Murdergulch Gap [-57.4, 111.1]",
+    "lat": -57.384883120181925,
+    "lng": 111.05821366909002
+  },
+  {
+    "kind": "marker",
+    "name": "Murdergulch Gap [-57.4, 111.1]",
+    "lat": -57.384883120181925,
+    "lng": 111.05821366909002
+  },
+  {
+    "kind": "polygon",
+    "name": "Murdergulch Ravine [-64.8, 112.6]",
+    "lat": -64.79863365896651,
+    "lng": 112.64103633432018
+  },
+  {
+    "kind": "marker",
+    "name": "Murdergulch Ravine [-64.8, 112.6]",
+    "lat": -64.79863365896651,
+    "lng": 112.64103633432018
+  },
+  {
+    "kind": "polygon",
+    "name": "Murdergulch Trail [-54.0, 99.8]",
+    "lat": -53.96138479657957,
+    "lng": 99.80291377415047
+  },
+  {
+    "kind": "marker",
+    "name": "Murdergulch Trail [-54.0, 99.8]",
+    "lat": -53.961384796579566,
+    "lng": 99.80291377415047
+  },
+  {
+    "kind": "polygon",
+    "name": "Murkweald [-230.8, 151.2]",
+    "lat": -230.76746405693,
+    "lng": 151.2150856373548
+  },
+  {
+    "kind": "marker",
+    "name": "Murkweald [-230.8, 151.2]",
+    "lat": -230.76746405693,
+    "lng": 151.2150856373548
+  },
+  {
+    "kind": "polygon",
+    "name": "Murky Fen [-174.3, 120.8]",
+    "lat": -174.31840814910728,
+    "lng": 120.75404762007469
+  },
+  {
+    "kind": "marker",
+    "name": "Murky Fen [-174.3, 120.8]",
+    "lat": -174.31840814910726,
+    "lng": 120.75404762007467
+  },
+  {
+    "kind": "polygon",
+    "name": "Nightbloom Forest [-216.2, 151.1]",
+    "lat": -216.21124647586205,
+    "lng": 151.06348216974257
+  },
+  {
+    "kind": "marker",
+    "name": "Nightbloom Forest [-216.2, 151.1]",
+    "lat": -216.21124647586203,
+    "lng": 151.06348216974257
+  },
+  {
+    "kind": "polygon",
+    "name": "Nightcreak Marsh [-197.7, 123.4]",
+    "lat": -197.68040837809656,
+    "lng": 123.35285848272315
+  },
+  {
+    "kind": "marker",
+    "name": "Nightcreak Marsh [-197.7, 123.4]",
+    "lat": -197.68040837809656,
+    "lng": 123.35285848272316
+  },
+  {
+    "kind": "polygon",
+    "name": "Northstrand Beach [-0.5, 125.5]",
+    "lat": -0.470180743168946,
+    "lng": 125.4624030659287
+  },
+  {
+    "kind": "marker",
+    "name": "Northstrand Beach [-0.5, 125.5]",
+    "lat": -0.4701807431689531,
+    "lng": 125.4624030659287
+  },
+  {
+    "kind": "polygon",
+    "name": "Northstrand Dunes [2.7, 122.1]",
+    "lat": 2.697661483207682,
+    "lng": 122.1135491968901
+  },
+  {
+    "kind": "marker",
+    "name": "Northstrand Dunes [2.7, 122.1]",
+    "lat": 2.697661483207696,
+    "lng": 122.1135491968901
+  },
+  {
+    "kind": "polygon",
+    "name": "Oakcopse [-207.2, 172.5]",
+    "lat": -207.16356608271906,
+    "lng": 172.47472211655025
+  },
+  {
+    "kind": "marker",
+    "name": "Oakcopse [-207.2, 172.5]",
+    "lat": -207.16356608271903,
+    "lng": 172.47472211655025
+  },
+  {
+    "kind": "polygon",
+    "name": "Owlsong Glen [-213.2, 158.7]",
+    "lat": -213.1701227627058,
+    "lng": 158.74775637636557
+  },
+  {
+    "kind": "marker",
+    "name": "Owlsong Glen [-213.2, 158.7]",
+    "lat": -213.1701227627058,
+    "lng": 158.74775637636557
+  },
+  {
+    "kind": "polygon",
+    "name": "Parchsand Cliffs [-87.5, 91.9]",
+    "lat": -87.4952190503121,
+    "lng": 91.88331872995781
+  },
+  {
+    "kind": "marker",
+    "name": "Parchsand Cliffs [-87.5, 91.9]",
+    "lat": -87.4952190503121,
+    "lng": 91.88331872995781
+  },
+  {
+    "kind": "polygon",
+    "name": "Parchsand Drought [-93.0, 93.1]",
+    "lat": -92.97284415454394,
+    "lng": 93.06713640258053
+  },
+  {
+    "kind": "marker",
+    "name": "Parchsand Drought [-93.0, 93.1]",
+    "lat": -92.97284415454394,
+    "lng": 93.06713640258053
+  },
+  {
+    "kind": "polygon",
+    "name": "Parchthroat Plain [-251.5, 144.4]",
+    "lat": -251.47385023446162,
+    "lng": 144.44002222760918
+  },
+  {
+    "kind": "marker",
+    "name": "Parchthroat Plain [-251.5, 144.4]",
+    "lat": -251.47385023446162,
+    "lng": 144.44002222760918
+  },
+  {
+    "kind": "polygon",
+    "name": "Pen Fenair [-175.6, 133.8]",
+    "lat": -175.56517948189048,
+    "lng": 133.82590571835175
+  },
+  {
+    "kind": "marker",
+    "name": "Pen Fenair [-175.6, 133.8]",
+    "lat": -175.56517948189048,
+    "lng": 133.82590571835175
+  },
+  {
+    "kind": "polygon",
+    "name": "Pen Garn [-185.7, 142.4]",
+    "lat": -185.7362056852195,
+    "lng": 142.36775608763358
+  },
+  {
+    "kind": "marker",
+    "name": "Pen Garn [-185.7, 142.4]",
+    "lat": -185.7362056852195,
+    "lng": 142.36775608763358
+  },
+  {
+    "kind": "polygon",
+    "name": "Pen Gent [-186.9, 146.9]",
+    "lat": -186.92785461635555,
+    "lng": 146.880842830551
+  },
+  {
+    "kind": "marker",
+    "name": "Pen Gent [-186.9, 146.9]",
+    "lat": -186.92785461635555,
+    "lng": 146.88084283055096
+  },
+  {
+    "kind": "polygon",
+    "name": "Pen Kerrig [-200.8, 160.5]",
+    "lat": -200.8246042748878,
+    "lng": 160.48554041789043
+  },
+  {
+    "kind": "marker",
+    "name": "Pen Kerrig [-200.8, 160.5]",
+    "lat": -200.8246042748878,
+    "lng": 160.48554041789043
+  },
+  {
+    "kind": "polygon",
+    "name": "Pen Uchaf [-179.9, 146.6]",
+    "lat": -179.89525793887003,
+    "lng": 146.56858900146239
+  },
+  {
+    "kind": "marker",
+    "name": "Pen Uchaf [-179.9, 146.6]",
+    "lat": -179.89525793887,
+    "lng": 146.56858900146239
+  },
+  {
+    "kind": "polygon",
+    "name": "Pinecopse [-248.6, 161.3]",
+    "lat": -248.56392978857474,
+    "lng": 161.26844881974603
+  },
+  {
+    "kind": "marker",
+    "name": "Pinecopse [-248.6, 161.3]",
+    "lat": -248.56392978857474,
+    "lng": 161.26844881974603
+  },
+  {
+    "kind": "polygon",
+    "name": "Prospector's Hope [-256.4, 132.9]",
+    "lat": -256.44381529985515,
+    "lng": 132.92426220854105
+  },
+  {
+    "kind": "marker",
+    "name": "Prospector's Hope [-256.4, 132.9]",
+    "lat": -256.44381529985515,
+    "lng": 132.92426220854102
+  },
+  {
+    "kind": "polygon",
+    "name": "Razorrock Bank [-92.8, 103.7]",
+    "lat": -92.82124073218654,
+    "lng": 103.7269127313433
+  },
+  {
+    "kind": "marker",
+    "name": "Razorrock Bank [-92.8, 103.7]",
+    "lat": -92.82124073218654,
+    "lng": 103.7269127313433
+  },
+  {
+    "kind": "polygon",
+    "name": "Razorrock Chasm [-84.3, 102.7]",
+    "lat": -84.26807814781526,
+    "lng": 102.68605186622054
+  },
+  {
+    "kind": "marker",
+    "name": "Razorrock Chasm [-84.3, 102.7]",
+    "lat": -84.26807814781526,
+    "lng": 102.68605186622054
+  },
+  {
+    "kind": "polygon",
+    "name": "Razorrock Edge [-79.5, 97.0]",
+    "lat": -79.45893996037809,
+    "lng": 97.04848181023726
+  },
+  {
+    "kind": "marker",
+    "name": "Razorrock Edge [-79.5, 97.0]",
+    "lat": -79.45893996037807,
+    "lng": 97.04848181023726
+  },
+  {
+    "kind": "polygon",
+    "name": "Razorrock Gulch [-91.6, 108.7]",
+    "lat": -91.64461231037467,
+    "lng": 108.70494449352401
+  },
+  {
+    "kind": "marker",
+    "name": "Razorrock Gulch [-91.6, 108.7]",
+    "lat": -91.64461231037467,
+    "lng": 108.70494449352402
+  },
+  {
+    "kind": "polygon",
+    "name": "Razorrock Passage [-71.4, 99.7]",
+    "lat": -71.42928239936244,
+    "lng": 99.67208017099259
+  },
+  {
+    "kind": "marker",
+    "name": "Razorrock Passage [-71.4, 99.7]",
+    "lat": -71.42928239936244,
+    "lng": 99.67208017099259
+  },
+  {
+    "kind": "polygon",
+    "name": "Razorrock Ravine [-94.5, 111.9]",
+    "lat": -94.49384796983087,
+    "lng": 111.91805182674389
+  },
+  {
+    "kind": "marker",
+    "name": "Razorrock Ravine [-94.5, 111.9]",
+    "lat": -94.49384796983087,
+    "lng": 111.91805182674389
+  },
+  {
+    "kind": "polygon",
+    "name": "Razorrock Valley [-88.3, 99.5]",
+    "lat": -88.31656548263655,
+    "lng": 99.49559482631722
+  },
+  {
+    "kind": "marker",
+    "name": "Razorrock Valley [-88.3, 99.5]",
+    "lat": -88.31656548263655,
+    "lng": 99.49559482631722
+  },
+  {
+    "kind": "polygon",
+    "name": "Razorrock Verge [-75.9, 91.7]",
+    "lat": -75.88735331576673,
+    "lng": 91.72492762555903
+  },
+  {
+    "kind": "marker",
+    "name": "Razorrock Verge [-75.9, 91.7]",
+    "lat": -75.88735331576673,
+    "lng": 91.72492762555903
+  },
+  {
+    "kind": "polygon",
+    "name": "Redlake [-229.8, 177.0]",
+    "lat": -229.840759325149,
+    "lng": 177.04998990647476
+  },
+  {
+    "kind": "marker",
+    "name": "Redlake [-229.8, 177.0]",
+    "lat": -229.840759325149,
+    "lng": 177.04998990647476
+  },
+  {
+    "kind": "polygon",
+    "name": "Redstone Plain [-240.1, 123.8]",
+    "lat": -240.10002385635164,
+    "lng": 123.78956220020389
+  },
+  {
+    "kind": "marker",
+    "name": "Redstone Plain [-240.1, 123.8]",
+    "lat": -240.10002385635164,
+    "lng": 123.78956220020389
+  },
+  {
+    "kind": "polygon",
+    "name": "Redtree Enclave [-120.5, 76.3]",
+    "lat": -120.47012216306929,
+    "lng": 76.34775418401144
+  },
+  {
+    "kind": "marker",
+    "name": "Redtree Enclave [-120.5, 76.3]",
+    "lat": -120.47012216306929,
+    "lng": 76.34775418401142
+  },
+  {
+    "kind": "polygon",
+    "name": "Rivercopse Crossing [-100.2, 136.0]",
+    "lat": -100.15479115196669,
+    "lng": 136.00492393878866
+  },
+  {
+    "kind": "marker",
+    "name": "Rivercopse Crossing [-100.2, 136.0]",
+    "lat": -100.1547911519667,
+    "lng": 136.00492393878866
+  },
+  {
+    "kind": "polygon",
+    "name": "Rivercopse Curve [-104.0, 139.5]",
+    "lat": -104.02181703370353,
+    "lng": 139.54611501575474
+  },
+  {
+    "kind": "marker",
+    "name": "Rivercopse Curve [-104.0, 139.5]",
+    "lat": -104.02181703370353,
+    "lng": 139.54611501575474
+  },
+  {
+    "kind": "polygon",
+    "name": "Rivercopse Fount [-94.8, 140.6]",
+    "lat": -94.75861927309263,
+    "lng": 140.55489070137753
+  },
+  {
+    "kind": "marker",
+    "name": "Rivercopse Fount [-94.8, 140.6]",
+    "lat": -94.75861927309265,
+    "lng": 140.55489070137756
+  },
+  {
+    "kind": "polygon",
+    "name": "Rivercopse Path [-103.3, 130.5]",
+    "lat": -103.2506607691787,
+    "lng": 130.4951614762333
+  },
+  {
+    "kind": "marker",
+    "name": "Rivercopse Path [-103.3, 130.5]",
+    "lat": -103.2506607691787,
+    "lng": 130.4951614762333
+  },
+  {
+    "kind": "polygon",
+    "name": "Roastcorpse Steppe [-224.0, 131.3]",
+    "lat": -223.97880405858447,
+    "lng": 131.29163365693415
+  },
+  {
+    "kind": "marker",
+    "name": "Roastcorpse Steppe [-224.0, 131.3]",
+    "lat": -223.97880405858444,
+    "lng": 131.29163365693415
+  },
+  {
+    "kind": "polygon",
+    "name": "Rowanwood [-206.4, 166.3]",
+    "lat": -206.4078056032293,
+    "lng": 166.33816187494335
+  },
+  {
+    "kind": "marker",
+    "name": "Rowanwood [-206.4, 166.3]",
+    "lat": -206.4078056032293,
+    "lng": 166.33816187494335
+  },
+  {
+    "kind": "polygon",
+    "name": "Runnel Sink [-215.8, 124.1]",
+    "lat": -215.8017219065826,
+    "lng": 124.05950592734465
+  },
+  {
+    "kind": "marker",
+    "name": "Runnel Sink [-215.8, 124.1]",
+    "lat": -215.8017219065826,
+    "lng": 124.05950592734466
+  },
+  {
+    "kind": "polygon",
+    "name": "Runnelvein Bog [-71.4, 155.6]",
+    "lat": -71.41388254139228,
+    "lng": 155.6342224171725
+  },
+  {
+    "kind": "marker",
+    "name": "Runnelvein Bog [-71.4, 155.6]",
+    "lat": -71.41388254139228,
+    "lng": 155.6342224171725
+  },
+  {
+    "kind": "polygon",
+    "name": "Runnelvein Sink [-79.5, 149.5]",
+    "lat": -79.46248244090103,
+    "lng": 149.5153507741377
+  },
+  {
+    "kind": "marker",
+    "name": "Runnelvein Sink [-79.5, 149.5]",
+    "lat": -79.46248244090103,
+    "lng": 149.5153507741377
+  },
+  {
+    "kind": "polygon",
+    "name": "Runnelvein Slough [-74.8, 150.9]",
+    "lat": -74.84520906880668,
+    "lng": 150.92662544233627
+  },
+  {
+    "kind": "marker",
+    "name": "Runnelvein Slough [-74.8, 150.9]",
+    "lat": -74.84520906880668,
+    "lng": 150.92662544233625
+  },
+  {
+    "kind": "polygon",
+    "name": "Russerdell [-202.2, 169.4]",
+    "lat": -202.17772322305353,
+    "lng": 169.41432065869873
+  },
+  {
+    "kind": "marker",
+    "name": "Russerdell [-202.2, 169.4]",
+    "lat": -202.17772322305353,
+    "lng": 169.41432065869873
+  },
+  {
+    "kind": "polygon",
+    "name": "Saddle Tor [-248.2, 114.6]",
+    "lat": -248.1928428650981,
+    "lng": 114.6288119254995
+  },
+  {
+    "kind": "marker",
+    "name": "Saddle Tor [-248.2, 114.6]",
+    "lat": -248.1928428650981,
+    "lng": 114.6288119254995
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandgust Cleft [-257.5, 144.8]",
+    "lat": -257.534459061899,
+    "lng": 144.7583990357374
+  },
+  {
+    "kind": "marker",
+    "name": "Sandgust Cleft [-257.5, 144.8]",
+    "lat": -257.53445906189893,
+    "lng": 144.7583990357374
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandmount Ascent [-58.5, 56.9]",
+    "lat": -58.49362584484429,
+    "lng": 56.91080007060704
+  },
+  {
+    "kind": "marker",
+    "name": "Sandmount Ascent [-58.5, 56.9]",
+    "lat": -58.49362584484429,
+    "lng": 56.91080007060704
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandmount Desert [-71.9, 45.5]",
+    "lat": -71.88102676456847,
+    "lng": 45.50549842823406
+  },
+  {
+    "kind": "marker",
+    "name": "Sandmount Desert [-71.9, 45.5]",
+    "lat": -71.88102676456847,
+    "lng": 45.50549842823406
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandmount Esker [-67.6, 48.4]",
+    "lat": -67.59663498583829,
+    "lng": 48.41420389496524
+  },
+  {
+    "kind": "marker",
+    "name": "Sandmount Esker [-67.6, 48.4]",
+    "lat": -67.5966349858383,
+    "lng": 48.41420389496524
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandmount Strand [-60.0, 60.9]",
+    "lat": -60.01192348894052,
+    "lng": 60.91811358447991
+  },
+  {
+    "kind": "marker",
+    "name": "Sandmount Strand [-60.0, 60.9]",
+    "lat": -60.01192348894051,
+    "lng": 60.91811358447991
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandrift Coast [-142.5, 111.8]",
+    "lat": -142.46397262325473,
+    "lng": 111.83206889344777
+  },
+  {
+    "kind": "marker",
+    "name": "Sandrift Coast [-142.5, 111.8]",
+    "lat": -142.46397262325473,
+    "lng": 111.83206889344777
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandrift Dunes [-130.3, 104.3]",
+    "lat": -130.27414320267388,
+    "lng": 104.2518714757314
+  },
+  {
+    "kind": "marker",
+    "name": "Sandrift Dunes [-130.3, 104.3]",
+    "lat": -130.27414320267388,
+    "lng": 104.2518714757314
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandrift Expanse [-139.4, 115.0]",
+    "lat": -139.44422198528613,
+    "lng": 114.97392406088379
+  },
+  {
+    "kind": "marker",
+    "name": "Sandrift Expanse [-139.4, 115.0]",
+    "lat": -139.44422198528613,
+    "lng": 114.97392406088379
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandrift Fringe [-146.8, 116.8]",
+    "lat": -146.82157316277934,
+    "lng": 116.77162121019828
+  },
+  {
+    "kind": "marker",
+    "name": "Sandrift Fringe [-146.8, 116.8]",
+    "lat": -146.82157316277932,
+    "lng": 116.77162121019828
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandrift Prairie [-134.5, 96.6]",
+    "lat": -134.51499141370084,
+    "lng": 96.63507523604282
+  },
+  {
+    "kind": "marker",
+    "name": "Sandrift Prairie [-134.5, 96.6]",
+    "lat": -134.51499141370084,
+    "lng": 96.63507523604281
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandrift Shore [-146.7, 109.9]",
+    "lat": -146.697122505055,
+    "lng": 109.8589454530831
+  },
+  {
+    "kind": "marker",
+    "name": "Sandrift Shore [-146.7, 109.9]",
+    "lat": -146.697122505055,
+    "lng": 109.8589454530831
+  },
+  {
+    "kind": "polygon",
+    "name": "Sandrift Steppe [-133.3, 109.3]",
+    "lat": -133.2692010020719,
+    "lng": 109.33743438034071
+  },
+  {
+    "kind": "marker",
+    "name": "Sandrift Steppe [-133.3, 109.3]",
+    "lat": -133.26920100207192,
+    "lng": 109.33743438034072
+  },
+  {
+    "kind": "polygon",
+    "name": "Scuttlesink Marsh [-11.8, 130.2]",
+    "lat": -11.835899717768534,
+    "lng": 130.17837673316507
+  },
+  {
+    "kind": "marker",
+    "name": "Scuttlesink Marsh [-11.8, 130.2]",
+    "lat": -11.835899717768555,
+    "lng": 130.17837673316504
+  },
+  {
+    "kind": "polygon",
+    "name": "Scuttlesink Mouth [-4.8, 130.4]",
+    "lat": -4.753511635453151,
+    "lng": 130.38202461751763
+  },
+  {
+    "kind": "marker",
+    "name": "Scuttlesink Mouth [-4.8, 130.4]",
+    "lat": -4.753511635453137,
+    "lng": 130.3820246175176
+  },
+  {
+    "kind": "polygon",
+    "name": "Scuttlesink Pools [-8.4, 127.7]",
+    "lat": -8.35126958048528,
+    "lng": 127.68936335240426
+  },
+  {
+    "kind": "marker",
+    "name": "Scuttlesink Pools [-8.4, 127.7]",
+    "lat": -8.35126958048528,
+    "lng": 127.68936335240426
+  },
+  {
+    "kind": "polygon",
+    "name": "Shaleheath Hills [-15.2, 123.3]",
+    "lat": -15.201604676793856,
+    "lng": 123.27818732780733
+  },
+  {
+    "kind": "marker",
+    "name": "Shaleheath Hills [-15.2, 123.3]",
+    "lat": -15.201604676793863,
+    "lng": 123.27818732780733
+  },
+  {
+    "kind": "polygon",
+    "name": "Shaleheath Steep [-19.1, 125.9]",
+    "lat": -19.13424748829928,
+    "lng": 125.85318511943456
+  },
+  {
+    "kind": "marker",
+    "name": "Shaleheath Steep [-19.1, 125.9]",
+    "lat": -19.13424748829928,
+    "lng": 125.85318511943457
+  },
+  {
+    "kind": "polygon",
+    "name": "Shiftshadow Expanse [-233.2, 130.8]",
+    "lat": -233.201738095586,
+    "lng": 130.83455915475264
+  },
+  {
+    "kind": "marker",
+    "name": "Shiftshadow Expanse [-233.2, 130.8]",
+    "lat": -233.201738095586,
+    "lng": 130.83455915475264
+  },
+  {
+    "kind": "polygon",
+    "name": "Skullmarsh Lower [-126.8, 181.0]",
+    "lat": -126.82166753004142,
+    "lng": 181.03534079686102
+  },
+  {
+    "kind": "marker",
+    "name": "Skullmarsh Lower [-126.8, 181.0]",
+    "lat": -126.82166753004142,
+    "lng": 181.03534079686105
+  },
+  {
+    "kind": "polygon",
+    "name": "Skullmarsh Upper [-122.0, 184.1]",
+    "lat": -121.9567749119455,
+    "lng": 184.13529805695373
+  },
+  {
+    "kind": "marker",
+    "name": "Skullmarsh Upper [-122.0, 184.1]",
+    "lat": -121.9567749119455,
+    "lng": 184.13529805695373
+  },
+  {
+    "kind": "polygon",
+    "name": "Skylake Bridge [-75.3, 174.5]",
+    "lat": -75.32842615721677,
+    "lng": 174.48286125165689
+  },
+  {
+    "kind": "marker",
+    "name": "Skylake Bridge [-75.3, 174.5]",
+    "lat": -75.32842615721677,
+    "lng": 174.48286125165689
+  },
+  {
+    "kind": "polygon",
+    "name": "Skylake Hinterlands [-79.4, 172.1]",
+    "lat": -79.44662035005645,
+    "lng": 172.1296064897555
+  },
+  {
+    "kind": "marker",
+    "name": "Skylake Hinterlands [-79.4, 172.1]",
+    "lat": -79.44662035005646,
+    "lng": 172.12960648975553
+  },
+  {
+    "kind": "polygon",
+    "name": "Skysand Plateau [-31.0, 129.8]",
+    "lat": -31.003134823698623,
+    "lng": 129.79369978303941
+  },
+  {
+    "kind": "marker",
+    "name": "Skysand Plateau [-31.0, 129.8]",
+    "lat": -31.003134823698602,
+    "lng": 129.7936997830394
+  },
+  {
+    "kind": "polygon",
+    "name": "Skysand Ridge [-36.2, 126.8]",
+    "lat": -36.17495455064761,
+    "lng": 126.82842611322454
+  },
+  {
+    "kind": "marker",
+    "name": "Skysand Ridge [-36.2, 126.8]",
+    "lat": -36.17495455064761,
+    "lng": 126.82842611322455
+  },
+  {
+    "kind": "polygon",
+    "name": "Slakesands Canyon [-112.6, 185.8]",
+    "lat": -112.5573440807956,
+    "lng": 185.778050793748
+  },
+  {
+    "kind": "marker",
+    "name": "Slakesands Canyon [-112.6, 185.8]",
+    "lat": -112.5573440807956,
+    "lng": 185.778050793748
+  },
+  {
+    "kind": "polygon",
+    "name": "Slakesands Mesa [-112.3, 182.5]",
+    "lat": -112.3433649703901,
+    "lng": 182.45566783475863
+  },
+  {
+    "kind": "marker",
+    "name": "Slakesands Mesa [-112.3, 182.5]",
+    "lat": -112.3433649703901,
+    "lng": 182.45566783475866
+  },
+  {
+    "kind": "polygon",
+    "name": "Sleetwater Basin [-189.7, 130.1]",
+    "lat": -189.66432753880872,
+    "lng": 130.06296672413777
+  },
+  {
+    "kind": "marker",
+    "name": "Sleetwater Basin [-189.7, 130.1]",
+    "lat": -189.6643275388087,
+    "lng": 130.06296672413774
+  },
+  {
+    "kind": "polygon",
+    "name": "Slimehag [-213.5, 97.5]",
+    "lat": -213.50730770611693,
+    "lng": 97.5175390005013
+  },
+  {
+    "kind": "marker",
+    "name": "Slimehag [-213.5, 97.5]",
+    "lat": -213.50730770611693,
+    "lng": 97.5175390005013
+  },
+  {
+    "kind": "polygon",
+    "name": "Slithertail Marsh [-199.8, 118.7]",
+    "lat": -199.8176869337682,
+    "lng": 118.73569286238853
+  },
+  {
+    "kind": "marker",
+    "name": "Slithertail Marsh [-199.8, 118.7]",
+    "lat": -199.8176869337682,
+    "lng": 118.73569286238855
+  },
+  {
+    "kind": "polygon",
+    "name": "Slowtree Plain [-240.3, 133.6]",
+    "lat": -240.26419821175125,
+    "lng": 133.59964693501564
+  },
+  {
+    "kind": "marker",
+    "name": "Slowtree Plain [-240.3, 133.6]",
+    "lat": -240.26419821175128,
+    "lng": 133.5996469350156
+  },
+  {
+    "kind": "polygon",
+    "name": "Smoothfloor Cleft [-244.0, 128.7]",
+    "lat": -244.02443866021406,
+    "lng": 128.67364694084915
+  },
+  {
+    "kind": "marker",
+    "name": "Smoothfloor Cleft [-244.0, 128.7]",
+    "lat": -244.02443866021406,
+    "lng": 128.67364694084915
+  },
+  {
+    "kind": "polygon",
+    "name": "Snapshaft Trough [-247.5, 141.6]",
+    "lat": -247.49547673438082,
+    "lng": 141.58485062734223
+  },
+  {
+    "kind": "marker",
+    "name": "Snapshaft Trough [-247.5, 141.6]",
+    "lat": -247.49547673438082,
+    "lng": 141.58485062734223
+  },
+  {
+    "kind": "polygon",
+    "name": "Southgrove Copse [-146.6, 122.6]",
+    "lat": -146.5821624195873,
+    "lng": 122.55293901504268
+  },
+  {
+    "kind": "marker",
+    "name": "Southgrove Copse [-146.6, 122.6]",
+    "lat": -146.5821624195873,
+    "lng": 122.55293901504268
+  },
+  {
+    "kind": "polygon",
+    "name": "Southgrove Escarp [-152.2, 124.8]",
+    "lat": -152.18700390809573,
+    "lng": 124.80620921749554
+  },
+  {
+    "kind": "marker",
+    "name": "Southgrove Escarp [-152.2, 124.8]",
+    "lat": -152.1870039080957,
+    "lng": 124.80620921749554
+  },
+  {
+    "kind": "polygon",
+    "name": "Southgrove Thicket [-143.7, 125.3]",
+    "lat": -143.7243502902664,
+    "lng": 125.30401273086211
+  },
+  {
+    "kind": "marker",
+    "name": "Southgrove Thicket [-143.7, 125.3]",
+    "lat": -143.72435029026636,
+    "lng": 125.30401273086211
+  },
+  {
+    "kind": "polygon",
+    "name": "Spectral Sump [-196.8, 137.9]",
+    "lat": -196.76851691112745,
+    "lng": 137.90454967529485
+  },
+  {
+    "kind": "marker",
+    "name": "Spectral Sump [-196.8, 137.9]",
+    "lat": -196.76851691112745,
+    "lng": 137.90454967529485
+  },
+  {
+    "kind": "polygon",
+    "name": "Spindlewood [-239.0, 159.0]",
+    "lat": -238.99027350339475,
+    "lng": 159.03965028191357
+  },
+  {
+    "kind": "marker",
+    "name": "Spindlewood [-239.0, 159.0]",
+    "lat": -238.99027350339475,
+    "lng": 159.03965028191357
+  },
+  {
+    "kind": "polygon",
+    "name": "Springsump Basin [-126.6, 120.7]",
+    "lat": -126.60397589407424,
+    "lng": 120.72010529532463
+  },
+  {
+    "kind": "marker",
+    "name": "Springsump Basin [-126.6, 120.7]",
+    "lat": -126.60397589407422,
+    "lng": 120.72010529532461
+  },
+  {
+    "kind": "polygon",
+    "name": "Springsump Melt [-128.8, 117.7]",
+    "lat": -128.75175800620664,
+    "lng": 117.71067146069336
+  },
+  {
+    "kind": "marker",
+    "name": "Springsump Melt [-128.8, 117.7]",
+    "lat": -128.75175800620664,
+    "lng": 117.71067146069336
+  },
+  {
+    "kind": "polygon",
+    "name": "Springsump Wetland [-124.1, 115.7]",
+    "lat": -124.10864204217825,
+    "lng": 115.65341892867977
+  },
+  {
+    "kind": "marker",
+    "name": "Springsump Wetland [-124.1, 115.7]",
+    "lat": -124.10864204217825,
+    "lng": 115.65341892867977
+  },
+  {
+    "kind": "polygon",
+    "name": "Stagbourne [-232.8, 171.9]",
+    "lat": -232.7836024364938,
+    "lng": 171.8916058871908
+  },
+  {
+    "kind": "marker",
+    "name": "Stagbourne [-232.8, 171.9]",
+    "lat": -232.78360243649377,
+    "lng": 171.8916058871908
+  },
+  {
+    "kind": "polygon",
+    "name": "Steelhide Meadow [-253.3, 164.1]",
+    "lat": -253.3202442936576,
+    "lng": 164.11230173348224
+  },
+  {
+    "kind": "marker",
+    "name": "Steelhide Meadow [-253.3, 164.1]",
+    "lat": -253.32024429365757,
+    "lng": 164.11230173348224
+  },
+  {
+    "kind": "polygon",
+    "name": "Steppe Cross [-257.1, 128.1]",
+    "lat": -257.1245620453357,
+    "lng": 128.05779766378626
+  },
+  {
+    "kind": "marker",
+    "name": "Steppe Cross [-257.1, 128.1]",
+    "lat": -257.1245620453357,
+    "lng": 128.05779766378626
+  },
+  {
+    "kind": "polygon",
+    "name": "Stinkhag [-185.4, 110.4]",
+    "lat": -185.43218647097964,
+    "lng": 110.42129084500925
+  },
+  {
+    "kind": "marker",
+    "name": "Stinkhag [-185.4, 110.4]",
+    "lat": -185.43218647097964,
+    "lng": 110.42129084500925
+  },
+  {
+    "kind": "polygon",
+    "name": "Stonelake Fields [-129.2, 94.8]",
+    "lat": -129.22875472717433,
+    "lng": 94.83433871098313
+  },
+  {
+    "kind": "marker",
+    "name": "Stonelake Fields [-129.2, 94.8]",
+    "lat": -129.22875472717433,
+    "lng": 94.83433871098313
+  },
+  {
+    "kind": "polygon",
+    "name": "Stonelake Hillock [-124.5, 97.9]",
+    "lat": -124.47699792693291,
+    "lng": 97.86641181937887
+  },
+  {
+    "kind": "marker",
+    "name": "Stonelake Hillock [-124.5, 97.9]",
+    "lat": -124.47699792693292,
+    "lng": 97.86641181937887
+  },
+  {
+    "kind": "polygon",
+    "name": "Stonemouth Bay [-130.0, 138.2]",
+    "lat": -129.9950125405852,
+    "lng": 138.23943411184717
+  },
+  {
+    "kind": "marker",
+    "name": "Stonemouth Bay [-130.0, 138.2]",
+    "lat": -129.9950125405852,
+    "lng": 138.23943411184717
+  },
+  {
+    "kind": "polygon",
+    "name": "Stonemouth Northbluff [-135.7, 144.0]",
+    "lat": -135.69837448152526,
+    "lng": 143.98110426976484
+  },
+  {
+    "kind": "marker",
+    "name": "Stonemouth Northbluff [-135.7, 144.0]",
+    "lat": -135.6983744815253,
+    "lng": 143.98110426976484
+  },
+  {
+    "kind": "polygon",
+    "name": "Stonemouth Southbluff [-141.2, 139.0]",
+    "lat": -141.2068976404517,
+    "lng": 139.02912958480388
+  },
+  {
+    "kind": "marker",
+    "name": "Stonemouth Southbluff [-141.2, 139.0]",
+    "lat": -141.20689764045167,
+    "lng": 139.02912958480388
+  },
+  {
+    "kind": "polygon",
+    "name": "Stumprot Swamp [-207.1, 124.4]",
+    "lat": -207.11829857736956,
+    "lng": 124.44123316739044
+  },
+  {
+    "kind": "marker",
+    "name": "Stumprot Swamp [-207.1, 124.4]",
+    "lat": -207.11829857736956,
+    "lng": 124.44123316739044
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunfang Approach [-104.0, 116.0]",
+    "lat": -103.95393261047758,
+    "lng": 115.99097545953282
+  },
+  {
+    "kind": "marker",
+    "name": "Sunfang Approach [-104.0, 116.0]",
+    "lat": -103.9539326104776,
+    "lng": 115.99097545953282
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunfang Cliffs [-85.2, 111.1]",
+    "lat": -85.23923253958571,
+    "lng": 111.12608822676216
+  },
+  {
+    "kind": "marker",
+    "name": "Sunfang Cliffs [-85.2, 111.1]",
+    "lat": -85.23923253958571,
+    "lng": 111.12608822676215
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunfang Dawn [-99.9, 108.3]",
+    "lat": -99.85824330717284,
+    "lng": 108.27673881928071
+  },
+  {
+    "kind": "marker",
+    "name": "Sunfang Dawn [-99.9, 108.3]",
+    "lat": -99.85824330717284,
+    "lng": 108.27673881928071
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunfang Ravine [-98.8, 122.5]",
+    "lat": -98.79488099188254,
+    "lng": 122.46241477499424
+  },
+  {
+    "kind": "marker",
+    "name": "Sunfang Ravine [-98.8, 122.5]",
+    "lat": -98.79488099188254,
+    "lng": 122.46241477499424
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunfang Wasteland [-90.8, 118.4]",
+    "lat": -90.7621440204328,
+    "lng": 118.41210541267401
+  },
+  {
+    "kind": "marker",
+    "name": "Sunfang Wasteland [-90.8, 118.4]",
+    "lat": -90.7621440204328,
+    "lng": 118.41210541267401
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunkenbough Spring [-116.2, 134.9]",
+    "lat": -116.17094415929053,
+    "lng": 134.90482531055227
+  },
+  {
+    "kind": "marker",
+    "name": "Sunkenbough Spring [-116.2, 134.9]",
+    "lat": -116.17094415929054,
+    "lng": 134.90482531055224
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunkenbough Woods [-110.2, 138.3]",
+    "lat": -110.23982819267167,
+    "lng": 138.31518502447472
+  },
+  {
+    "kind": "marker",
+    "name": "Sunkenbough Woods [-110.2, 138.3]",
+    "lat": -110.23982819267168,
+    "lng": 138.31518502447472
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunstrand Delta [-148.7, 138.8]",
+    "lat": -148.69204718338,
+    "lng": 138.82095734842255
+  },
+  {
+    "kind": "marker",
+    "name": "Sunstrand Delta [-148.7, 138.8]",
+    "lat": -148.69204718338,
+    "lng": 138.82095734842255
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunstrand Dunes [-152.4, 136.1]",
+    "lat": -152.4336137676524,
+    "lng": 136.13843986383972
+  },
+  {
+    "kind": "marker",
+    "name": "Sunstrand Dunes [-152.4, 136.1]",
+    "lat": -152.4336137676524,
+    "lng": 136.13843986383975
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunstrand Quicksands [-147.1, 129.5]",
+    "lat": -147.14108880880508,
+    "lng": 129.53534011677593
+  },
+  {
+    "kind": "marker",
+    "name": "Sunstrand Quicksands [-147.1, 129.5]",
+    "lat": -147.14108880880508,
+    "lng": 129.53534011677593
+  },
+  {
+    "kind": "polygon",
+    "name": "Sunstrand Shoal [-140.0, 129.9]",
+    "lat": -140.0043719362389,
+    "lng": 129.94531619353415
+  },
+  {
+    "kind": "marker",
+    "name": "Sunstrand Shoal [-140.0, 129.9]",
+    "lat": -140.0043719362389,
+    "lng": 129.94531619353415
+  },
+  {
+    "kind": "polygon",
+    "name": "Swamp Cross [-179.3, 111.2]",
+    "lat": -179.336030378732,
+    "lng": 111.24110202971782
+  },
+  {
+    "kind": "marker",
+    "name": "Swamp Cross [-179.3, 111.2]",
+    "lat": -179.336030378732,
+    "lng": 111.24110202971782
+  },
+  {
+    "kind": "polygon",
+    "name": "Swiftsands Basin [-70.1, 190.0]",
+    "lat": -70.10331818441503,
+    "lng": 190.02788247398925
+  },
+  {
+    "kind": "marker",
+    "name": "Swiftsands Basin [-70.1, 190.0]",
+    "lat": -70.10331818441503,
+    "lng": 190.02788247398925
+  },
+  {
+    "kind": "polygon",
+    "name": "Swiftsands Chaparral [-74.8, 189.6]",
+    "lat": -74.82257866498965,
+    "lng": 189.59688534582057
+  },
+  {
+    "kind": "marker",
+    "name": "Swiftsands Chaparral [-74.8, 189.6]",
+    "lat": -74.82257866498965,
+    "lng": 189.59688534582057
+  },
+  {
+    "kind": "polygon",
+    "name": "Swiftsands Plain [-72.8, 193.6]",
+    "lat": -72.83265369546969,
+    "lng": 193.57092931593297
+  },
+  {
+    "kind": "marker",
+    "name": "Swiftsands Plain [-72.8, 193.6]",
+    "lat": -72.83265369546969,
+    "lng": 193.57092931593297
+  },
+  {
+    "kind": "polygon",
+    "name": "Tharcal Fissure [-203.0, 152.4]",
+    "lat": -203.0420920457855,
+    "lng": 152.37587823875322
+  },
+  {
+    "kind": "marker",
+    "name": "Tharcal Fissure [-203.0, 152.4]",
+    "lat": -203.04209204578547,
+    "lng": 152.37587823875322
+  },
+  {
+    "kind": "polygon",
+    "name": "The Cove [-234.0, 88.6]",
+    "lat": -233.99630097484052,
+    "lng": 88.55968289088929
+  },
+  {
+    "kind": "marker",
+    "name": "The Cove [-234.0, 88.6]",
+    "lat": -233.99630097484055,
+    "lng": 88.55968289088928
+  },
+  {
+    "kind": "polygon",
+    "name": "The Lighthouse [-236.3, 88.1]",
+    "lat": -236.32737430613298,
+    "lng": 88.10668924336338
+  },
+  {
+    "kind": "marker",
+    "name": "The Lighthouse [-236.3, 88.1]",
+    "lat": -236.32737430613298,
+    "lng": 88.10668924336338
+  },
+  {
+    "kind": "polygon",
+    "name": "Thetford [-188.0, 121.7]",
+    "lat": -187.95183619773,
+    "lng": 121.66992511019473
+  },
+  {
+    "kind": "marker",
+    "name": "Thetford [-188.0, 121.7]",
+    "lat": -187.95183619773,
+    "lng": 121.66992511019473
+  },
+  {
+    "kind": "polygon",
+    "name": "Thetford Portal [-19.9, 87.9]",
+    "lat": -19.90935802970902,
+    "lng": 87.89226120500462
+  },
+  {
+    "kind": "marker",
+    "name": "Thetford Portal [-19.9, 87.9]",
+    "lat": -19.909358029708997,
+    "lng": 87.89226120500462
+  },
+  {
+    "kind": "polygon",
+    "name": "Thirstwater Gully [-125.9, 144.8]",
+    "lat": -125.93919978315755,
+    "lng": 144.76359245785932
+  },
+  {
+    "kind": "marker",
+    "name": "Thirstwater Gully [-125.9, 144.8]",
+    "lat": -125.93919978315755,
+    "lng": 144.76359245785935
+  },
+  {
+    "kind": "polygon",
+    "name": "Thirstwater Steppe [-130.3, 147.8]",
+    "lat": -130.33750042281653,
+    "lng": 147.80512416597148
+  },
+  {
+    "kind": "marker",
+    "name": "Thirstwater Steppe [-130.3, 147.8]",
+    "lat": -130.33750042281653,
+    "lng": 147.80512416597148
+  },
+  {
+    "kind": "polygon",
+    "name": "Thirstwater Waste [-122.9, 148.5]",
+    "lat": -122.86187055100311,
+    "lng": 148.47448832509576
+  },
+  {
+    "kind": "marker",
+    "name": "Thirstwater Waste [-122.9, 148.5]",
+    "lat": -122.86187055100311,
+    "lng": 148.47448832509573
+  },
+  {
+    "kind": "polygon",
+    "name": "Thunderrock Ascent [-86.4, 138.0]",
+    "lat": -86.3851919640453,
+    "lng": 137.98374721870692
+  },
+  {
+    "kind": "marker",
+    "name": "Thunderrock Ascent [-86.4, 138.0]",
+    "lat": -86.3851919640453,
+    "lng": 137.98374721870692
+  },
+  {
+    "kind": "polygon",
+    "name": "Thunderrock Draw [-86.0, 146.7]",
+    "lat": -85.95527203669023,
+    "lng": 146.6500448516005
+  },
+  {
+    "kind": "marker",
+    "name": "Thunderrock Draw [-86.0, 146.7]",
+    "lat": -85.95527203669023,
+    "lng": 146.65004485160054
+  },
+  {
+    "kind": "polygon",
+    "name": "Thunderrock Rapids [-103.2, 148.1]",
+    "lat": -103.16696656969627,
+    "lng": 148.10339882209354
+  },
+  {
+    "kind": "marker",
+    "name": "Thunderrock Rapids [-103.2, 148.1]",
+    "lat": -103.16696656969627,
+    "lng": 148.10339882209354
+  },
+  {
+    "kind": "polygon",
+    "name": "Thunderrock Upland [-97.5, 148.2]",
+    "lat": -97.47262466387633,
+    "lng": 148.1660832386192
+  },
+  {
+    "kind": "marker",
+    "name": "Thunderrock Upland [-97.5, 148.2]",
+    "lat": -97.47262466387635,
+    "lng": 148.1660832386192
+  },
+  {
+    "kind": "polygon",
+    "name": "Timberscar Copse [-22.0, 104.0]",
+    "lat": -22.01370826306851,
+    "lng": 104.02108720899567
+  },
+  {
+    "kind": "marker",
+    "name": "Timberscar Copse [-22.0, 104.0]",
+    "lat": -22.01370826306851,
+    "lng": 104.02108720899567
+  },
+  {
+    "kind": "polygon",
+    "name": "Timberscar Dell [-31.3, 103.9]",
+    "lat": -31.287434741827894,
+    "lng": 103.88423025531519
+  },
+  {
+    "kind": "marker",
+    "name": "Timberscar Dell [-31.3, 103.9]",
+    "lat": -31.287434741827894,
+    "lng": 103.88423025531517
+  },
+  {
+    "kind": "polygon",
+    "name": "Timberslope Bridge [-72.2, 179.8]",
+    "lat": -72.21945096635372,
+    "lng": 179.79761995570124
+  },
+  {
+    "kind": "marker",
+    "name": "Timberslope Bridge [-72.2, 179.8]",
+    "lat": -72.21945096635372,
+    "lng": 179.79761995570126
+  },
+  {
+    "kind": "polygon",
+    "name": "Timberslope Dell [-63.3, 181.0]",
+    "lat": -63.33771842029979,
+    "lng": 181.04479855936302
+  },
+  {
+    "kind": "marker",
+    "name": "Timberslope Dell [-63.3, 181.0]",
+    "lat": -63.33771842029978,
+    "lng": 181.04479855936302
+  },
+  {
+    "kind": "polygon",
+    "name": "Timberslope Grove [-67.3, 182.3]",
+    "lat": -67.27488762030146,
+    "lng": 182.31193526889433
+  },
+  {
+    "kind": "marker",
+    "name": "Timberslope Grove [-67.3, 182.3]",
+    "lat": -67.27488762030147,
+    "lng": 182.31193526889433
+  },
+  {
+    "kind": "polygon",
+    "name": "Timbertop Dale [-6.0, 121.6]",
+    "lat": -5.989987516129716,
+    "lng": 121.5788753257591
+  },
+  {
+    "kind": "marker",
+    "name": "Timbertop Dale [-6.0, 121.6]",
+    "lat": -5.98998751612973,
+    "lng": 121.5788753257591
+  },
+  {
+    "kind": "polygon",
+    "name": "Timbertop Escarp [-8.9, 118.4]",
+    "lat": -8.850905348943286,
+    "lng": 118.3668578194515
+  },
+  {
+    "kind": "marker",
+    "name": "Timbertop Escarp [-8.9, 118.4]",
+    "lat": -8.850905348943272,
+    "lng": 118.3668578194515
+  },
+  {
+    "kind": "polygon",
+    "name": "Timbertop Wood [-2.2, 117.7]",
+    "lat": -2.1531885598992986,
+    "lng": 117.73328607057329
+  },
+  {
+    "kind": "marker",
+    "name": "Timbertop Wood [-2.2, 117.7]",
+    "lat": -2.1531885598993057,
+    "lng": 117.7332860705733
+  },
+  {
+    "kind": "polygon",
+    "name": "Twinchannel Narrows [-66.4, 66.7]",
+    "lat": -66.37124522710056,
+    "lng": 66.66439070033752
+  },
+  {
+    "kind": "marker",
+    "name": "Twinchannel Narrows [-66.4, 66.7]",
+    "lat": -66.37124522710057,
+    "lng": 66.66439070033752
+  },
+  {
+    "kind": "polygon",
+    "name": "Unhallowed Cloister [-63.2, 70.7]",
+    "lat": -63.23363171379629,
+    "lng": 70.70446344183529
+  },
+  {
+    "kind": "marker",
+    "name": "Unhallowed Cloister [-63.2, 70.7]",
+    "lat": -63.2336317137963,
+    "lng": 70.70446344183529
+  },
+  {
+    "kind": "polygon",
+    "name": "Vixen Tor [-245.8, 124.7]",
+    "lat": -245.8315594430975,
+    "lng": 124.67429510992119
+  },
+  {
+    "kind": "marker",
+    "name": "Vixen Tor [-245.8, 124.7]",
+    "lat": -245.8315594430975,
+    "lng": 124.67429510992119
+  },
+  {
+    "kind": "polygon",
+    "name": "Wailing Bulwark [-94.4, 128.8]",
+    "lat": -94.42596028825687,
+    "lng": 128.82072929215326
+  },
+  {
+    "kind": "marker",
+    "name": "Wailing Bulwark [-94.4, 128.8]",
+    "lat": -94.42596028825687,
+    "lng": 128.82072929215326
+  },
+  {
+    "kind": "polygon",
+    "name": "Wanderlure Basin [-202.4, 114.6]",
+    "lat": -202.41986749398342,
+    "lng": 114.6238734917397
+  },
+  {
+    "kind": "marker",
+    "name": "Wanderlure Basin [-202.4, 114.6]",
+    "lat": -202.41986749398342,
+    "lng": 114.62387349173969
+  },
+  {
+    "kind": "polygon",
+    "name": "Watchwood Bluffs [-117.0, 179.5]",
+    "lat": -116.95611394520088,
+    "lng": 179.5419346691076
+  },
+  {
+    "kind": "marker",
+    "name": "Watchwood Bluffs [-117.0, 179.5]",
+    "lat": -116.95611394520088,
+    "lng": 179.5419346691076
+  },
+  {
+    "kind": "polygon",
+    "name": "Watchwood Grove [-119.6, 176.4]",
+    "lat": -119.61210227676312,
+    "lng": 176.36092238094147
+  },
+  {
+    "kind": "marker",
+    "name": "Watchwood Grove [-119.6, 176.4]",
+    "lat": -119.61210227676312,
+    "lng": 176.36092238094147
+  },
+  {
+    "kind": "polygon",
+    "name": "Watchwood Lakeside [-109.9, 177.7]",
+    "lat": -109.91770527989493,
+    "lng": 177.67223491346175
+  },
+  {
+    "kind": "marker",
+    "name": "Watchwood Lakeside [-109.9, 177.7]",
+    "lat": -109.91770527989493,
+    "lng": 177.67223491346178
+  },
+  {
+    "kind": "polygon",
+    "name": "Watchwood Precipice [-112.0, 174.2]",
+    "lat": -111.97808265819593,
+    "lng": 174.247114113551
+  },
+  {
+    "kind": "marker",
+    "name": "Watchwood Precipice [-112.0, 174.2]",
+    "lat": -111.97808265819593,
+    "lng": 174.247114113551
+  },
+  {
+    "kind": "polygon",
+    "name": "Westweald Shore [-66.0, 57.9]",
+    "lat": -66.01372902908619,
+    "lng": 57.8668490029417
+  },
+  {
+    "kind": "marker",
+    "name": "Westweald Shore [-66.0, 57.9]",
+    "lat": -66.01372902908619,
+    "lng": 57.866849002941706
+  },
+  {
+    "kind": "polygon",
+    "name": "Westweald Thicket [-71.7, 62.2]",
+    "lat": -71.66832544702825,
+    "lng": 62.204528077173094
+  },
+  {
+    "kind": "marker",
+    "name": "Westweald Thicket [-71.7, 62.2]",
+    "lat": -71.66832544702827,
+    "lng": 62.204528077173094
+  },
+  {
+    "kind": "polygon",
+    "name": "Wetgrave Bog [-81.4, 188.6]",
+    "lat": -81.36995013868876,
+    "lng": 188.57973799108424
+  },
+  {
+    "kind": "marker",
+    "name": "Wetgrave Bog [-81.4, 188.6]",
+    "lat": -81.36995013868878,
+    "lng": 188.57973799108424
+  },
+  {
+    "kind": "polygon",
+    "name": "Wetgrave Marsh [-85.9, 184.1]",
+    "lat": -85.88185704282905,
+    "lng": 184.1402387308278
+  },
+  {
+    "kind": "marker",
+    "name": "Wetgrave Marsh [-85.9, 184.1]",
+    "lat": -85.88185704282907,
+    "lng": 184.1402387308278
+  },
+  {
+    "kind": "polygon",
+    "name": "Wetgrave Swale [-76.8, 185.2]",
+    "lat": -76.83770134505923,
+    "lng": 185.17616240669867
+  },
+  {
+    "kind": "marker",
+    "name": "Wetgrave Swale [-76.8, 185.2]",
+    "lat": -76.83770134505923,
+    "lng": 185.1761624066987
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitebank Cross [-47.5, 149.6]",
+    "lat": -47.511288430162814,
+    "lng": 149.56898359029645
+  },
+  {
+    "kind": "marker",
+    "name": "Whitebank Cross [-47.5, 149.6]",
+    "lat": -47.51128843016281,
+    "lng": 149.56898359029645
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitebank Descent [-32.5, 153.0]",
+    "lat": -32.4721006258042,
+    "lng": 152.98680967300575
+  },
+  {
+    "kind": "marker",
+    "name": "Whitebank Descent [-32.5, 153.0]",
+    "lat": -32.4721006258042,
+    "lng": 152.98680967300575
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitebank Ridge [-37.4, 150.3]",
+    "lat": -37.44336880414264,
+    "lng": 150.30731326537597
+  },
+  {
+    "kind": "marker",
+    "name": "Whitebank Ridge [-37.4, 150.3]",
+    "lat": -37.44336880414262,
+    "lng": 150.307313265376
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitebank Shore [-45.6, 160.5]",
+    "lat": -45.5507451616147,
+    "lng": 160.5443721546335
+  },
+  {
+    "kind": "marker",
+    "name": "Whitebank Shore [-45.6, 160.5]",
+    "lat": -45.55074516161473,
+    "lng": 160.5443721546335
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitebank Stream [-40.5, 152.5]",
+    "lat": -40.45957633707157,
+    "lng": 152.51163912035432
+  },
+  {
+    "kind": "marker",
+    "name": "Whitebank Stream [-40.5, 152.5]",
+    "lat": -40.45957633707155,
+    "lng": 152.51163912035432
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitebank Wall [-43.2, 146.2]",
+    "lat": -43.19931824245843,
+    "lng": 146.19857733284147
+  },
+  {
+    "kind": "marker",
+    "name": "Whitebank Wall [-43.2, 146.2]",
+    "lat": -43.19931824245843,
+    "lng": 146.19857733284147
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitecliff Expanse [-139.2, 156.1]",
+    "lat": -139.2441224034909,
+    "lng": 156.1225553609191
+  },
+  {
+    "kind": "marker",
+    "name": "Whitecliff Expanse [-139.2, 156.1]",
+    "lat": -139.2441224034909,
+    "lng": 156.1225553609191
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitecliff Peak [-136.4, 151.8]",
+    "lat": -136.41569401160933,
+    "lng": 151.80071998144228
+  },
+  {
+    "kind": "marker",
+    "name": "Whitecliff Peak [-136.4, 151.8]",
+    "lat": -136.41569401160936,
+    "lng": 151.80071998144228
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitepeak Ascent [-44.9, 107.8]",
+    "lat": -44.909950288682424,
+    "lng": 107.77269620297044
+  },
+  {
+    "kind": "marker",
+    "name": "Whitepeak Ascent [-44.9, 107.8]",
+    "lat": -44.90995028868241,
+    "lng": 107.77269620297044
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitepeak Spring [-39.0, 105.4]",
+    "lat": -39.04863243645469,
+    "lng": 105.35500873979649
+  },
+  {
+    "kind": "marker",
+    "name": "Whitepeak Spring [-39.0, 105.4]",
+    "lat": -39.04863243645468,
+    "lng": 105.35500873979649
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitepeak Tundra [-39.2, 112.2]",
+    "lat": -39.24630464625226,
+    "lng": 112.1601519063284
+  },
+  {
+    "kind": "marker",
+    "name": "Whitepeak Tundra [-39.2, 112.2]",
+    "lat": -39.246304646252284,
+    "lng": 112.1601519063284
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitewall Pass [-111.4, 95.7]",
+    "lat": -111.44633754415663,
+    "lng": 95.69603636713848
+  },
+  {
+    "kind": "marker",
+    "name": "Whitewall Pass [-111.4, 95.7]",
+    "lat": -111.44633754415663,
+    "lng": 95.69603636713848
+  },
+  {
+    "kind": "polygon",
+    "name": "Whitewall Ridge [-116.5, 97.7]",
+    "lat": -116.50356531108508,
+    "lng": 97.6759357391269
+  },
+  {
+    "kind": "marker",
+    "name": "Whitewall Ridge [-116.5, 97.7]",
+    "lat": -116.50356531108508,
+    "lng": 97.6759357391269
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor Delta [-22.4, 78.3]",
+    "lat": -22.40472677308201,
+    "lng": 78.33895850768843
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor Delta [-22.4, 78.3]",
+    "lat": -22.404726773082004,
+    "lng": 78.33895850768843
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor End [-23.9, 98.9]",
+    "lat": -23.942576994480348,
+    "lng": 98.94240328805532
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor End [-23.9, 98.9]",
+    "lat": -23.942576994480348,
+    "lng": 98.94240328805532
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor Estuary [-24.7, 84.4]",
+    "lat": -24.708664174539642,
+    "lng": 84.43437622206461
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor Estuary [-24.7, 84.4]",
+    "lat": -24.70866417453965,
+    "lng": 84.43437622206463
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor Fen [-38.5, 76.2]",
+    "lat": -38.4909906056999,
+    "lng": 76.23461279981235
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor Fen [-38.5, 76.2]",
+    "lat": -38.49099060569988,
+    "lng": 76.23461279981234
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor Flats [-34.7, 78.7]",
+    "lat": -34.72808555261139,
+    "lng": 78.71416407360708
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor Flats [-34.7, 78.7]",
+    "lat": -34.72808555261139,
+    "lng": 78.71416407360707
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor Hills [-14.6, 98.8]",
+    "lat": -14.622343254194206,
+    "lng": 98.81342542724771
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor Hills [-14.6, 98.8]",
+    "lat": -14.622343254194206,
+    "lng": 98.81342542724771
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor Pool [-18.4, 97.2]",
+    "lat": -18.436345314073336,
+    "lng": 97.22339117794614
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor Pool [-18.4, 97.2]",
+    "lat": -18.436345314073336,
+    "lng": 97.22339117794613
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor Shore [-10.9, 93.4]",
+    "lat": -10.883277995106418,
+    "lng": 93.40656159603894
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor Shore [-10.9, 93.4]",
+    "lat": -10.88327799510644,
+    "lng": 93.40656159603893
+  },
+  {
+    "kind": "polygon",
+    "name": "Widemoor Woods [-31.7, 87.8]",
+    "lat": -31.70276482748652,
+    "lng": 87.81985369688529
+  },
+  {
+    "kind": "marker",
+    "name": "Widemoor Woods [-31.7, 87.8]",
+    "lat": -31.70276482748652,
+    "lng": 87.81985369688527
+  },
+  {
+    "kind": "polygon",
+    "name": "Willow Wood [-237.5, 163.5]",
+    "lat": -237.4896397261038,
+    "lng": 163.45198958201834
+  },
+  {
+    "kind": "marker",
+    "name": "Willow Wood [-237.5, 163.5]",
+    "lat": -237.4896397261038,
+    "lng": 163.45198958201834
+  },
+  {
+    "kind": "polygon",
+    "name": "Willowshade Hills [-39.6, 93.1]",
+    "lat": -39.56906732661721,
+    "lng": 93.06832425146324
+  },
+  {
+    "kind": "marker",
+    "name": "Willowshade Hills [-39.6, 93.1]",
+    "lat": -39.5690673266172,
+    "lng": 93.06832425146324
+  },
+  {
+    "kind": "polygon",
+    "name": "Willowshade Icemarsh [-49.9, 84.4]",
+    "lat": -49.87440958308974,
+    "lng": 84.3578528546756
+  },
+  {
+    "kind": "marker",
+    "name": "Willowshade Icemarsh [-49.9, 84.4]",
+    "lat": -49.874409583089744,
+    "lng": 84.3578528546756
+  },
+  {
+    "kind": "polygon",
+    "name": "Willowshade Lake [-49.8, 93.8]",
+    "lat": -49.82057020124118,
+    "lng": 93.80664872223687
+  },
+  {
+    "kind": "marker",
+    "name": "Willowshade Lake [-49.8, 93.8]",
+    "lat": -49.820570201241196,
+    "lng": 93.80664872223687
+  },
+  {
+    "kind": "polygon",
+    "name": "Willowshade Mire [-47.2, 88.4]",
+    "lat": -47.195794581234296,
+    "lng": 88.4213237029943
+  },
+  {
+    "kind": "marker",
+    "name": "Willowshade Mire [-47.2, 88.4]",
+    "lat": -47.195794581234296,
+    "lng": 88.4213237029943
+  },
+  {
+    "kind": "polygon",
+    "name": "Willowshade Pools [-33.5, 99.3]",
+    "lat": -33.48229351180843,
+    "lng": 99.26823515126188
+  },
+  {
+    "kind": "marker",
+    "name": "Willowshade Pools [-33.5, 99.3]",
+    "lat": -33.48229351180842,
+    "lng": 99.26823515126186
+  },
+  {
+    "kind": "polygon",
+    "name": "Willowshade Sink [-43.8, 98.4]",
+    "lat": -43.78580776714394,
+    "lng": 98.40948530448335
+  },
+  {
+    "kind": "marker",
+    "name": "Willowshade Sink [-43.8, 98.4]",
+    "lat": -43.785807767143964,
+    "lng": 98.40948530448337
+  },
+  {
+    "kind": "polygon",
+    "name": "Willowshade Wetlands [-30.7, 93.1]",
+    "lat": -30.663733977340883,
+    "lng": 93.11465909207249
+  },
+  {
+    "kind": "marker",
+    "name": "Willowshade Wetlands [-30.7, 93.1]",
+    "lat": -30.663733977340883,
+    "lng": 93.1146590920725
+  },
+  {
+    "kind": "polygon",
+    "name": "Willowsigh Marsh [-192.2, 125.4]",
+    "lat": -192.19099475164745,
+    "lng": 125.40290155764251
+  },
+  {
+    "kind": "marker",
+    "name": "Willowsigh Marsh [-192.2, 125.4]",
+    "lat": -192.19099475164745,
+    "lng": 125.40290155764252
+  },
+  {
+    "kind": "polygon",
+    "name": "Windgrass Border [-79.9, 62.2]",
+    "lat": -79.86849912697814,
+    "lng": 62.18189927990269
+  },
+  {
+    "kind": "marker",
+    "name": "Windgrass Border [-79.9, 62.2]",
+    "lat": -79.86849912697812,
+    "lng": 62.18189927990268
+  },
+  {
+    "kind": "polygon",
+    "name": "Windgrass Coast [-76.8, 48.6]",
+    "lat": -76.77657892175638,
+    "lng": 48.58391047280153
+  },
+  {
+    "kind": "marker",
+    "name": "Windgrass Coast [-76.8, 48.6]",
+    "lat": -76.77657892175638,
+    "lng": 48.58391047280152
+  },
+  {
+    "kind": "polygon",
+    "name": "Windgrass Fields [-83.7, 67.4]",
+    "lat": -83.66990502424508,
+    "lng": 67.43146018182352
+  },
+  {
+    "kind": "marker",
+    "name": "Windgrass Fields [-83.7, 67.4]",
+    "lat": -83.66990502424508,
+    "lng": 67.43146018182352
+  },
+  {
+    "kind": "polygon",
+    "name": "Windgrass Gully [-79.2, 52.0]",
+    "lat": -79.19095995362152,
+    "lng": 52.036439433001014
+  },
+  {
+    "kind": "marker",
+    "name": "Windgrass Gully [-79.2, 52.0]",
+    "lat": -79.1909599536215,
+    "lng": 52.03643943300102
+  },
+  {
+    "kind": "polygon",
+    "name": "Windgrass Precipice [-81.0, 47.4]",
+    "lat": -81.02378073045703,
+    "lng": 47.4430737824132
+  },
+  {
+    "kind": "marker",
+    "name": "Windgrass Precipice [-81.0, 47.4]",
+    "lat": -81.02378073045702,
+    "lng": 47.443073782413194
+  },
+  {
+    "kind": "polygon",
+    "name": "Windgrass Rill [-87.3, 63.4]",
+    "lat": -87.29029174392022,
+    "lng": 63.358525122189015
+  },
+  {
+    "kind": "marker",
+    "name": "Windgrass Rill [-87.3, 63.4]",
+    "lat": -87.29029174392022,
+    "lng": 63.35852512218902
+  },
+  {
+    "kind": "polygon",
+    "name": "Windgrass Terrace [-92.5, 67.4]",
+    "lat": -92.45738213706989,
+    "lng": 67.38729619297364
+  },
+  {
+    "kind": "marker",
+    "name": "Windgrass Terrace [-92.5, 67.4]",
+    "lat": -92.4573821370699,
+    "lng": 67.38729619297365
+  },
+  {
+    "kind": "polygon",
+    "name": "Windripple Fen [-184.1, 125.8]",
+    "lat": -184.0984201190046,
+    "lng": 125.7796089052273
+  },
+  {
+    "kind": "marker",
+    "name": "Windripple Fen [-184.1, 125.8]",
+    "lat": -184.0984201190046,
+    "lng": 125.7796089052273
+  },
+  {
+    "kind": "polygon",
+    "name": "Wispwhisper Marsh [-199.6, 109.6]",
+    "lat": -199.567530656518,
+    "lng": 109.60896381423728
+  },
+  {
+    "kind": "marker",
+    "name": "Wispwhisper Marsh [-199.6, 109.6]",
+    "lat": -199.567530656518,
+    "lng": 109.60896381423728
+  },
+  {
+    "kind": "polygon",
+    "name": "Wyre Forest [-222.0, 141.9]",
+    "lat": -222.0197349662538,
+    "lng": 141.92158596397758
+  },
+  {
+    "kind": "marker",
+    "name": "Wyre Forest [-222.0, 141.9]",
+    "lat": -222.0197349662538,
+    "lng": 141.92158596397758
+  },
+  {
+    "kind": "polygon",
+    "name": "Yew Wood [-220.5, 162.8]",
+    "lat": -220.49918001103785,
+    "lng": 162.75238989896923
+  },
+  {
+    "kind": "marker",
+    "name": "Yew Wood [-220.5, 162.8]",
+    "lat": -220.49918001103782,
+    "lng": 162.7523898989692
+  }
+]

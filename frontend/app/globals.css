@@ -1,0 +1,16 @@
+/* marker normal */
+.ping {
+  filter: drop-shadow(0 0 4px rgba(0,0,0,.4));
+}
+
+/* “pulse” via box-shadow animado no SVG path do Leaflet */
+.ping-pulse {
+  animation: pingPulse 1.2s ease-out infinite;
+  filter: drop-shadow(0 0 6px rgba(0,0,0,.5));
+}
+
+@keyframes pingPulse {
+  0%   { opacity: 1; }
+  70%  { opacity: 0.35; }
+  100% { opacity: 1; }
+}

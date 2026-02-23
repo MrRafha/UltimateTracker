@@ -1,0 +1,6690 @@
+[
+  {
+    "zoneId": "ADRENS_HILL_226_1_117_0",
+    "displayName": "Adrens Hill",
+    "center": {
+      "x": 117.00469319930218,
+      "y": -226.1220628142945
+    }
+  },
+  {
+    "zoneId": "ADRENS_HILL_226_1_117_0",
+    "displayName": "Adrens Hill",
+    "center": {
+      "x": 117.00469319930218,
+      "y": -226.12206281429448
+    }
+  },
+  {
+    "zoneId": "ANKLESNAG_MIRE_201_7_136_3",
+    "displayName": "Anklesnag Mire",
+    "center": {
+      "x": 136.25157703933925,
+      "y": -201.73875260042828
+    }
+  },
+  {
+    "zoneId": "ANKLESNAG_MIRE_201_7_136_3",
+    "displayName": "Anklesnag Mire",
+    "center": {
+      "x": 136.25157703933925,
+      "y": -201.73875260042826
+    }
+  },
+  {
+    "zoneId": "ARTHUR_S_REST_107_1_98_7",
+    "displayName": "Arthur's Rest",
+    "center": {
+      "x": 98.68043459403552,
+      "y": -107.08831572059415
+    }
+  },
+  {
+    "zoneId": "ARTHUR_S_REST_107_1_98_7",
+    "displayName": "Arthur's Rest",
+    "center": {
+      "x": 98.68043459403552,
+      "y": -107.08831572059415
+    }
+  },
+  {
+    "zoneId": "ASPENWOOD_216_7_167_7",
+    "displayName": "Aspenwood",
+    "center": {
+      "x": 167.6935518464435,
+      "y": -216.69649392239938
+    }
+  },
+  {
+    "zoneId": "ASPENWOOD_216_7_167_7",
+    "displayName": "Aspenwood",
+    "center": {
+      "x": 167.6935518464435,
+      "y": -216.69649392239938
+    }
+  },
+  {
+    "zoneId": "ASTOLAT_235_6_137_2",
+    "displayName": "Astolat",
+    "center": {
+      "x": 137.16984083948336,
+      "y": -235.64596435106017
+    }
+  },
+  {
+    "zoneId": "ASTOLAT_235_6_137_2",
+    "displayName": "Astolat",
+    "center": {
+      "x": 137.16984083948333,
+      "y": -235.64596435106017
+    }
+  },
+  {
+    "zoneId": "AVALANCHE_INCLINE_68_7_91_5",
+    "displayName": "Avalanche Incline",
+    "center": {
+      "x": 91.52168350483538,
+      "y": -68.65063258256532
+    }
+  },
+  {
+    "zoneId": "AVALANCHE_INCLINE_68_7_91_5",
+    "displayName": "Avalanche Incline",
+    "center": {
+      "x": 91.52168350483538,
+      "y": -68.65063258256532
+    }
+  },
+  {
+    "zoneId": "AVALANCHE_RAVINE_63_3_86_7",
+    "displayName": "Avalanche Ravine",
+    "center": {
+      "x": 86.65864565611078,
+      "y": -63.31329601556621
+    }
+  },
+  {
+    "zoneId": "AVALANCHE_RAVINE_63_3_86_7",
+    "displayName": "Avalanche Ravine",
+    "center": {
+      "x": 86.65864565611078,
+      "y": -63.31329601556621
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_FLATLAND_100_5_89_2",
+    "displayName": "Battlebrae Flatland",
+    "center": {
+      "x": 89.17748568337126,
+      "y": -100.53719237225519
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_FLATLAND_100_5_89_2",
+    "displayName": "Battlebrae Flatland",
+    "center": {
+      "x": 89.17748568337126,
+      "y": -100.53719237225519
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_GRASSLAND_104_5_104_4",
+    "displayName": "Battlebrae Grassland",
+    "center": {
+      "x": 104.41890690215145,
+      "y": -104.46578083327736
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_GRASSLAND_104_5_104_4",
+    "displayName": "Battlebrae Grassland",
+    "center": {
+      "x": 104.41890690215145,
+      "y": -104.46578083327736
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_LAKE_108_7_107_2",
+    "displayName": "Battlebrae Lake",
+    "center": {
+      "x": 107.21045725041384,
+      "y": -108.65057105937949
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_LAKE_108_7_107_2",
+    "displayName": "Battlebrae Lake",
+    "center": {
+      "x": 107.21045725041384,
+      "y": -108.65057105937949
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_MEADOW_103_8_93_6",
+    "displayName": "Battlebrae Meadow",
+    "center": {
+      "x": 93.55774494039976,
+      "y": -103.76885457207949
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_MEADOW_103_8_93_6",
+    "displayName": "Battlebrae Meadow",
+    "center": {
+      "x": 93.55774494039977,
+      "y": -103.76885457207949
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_PEAKS_110_8_103_1",
+    "displayName": "Battlebrae Peaks",
+    "center": {
+      "x": 103.12914298673597,
+      "y": -110.77882905950038
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_PEAKS_110_8_103_1",
+    "displayName": "Battlebrae Peaks",
+    "center": {
+      "x": 103.12914298673596,
+      "y": -110.77882905950038
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_PLAIN_100_2_98_2",
+    "displayName": "Battlebrae Plain",
+    "center": {
+      "x": 98.22737246010658,
+      "y": -100.21054458023087
+    }
+  },
+  {
+    "zoneId": "BATTLEBRAE_PLAIN_100_2_98_2",
+    "displayName": "Battlebrae Plain",
+    "center": {
+      "x": 98.22737246010658,
+      "y": -100.21054458023089
+    }
+  },
+  {
+    "zoneId": "BELLEVER_TOR_235_1_111_1",
+    "displayName": "Bellever Tor",
+    "center": {
+      "x": 111.09173528227583,
+      "y": -235.1097020352559
+    }
+  },
+  {
+    "zoneId": "BELLEVER_TOR_235_1_111_1",
+    "displayName": "Bellever Tor",
+    "center": {
+      "x": 111.09173528227585,
+      "y": -235.1097020352559
+    }
+  },
+  {
+    "zoneId": "BIRCHCOPSE_226_2_172_6",
+    "displayName": "Birchcopse",
+    "center": {
+      "x": 172.60436793870764,
+      "y": -226.20581389910325
+    }
+  },
+  {
+    "zoneId": "BIRCHCOPSE_226_2_172_6",
+    "displayName": "Birchcopse",
+    "center": {
+      "x": 172.60436793870764,
+      "y": -226.20581389910325
+    }
+  },
+  {
+    "zoneId": "BIRKEN_FELL_214_8_132_4",
+    "displayName": "Birken Fell",
+    "center": {
+      "x": 132.4248649330582,
+      "y": -214.7993316327818
+    }
+  },
+  {
+    "zoneId": "BIRKEN_FELL_214_8_132_4",
+    "displayName": "Birken Fell",
+    "center": {
+      "x": 132.4248649330582,
+      "y": -214.7993316327818
+    }
+  },
+  {
+    "zoneId": "BLACK_MONASTERY_66_5_104_3",
+    "displayName": "Black Monastery",
+    "center": {
+      "x": 104.3487613964942,
+      "y": -66.47208546495028
+    }
+  },
+  {
+    "zoneId": "BLACK_MONASTERY_66_5_104_3",
+    "displayName": "Black Monastery",
+    "center": {
+      "x": 104.3487613964942,
+      "y": -66.47208546495028
+    }
+  },
+  {
+    "zoneId": "BLACKTHORN_QUARRY_222_7_113_8",
+    "displayName": "Blackthorn Quarry",
+    "center": {
+      "x": 113.77349850454047,
+      "y": -222.70079148107308
+    }
+  },
+  {
+    "zoneId": "BLACKTHORN_QUARRY_222_7_113_8",
+    "displayName": "Blackthorn Quarry",
+    "center": {
+      "x": 113.77349850454047,
+      "y": -222.70079148107305
+    }
+  },
+  {
+    "zoneId": "BLEACHSKULL_DESERT_80_3_71_5",
+    "displayName": "Bleachskull Desert",
+    "center": {
+      "x": 71.47338814524096,
+      "y": -80.29970089750614
+    }
+  },
+  {
+    "zoneId": "BLEACHSKULL_DESERT_80_3_71_5",
+    "displayName": "Bleachskull Desert",
+    "center": {
+      "x": 71.47338814524096,
+      "y": -80.29970089750614
+    }
+  },
+  {
+    "zoneId": "BLEACHSKULL_STEPPE_74_6_66_5",
+    "displayName": "Bleachskull Steppe",
+    "center": {
+      "x": 66.50373450098758,
+      "y": -74.59630922414013
+    }
+  },
+  {
+    "zoneId": "BLEACHSKULL_STEPPE_74_6_66_5",
+    "displayName": "Bleachskull Steppe",
+    "center": {
+      "x": 66.50373450098759,
+      "y": -74.59630922414013
+    }
+  },
+  {
+    "zoneId": "BONEPOOL_MARSH_203_3_106_0",
+    "displayName": "Bonepool Marsh",
+    "center": {
+      "x": 106.04967247810168,
+      "y": -203.30784585412073
+    }
+  },
+  {
+    "zoneId": "BONEPOOL_MARSH_203_3_106_0",
+    "displayName": "Bonepool Marsh",
+    "center": {
+      "x": 106.0496724781017,
+      "y": -203.30784585412073
+    }
+  },
+  {
+    "zoneId": "BOWSCALE_FELL_207_6_117_9",
+    "displayName": "Bowscale Fell",
+    "center": {
+      "x": 117.93919647035152,
+      "y": -207.56261234773507
+    }
+  },
+  {
+    "zoneId": "BOWSCALE_FELL_207_6_117_9",
+    "displayName": "Bowscale Fell",
+    "center": {
+      "x": 117.93919647035152,
+      "y": -207.56261234773507
+    }
+  },
+  {
+    "zoneId": "BRAEMORE_LOWLAND_51_7_66_6",
+    "displayName": "Braemore Lowland",
+    "center": {
+      "x": 66.59532682300056,
+      "y": -51.70722861761417
+    }
+  },
+  {
+    "zoneId": "BRAEMORE_LOWLAND_51_7_66_6",
+    "displayName": "Braemore Lowland",
+    "center": {
+      "x": 66.59532682300056,
+      "y": -51.70722861761416
+    }
+  },
+  {
+    "zoneId": "BRAEMORE_UPLAND_50_9_59_5",
+    "displayName": "Braemore Upland",
+    "center": {
+      "x": 59.53557366998559,
+      "y": -50.892643370625784
+    }
+  },
+  {
+    "zoneId": "BRAEMORE_UPLAND_50_9_59_5",
+    "displayName": "Braemore Upland",
+    "center": {
+      "x": 59.53557366998558,
+      "y": -50.89264337062578
+    }
+  },
+  {
+    "zoneId": "BRAMBLESHORE_HINTERLANDS_9_3_134_7",
+    "displayName": "Brambleshore Hinterlands",
+    "center": {
+      "x": 134.68013913269746,
+      "y": -9.316211252880294
+    }
+  },
+  {
+    "zoneId": "BRAMBLESHORE_HINTERLANDS_9_3_134_7",
+    "displayName": "Brambleshore Hinterlands",
+    "center": {
+      "x": 134.68013913269746,
+      "y": -9.316211252880294
+    }
+  },
+  {
+    "zoneId": "BRENT_KNOLL_218_8_101_7",
+    "displayName": "Brent Knoll",
+    "center": {
+      "x": 101.68819056044154,
+      "y": -218.75865375284698
+    }
+  },
+  {
+    "zoneId": "BRENT_KNOLL_218_8_101_7",
+    "displayName": "Brent Knoll",
+    "center": {
+      "x": 101.68819056044154,
+      "y": -218.75865375284698
+    }
+  },
+  {
+    "zoneId": "BRIDGEWATCH_246_6_133_0",
+    "displayName": "Bridgewatch",
+    "center": {
+      "x": 132.96949079473325,
+      "y": -246.62838483777767
+    }
+  },
+  {
+    "zoneId": "BRIDGEWATCH_246_6_133_0",
+    "displayName": "Bridgewatch",
+    "center": {
+      "x": 132.96949079473325,
+      "y": -246.62838483777765
+    }
+  },
+  {
+    "zoneId": "BRIDGEWATCH_PORTAL_138_3_103_9",
+    "displayName": "Bridgewatch Portal",
+    "center": {
+      "x": 103.89889693971978,
+      "y": -138.27789915945198
+    }
+  },
+  {
+    "zoneId": "BRIDGEWATCH_PORTAL_138_3_103_9",
+    "displayName": "Bridgewatch Portal",
+    "center": {
+      "x": 103.89889693971978,
+      "y": -138.27789915945198
+    }
+  },
+  {
+    "zoneId": "BROKEN_FELL_230_2_124_8",
+    "displayName": "Broken Fell",
+    "center": {
+      "x": 124.83336675651358,
+      "y": -230.24706401298965
+    }
+  },
+  {
+    "zoneId": "BROKEN_FELL_230_2_124_8",
+    "displayName": "Broken Fell",
+    "center": {
+      "x": 124.83336675651358,
+      "y": -230.24706401298965
+    }
+  },
+  {
+    "zoneId": "BRONS_HILL_242_1_115_3",
+    "displayName": "Brons Hill",
+    "center": {
+      "x": 115.26808329444532,
+      "y": -242.12291538851846
+    }
+  },
+  {
+    "zoneId": "BRONS_HILL_242_1_115_3",
+    "displayName": "Brons Hill",
+    "center": {
+      "x": 115.26808329444532,
+      "y": -242.12291538851844
+    }
+  },
+  {
+    "zoneId": "BRYN_GORGE_186_7_151_9",
+    "displayName": "Bryn Gorge",
+    "center": {
+      "x": 151.90069818258664,
+      "y": -186.6824684248827
+    }
+  },
+  {
+    "zoneId": "BRYN_GORGE_186_7_151_9",
+    "displayName": "Bryn Gorge",
+    "center": {
+      "x": 151.90069818258664,
+      "y": -186.68246842488267
+    }
+  },
+  {
+    "zoneId": "CAERLEON_220_6_137_0",
+    "displayName": "Caerleon",
+    "center": {
+      "x": 136.95624639516677,
+      "y": -220.56421369650587
+    }
+  },
+  {
+    "zoneId": "CAERLEON_220_6_137_0",
+    "displayName": "Caerleon",
+    "center": {
+      "x": 136.95624639516677,
+      "y": -220.56421369650587
+    }
+  },
+  {
+    "zoneId": "CAIRN_CAMAIN_200_5_147_6",
+    "displayName": "Cairn Camain",
+    "center": {
+      "x": 147.62410528253608,
+      "y": -200.47796853821913
+    }
+  },
+  {
+    "zoneId": "CAIRN_CAMAIN_200_5_147_6",
+    "displayName": "Cairn Camain",
+    "center": {
+      "x": 147.62410528253608,
+      "y": -200.47796853821916
+    }
+  },
+  {
+    "zoneId": "CAIRN_CLOCH_184_4_134_0",
+    "displayName": "Cairn Cloch",
+    "center": {
+      "x": 134.0065182133779,
+      "y": -184.44012579405774
+    }
+  },
+  {
+    "zoneId": "CAIRN_CLOCH_184_4_134_0",
+    "displayName": "Cairn Cloch",
+    "center": {
+      "x": 134.0065182133779,
+      "y": -184.44012579405774
+    }
+  },
+  {
+    "zoneId": "CAIRN_DARG_205_5_159_8",
+    "displayName": "Cairn Darg",
+    "center": {
+      "x": 159.8044562976224,
+      "y": -205.50621436275182
+    }
+  },
+  {
+    "zoneId": "CAIRN_DARG_205_5_159_8",
+    "displayName": "Cairn Darg",
+    "center": {
+      "x": 159.8044562976224,
+      "y": -205.50621436275182
+    }
+  },
+  {
+    "zoneId": "CAIRN_DRAIN_208_6_156_1",
+    "displayName": "Cairn Drain",
+    "center": {
+      "x": 156.12296604853762,
+      "y": -208.60121327695774
+    }
+  },
+  {
+    "zoneId": "CAIRN_DRAIN_208_6_156_1",
+    "displayName": "Cairn Drain",
+    "center": {
+      "x": 156.12296604853765,
+      "y": -208.60121327695774
+    }
+  },
+  {
+    "zoneId": "CAIRN_FIDAIR_196_1_142_7",
+    "displayName": "Cairn Fidair",
+    "center": {
+      "x": 142.74296391629392,
+      "y": -196.07287815742382
+    }
+  },
+  {
+    "zoneId": "CAIRN_FIDAIR_196_1_142_7",
+    "displayName": "Cairn Fidair",
+    "center": {
+      "x": 142.74296391629392,
+      "y": -196.07287815742382
+    }
+  },
+  {
+    "zoneId": "CAIRN_GLASCORE_195_3_133_0",
+    "displayName": "Cairn Glascore",
+    "center": {
+      "x": 132.97403347496976,
+      "y": -195.3362043567202
+    }
+  },
+  {
+    "zoneId": "CAIRN_GLASCORE_195_3_133_0",
+    "displayName": "Cairn Glascore",
+    "center": {
+      "x": 132.97403347496976,
+      "y": -195.3362043567202
+    }
+  },
+  {
+    "zoneId": "CAIRN_GORM_191_4_137_8",
+    "displayName": "Cairn Gorm",
+    "center": {
+      "x": 137.7766678865666,
+      "y": -191.42065067562834
+    }
+  },
+  {
+    "zoneId": "CAIRN_GORM_191_4_137_8",
+    "displayName": "Cairn Gorm",
+    "center": {
+      "x": 137.7766678865666,
+      "y": -191.42065067562834
+    }
+  },
+  {
+    "zoneId": "CAMLANN_205_5_131_6",
+    "displayName": "Camlann",
+    "center": {
+      "x": 131.6265291582934,
+      "y": -205.5265833372592
+    }
+  },
+  {
+    "zoneId": "CAMLANN_205_5_131_6",
+    "displayName": "Camlann",
+    "center": {
+      "x": 131.6265291582934,
+      "y": -205.5265833372592
+    }
+  },
+  {
+    "zoneId": "CARNS_HILL_234_0_121_7",
+    "displayName": "Carns Hill",
+    "center": {
+      "x": 121.74019568505277,
+      "y": -234.00095158785612
+    }
+  },
+  {
+    "zoneId": "CARNS_HILL_234_0_121_7",
+    "displayName": "Carns Hill",
+    "center": {
+      "x": 121.74019568505277,
+      "y": -234.00095158785612
+    }
+  },
+  {
+    "zoneId": "CAULDER_FISSURE_181_3_139_7",
+    "displayName": "Caulder Fissure",
+    "center": {
+      "x": 139.69504881019986,
+      "y": -181.28586137552492
+    }
+  },
+  {
+    "zoneId": "CAULDER_FISSURE_181_3_139_7",
+    "displayName": "Caulder Fissure",
+    "center": {
+      "x": 139.6950488101999,
+      "y": -181.28586137552492
+    }
+  },
+  {
+    "zoneId": "CEDARCOPSE_196_6_165_1",
+    "displayName": "Cedarcopse",
+    "center": {
+      "x": 165.08795771409996,
+      "y": -196.64758377588512
+    }
+  },
+  {
+    "zoneId": "CEDARCOPSE_196_6_165_1",
+    "displayName": "Cedarcopse",
+    "center": {
+      "x": 165.08795771409996,
+      "y": -196.64758377588515
+    }
+  },
+  {
+    "zoneId": "CHILLHAG_183_5_115_0",
+    "displayName": "Chillhag",
+    "center": {
+      "x": 114.993109062585,
+      "y": -183.46441326752495
+    }
+  },
+  {
+    "zoneId": "CHILLHAG_183_5_115_0",
+    "displayName": "Chillhag",
+    "center": {
+      "x": 114.993109062585,
+      "y": -183.46441326752495
+    }
+  },
+  {
+    "zoneId": "CITADEL_OF_ASH_32_2_123_0",
+    "displayName": "Citadel of Ash",
+    "center": {
+      "x": 123.02811409317752,
+      "y": -32.24582328798612
+    }
+  },
+  {
+    "zoneId": "CITADEL_OF_ASH_32_2_123_0",
+    "displayName": "Citadel of Ash",
+    "center": {
+      "x": 123.02811409317752,
+      "y": -32.24582328798613
+    }
+  },
+  {
+    "zoneId": "CRACKED_EARTH_238_6_170_1",
+    "displayName": "Cracked Earth",
+    "center": {
+      "x": 170.0671635903213,
+      "y": -238.60209337656943
+    }
+  },
+  {
+    "zoneId": "CRACKED_EARTH_238_6_170_1",
+    "displayName": "Cracked Earth",
+    "center": {
+      "x": 170.0671635903213,
+      "y": -238.60209337656948
+    }
+  },
+  {
+    "zoneId": "CREAG_DHOR_202_3_142_9",
+    "displayName": "Creag Dhor",
+    "center": {
+      "x": 142.88139709584246,
+      "y": -202.3198400555797
+    }
+  },
+  {
+    "zoneId": "CREAG_DHOR_202_3_142_9",
+    "displayName": "Creag Dhor",
+    "center": {
+      "x": 142.88139709584246,
+      "y": -202.31984005557968
+    }
+  },
+  {
+    "zoneId": "CREAG_GARR_207_4_146_1",
+    "displayName": "Creag Garr",
+    "center": {
+      "x": 146.09567734384984,
+      "y": -207.39435691140568
+    }
+  },
+  {
+    "zoneId": "CREAG_GARR_207_4_146_1",
+    "displayName": "Creag Garr",
+    "center": {
+      "x": 146.09567734384984,
+      "y": -207.39435691140568
+    }
+  },
+  {
+    "zoneId": "CREAG_MEAGIR_206_4_141_4",
+    "displayName": "Creag Meagir",
+    "center": {
+      "x": 141.4151535982759,
+      "y": -206.427162000826
+    }
+  },
+  {
+    "zoneId": "CREAG_MEAGIR_206_4_141_4",
+    "displayName": "Creag Meagir",
+    "center": {
+      "x": 141.4151535982759,
+      "y": -206.427162000826
+    }
+  },
+  {
+    "zoneId": "CREAG_MORR_214_6_139_8",
+    "displayName": "Creag Morr",
+    "center": {
+      "x": 139.75388258341047,
+      "y": -214.6477256761537
+    }
+  },
+  {
+    "zoneId": "CREAG_MORR_214_6_139_8",
+    "displayName": "Creag Morr",
+    "center": {
+      "x": 139.75388258341047,
+      "y": -214.6477256761537
+    }
+  },
+  {
+    "zoneId": "CROKER_HILL_231_7_115_4",
+    "displayName": "Croker Hill",
+    "center": {
+      "x": 115.43887458539768,
+      "y": -231.71555893854753
+    }
+  },
+  {
+    "zoneId": "CROKER_HILL_231_7_115_4",
+    "displayName": "Croker Hill",
+    "center": {
+      "x": 115.43887458539767,
+      "y": -231.71555893854753
+    }
+  },
+  {
+    "zoneId": "CROSE_GORGE_189_3_157_3",
+    "displayName": "Crose Gorge",
+    "center": {
+      "x": 157.2939838212855,
+      "y": -189.29015824070632
+    }
+  },
+  {
+    "zoneId": "CROSE_GORGE_189_3_157_3",
+    "displayName": "Crose Gorge",
+    "center": {
+      "x": 157.2939838212855,
+      "y": -189.29015824070632
+    }
+  },
+  {
+    "zoneId": "CURLEW_FEN_208_2_100_2",
+    "displayName": "Curlew Fen",
+    "center": {
+      "x": 100.24002704787887,
+      "y": -208.17355871608282
+    }
+  },
+  {
+    "zoneId": "CURLEW_FEN_208_2_100_2",
+    "displayName": "Curlew Fen",
+    "center": {
+      "x": 100.24002704787887,
+      "y": -208.17355871608282
+    }
+  },
+  {
+    "zoneId": "DAEMONIUM_KEEP_125_7_133_0",
+    "displayName": "Daemonium Keep",
+    "center": {
+      "x": 133.02943365305072,
+      "y": -125.65180054472995
+    }
+  },
+  {
+    "zoneId": "DAEMONIUM_KEEP_125_7_133_0",
+    "displayName": "Daemonium Keep",
+    "center": {
+      "x": 133.02943365305072,
+      "y": -125.65180054472997
+    }
+  },
+  {
+    "zoneId": "DARKBOUGH_SNAG_76_7_139_4",
+    "displayName": "Darkbough Snag",
+    "center": {
+      "x": 139.36509457102756,
+      "y": -76.68789528631623
+    }
+  },
+  {
+    "zoneId": "DARKBOUGH_SNAG_76_7_139_4",
+    "displayName": "Darkbough Snag",
+    "center": {
+      "x": 139.36509457102756,
+      "y": -76.68789528631623
+    }
+  },
+  {
+    "zoneId": "DARKGROUND_SWAMP_199_1_129_6",
+    "displayName": "Darkground Swamp",
+    "center": {
+      "x": 129.59683921868955,
+      "y": -199.14068751481665
+    }
+  },
+  {
+    "zoneId": "DARKGROUND_SWAMP_199_1_129_6",
+    "displayName": "Darkground Swamp",
+    "center": {
+      "x": 129.59683921868955,
+      "y": -199.14068751481665
+    }
+  },
+  {
+    "zoneId": "DEADPINE_FOREST_57_7_121_5",
+    "displayName": "Deadpine Forest",
+    "center": {
+      "x": 121.46680987523828,
+      "y": -57.74874805097535
+    }
+  },
+  {
+    "zoneId": "DEADPINE_FOREST_57_7_121_5",
+    "displayName": "Deadpine Forest",
+    "center": {
+      "x": 121.46680987523827,
+      "y": -57.74874805097535
+    }
+  },
+  {
+    "zoneId": "DEADVEIN_GULLY_228_0_133_3",
+    "displayName": "Deadvein Gully",
+    "center": {
+      "x": 133.29828368172815,
+      "y": -227.96848787305169
+    }
+  },
+  {
+    "zoneId": "DEADVEIN_GULLY_228_0_133_3",
+    "displayName": "Deadvein Gully",
+    "center": {
+      "x": 133.29828368172815,
+      "y": -227.9684878730517
+    }
+  },
+  {
+    "zoneId": "DEATHREACH_PRIORY_103_0_84_4",
+    "displayName": "Deathreach Priory",
+    "center": {
+      "x": 84.44727430230179,
+      "y": -102.99371671937743
+    }
+  },
+  {
+    "zoneId": "DEATHREACH_PRIORY_103_0_84_4",
+    "displayName": "Deathreach Priory",
+    "center": {
+      "x": 84.44727430230179,
+      "y": -102.99371671937743
+    }
+  },
+  {
+    "zoneId": "DEATHWISP_BOG_73_2_107_1",
+    "displayName": "Deathwisp Bog",
+    "center": {
+      "x": 107.0746904630569,
+      "y": -73.21603542961896
+    }
+  },
+  {
+    "zoneId": "DEATHWISP_BOG_73_2_107_1",
+    "displayName": "Deathwisp Bog",
+    "center": {
+      "x": 107.0746904630569,
+      "y": -73.21603542961896
+    }
+  },
+  {
+    "zoneId": "DEATHWISP_SINK_58_5_103_6",
+    "displayName": "Deathwisp Sink",
+    "center": {
+      "x": 103.64772756512832,
+      "y": -58.46420844459662
+    }
+  },
+  {
+    "zoneId": "DEATHWISP_SINK_58_5_103_6",
+    "displayName": "Deathwisp Sink",
+    "center": {
+      "x": 103.6477275651283,
+      "y": -58.46420844459662
+    }
+  },
+  {
+    "zoneId": "DEEPROOT_WOOD_229_7_156_0",
+    "displayName": "Deeproot Wood",
+    "center": {
+      "x": 155.9826769682469,
+      "y": -229.73974940429923
+    }
+  },
+  {
+    "zoneId": "DEEPROOT_WOOD_229_7_156_0",
+    "displayName": "Deeproot Wood",
+    "center": {
+      "x": 155.9826769682469,
+      "y": -229.73974940429923
+    }
+  },
+  {
+    "zoneId": "DEEPWOOD_COPSE_58_8_146_1",
+    "displayName": "Deepwood Copse",
+    "center": {
+      "x": 146.1296168854276,
+      "y": -58.77974277397414
+    }
+  },
+  {
+    "zoneId": "DEEPWOOD_COPSE_58_8_146_1",
+    "displayName": "Deepwood Copse",
+    "center": {
+      "x": 146.1296168854276,
+      "y": -58.779742773974135
+    }
+  },
+  {
+    "zoneId": "DEEPWOOD_DELL_51_7_156_8",
+    "displayName": "Deepwood Dell",
+    "center": {
+      "x": 156.76558039207072,
+      "y": -51.72985377187043
+    }
+  },
+  {
+    "zoneId": "DEEPWOOD_DELL_51_7_156_8",
+    "displayName": "Deepwood Dell",
+    "center": {
+      "x": 156.76558039207072,
+      "y": -51.729853771870424
+    }
+  },
+  {
+    "zoneId": "DEEPWOOD_GORGE_52_9_148_7",
+    "displayName": "Deepwood Gorge",
+    "center": {
+      "x": 148.72339022885723,
+      "y": -52.920524067221315
+    }
+  },
+  {
+    "zoneId": "DEEPWOOD_GORGE_52_9_148_7",
+    "displayName": "Deepwood Gorge",
+    "center": {
+      "x": 148.72339022885723,
+      "y": -52.92052406722131
+    }
+  },
+  {
+    "zoneId": "DEEPWOOD_PINES_57_9_158_4",
+    "displayName": "Deepwood Pines",
+    "center": {
+      "x": 158.3721394440059,
+      "y": -57.9053168789736
+    }
+  },
+  {
+    "zoneId": "DEEPWOOD_PINES_57_9_158_4",
+    "displayName": "Deepwood Pines",
+    "center": {
+      "x": 158.3721394440059,
+      "y": -57.90531687897359
+    }
+  },
+  {
+    "zoneId": "DEWLEAF_FEN_194_8_105_3",
+    "displayName": "Dewleaf Fen",
+    "center": {
+      "x": 105.34705475017338,
+      "y": -194.7695115591662
+    }
+  },
+  {
+    "zoneId": "DEWLEAF_FEN_194_8_105_3",
+    "displayName": "Dewleaf Fen",
+    "center": {
+      "x": 105.34705475017338,
+      "y": -194.76951155916623
+    }
+  },
+  {
+    "zoneId": "DOMHAIN_CHASM_211_8_144_4",
+    "displayName": "Domhain Chasm",
+    "center": {
+      "x": 144.36241991709542,
+      "y": -211.7750248422126
+    }
+  },
+  {
+    "zoneId": "DOMHAIN_CHASM_211_8_144_4",
+    "displayName": "Domhain Chasm",
+    "center": {
+      "x": 144.36241991709542,
+      "y": -211.7750248422126
+    }
+  },
+  {
+    "zoneId": "DRIFTWOOD_GLEN_53_7_90_0",
+    "displayName": "Driftwood Glen",
+    "center": {
+      "x": 89.99099124053018,
+      "y": -53.73382742578193
+    }
+  },
+  {
+    "zoneId": "DRIFTWOOD_GLEN_53_7_90_0",
+    "displayName": "Driftwood Glen",
+    "center": {
+      "x": 89.99099124053018,
+      "y": -53.733827425781925
+    }
+  },
+  {
+    "zoneId": "DRIFTWOOD_HOLLOW_64_1_98_8",
+    "displayName": "Driftwood Hollow",
+    "center": {
+      "x": 98.77043333495158,
+      "y": -64.09718871006119
+    }
+  },
+  {
+    "zoneId": "DRIFTWOOD_HOLLOW_64_1_98_8",
+    "displayName": "Driftwood Hollow",
+    "center": {
+      "x": 98.77043333495156,
+      "y": -64.0971887100612
+    }
+  },
+  {
+    "zoneId": "DRIFTWOOD_VALE_59_1_96_8",
+    "displayName": "Driftwood Vale",
+    "center": {
+      "x": 96.75768332057358,
+      "y": -59.149819021243175
+    }
+  },
+  {
+    "zoneId": "DRIFTWOOD_VALE_59_1_96_8",
+    "displayName": "Driftwood Vale",
+    "center": {
+      "x": 96.75768332057358,
+      "y": -59.149819021243175
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_COURSE_26_5_116_9",
+    "displayName": "Drownfield Course",
+    "center": {
+      "x": 116.91644649928426,
+      "y": -26.52787048711582
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_COURSE_26_5_116_9",
+    "displayName": "Drownfield Course",
+    "center": {
+      "x": 116.91644649928426,
+      "y": -26.527870487115834
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_FEN_47_5_121_2",
+    "displayName": "Drownfield Fen",
+    "center": {
+      "x": 121.15456396574564,
+      "y": -47.45145022591168
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_FEN_47_5_121_2",
+    "displayName": "Drownfield Fen",
+    "center": {
+      "x": 121.15456396574564,
+      "y": -47.451450225911685
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_MIRE_36_2_117_4",
+    "displayName": "Drownfield Mire",
+    "center": {
+      "x": 117.35432774754555,
+      "y": -36.190795326465384
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_MIRE_36_2_117_4",
+    "displayName": "Drownfield Mire",
+    "center": {
+      "x": 117.35432774754555,
+      "y": -36.19079532646538
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_QUAG_44_1_117_4",
+    "displayName": "Drownfield Quag",
+    "center": {
+      "x": 117.43912897077719,
+      "y": -44.1270436970202
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_QUAG_44_1_117_4",
+    "displayName": "Drownfield Quag",
+    "center": {
+      "x": 117.4391289707772,
+      "y": -44.1270436970202
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_RUT_48_8_115_9",
+    "displayName": "Drownfield Rut",
+    "center": {
+      "x": 115.91364033355902,
+      "y": -48.80233621005839
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_RUT_48_8_115_9",
+    "displayName": "Drownfield Rut",
+    "center": {
+      "x": 115.91364033355902,
+      "y": -48.8023362100584
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_SINK_54_1_117_5",
+    "displayName": "Drownfield Sink",
+    "center": {
+      "x": 117.45229722237332,
+      "y": -54.14240322746665
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_SINK_54_1_117_5",
+    "displayName": "Drownfield Sink",
+    "center": {
+      "x": 117.45229722237333,
+      "y": -54.142403227466644
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_SLOUGH_41_3_122_4",
+    "displayName": "Drownfield Slough",
+    "center": {
+      "x": 122.39680712246664,
+      "y": -41.27642609069828
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_SLOUGH_41_3_122_4",
+    "displayName": "Drownfield Slough",
+    "center": {
+      "x": 122.39680712246664,
+      "y": -41.27642609069828
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_WETLAND_28_0_110_9",
+    "displayName": "Drownfield Wetland",
+    "center": {
+      "x": 110.8930256054089,
+      "y": -28.012231983746844
+    }
+  },
+  {
+    "zoneId": "DROWNFIELD_WETLAND_28_0_110_9",
+    "displayName": "Drownfield Wetland",
+    "center": {
+      "x": 110.8930256054089,
+      "y": -28.012231983746844
+    }
+  },
+  {
+    "zoneId": "DROWNHORSE_BASIN_179_0_127_4",
+    "displayName": "Drownhorse Basin",
+    "center": {
+      "x": 127.38614306700379,
+      "y": -178.99549838779853
+    }
+  },
+  {
+    "zoneId": "DROWNHORSE_BASIN_179_0_127_4",
+    "displayName": "Drownhorse Basin",
+    "center": {
+      "x": 127.38614306700379,
+      "y": -178.99549838779853
+    }
+  },
+  {
+    "zoneId": "DRYBASIN_OASIS_85_1_176_0",
+    "displayName": "Drybasin Oasis",
+    "center": {
+      "x": 175.9762664290588,
+      "y": -85.10347364919733
+    }
+  },
+  {
+    "zoneId": "DRYBASIN_OASIS_85_1_176_0",
+    "displayName": "Drybasin Oasis",
+    "center": {
+      "x": 175.97626642905882,
+      "y": -85.10347364919733
+    }
+  },
+  {
+    "zoneId": "DRYBASIN_RIVERBED_80_6_180_5",
+    "displayName": "Drybasin Riverbed",
+    "center": {
+      "x": 180.4696553719118,
+      "y": -80.63911169992733
+    }
+  },
+  {
+    "zoneId": "DRYBASIN_RIVERBED_80_6_180_5",
+    "displayName": "Drybasin Riverbed",
+    "center": {
+      "x": 180.46965537191178,
+      "y": -80.63911169992733
+    }
+  },
+  {
+    "zoneId": "DRYFIELD_MEADOW_242_9_169_4",
+    "displayName": "Dryfield Meadow",
+    "center": {
+      "x": 169.37132616789643,
+      "y": -242.92291631490014
+    }
+  },
+  {
+    "zoneId": "DRYFIELD_MEADOW_242_9_169_4",
+    "displayName": "Dryfield Meadow",
+    "center": {
+      "x": 169.3713261678964,
+      "y": -242.92291631490014
+    }
+  },
+  {
+    "zoneId": "DRYTOP_PILLARS_15_2_106_3",
+    "displayName": "Drytop Pillars",
+    "center": {
+      "x": 106.34223887048284,
+      "y": -15.155371207012777
+    }
+  },
+  {
+    "zoneId": "DRYTOP_PILLARS_15_2_106_3",
+    "displayName": "Drytop Pillars",
+    "center": {
+      "x": 106.34223887048283,
+      "y": -15.155371207012777
+    }
+  },
+  {
+    "zoneId": "DRYTOP_RIVERBED_11_3_103_3",
+    "displayName": "Drytop Riverbed",
+    "center": {
+      "x": 103.31283072875146,
+      "y": -11.251670898315297
+    }
+  },
+  {
+    "zoneId": "DRYTOP_RIVERBED_11_3_103_3",
+    "displayName": "Drytop Riverbed",
+    "center": {
+      "x": 103.31283072875145,
+      "y": -11.25167089831531
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_CONFLUENCE_113_3_115_2",
+    "displayName": "Dryvein Confluence",
+    "center": {
+      "x": 115.19900985249919,
+      "y": -113.25379660013594
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_CONFLUENCE_113_3_115_2",
+    "displayName": "Dryvein Confluence",
+    "center": {
+      "x": 115.1990098524992,
+      "y": -113.25379660013594
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_CROSS_120_8_110_4",
+    "displayName": "Dryvein Cross",
+    "center": {
+      "x": 110.43821977331046,
+      "y": -120.80048380888466
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_CROSS_120_8_110_4",
+    "displayName": "Dryvein Cross",
+    "center": {
+      "x": 110.43821977331046,
+      "y": -120.80048380888466
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_END_111_5_121_3",
+    "displayName": "Dryvein End",
+    "center": {
+      "x": 121.32158681878889,
+      "y": -111.45765313073123
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_END_111_5_121_3",
+    "displayName": "Dryvein End",
+    "center": {
+      "x": 121.32158681878889,
+      "y": -111.45765313073123
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_OASIS_121_3_104_0",
+    "displayName": "Dryvein Oasis",
+    "center": {
+      "x": 103.97473490002051,
+      "y": -121.2992964371671
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_OASIS_121_3_104_0",
+    "displayName": "Dryvein Oasis",
+    "center": {
+      "x": 103.97473490002051,
+      "y": -121.2992964371671
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_PLAIN_127_3_109_3",
+    "displayName": "Dryvein Plain",
+    "center": {
+      "x": 109.27064378907988,
+      "y": -127.32623046380556
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_PLAIN_127_3_109_3",
+    "displayName": "Dryvein Plain",
+    "center": {
+      "x": 109.27064378907988,
+      "y": -127.32623046380557
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_RIVERBED_119_3_119_9",
+    "displayName": "Dryvein Riverbed",
+    "center": {
+      "x": 119.94131559700504,
+      "y": -119.30936701683422
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_RIVERBED_119_3_119_9",
+    "displayName": "Dryvein Riverbed",
+    "center": {
+      "x": 119.94131559700504,
+      "y": -119.30936701683422
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_STEPPE_121_7_128_9",
+    "displayName": "Dryvein Steppe",
+    "center": {
+      "x": 128.88861566133704,
+      "y": -121.737256722996
+    }
+  },
+  {
+    "zoneId": "DRYVEIN_STEPPE_121_7_128_9",
+    "displayName": "Dryvein Steppe",
+    "center": {
+      "x": 128.88861566133704,
+      "y": -121.73725672299598
+    }
+  },
+  {
+    "zoneId": "DRYWATER_MEADOW_255_8_139_9",
+    "displayName": "Drywater Meadow",
+    "center": {
+      "x": 139.89231372649152,
+      "y": -255.84952565198208
+    }
+  },
+  {
+    "zoneId": "DRYWATER_MEADOW_255_8_139_9",
+    "displayName": "Drywater Meadow",
+    "center": {
+      "x": 139.89231372649152,
+      "y": -255.84952565198208
+    }
+  },
+  {
+    "zoneId": "DUSKLIGHT_FEN_189_0_116_6",
+    "displayName": "Dusklight Fen",
+    "center": {
+      "x": 116.60419040745398,
+      "y": -188.96105338951327
+    }
+  },
+  {
+    "zoneId": "DUSKLIGHT_FEN_189_0_116_6",
+    "displayName": "Dusklight Fen",
+    "center": {
+      "x": 116.60419040745398,
+      "y": -188.96105338951327
+    }
+  },
+  {
+    "zoneId": "DUSKTREE_SWAMP_201_3_125_9",
+    "displayName": "Dusktree Swamp",
+    "center": {
+      "x": 125.88034028257385,
+      "y": -201.34378424850365
+    }
+  },
+  {
+    "zoneId": "DUSKTREE_SWAMP_201_3_125_9",
+    "displayName": "Dusktree Swamp",
+    "center": {
+      "x": 125.88034028257385,
+      "y": -201.3437842485036
+    }
+  },
+  {
+    "zoneId": "ELDERSLEEP_61_8_144_3",
+    "displayName": "Eldersleep",
+    "center": {
+      "x": 144.25489330015023,
+      "y": -61.79044324615412
+    }
+  },
+  {
+    "zoneId": "ELDERSLEEP_61_8_144_3",
+    "displayName": "Eldersleep",
+    "center": {
+      "x": 144.25489330015023,
+      "y": -61.79044324615411
+    }
+  },
+  {
+    "zoneId": "ELDON_HILL_212_2_113_4",
+    "displayName": "Eldon Hill",
+    "center": {
+      "x": 113.39787546277822,
+      "y": -212.2351759942833
+    }
+  },
+  {
+    "zoneId": "ELDON_HILL_212_2_113_4",
+    "displayName": "Eldon Hill",
+    "center": {
+      "x": 113.39787546277822,
+      "y": -212.2351759942833
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_CROSSING_31_9_140_6",
+    "displayName": "Everwinter Crossing",
+    "center": {
+      "x": 140.63115048198597,
+      "y": -31.8757453210334
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_CROSSING_31_9_140_6",
+    "displayName": "Everwinter Crossing",
+    "center": {
+      "x": 140.63115048198597,
+      "y": -31.875745321033392
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_EXPANSE_24_2_123_5",
+    "displayName": "Everwinter Expanse",
+    "center": {
+      "x": 123.45576774895574,
+      "y": -24.15199939565081
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_EXPANSE_24_2_123_5",
+    "displayName": "Everwinter Expanse",
+    "center": {
+      "x": 123.45576774895574,
+      "y": -24.15199939565082
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_GAP_38_6_132_1",
+    "displayName": "Everwinter Gap",
+    "center": {
+      "x": 132.14695341356992,
+      "y": -38.56069436376213
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_GAP_38_6_132_1",
+    "displayName": "Everwinter Gap",
+    "center": {
+      "x": 132.14695341356992,
+      "y": -38.560694363762124
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_GORGE_34_3_136_6",
+    "displayName": "Everwinter Gorge",
+    "center": {
+      "x": 136.55821881646398,
+      "y": -34.27424948635065
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_GORGE_34_3_136_6",
+    "displayName": "Everwinter Gorge",
+    "center": {
+      "x": 136.55821881646398,
+      "y": -34.27424948635064
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_INCLINE_26_1_128_0",
+    "displayName": "Everwinter Incline",
+    "center": {
+      "x": 128.006135424119,
+      "y": -26.092989634348456
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_INCLINE_26_1_128_0",
+    "displayName": "Everwinter Incline",
+    "center": {
+      "x": 128.00613542411898,
+      "y": -26.092989634348456
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_PASSAGE_19_5_138_1",
+    "displayName": "Everwinter Passage",
+    "center": {
+      "x": 138.1432155239193,
+      "y": -19.531038704937288
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_PASSAGE_19_5_138_1",
+    "displayName": "Everwinter Passage",
+    "center": {
+      "x": 138.1432155239193,
+      "y": -19.531038704937288
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_PEAK_23_2_133_5",
+    "displayName": "Everwinter Peak",
+    "center": {
+      "x": 133.50460567422152,
+      "y": -23.172234276106252
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_PEAK_23_2_133_5",
+    "displayName": "Everwinter Peak",
+    "center": {
+      "x": 133.50460567422155,
+      "y": -23.172234276106252
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_PLAIN_28_5_135_9",
+    "displayName": "Everwinter Plain",
+    "center": {
+      "x": 135.85677115226864,
+      "y": -28.54951208076767
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_PLAIN_28_5_135_9",
+    "displayName": "Everwinter Plain",
+    "center": {
+      "x": 135.85677115226864,
+      "y": -28.54951208076767
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_REACH_13_4_141_5",
+    "displayName": "Everwinter Reach",
+    "center": {
+      "x": 141.46944853791086,
+      "y": -13.353756579781646
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_REACH_13_4_141_5",
+    "displayName": "Everwinter Reach",
+    "center": {
+      "x": 141.46944853791086,
+      "y": -13.35375657978166
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_SHORES_20_7_121_1",
+    "displayName": "Everwinter Shores",
+    "center": {
+      "x": 121.09916955991875,
+      "y": -20.693272672798493
+    }
+  },
+  {
+    "zoneId": "EVERWINTER_SHORES_20_7_121_1",
+    "displayName": "Everwinter Shores",
+    "center": {
+      "x": 121.09916955991874,
+      "y": -20.693272672798486
+    }
+  },
+  {
+    "zoneId": "EYE_OF_THE_FOREST_86_2_165_5",
+    "displayName": "Eye of the Forest",
+    "center": {
+      "x": 165.5439365967504,
+      "y": -86.20417353315821
+    }
+  },
+  {
+    "zoneId": "EYE_OF_THE_FOREST_86_2_165_5",
+    "displayName": "Eye of the Forest",
+    "center": {
+      "x": 165.5439365967504,
+      "y": -86.20417353315821
+    }
+  },
+  {
+    "zoneId": "FALSESTEP_MARSH_192_3_110_9",
+    "displayName": "Falsestep Marsh",
+    "center": {
+      "x": 110.88356553491039,
+      "y": -192.3122007735388
+    }
+  },
+  {
+    "zoneId": "FALSESTEP_MARSH_192_3_110_9",
+    "displayName": "Falsestep Marsh",
+    "center": {
+      "x": 110.88356553491039,
+      "y": -192.3122007735388
+    }
+  },
+  {
+    "zoneId": "FARSHORE_BAY_138_7_91_5",
+    "displayName": "Farshore Bay",
+    "center": {
+      "x": 91.48733730331932,
+      "y": -138.6716473505424
+    }
+  },
+  {
+    "zoneId": "FARSHORE_BAY_138_7_91_5",
+    "displayName": "Farshore Bay",
+    "center": {
+      "x": 91.48733730331932,
+      "y": -138.67164735054243
+    }
+  },
+  {
+    "zoneId": "FARSHORE_CAPE_130_7_84_0",
+    "displayName": "Farshore Cape",
+    "center": {
+      "x": 83.98634748237642,
+      "y": -130.73621157578685
+    }
+  },
+  {
+    "zoneId": "FARSHORE_CAPE_130_7_84_0",
+    "displayName": "Farshore Cape",
+    "center": {
+      "x": 83.98634748237642,
+      "y": -130.73621157578683
+    }
+  },
+  {
+    "zoneId": "FARSHORE_DRYLANDS_119_1_84_8",
+    "displayName": "Farshore Drylands",
+    "center": {
+      "x": 84.84618971296534,
+      "y": -119.06046628291017
+    }
+  },
+  {
+    "zoneId": "FARSHORE_DRYLANDS_119_1_84_8",
+    "displayName": "Farshore Drylands",
+    "center": {
+      "x": 84.84618971296534,
+      "y": -119.06046628291017
+    }
+  },
+  {
+    "zoneId": "FARSHORE_ESKER_116_4_89_6",
+    "displayName": "Farshore Esker",
+    "center": {
+      "x": 89.55202088943392,
+      "y": -116.41630052782779
+    }
+  },
+  {
+    "zoneId": "FARSHORE_ESKER_116_4_89_6",
+    "displayName": "Farshore Esker",
+    "center": {
+      "x": 89.55202088943392,
+      "y": -116.41630052782779
+    }
+  },
+  {
+    "zoneId": "FARSHORE_HEATH_120_5_92_6",
+    "displayName": "Farshore Heath",
+    "center": {
+      "x": 92.59423888710361,
+      "y": -120.51537905616019
+    }
+  },
+  {
+    "zoneId": "FARSHORE_HEATH_120_5_92_6",
+    "displayName": "Farshore Heath",
+    "center": {
+      "x": 92.59423888710361,
+      "y": -120.51537905616017
+    }
+  },
+  {
+    "zoneId": "FARSHORE_LAGOON_126_6_88_7",
+    "displayName": "Farshore Lagoon",
+    "center": {
+      "x": 88.65706642875388,
+      "y": -126.57952418683564
+    }
+  },
+  {
+    "zoneId": "FARSHORE_LAGOON_126_6_88_7",
+    "displayName": "Farshore Lagoon",
+    "center": {
+      "x": 88.6570664287539,
+      "y": -126.57952418683563
+    }
+  },
+  {
+    "zoneId": "FELNIKS_HILL_237_8_117_9",
+    "displayName": "Felniks Hill",
+    "center": {
+      "x": 117.87249423915405,
+      "y": -237.83502416661247
+    }
+  },
+  {
+    "zoneId": "FELNIKS_HILL_237_8_117_9",
+    "displayName": "Felniks Hill",
+    "center": {
+      "x": 117.87249423915405,
+      "y": -237.83502416661247
+    }
+  },
+  {
+    "zoneId": "FERNDELL_230_7_165_9",
+    "displayName": "Ferndell",
+    "center": {
+      "x": 165.94964527842734,
+      "y": -230.6973554943777
+    }
+  },
+  {
+    "zoneId": "FERNDELL_230_7_165_9",
+    "displayName": "Ferndell",
+    "center": {
+      "x": 165.94964527842734,
+      "y": -230.6973554943777
+    }
+  },
+  {
+    "zoneId": "FIRESINK_CALDERA_116_9_140_9",
+    "displayName": "Firesink Caldera",
+    "center": {
+      "x": 140.85398156010913,
+      "y": -116.93301848913327
+    }
+  },
+  {
+    "zoneId": "FIRESINK_CALDERA_116_9_140_9",
+    "displayName": "Firesink Caldera",
+    "center": {
+      "x": 140.85398156010913,
+      "y": -116.93301848913327
+    }
+  },
+  {
+    "zoneId": "FIRESINK_TRENCH_119_9_138_5",
+    "displayName": "Firesink Trench",
+    "center": {
+      "x": 138.53920882768898,
+      "y": -119.92932709820182
+    }
+  },
+  {
+    "zoneId": "FIRESINK_TRENCH_119_9_138_5",
+    "displayName": "Firesink Trench",
+    "center": {
+      "x": 138.53920882768898,
+      "y": -119.92932709820182
+    }
+  },
+  {
+    "zoneId": "FLAMMOG_DESOLATION_79_5_159_7",
+    "displayName": "Flammog Desolation",
+    "center": {
+      "x": 159.74294275941674,
+      "y": -79.46248601603291
+    }
+  },
+  {
+    "zoneId": "FLAMMOG_DESOLATION_79_5_159_7",
+    "displayName": "Flammog Desolation",
+    "center": {
+      "x": 159.74294275941674,
+      "y": -79.46248601603293
+    }
+  },
+  {
+    "zoneId": "FLAMMOG_FORK_89_2_153_0",
+    "displayName": "Flammog Fork",
+    "center": {
+      "x": 153.0452258119808,
+      "y": -89.1922751667679
+    }
+  },
+  {
+    "zoneId": "FLAMMOG_FORK_89_2_153_0",
+    "displayName": "Flammog Fork",
+    "center": {
+      "x": 153.04522581198083,
+      "y": -89.1922751667679
+    }
+  },
+  {
+    "zoneId": "FLAMMOG_VALLEY_87_7_157_8",
+    "displayName": "Flammog Valley",
+    "center": {
+      "x": 157.80536084328668,
+      "y": -87.742838748862
+    }
+  },
+  {
+    "zoneId": "FLAMMOG_VALLEY_87_7_157_8",
+    "displayName": "Flammog Valley",
+    "center": {
+      "x": 157.80536084328668,
+      "y": -87.742838748862
+    }
+  },
+  {
+    "zoneId": "FLATRIVER_TROUGH_237_9_128_7",
+    "displayName": "Flatriver Trough",
+    "center": {
+      "x": 128.72116791065744,
+      "y": -237.90641977664365
+    }
+  },
+  {
+    "zoneId": "FLATRIVER_TROUGH_237_9_128_7",
+    "displayName": "Flatriver Trough",
+    "center": {
+      "x": 128.72116791065744,
+      "y": -237.90641977664365
+    }
+  },
+  {
+    "zoneId": "FLATROCK_CLIFFS_96_4_184_4",
+    "displayName": "Flatrock Cliffs",
+    "center": {
+      "x": 184.37103026096437,
+      "y": -96.39637469958808
+    }
+  },
+  {
+    "zoneId": "FLATROCK_CLIFFS_96_4_184_4",
+    "displayName": "Flatrock Cliffs",
+    "center": {
+      "x": 184.3710302609644,
+      "y": -96.39637469958808
+    }
+  },
+  {
+    "zoneId": "FLATROCK_PLATEAU_99_5_179_7",
+    "displayName": "Flatrock Plateau",
+    "center": {
+      "x": 179.73240977638065,
+      "y": -99.45107599431398
+    }
+  },
+  {
+    "zoneId": "FLATROCK_PLATEAU_99_5_179_7",
+    "displayName": "Flatrock Plateau",
+    "center": {
+      "x": 179.73240977638065,
+      "y": -99.45107599431398
+    }
+  },
+  {
+    "zoneId": "FLIMMERAIR_STEPPE_226_9_138_6",
+    "displayName": "Flimmerair Steppe",
+    "center": {
+      "x": 138.6241067401362,
+      "y": -226.90371607332918
+    }
+  },
+  {
+    "zoneId": "FLIMMERAIR_STEPPE_226_9_138_6",
+    "displayName": "Flimmerair Steppe",
+    "center": {
+      "x": 138.6241067401362,
+      "y": -226.90371607332918
+    }
+  },
+  {
+    "zoneId": "FLOATSHOAL_BIGHT_65_9_175_2",
+    "displayName": "Floatshoal Bight",
+    "center": {
+      "x": 175.24272152495024,
+      "y": -65.90866271381857
+    }
+  },
+  {
+    "zoneId": "FLOATSHOAL_BIGHT_65_9_175_2",
+    "displayName": "Floatshoal Bight",
+    "center": {
+      "x": 175.24272152495024,
+      "y": -65.90866271381859
+    }
+  },
+  {
+    "zoneId": "FLOATSHOAL_FISSURE_65_5_165_3",
+    "displayName": "Floatshoal Fissure",
+    "center": {
+      "x": 165.34028939122032,
+      "y": -65.52271394446575
+    }
+  },
+  {
+    "zoneId": "FLOATSHOAL_FISSURE_65_5_165_3",
+    "displayName": "Floatshoal Fissure",
+    "center": {
+      "x": 165.34028939122032,
+      "y": -65.52271394446575
+    }
+  },
+  {
+    "zoneId": "FLOATSHOAL_FLOE_70_8_161_9",
+    "displayName": "Floatshoal Floe",
+    "center": {
+      "x": 161.8997529846572,
+      "y": -70.83688447143265
+    }
+  },
+  {
+    "zoneId": "FLOATSHOAL_FLOE_70_8_161_9",
+    "displayName": "Floatshoal Floe",
+    "center": {
+      "x": 161.89975298465717,
+      "y": -70.83688447143265
+    }
+  },
+  {
+    "zoneId": "FLYNSDELL_221_6_173_4",
+    "displayName": "Flynsdell",
+    "center": {
+      "x": 173.44318031582094,
+      "y": -221.62248079266396
+    }
+  },
+  {
+    "zoneId": "FLYNSDELL_221_6_173_4",
+    "displayName": "Flynsdell",
+    "center": {
+      "x": 173.4431803158209,
+      "y": -221.622480792664
+    }
+  },
+  {
+    "zoneId": "FOG_FEN_187_8_106_3",
+    "displayName": "Fog Fen",
+    "center": {
+      "x": 106.29698675177696,
+      "y": -187.7754027603492
+    }
+  },
+  {
+    "zoneId": "FOG_FEN_187_8_106_3",
+    "displayName": "Fog Fen",
+    "center": {
+      "x": 106.29698675177696,
+      "y": -187.7754027603492
+    }
+  },
+  {
+    "zoneId": "FOREST_CROSS_234_5_177_6",
+    "displayName": "Forest Cross",
+    "center": {
+      "x": 177.62767827104472,
+      "y": -234.5356112037144
+    }
+  },
+  {
+    "zoneId": "FOREST_CROSS_234_5_177_6",
+    "displayName": "Forest Cross",
+    "center": {
+      "x": 177.62767827104474,
+      "y": -234.5356112037144
+    }
+  },
+  {
+    "zoneId": "FORGOTTEN_WOODS_232_4_88_9",
+    "displayName": "Forgotten Woods",
+    "center": {
+      "x": 88.93077592376854,
+      "y": -232.3535480117721
+    }
+  },
+  {
+    "zoneId": "FORGOTTEN_WOODS_232_4_88_9",
+    "displayName": "Forgotten Woods",
+    "center": {
+      "x": 88.93077592376854,
+      "y": -232.3535480117721
+    }
+  },
+  {
+    "zoneId": "FORT_STERLING_194_9_150_7",
+    "displayName": "Fort Sterling",
+    "center": {
+      "x": 150.67826374552817,
+      "y": -194.8712926223873
+    }
+  },
+  {
+    "zoneId": "FORT_STERLING_194_9_150_7",
+    "displayName": "Fort Sterling",
+    "center": {
+      "x": 150.67826374552817,
+      "y": -194.87129262238727
+    }
+  },
+  {
+    "zoneId": "FORT_STERLING_PORTAL_40_8_162_9",
+    "displayName": "Fort Sterling Portal",
+    "center": {
+      "x": 162.93382173276484,
+      "y": -40.81709156210702
+    }
+  },
+  {
+    "zoneId": "FORT_STERLING_PORTAL_40_8_162_9",
+    "displayName": "Fort Sterling Portal",
+    "center": {
+      "x": 162.9338217327648,
+      "y": -40.81709156210701
+    }
+  },
+  {
+    "zoneId": "FRACTURED_GROUND_250_7_130_0",
+    "displayName": "Fractured Ground",
+    "center": {
+      "x": 130.0154613672472,
+      "y": -250.72258039214927
+    }
+  },
+  {
+    "zoneId": "FRACTURED_GROUND_250_7_130_0",
+    "displayName": "Fractured Ground",
+    "center": {
+      "x": 130.0154613672472,
+      "y": -250.72258039214927
+    }
+  },
+  {
+    "zoneId": "FROSTBITE_CHASM_72_3_54_8",
+    "displayName": "Frostbite Chasm",
+    "center": {
+      "x": 54.79698430675329,
+      "y": -72.34390357003593
+    }
+  },
+  {
+    "zoneId": "FROSTBITE_CHASM_72_3_54_8",
+    "displayName": "Frostbite Chasm",
+    "center": {
+      "x": 54.79698430675329,
+      "y": -72.34390357003592
+    }
+  },
+  {
+    "zoneId": "FROSTBITE_MOUNTAIN_75_2_57_2",
+    "displayName": "Frostbite Mountain",
+    "center": {
+      "x": 57.150236602266226,
+      "y": -75.20853363425478
+    }
+  },
+  {
+    "zoneId": "FROSTBITE_MOUNTAIN_75_2_57_2",
+    "displayName": "Frostbite Mountain",
+    "center": {
+      "x": 57.15023660226623,
+      "y": -75.20853363425476
+    }
+  },
+  {
+    "zoneId": "FROSTPEAK_ASCENT_51_4_178_3",
+    "displayName": "Frostpeak Ascent",
+    "center": {
+      "x": 178.26163649620526,
+      "y": -51.41125068957222
+    }
+  },
+  {
+    "zoneId": "FROSTPEAK_ASCENT_51_4_178_3",
+    "displayName": "Frostpeak Ascent",
+    "center": {
+      "x": 178.26163649620526,
+      "y": -51.41125068957221
+    }
+  },
+  {
+    "zoneId": "FROSTPEAK_VISTA_46_1_179_4",
+    "displayName": "Frostpeak Vista",
+    "center": {
+      "x": 179.41111342051943,
+      "y": -46.057597107509785
+    }
+  },
+  {
+    "zoneId": "FROSTPEAK_VISTA_46_1_179_4",
+    "displayName": "Frostpeak Vista",
+    "center": {
+      "x": 179.41111342051943,
+      "y": -46.05759710750978
+    }
+  },
+  {
+    "zoneId": "FROSTSEEP_CREVASSE_40_2_86_5",
+    "displayName": "Frostseep Crevasse",
+    "center": {
+      "x": 86.4821572341067,
+      "y": -40.17450391892598
+    }
+  },
+  {
+    "zoneId": "FROSTSEEP_CREVASSE_40_2_86_5",
+    "displayName": "Frostseep Crevasse",
+    "center": {
+      "x": 86.4821572341067,
+      "y": -40.174503918925964
+    }
+  },
+  {
+    "zoneId": "FROSTSEEP_RAVINE_44_7_80_4",
+    "displayName": "Frostseep Ravine",
+    "center": {
+      "x": 80.44330874104793,
+      "y": -44.73798689752959
+    }
+  },
+  {
+    "zoneId": "FROSTSEEP_RAVINE_44_7_80_4",
+    "displayName": "Frostseep Ravine",
+    "center": {
+      "x": 80.44330874104794,
+      "y": -44.737986897529595
+    }
+  },
+  {
+    "zoneId": "FROSTSPRING_PASSAGE_138_2_122_5",
+    "displayName": "Frostspring Passage",
+    "center": {
+      "x": 122.46133646543721,
+      "y": -138.15672207802697
+    }
+  },
+  {
+    "zoneId": "FROSTSPRING_PASSAGE_138_2_122_5",
+    "displayName": "Frostspring Passage",
+    "center": {
+      "x": 122.46133646543721,
+      "y": -138.15672207802697
+    }
+  },
+  {
+    "zoneId": "FROSTSPRING_VOLCANO_133_6_125_9",
+    "displayName": "Frostspring Volcano",
+    "center": {
+      "x": 125.86223653425662,
+      "y": -133.5746705613336
+    }
+  },
+  {
+    "zoneId": "FROSTSPRING_VOLCANO_133_6_125_9",
+    "displayName": "Frostspring Volcano",
+    "center": {
+      "x": 125.86223653425662,
+      "y": -133.5746705613336
+    }
+  },
+  {
+    "zoneId": "GARROW_FELL_224_7_123_9",
+    "displayName": "Garrow Fell",
+    "center": {
+      "x": 123.87848568626421,
+      "y": -224.66261568769744
+    }
+  },
+  {
+    "zoneId": "GARROW_FELL_224_7_123_9",
+    "displayName": "Garrow Fell",
+    "center": {
+      "x": 123.87848568626423,
+      "y": -224.66261568769744
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_COPSE_92_5_164_1",
+    "displayName": "Giantweald Copse",
+    "center": {
+      "x": 164.1326626752566,
+      "y": -92.49587515216207
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_COPSE_92_5_164_1",
+    "displayName": "Giantweald Copse",
+    "center": {
+      "x": 164.1326626752566,
+      "y": -92.49587515216206
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_DALE_98_6_172_5",
+    "displayName": "Giantweald Dale",
+    "center": {
+      "x": 172.53580853963265,
+      "y": -98.62662555555315
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_DALE_98_6_172_5",
+    "displayName": "Giantweald Dale",
+    "center": {
+      "x": 172.53580853963265,
+      "y": -98.62662555555315
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_EDGE_91_0_178_3",
+    "displayName": "Giantweald Edge",
+    "center": {
+      "x": 178.26162601971117,
+      "y": -91.01105051755994
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_EDGE_91_0_178_3",
+    "displayName": "Giantweald Edge",
+    "center": {
+      "x": 178.26162601971117,
+      "y": -91.01105051755994
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_GLADE_98_5_161_4",
+    "displayName": "Giantweald Glade",
+    "center": {
+      "x": 161.44946679808476,
+      "y": -98.45364813933497
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_GLADE_98_5_161_4",
+    "displayName": "Giantweald Glade",
+    "center": {
+      "x": 161.44946679808476,
+      "y": -98.45364813933499
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_ROOTS_94_6_158_5",
+    "displayName": "Giantweald Roots",
+    "center": {
+      "x": 158.54368875342766,
+      "y": -94.64548055892877
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_ROOTS_94_6_158_5",
+    "displayName": "Giantweald Roots",
+    "center": {
+      "x": 158.5436887534277,
+      "y": -94.64548055892877
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_WOODS_93_1_170_6",
+    "displayName": "Giantweald Woods",
+    "center": {
+      "x": 170.56722436955272,
+      "y": -93.12816297614498
+    }
+  },
+  {
+    "zoneId": "GIANTWEALD_WOODS_93_1_170_6",
+    "displayName": "Giantweald Woods",
+    "center": {
+      "x": 170.56722436955272,
+      "y": -93.12816297614498
+    }
+  },
+  {
+    "zoneId": "GLACIERBREAK_SUMMIT_132_3_177_2",
+    "displayName": "Glacierbreak Summit",
+    "center": {
+      "x": 177.18868035975458,
+      "y": -132.29750515884007
+    }
+  },
+  {
+    "zoneId": "GLACIERBREAK_SUMMIT_132_3_177_2",
+    "displayName": "Glacierbreak Summit",
+    "center": {
+      "x": 177.18868035975458,
+      "y": -132.2975051588401
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_CANYON_54_9_133_7",
+    "displayName": "Glacierfall Canyon",
+    "center": {
+      "x": 133.68562885686617,
+      "y": -54.895869060598635
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_CANYON_54_9_133_7",
+    "displayName": "Glacierfall Canyon",
+    "center": {
+      "x": 133.68562885686617,
+      "y": -54.89586906059863
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_CROSS_50_1_137_4",
+    "displayName": "Glacierfall Cross",
+    "center": {
+      "x": 137.41805794709677,
+      "y": -50.11344138492931
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_CROSS_50_1_137_4",
+    "displayName": "Glacierfall Cross",
+    "center": {
+      "x": 137.4180579470968,
+      "y": -50.11344138492932
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_FISSURE_62_9_133_4",
+    "displayName": "Glacierfall Fissure",
+    "center": {
+      "x": 133.4130058172787,
+      "y": -62.89793538289463
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_FISSURE_62_9_133_4",
+    "displayName": "Glacierfall Fissure",
+    "center": {
+      "x": 133.4130058172787,
+      "y": -62.89793538289463
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_PASS_51_1_128_8",
+    "displayName": "Glacierfall Pass",
+    "center": {
+      "x": 128.7528372434878,
+      "y": -51.05102764154462
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_PASS_51_1_128_8",
+    "displayName": "Glacierfall Pass",
+    "center": {
+      "x": 128.75283724348776,
+      "y": -51.05102764154462
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_PASSAGE_47_4_143_4",
+    "displayName": "Glacierfall Passage",
+    "center": {
+      "x": 143.3833184596914,
+      "y": -47.39943567736177
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_PASSAGE_47_4_143_4",
+    "displayName": "Glacierfall Passage",
+    "center": {
+      "x": 143.3833184596914,
+      "y": -47.399435677361765
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_VALLEY_53_9_140_5",
+    "displayName": "Glacierfall Valley",
+    "center": {
+      "x": 140.45122178750148,
+      "y": -53.92288945086343
+    }
+  },
+  {
+    "zoneId": "GLACIERFALL_VALLEY_53_9_140_5",
+    "displayName": "Glacierfall Valley",
+    "center": {
+      "x": 140.45122178750148,
+      "y": -53.92288945086344
+    }
+  },
+  {
+    "zoneId": "GOFFERS_KNOLL_248_8_120_6",
+    "displayName": "Goffers Knoll",
+    "center": {
+      "x": 120.5979249821122,
+      "y": -248.75852874259567
+    }
+  },
+  {
+    "zoneId": "GOFFERS_KNOLL_248_8_120_6",
+    "displayName": "Goffers Knoll",
+    "center": {
+      "x": 120.5979249821122,
+      "y": -248.75852874259567
+    }
+  },
+  {
+    "zoneId": "GOLDSHIMMER_PLAIN_236_1_155_1",
+    "displayName": "Goldshimmer Plain",
+    "center": {
+      "x": 155.0674502200123,
+      "y": -236.06555857345205
+    }
+  },
+  {
+    "zoneId": "GOLDSHIMMER_PLAIN_236_1_155_1",
+    "displayName": "Goldshimmer Plain",
+    "center": {
+      "x": 155.0674502200123,
+      "y": -236.06555857345205
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_BRIM_107_9_60_1",
+    "displayName": "Gravemound Brim",
+    "center": {
+      "x": 60.10125203518073,
+      "y": -107.93635601090753
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_BRIM_107_9_60_1",
+    "displayName": "Gravemound Brim",
+    "center": {
+      "x": 60.10125203518072,
+      "y": -107.93635601090753
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_CLIFFS_111_5_62_5",
+    "displayName": "Gravemound Cliffs",
+    "center": {
+      "x": 62.54502777878249,
+      "y": -111.46440816140989
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_CLIFFS_111_5_62_5",
+    "displayName": "Gravemound Cliffs",
+    "center": {
+      "x": 62.54502777878248,
+      "y": -111.46440816140989
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_HILLS_105_4_69_6",
+    "displayName": "Gravemound Hills",
+    "center": {
+      "x": 69.61793739450934,
+      "y": -105.41613315431205
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_HILLS_105_4_69_6",
+    "displayName": "Gravemound Hills",
+    "center": {
+      "x": 69.61793739450934,
+      "y": -105.41613315431205
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_KNOLL_106_5_76_5",
+    "displayName": "Gravemound Knoll",
+    "center": {
+      "x": 76.52875838225322,
+      "y": -106.48820288432927
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_KNOLL_106_5_76_5",
+    "displayName": "Gravemound Knoll",
+    "center": {
+      "x": 76.52875838225322,
+      "y": -106.48820288432925
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_SLOPE_101_8_66_4",
+    "displayName": "Gravemound Slope",
+    "center": {
+      "x": 66.35959099860317,
+      "y": -101.7957461404805
+    }
+  },
+  {
+    "zoneId": "GRAVEMOUND_SLOPE_101_8_66_4",
+    "displayName": "Gravemound Slope",
+    "center": {
+      "x": 66.35959099860318,
+      "y": -101.7957461404805
+    }
+  },
+  {
+    "zoneId": "GREENHOLLOW_COPSE_97_2_71_7",
+    "displayName": "Greenhollow Copse",
+    "center": {
+      "x": 71.6770333143035,
+      "y": -97.24763464506613
+    }
+  },
+  {
+    "zoneId": "GREENHOLLOW_COPSE_97_2_71_7",
+    "displayName": "Greenhollow Copse",
+    "center": {
+      "x": 71.6770333143035,
+      "y": -97.24763464506613
+    }
+  },
+  {
+    "zoneId": "GREENHOLLOW_VALE_95_1_76_1",
+    "displayName": "Greenhollow Vale",
+    "center": {
+      "x": 76.09885173719192,
+      "y": -95.05953509183638
+    }
+  },
+  {
+    "zoneId": "GREENHOLLOW_VALE_95_1_76_1",
+    "displayName": "Greenhollow Vale",
+    "center": {
+      "x": 76.09885173719192,
+      "y": -95.0595350918364
+    }
+  },
+  {
+    "zoneId": "GREENSHORE_BAY_102_6_185_6",
+    "displayName": "Greenshore Bay",
+    "center": {
+      "x": 185.61553525428852,
+      "y": -102.57366067140461
+    }
+  },
+  {
+    "zoneId": "GREENSHORE_BAY_102_6_185_6",
+    "displayName": "Greenshore Bay",
+    "center": {
+      "x": 185.61553525428852,
+      "y": -102.57366067140461
+    }
+  },
+  {
+    "zoneId": "GREENSHORE_PENINSULA_106_2_183_5",
+    "displayName": "Greenshore Peninsula",
+    "center": {
+      "x": 183.546983178539,
+      "y": -106.2080906448912
+    }
+  },
+  {
+    "zoneId": "GREENSHORE_PENINSULA_106_2_183_5",
+    "displayName": "Greenshore Peninsula",
+    "center": {
+      "x": 183.54698317853897,
+      "y": -106.20809064489119
+    }
+  },
+  {
+    "zoneId": "GUTRAS_HILL_215_3_119_2",
+    "displayName": "Gutras Hill",
+    "center": {
+      "x": 119.21723642703748,
+      "y": -215.29486640818305
+    }
+  },
+  {
+    "zoneId": "GUTRAS_HILL_215_3_119_2",
+    "displayName": "Gutras Hill",
+    "center": {
+      "x": 119.21723642703748,
+      "y": -215.29486640818305
+    }
+  },
+  {
+    "zoneId": "GWAN_GORGE_180_5_118_9",
+    "displayName": "Gwan Gorge",
+    "center": {
+      "x": 118.86240888659304,
+      "y": -180.4667187857338
+    }
+  },
+  {
+    "zoneId": "GWAN_GORGE_180_5_118_9",
+    "displayName": "Gwan Gorge",
+    "center": {
+      "x": 118.86240888659304,
+      "y": -180.4667187857338
+    }
+  },
+  {
+    "zoneId": "HALDON_TOR_228_0_107_8",
+    "displayName": "Haldon Tor",
+    "center": {
+      "x": 107.84175621101909,
+      "y": -228.03509031734018
+    }
+  },
+  {
+    "zoneId": "HALDON_TOR_228_0_107_8",
+    "displayName": "Haldon Tor",
+    "center": {
+      "x": 107.84175621101909,
+      "y": -228.03509031734023
+    }
+  },
+  {
+    "zoneId": "HAYTOR_210_8_106_1",
+    "displayName": "Haytor",
+    "center": {
+      "x": 106.10012958153965,
+      "y": -210.8033227764411
+    }
+  },
+  {
+    "zoneId": "HAYTOR_210_8_106_1",
+    "displayName": "Haytor",
+    "center": {
+      "x": 106.10012958153965,
+      "y": -210.8033227764411
+    }
+  },
+  {
+    "zoneId": "HIGHBOLE_GLEN_217_0_156_2",
+    "displayName": "Highbole Glen",
+    "center": {
+      "x": 156.23385193181036,
+      "y": -217.03262623837173
+    }
+  },
+  {
+    "zoneId": "HIGHBOLE_GLEN_217_0_156_2",
+    "displayName": "Highbole Glen",
+    "center": {
+      "x": 156.23385193181036,
+      "y": -217.03262623837173
+    }
+  },
+  {
+    "zoneId": "HIGHLAND_CROSS_224_8_97_2",
+    "displayName": "Highland Cross",
+    "center": {
+      "x": 97.16911547161564,
+      "y": -224.75150817419646
+    }
+  },
+  {
+    "zoneId": "HIGHLAND_CROSS_224_8_97_2",
+    "displayName": "Highland Cross",
+    "center": {
+      "x": 97.16911547161564,
+      "y": -224.75150817419646
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_GRASSLAND_86_5_74_8",
+    "displayName": "Highstone Grassland",
+    "center": {
+      "x": 74.83062124095034,
+      "y": -86.543582683778
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_GRASSLAND_86_5_74_8",
+    "displayName": "Highstone Grassland",
+    "center": {
+      "x": 74.83062124095034,
+      "y": -86.543582683778
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_LOCH_91_4_82_9",
+    "displayName": "Highstone Loch",
+    "center": {
+      "x": 82.88598135281623,
+      "y": -91.38585026075472
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_LOCH_91_4_82_9",
+    "displayName": "Highstone Loch",
+    "center": {
+      "x": 82.88598135281623,
+      "y": -91.38585026075472
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_MEADOW_77_7_86_7",
+    "displayName": "Highstone Meadow",
+    "center": {
+      "x": 86.71111107857179,
+      "y": -77.65905065106564
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_MEADOW_77_7_86_7",
+    "displayName": "Highstone Meadow",
+    "center": {
+      "x": 86.7111110785718,
+      "y": -77.65905065106566
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_MOUND_70_2_75_6",
+    "displayName": "Highstone Mound",
+    "center": {
+      "x": 75.5546987659047,
+      "y": -70.20658743022466
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_MOUND_70_2_75_6",
+    "displayName": "Highstone Mound",
+    "center": {
+      "x": 75.5546987659047,
+      "y": -70.20658743022466
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_PLAINS_82_6_84_6",
+    "displayName": "Highstone Plains",
+    "center": {
+      "x": 84.56041500767839,
+      "y": -82.6064162669486
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_PLAINS_82_6_84_6",
+    "displayName": "Highstone Plains",
+    "center": {
+      "x": 84.56041500767837,
+      "y": -82.6064162669486
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_PLATEAU_76_3_76_7",
+    "displayName": "Highstone Plateau",
+    "center": {
+      "x": 76.70977555958137,
+      "y": -76.34847971856101
+    }
+  },
+  {
+    "zoneId": "HIGHSTONE_PLATEAU_76_3_76_7",
+    "displayName": "Highstone Plateau",
+    "center": {
+      "x": 76.70977555958137,
+      "y": -76.34847971856102
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_BORDERLANDS_112_7_146_3",
+    "displayName": "Hightree Borderlands",
+    "center": {
+      "x": 146.26645981010955,
+      "y": -112.73336999839626
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_BORDERLANDS_112_7_146_3",
+    "displayName": "Hightree Borderlands",
+    "center": {
+      "x": 146.26645981010955,
+      "y": -112.73336999839626
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_CLIFFS_137_0_165_5",
+    "displayName": "Hightree Cliffs",
+    "center": {
+      "x": 165.4534272907972,
+      "y": -136.9800964620148
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_CLIFFS_137_0_165_5",
+    "displayName": "Hightree Cliffs",
+    "center": {
+      "x": 165.4534272907972,
+      "y": -136.9800964620148
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_DALE_121_6_167_7",
+    "displayName": "Hightree Dale",
+    "center": {
+      "x": 167.69463321070182,
+      "y": -121.57886582224396
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_DALE_121_6_167_7",
+    "displayName": "Hightree Dale",
+    "center": {
+      "x": 167.69463321070182,
+      "y": -121.57886582224396
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_ENCLAVE_133_0_157_1",
+    "displayName": "Hightree Enclave",
+    "center": {
+      "x": 157.12653837860242,
+      "y": -133.04292490876176
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_ENCLAVE_133_0_157_1",
+    "displayName": "Hightree Enclave",
+    "center": {
+      "x": 157.12653837860242,
+      "y": -133.04292490876176
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_GLADE_130_1_164_2",
+    "displayName": "Hightree Glade",
+    "center": {
+      "x": 164.23264022020584,
+      "y": -130.06414538628917
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_GLADE_130_1_164_2",
+    "displayName": "Hightree Glade",
+    "center": {
+      "x": 164.23264022020584,
+      "y": -130.06414538628917
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_HILLOCK_115_0_150_1",
+    "displayName": "Hightree Hillock",
+    "center": {
+      "x": 150.07357546452693,
+      "y": -114.99303280818971
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_HILLOCK_115_0_150_1",
+    "displayName": "Hightree Hillock",
+    "center": {
+      "x": 150.07357546452695,
+      "y": -114.99303280818971
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_ISLE_123_7_172_1",
+    "displayName": "Hightree Isle",
+    "center": {
+      "x": 172.14209342982585,
+      "y": -123.74758087462504
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_ISLE_123_7_172_1",
+    "displayName": "Hightree Isle",
+    "center": {
+      "x": 172.14209342982585,
+      "y": -123.74758087462504
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_LAKE_109_8_155_9",
+    "displayName": "Hightree Lake",
+    "center": {
+      "x": 155.9272845536327,
+      "y": -109.8498244770557
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_LAKE_109_8_155_9",
+    "displayName": "Hightree Lake",
+    "center": {
+      "x": 155.9272845536327,
+      "y": -109.8498244770557
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_LEVEE_125_5_153_6",
+    "displayName": "Hightree Levee",
+    "center": {
+      "x": 153.62037033444963,
+      "y": -125.51786060224903
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_LEVEE_125_5_153_6",
+    "displayName": "Hightree Levee",
+    "center": {
+      "x": 153.62037033444966,
+      "y": -125.51786060224903
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_PASS_107_9_163_0",
+    "displayName": "Hightree Pass",
+    "center": {
+      "x": 163.03337413117612,
+      "y": -107.91373076614158
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_PASS_107_9_163_0",
+    "displayName": "Hightree Pass",
+    "center": {
+      "x": 163.03337413117612,
+      "y": -107.91373076614158
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_STEEP_112_0_165_2",
+    "displayName": "Hightree Steep",
+    "center": {
+      "x": 165.18297788614137,
+      "y": -112.00929374057725
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_STEEP_112_0_165_2",
+    "displayName": "Hightree Steep",
+    "center": {
+      "x": 165.18297788614137,
+      "y": -112.00929374057725
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_STRAND_120_9_156_2",
+    "displayName": "Hightree Strand",
+    "center": {
+      "x": 156.19989360947648,
+      "y": -120.90186979740494
+    }
+  },
+  {
+    "zoneId": "HIGHTREE_STRAND_120_9_156_2",
+    "displayName": "Hightree Strand",
+    "center": {
+      "x": 156.19989360947648,
+      "y": -120.90186979740496
+    }
+  },
+  {
+    "zoneId": "HORNBEAM_WOOD_223_2_159_6",
+    "displayName": "Hornbeam Wood",
+    "center": {
+      "x": 159.5713821362865,
+      "y": -223.20042046130595
+    }
+  },
+  {
+    "zoneId": "HORNBEAM_WOOD_223_2_159_6",
+    "displayName": "Hornbeam Wood",
+    "center": {
+      "x": 159.5713821362865,
+      "y": -223.20042046130595
+    }
+  },
+  {
+    "zoneId": "ICEBURN_CLIFFS_61_9_153_1",
+    "displayName": "Iceburn Cliffs",
+    "center": {
+      "x": 153.05469644948306,
+      "y": -61.865114853618266
+    }
+  },
+  {
+    "zoneId": "ICEBURN_CLIFFS_61_9_153_1",
+    "displayName": "Iceburn Cliffs",
+    "center": {
+      "x": 153.05469644948306,
+      "y": -61.865114853618266
+    }
+  },
+  {
+    "zoneId": "ICEBURN_FIRTH_70_7_139_2",
+    "displayName": "Iceburn Firth",
+    "center": {
+      "x": 139.1519921598936,
+      "y": -70.68304301651484
+    }
+  },
+  {
+    "zoneId": "ICEBURN_FIRTH_70_7_139_2",
+    "displayName": "Iceburn Firth",
+    "center": {
+      "x": 139.15199215989364,
+      "y": -70.68304301651483
+    }
+  },
+  {
+    "zoneId": "ICEBURN_PEAKS_67_3_149_2",
+    "displayName": "Iceburn Peaks",
+    "center": {
+      "x": 149.18540588008858,
+      "y": -67.27306525339128
+    }
+  },
+  {
+    "zoneId": "ICEBURN_PEAKS_67_3_149_2",
+    "displayName": "Iceburn Peaks",
+    "center": {
+      "x": 149.18540588008858,
+      "y": -67.27306525339128
+    }
+  },
+  {
+    "zoneId": "ICEBURN_TUNDRA_70_0_144_7",
+    "displayName": "Iceburn Tundra",
+    "center": {
+      "x": 144.65991218501995,
+      "y": -70.03543265244566
+    }
+  },
+  {
+    "zoneId": "ICEBURN_TUNDRA_70_0_144_7",
+    "displayName": "Iceburn Tundra",
+    "center": {
+      "x": 144.65991218501995,
+      "y": -70.03543265244568
+    }
+  },
+  {
+    "zoneId": "INIS_MON_211_7_164_4",
+    "displayName": "Inis Mon",
+    "center": {
+      "x": 164.37971684677348,
+      "y": -211.6518248923354
+    }
+  },
+  {
+    "zoneId": "INIS_MON_211_7_164_4",
+    "displayName": "Inis Mon",
+    "center": {
+      "x": 164.37971684677348,
+      "y": -211.65182489233538
+    }
+  },
+  {
+    "zoneId": "KILMAR_TOR_244_3_120_1",
+    "displayName": "Kilmar Tor",
+    "center": {
+      "x": 120.08427447038818,
+      "y": -244.26881204850213
+    }
+  },
+  {
+    "zoneId": "KILMAR_TOR_244_3_120_1",
+    "displayName": "Kilmar Tor",
+    "center": {
+      "x": 120.08427447038818,
+      "y": -244.26881204850213
+    }
+  },
+  {
+    "zoneId": "KINDLEGRASS_STEPPE_238_1_142_6",
+    "displayName": "Kindlegrass Steppe",
+    "center": {
+      "x": 142.56353755046683,
+      "y": -238.0612983365922
+    }
+  },
+  {
+    "zoneId": "KINDLEGRASS_STEPPE_238_1_142_6",
+    "displayName": "Kindlegrass Steppe",
+    "center": {
+      "x": 142.5635375504668,
+      "y": -238.06129833659216
+    }
+  },
+  {
+    "zoneId": "LARCHROAD_194_2_160_5",
+    "displayName": "Larchroad",
+    "center": {
+      "x": 160.465180720624,
+      "y": -194.1517839802183
+    }
+  },
+  {
+    "zoneId": "LARCHROAD_194_2_160_5",
+    "displayName": "Larchroad",
+    "center": {
+      "x": 160.465180720624,
+      "y": -194.15178398021834
+    }
+  },
+  {
+    "zoneId": "LAZYGRASS_PLAIN_242_0_139_6",
+    "displayName": "Lazygrass Plain",
+    "center": {
+      "x": 139.57286732036178,
+      "y": -241.97712083139794
+    }
+  },
+  {
+    "zoneId": "LAZYGRASS_PLAIN_242_0_139_6",
+    "displayName": "Lazygrass Plain",
+    "center": {
+      "x": 139.57286732036178,
+      "y": -241.97712083139794
+    }
+  },
+  {
+    "zoneId": "LEWSDON_HILL_207_5_111_6",
+    "displayName": "Lewsdon Hill",
+    "center": {
+      "x": 111.59899649026215,
+      "y": -207.5128315777912
+    }
+  },
+  {
+    "zoneId": "LEWSDON_HILL_207_5_111_6",
+    "displayName": "Lewsdon Hill",
+    "center": {
+      "x": 111.59899649026215,
+      "y": -207.5128315777912
+    }
+  },
+  {
+    "zoneId": "LONGFEN_ARMS_117_5_79_8",
+    "displayName": "Longfen Arms",
+    "center": {
+      "x": 79.77764792075408,
+      "y": -117.5217995964243
+    }
+  },
+  {
+    "zoneId": "LONGFEN_ARMS_117_5_79_8",
+    "displayName": "Longfen Arms",
+    "center": {
+      "x": 79.77764792075408,
+      "y": -117.5217995964243
+    }
+  },
+  {
+    "zoneId": "LONGFEN_MARSH_111_6_85_0",
+    "displayName": "Longfen Marsh",
+    "center": {
+      "x": 84.96879852157346,
+      "y": -111.62280365552756
+    }
+  },
+  {
+    "zoneId": "LONGFEN_MARSH_111_6_85_0",
+    "displayName": "Longfen Marsh",
+    "center": {
+      "x": 84.96879852157346,
+      "y": -111.62280365552756
+    }
+  },
+  {
+    "zoneId": "LONGFEN_VEINS_108_2_88_4",
+    "displayName": "Longfen Veins",
+    "center": {
+      "x": 88.42969598304805,
+      "y": -108.15276335994076
+    }
+  },
+  {
+    "zoneId": "LONGFEN_VEINS_108_2_88_4",
+    "displayName": "Longfen Veins",
+    "center": {
+      "x": 88.42969598304805,
+      "y": -108.15276335994076
+    }
+  },
+  {
+    "zoneId": "LONGMARCH_MEADOW_251_4_136_2",
+    "displayName": "Longmarch Meadow",
+    "center": {
+      "x": 136.23572585490967,
+      "y": -251.43265294888175
+    }
+  },
+  {
+    "zoneId": "LONGMARCH_MEADOW_251_4_136_2",
+    "displayName": "Longmarch Meadow",
+    "center": {
+      "x": 136.23572585490967,
+      "y": -251.43265294888175
+    }
+  },
+  {
+    "zoneId": "LONGSHADOW_PLAIN_243_7_146_1",
+    "displayName": "Longshadow Plain",
+    "center": {
+      "x": 146.05109974844467,
+      "y": -243.71264891944813
+    }
+  },
+  {
+    "zoneId": "LONGSHADOW_PLAIN_243_7_146_1",
+    "displayName": "Longshadow Plain",
+    "center": {
+      "x": 146.05109974844464,
+      "y": -243.7126489194481
+    }
+  },
+  {
+    "zoneId": "LONGTIMBER_GLEN_218_9_145_9",
+    "displayName": "Longtimber Glen",
+    "center": {
+      "x": 145.9259717163651,
+      "y": -218.89134703552565
+    }
+  },
+  {
+    "zoneId": "LONGTIMBER_GLEN_218_9_145_9",
+    "displayName": "Longtimber Glen",
+    "center": {
+      "x": 145.92597171636507,
+      "y": -218.89134703552565
+    }
+  },
+  {
+    "zoneId": "LYMHURST_228_5_168_7",
+    "displayName": "Lymhurst",
+    "center": {
+      "x": 168.74098267260132,
+      "y": -228.48155504996552
+    }
+  },
+  {
+    "zoneId": "LYMHURST_228_5_168_7",
+    "displayName": "Lymhurst",
+    "center": {
+      "x": 168.7409826726013,
+      "y": -228.48155504996552
+    }
+  },
+  {
+    "zoneId": "LYMHURST_PORTAL_118_2_163_5",
+    "displayName": "Lymhurst Portal",
+    "center": {
+      "x": 163.53119312169594,
+      "y": -118.23000686203653
+    }
+  },
+  {
+    "zoneId": "LYMHURST_PORTAL_118_2_163_5",
+    "displayName": "Lymhurst Portal",
+    "center": {
+      "x": 163.53119312169594,
+      "y": -118.23000686203653
+    }
+  },
+  {
+    "zoneId": "MALAG_CREVASSE_209_8_136_5",
+    "displayName": "Malag Crevasse",
+    "center": {
+      "x": 136.53852504407985,
+      "y": -209.76698662538575
+    }
+  },
+  {
+    "zoneId": "MALAG_CREVASSE_209_8_136_5",
+    "displayName": "Malag Crevasse",
+    "center": {
+      "x": 136.53852504407982,
+      "y": -209.76698662538575
+    }
+  },
+  {
+    "zoneId": "MARDALE_219_2_128_3",
+    "displayName": "Mardale",
+    "center": {
+      "x": 128.27952236530433,
+      "y": -219.15284643691695
+    }
+  },
+  {
+    "zoneId": "MARDALE_219_2_128_3",
+    "displayName": "Mardale",
+    "center": {
+      "x": 128.27952236530436,
+      "y": -219.15284643691695
+    }
+  },
+  {
+    "zoneId": "MARTLOCK_217_9_109_3",
+    "displayName": "Martlock",
+    "center": {
+      "x": 109.32873502097428,
+      "y": -217.879714593252
+    }
+  },
+  {
+    "zoneId": "MARTLOCK_217_9_109_3",
+    "displayName": "Martlock",
+    "center": {
+      "x": 109.32873502097428,
+      "y": -217.879714593252
+    }
+  },
+  {
+    "zoneId": "MARTLOCK_PORTAL_85_3_57_5",
+    "displayName": "Martlock Portal",
+    "center": {
+      "x": 57.48327217520309,
+      "y": -85.34105584819434
+    }
+  },
+  {
+    "zoneId": "MARTLOCK_PORTAL_85_3_57_5",
+    "displayName": "Martlock Portal",
+    "center": {
+      "x": 57.48327217520308,
+      "y": -85.34105584819434
+    }
+  },
+  {
+    "zoneId": "MASE_KNOLL_224_0_102_9",
+    "displayName": "Mase Knoll",
+    "center": {
+      "x": 102.86893126639121,
+      "y": -224.02678934298956
+    }
+  },
+  {
+    "zoneId": "MASE_KNOLL_224_0_102_9",
+    "displayName": "Mase Knoll",
+    "center": {
+      "x": 102.86893126639123,
+      "y": -224.02678934298956
+    }
+  },
+  {
+    "zoneId": "MAWAR_GORGE_196_5_155_8",
+    "displayName": "Mawar Gorge",
+    "center": {
+      "x": 155.82772509546731,
+      "y": -196.45399875641988
+    }
+  },
+  {
+    "zoneId": "MAWAR_GORGE_196_5_155_8",
+    "displayName": "Mawar Gorge",
+    "center": {
+      "x": 155.82772509546731,
+      "y": -196.45399875641988
+    }
+  },
+  {
+    "zoneId": "MELTWATER_BOG_37_7_142_6",
+    "displayName": "Meltwater Bog",
+    "center": {
+      "x": 142.64499263127277,
+      "y": -37.690990810689065
+    }
+  },
+  {
+    "zoneId": "MELTWATER_BOG_37_7_142_6",
+    "displayName": "Meltwater Bog",
+    "center": {
+      "x": 142.64499263127277,
+      "y": -37.69099081068906
+    }
+  },
+  {
+    "zoneId": "MELTWATER_CHANNEL_41_2_139_7",
+    "displayName": "Meltwater Channel",
+    "center": {
+      "x": 139.65925178396074,
+      "y": -41.230733642457594
+    }
+  },
+  {
+    "zoneId": "MELTWATER_CHANNEL_41_2_139_7",
+    "displayName": "Meltwater Channel",
+    "center": {
+      "x": 139.65925178396074,
+      "y": -41.230733642457594
+    }
+  },
+  {
+    "zoneId": "MELTWATER_DELTA_31_2_148_4",
+    "displayName": "Meltwater Delta",
+    "center": {
+      "x": 148.4387040607198,
+      "y": -31.182335367904074
+    }
+  },
+  {
+    "zoneId": "MELTWATER_DELTA_31_2_148_4",
+    "displayName": "Meltwater Delta",
+    "center": {
+      "x": 148.4387040607198,
+      "y": -31.182335367904074
+    }
+  },
+  {
+    "zoneId": "MELTWATER_SUMP_27_2_143_5",
+    "displayName": "Meltwater Sump",
+    "center": {
+      "x": 143.5190763997283,
+      "y": -27.170527370192886
+    }
+  },
+  {
+    "zoneId": "MELTWATER_SUMP_27_2_143_5",
+    "displayName": "Meltwater Sump",
+    "center": {
+      "x": 143.5190763997283,
+      "y": -27.170527370192886
+    }
+  },
+  {
+    "zoneId": "MERLYN_S_REST_97_5_166_2",
+    "displayName": "Merlyn's Rest",
+    "center": {
+      "x": 166.1792857292338,
+      "y": -97.53593893718153
+    }
+  },
+  {
+    "zoneId": "MERLYN_S_REST_97_5_166_2",
+    "displayName": "Merlyn's Rest",
+    "center": {
+      "x": 166.1792857292338,
+      "y": -97.53593893718153
+    }
+  },
+  {
+    "zoneId": "MORGANA_S_REST_44_5_126_5",
+    "displayName": "Morgana's Rest",
+    "center": {
+      "x": 126.51342079022902,
+      "y": -44.50180237145312
+    }
+  },
+  {
+    "zoneId": "MORGANA_S_REST_44_5_126_5",
+    "displayName": "Morgana's Rest",
+    "center": {
+      "x": 126.513420790229,
+      "y": -44.501802371453124
+    }
+  },
+  {
+    "zoneId": "MOUNTAIN_CROSS_185_3_160_3",
+    "displayName": "Mountain Cross",
+    "center": {
+      "x": 160.3440453867834,
+      "y": -185.27799429109837
+    }
+  },
+  {
+    "zoneId": "MOUNTAIN_CROSS_185_3_160_3",
+    "displayName": "Mountain Cross",
+    "center": {
+      "x": 160.3440453867834,
+      "y": -185.27799429109834
+    }
+  },
+  {
+    "zoneId": "MOUNTAIN_FORT_232_1_91_0",
+    "displayName": "Mountain Fort",
+    "center": {
+      "x": 90.99892183738295,
+      "y": -232.1499062368221
+    }
+  },
+  {
+    "zoneId": "MOUNTAIN_FORT_232_1_91_0",
+    "displayName": "Mountain Fort",
+    "center": {
+      "x": 90.99892183738295,
+      "y": -232.14990623682212
+    }
+  },
+  {
+    "zoneId": "MUDFOOT_MOUNDS_101_8_56_4",
+    "displayName": "Mudfoot Mounds",
+    "center": {
+      "x": 56.39035904162628,
+      "y": -101.7817010764757
+    }
+  },
+  {
+    "zoneId": "MUDFOOT_MOUNDS_101_8_56_4",
+    "displayName": "Mudfoot Mounds",
+    "center": {
+      "x": 56.39035904162628,
+      "y": -101.7817010764757
+    }
+  },
+  {
+    "zoneId": "MUDFOOT_SUMP_99_0_61_6",
+    "displayName": "Mudfoot Sump",
+    "center": {
+      "x": 61.616207677668605,
+      "y": -99.03391618783465
+    }
+  },
+  {
+    "zoneId": "MUDFOOT_SUMP_99_0_61_6",
+    "displayName": "Mudfoot Sump",
+    "center": {
+      "x": 61.6162076776686,
+      "y": -99.03391618783465
+    }
+  },
+  {
+    "zoneId": "MUNTEN_FELL_103_8_175_2",
+    "displayName": "Munten Fell",
+    "center": {
+      "x": 175.20584612127183,
+      "y": -103.83092976802988
+    }
+  },
+  {
+    "zoneId": "MUNTEN_FELL_103_8_175_2",
+    "displayName": "Munten Fell",
+    "center": {
+      "x": 175.20584612127183,
+      "y": -103.83092976802988
+    }
+  },
+  {
+    "zoneId": "MUNTEN_RISE_107_3_172_7",
+    "displayName": "Munten Rise",
+    "center": {
+      "x": 172.68582444504088,
+      "y": -107.33946292031695
+    }
+  },
+  {
+    "zoneId": "MUNTEN_RISE_107_3_172_7",
+    "displayName": "Munten Rise",
+    "center": {
+      "x": 172.68582444504088,
+      "y": -107.33946292031693
+    }
+  },
+  {
+    "zoneId": "MUNTEN_TUNDRA_103_6_166_5",
+    "displayName": "Munten Tundra",
+    "center": {
+      "x": 166.51691722471935,
+      "y": -103.64991102035896
+    }
+  },
+  {
+    "zoneId": "MUNTEN_TUNDRA_103_6_166_5",
+    "displayName": "Munten Tundra",
+    "center": {
+      "x": 166.51691722471935,
+      "y": -103.64991102035896
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_CROSS_50_0_102_8",
+    "displayName": "Murdergulch Cross",
+    "center": {
+      "x": 102.82073532073386,
+      "y": -49.95505014476604
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_CROSS_50_0_102_8",
+    "displayName": "Murdergulch Cross",
+    "center": {
+      "x": 102.82073532073387,
+      "y": -49.95505014476605
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_DIVIDE_51_3_107_6",
+    "displayName": "Murdergulch Divide",
+    "center": {
+      "x": 107.6414723447516,
+      "y": -51.298109305373146
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_DIVIDE_51_3_107_6",
+    "displayName": "Murdergulch Divide",
+    "center": {
+      "x": 107.6414723447516,
+      "y": -51.298109305373146
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_GAP_57_4_111_1",
+    "displayName": "Murdergulch Gap",
+    "center": {
+      "x": 111.05821366909002,
+      "y": -57.384883120181925
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_GAP_57_4_111_1",
+    "displayName": "Murdergulch Gap",
+    "center": {
+      "x": 111.05821366909002,
+      "y": -57.384883120181925
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_RAVINE_64_8_112_6",
+    "displayName": "Murdergulch Ravine",
+    "center": {
+      "x": 112.64103633432018,
+      "y": -64.79863365896651
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_RAVINE_64_8_112_6",
+    "displayName": "Murdergulch Ravine",
+    "center": {
+      "x": 112.64103633432018,
+      "y": -64.79863365896651
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_TRAIL_54_0_99_8",
+    "displayName": "Murdergulch Trail",
+    "center": {
+      "x": 99.80291377415047,
+      "y": -53.96138479657957
+    }
+  },
+  {
+    "zoneId": "MURDERGULCH_TRAIL_54_0_99_8",
+    "displayName": "Murdergulch Trail",
+    "center": {
+      "x": 99.80291377415047,
+      "y": -53.961384796579566
+    }
+  },
+  {
+    "zoneId": "MURKWEALD_230_8_151_2",
+    "displayName": "Murkweald",
+    "center": {
+      "x": 151.2150856373548,
+      "y": -230.76746405693
+    }
+  },
+  {
+    "zoneId": "MURKWEALD_230_8_151_2",
+    "displayName": "Murkweald",
+    "center": {
+      "x": 151.2150856373548,
+      "y": -230.76746405693
+    }
+  },
+  {
+    "zoneId": "MURKY_FEN_174_3_120_8",
+    "displayName": "Murky Fen",
+    "center": {
+      "x": 120.75404762007469,
+      "y": -174.31840814910728
+    }
+  },
+  {
+    "zoneId": "MURKY_FEN_174_3_120_8",
+    "displayName": "Murky Fen",
+    "center": {
+      "x": 120.75404762007467,
+      "y": -174.31840814910726
+    }
+  },
+  {
+    "zoneId": "NIGHTBLOOM_FOREST_216_2_151_1",
+    "displayName": "Nightbloom Forest",
+    "center": {
+      "x": 151.06348216974257,
+      "y": -216.21124647586205
+    }
+  },
+  {
+    "zoneId": "NIGHTBLOOM_FOREST_216_2_151_1",
+    "displayName": "Nightbloom Forest",
+    "center": {
+      "x": 151.06348216974257,
+      "y": -216.21124647586203
+    }
+  },
+  {
+    "zoneId": "NIGHTCREAK_MARSH_197_7_123_4",
+    "displayName": "Nightcreak Marsh",
+    "center": {
+      "x": 123.35285848272315,
+      "y": -197.68040837809656
+    }
+  },
+  {
+    "zoneId": "NIGHTCREAK_MARSH_197_7_123_4",
+    "displayName": "Nightcreak Marsh",
+    "center": {
+      "x": 123.35285848272316,
+      "y": -197.68040837809656
+    }
+  },
+  {
+    "zoneId": "NORTHSTRAND_BEACH_0_5_125_5",
+    "displayName": "Northstrand Beach",
+    "center": {
+      "x": 125.4624030659287,
+      "y": -0.470180743168946
+    }
+  },
+  {
+    "zoneId": "NORTHSTRAND_BEACH_0_5_125_5",
+    "displayName": "Northstrand Beach",
+    "center": {
+      "x": 125.4624030659287,
+      "y": -0.4701807431689531
+    }
+  },
+  {
+    "zoneId": "NORTHSTRAND_DUNES_2_7_122_1",
+    "displayName": "Northstrand Dunes",
+    "center": {
+      "x": 122.1135491968901,
+      "y": 2.697661483207682
+    }
+  },
+  {
+    "zoneId": "NORTHSTRAND_DUNES_2_7_122_1",
+    "displayName": "Northstrand Dunes",
+    "center": {
+      "x": 122.1135491968901,
+      "y": 2.697661483207696
+    }
+  },
+  {
+    "zoneId": "OAKCOPSE_207_2_172_5",
+    "displayName": "Oakcopse",
+    "center": {
+      "x": 172.47472211655025,
+      "y": -207.16356608271906
+    }
+  },
+  {
+    "zoneId": "OAKCOPSE_207_2_172_5",
+    "displayName": "Oakcopse",
+    "center": {
+      "x": 172.47472211655025,
+      "y": -207.16356608271903
+    }
+  },
+  {
+    "zoneId": "OWLSONG_GLEN_213_2_158_7",
+    "displayName": "Owlsong Glen",
+    "center": {
+      "x": 158.74775637636557,
+      "y": -213.1701227627058
+    }
+  },
+  {
+    "zoneId": "OWLSONG_GLEN_213_2_158_7",
+    "displayName": "Owlsong Glen",
+    "center": {
+      "x": 158.74775637636557,
+      "y": -213.1701227627058
+    }
+  },
+  {
+    "zoneId": "PARCHSAND_CLIFFS_87_5_91_9",
+    "displayName": "Parchsand Cliffs",
+    "center": {
+      "x": 91.88331872995781,
+      "y": -87.4952190503121
+    }
+  },
+  {
+    "zoneId": "PARCHSAND_CLIFFS_87_5_91_9",
+    "displayName": "Parchsand Cliffs",
+    "center": {
+      "x": 91.88331872995781,
+      "y": -87.4952190503121
+    }
+  },
+  {
+    "zoneId": "PARCHSAND_DROUGHT_93_0_93_1",
+    "displayName": "Parchsand Drought",
+    "center": {
+      "x": 93.06713640258053,
+      "y": -92.97284415454394
+    }
+  },
+  {
+    "zoneId": "PARCHSAND_DROUGHT_93_0_93_1",
+    "displayName": "Parchsand Drought",
+    "center": {
+      "x": 93.06713640258053,
+      "y": -92.97284415454394
+    }
+  },
+  {
+    "zoneId": "PARCHTHROAT_PLAIN_251_5_144_4",
+    "displayName": "Parchthroat Plain",
+    "center": {
+      "x": 144.44002222760918,
+      "y": -251.47385023446162
+    }
+  },
+  {
+    "zoneId": "PARCHTHROAT_PLAIN_251_5_144_4",
+    "displayName": "Parchthroat Plain",
+    "center": {
+      "x": 144.44002222760918,
+      "y": -251.47385023446162
+    }
+  },
+  {
+    "zoneId": "PEN_FENAIR_175_6_133_8",
+    "displayName": "Pen Fenair",
+    "center": {
+      "x": 133.82590571835175,
+      "y": -175.56517948189048
+    }
+  },
+  {
+    "zoneId": "PEN_FENAIR_175_6_133_8",
+    "displayName": "Pen Fenair",
+    "center": {
+      "x": 133.82590571835175,
+      "y": -175.56517948189048
+    }
+  },
+  {
+    "zoneId": "PEN_GARN_185_7_142_4",
+    "displayName": "Pen Garn",
+    "center": {
+      "x": 142.36775608763358,
+      "y": -185.7362056852195
+    }
+  },
+  {
+    "zoneId": "PEN_GARN_185_7_142_4",
+    "displayName": "Pen Garn",
+    "center": {
+      "x": 142.36775608763358,
+      "y": -185.7362056852195
+    }
+  },
+  {
+    "zoneId": "PEN_GENT_186_9_146_9",
+    "displayName": "Pen Gent",
+    "center": {
+      "x": 146.880842830551,
+      "y": -186.92785461635555
+    }
+  },
+  {
+    "zoneId": "PEN_GENT_186_9_146_9",
+    "displayName": "Pen Gent",
+    "center": {
+      "x": 146.88084283055096,
+      "y": -186.92785461635555
+    }
+  },
+  {
+    "zoneId": "PEN_KERRIG_200_8_160_5",
+    "displayName": "Pen Kerrig",
+    "center": {
+      "x": 160.48554041789043,
+      "y": -200.8246042748878
+    }
+  },
+  {
+    "zoneId": "PEN_KERRIG_200_8_160_5",
+    "displayName": "Pen Kerrig",
+    "center": {
+      "x": 160.48554041789043,
+      "y": -200.8246042748878
+    }
+  },
+  {
+    "zoneId": "PEN_UCHAF_179_9_146_6",
+    "displayName": "Pen Uchaf",
+    "center": {
+      "x": 146.56858900146239,
+      "y": -179.89525793887003
+    }
+  },
+  {
+    "zoneId": "PEN_UCHAF_179_9_146_6",
+    "displayName": "Pen Uchaf",
+    "center": {
+      "x": 146.56858900146239,
+      "y": -179.89525793887
+    }
+  },
+  {
+    "zoneId": "PINECOPSE_248_6_161_3",
+    "displayName": "Pinecopse",
+    "center": {
+      "x": 161.26844881974603,
+      "y": -248.56392978857474
+    }
+  },
+  {
+    "zoneId": "PINECOPSE_248_6_161_3",
+    "displayName": "Pinecopse",
+    "center": {
+      "x": 161.26844881974603,
+      "y": -248.56392978857474
+    }
+  },
+  {
+    "zoneId": "PROSPECTOR_S_HOPE_256_4_132_9",
+    "displayName": "Prospector's Hope",
+    "center": {
+      "x": 132.92426220854105,
+      "y": -256.44381529985515
+    }
+  },
+  {
+    "zoneId": "PROSPECTOR_S_HOPE_256_4_132_9",
+    "displayName": "Prospector's Hope",
+    "center": {
+      "x": 132.92426220854102,
+      "y": -256.44381529985515
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_BANK_92_8_103_7",
+    "displayName": "Razorrock Bank",
+    "center": {
+      "x": 103.7269127313433,
+      "y": -92.82124073218654
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_BANK_92_8_103_7",
+    "displayName": "Razorrock Bank",
+    "center": {
+      "x": 103.7269127313433,
+      "y": -92.82124073218654
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_CHASM_84_3_102_7",
+    "displayName": "Razorrock Chasm",
+    "center": {
+      "x": 102.68605186622054,
+      "y": -84.26807814781526
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_CHASM_84_3_102_7",
+    "displayName": "Razorrock Chasm",
+    "center": {
+      "x": 102.68605186622054,
+      "y": -84.26807814781526
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_EDGE_79_5_97_0",
+    "displayName": "Razorrock Edge",
+    "center": {
+      "x": 97.04848181023726,
+      "y": -79.45893996037809
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_EDGE_79_5_97_0",
+    "displayName": "Razorrock Edge",
+    "center": {
+      "x": 97.04848181023726,
+      "y": -79.45893996037807
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_GULCH_91_6_108_7",
+    "displayName": "Razorrock Gulch",
+    "center": {
+      "x": 108.70494449352401,
+      "y": -91.64461231037467
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_GULCH_91_6_108_7",
+    "displayName": "Razorrock Gulch",
+    "center": {
+      "x": 108.70494449352402,
+      "y": -91.64461231037467
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_PASSAGE_71_4_99_7",
+    "displayName": "Razorrock Passage",
+    "center": {
+      "x": 99.67208017099259,
+      "y": -71.42928239936244
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_PASSAGE_71_4_99_7",
+    "displayName": "Razorrock Passage",
+    "center": {
+      "x": 99.67208017099259,
+      "y": -71.42928239936244
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_RAVINE_94_5_111_9",
+    "displayName": "Razorrock Ravine",
+    "center": {
+      "x": 111.91805182674389,
+      "y": -94.49384796983087
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_RAVINE_94_5_111_9",
+    "displayName": "Razorrock Ravine",
+    "center": {
+      "x": 111.91805182674389,
+      "y": -94.49384796983087
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_VALLEY_88_3_99_5",
+    "displayName": "Razorrock Valley",
+    "center": {
+      "x": 99.49559482631722,
+      "y": -88.31656548263655
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_VALLEY_88_3_99_5",
+    "displayName": "Razorrock Valley",
+    "center": {
+      "x": 99.49559482631722,
+      "y": -88.31656548263655
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_VERGE_75_9_91_7",
+    "displayName": "Razorrock Verge",
+    "center": {
+      "x": 91.72492762555903,
+      "y": -75.88735331576673
+    }
+  },
+  {
+    "zoneId": "RAZORROCK_VERGE_75_9_91_7",
+    "displayName": "Razorrock Verge",
+    "center": {
+      "x": 91.72492762555903,
+      "y": -75.88735331576673
+    }
+  },
+  {
+    "zoneId": "REDLAKE_229_8_177_0",
+    "displayName": "Redlake",
+    "center": {
+      "x": 177.04998990647476,
+      "y": -229.840759325149
+    }
+  },
+  {
+    "zoneId": "REDLAKE_229_8_177_0",
+    "displayName": "Redlake",
+    "center": {
+      "x": 177.04998990647476,
+      "y": -229.840759325149
+    }
+  },
+  {
+    "zoneId": "REDSTONE_PLAIN_240_1_123_8",
+    "displayName": "Redstone Plain",
+    "center": {
+      "x": 123.78956220020389,
+      "y": -240.10002385635164
+    }
+  },
+  {
+    "zoneId": "REDSTONE_PLAIN_240_1_123_8",
+    "displayName": "Redstone Plain",
+    "center": {
+      "x": 123.78956220020389,
+      "y": -240.10002385635164
+    }
+  },
+  {
+    "zoneId": "REDTREE_ENCLAVE_120_5_76_3",
+    "displayName": "Redtree Enclave",
+    "center": {
+      "x": 76.34775418401144,
+      "y": -120.47012216306929
+    }
+  },
+  {
+    "zoneId": "REDTREE_ENCLAVE_120_5_76_3",
+    "displayName": "Redtree Enclave",
+    "center": {
+      "x": 76.34775418401142,
+      "y": -120.47012216306929
+    }
+  },
+  {
+    "zoneId": "RIVERCOPSE_CROSSING_100_2_136_0",
+    "displayName": "Rivercopse Crossing",
+    "center": {
+      "x": 136.00492393878866,
+      "y": -100.15479115196669
+    }
+  },
+  {
+    "zoneId": "RIVERCOPSE_CROSSING_100_2_136_0",
+    "displayName": "Rivercopse Crossing",
+    "center": {
+      "x": 136.00492393878866,
+      "y": -100.1547911519667
+    }
+  },
+  {
+    "zoneId": "RIVERCOPSE_CURVE_104_0_139_5",
+    "displayName": "Rivercopse Curve",
+    "center": {
+      "x": 139.54611501575474,
+      "y": -104.02181703370353
+    }
+  },
+  {
+    "zoneId": "RIVERCOPSE_CURVE_104_0_139_5",
+    "displayName": "Rivercopse Curve",
+    "center": {
+      "x": 139.54611501575474,
+      "y": -104.02181703370353
+    }
+  },
+  {
+    "zoneId": "RIVERCOPSE_FOUNT_94_8_140_6",
+    "displayName": "Rivercopse Fount",
+    "center": {
+      "x": 140.55489070137753,
+      "y": -94.75861927309263
+    }
+  },
+  {
+    "zoneId": "RIVERCOPSE_FOUNT_94_8_140_6",
+    "displayName": "Rivercopse Fount",
+    "center": {
+      "x": 140.55489070137756,
+      "y": -94.75861927309265
+    }
+  },
+  {
+    "zoneId": "RIVERCOPSE_PATH_103_3_130_5",
+    "displayName": "Rivercopse Path",
+    "center": {
+      "x": 130.4951614762333,
+      "y": -103.2506607691787
+    }
+  },
+  {
+    "zoneId": "RIVERCOPSE_PATH_103_3_130_5",
+    "displayName": "Rivercopse Path",
+    "center": {
+      "x": 130.4951614762333,
+      "y": -103.2506607691787
+    }
+  },
+  {
+    "zoneId": "ROASTCORPSE_STEPPE_224_0_131_3",
+    "displayName": "Roastcorpse Steppe",
+    "center": {
+      "x": 131.29163365693415,
+      "y": -223.97880405858447
+    }
+  },
+  {
+    "zoneId": "ROASTCORPSE_STEPPE_224_0_131_3",
+    "displayName": "Roastcorpse Steppe",
+    "center": {
+      "x": 131.29163365693415,
+      "y": -223.97880405858444
+    }
+  },
+  {
+    "zoneId": "ROWANWOOD_206_4_166_3",
+    "displayName": "Rowanwood",
+    "center": {
+      "x": 166.33816187494335,
+      "y": -206.4078056032293
+    }
+  },
+  {
+    "zoneId": "ROWANWOOD_206_4_166_3",
+    "displayName": "Rowanwood",
+    "center": {
+      "x": 166.33816187494335,
+      "y": -206.4078056032293
+    }
+  },
+  {
+    "zoneId": "RUNNEL_SINK_215_8_124_1",
+    "displayName": "Runnel Sink",
+    "center": {
+      "x": 124.05950592734465,
+      "y": -215.8017219065826
+    }
+  },
+  {
+    "zoneId": "RUNNEL_SINK_215_8_124_1",
+    "displayName": "Runnel Sink",
+    "center": {
+      "x": 124.05950592734466,
+      "y": -215.8017219065826
+    }
+  },
+  {
+    "zoneId": "RUNNELVEIN_BOG_71_4_155_6",
+    "displayName": "Runnelvein Bog",
+    "center": {
+      "x": 155.6342224171725,
+      "y": -71.41388254139228
+    }
+  },
+  {
+    "zoneId": "RUNNELVEIN_BOG_71_4_155_6",
+    "displayName": "Runnelvein Bog",
+    "center": {
+      "x": 155.6342224171725,
+      "y": -71.41388254139228
+    }
+  },
+  {
+    "zoneId": "RUNNELVEIN_SINK_79_5_149_5",
+    "displayName": "Runnelvein Sink",
+    "center": {
+      "x": 149.5153507741377,
+      "y": -79.46248244090103
+    }
+  },
+  {
+    "zoneId": "RUNNELVEIN_SINK_79_5_149_5",
+    "displayName": "Runnelvein Sink",
+    "center": {
+      "x": 149.5153507741377,
+      "y": -79.46248244090103
+    }
+  },
+  {
+    "zoneId": "RUNNELVEIN_SLOUGH_74_8_150_9",
+    "displayName": "Runnelvein Slough",
+    "center": {
+      "x": 150.92662544233627,
+      "y": -74.84520906880668
+    }
+  },
+  {
+    "zoneId": "RUNNELVEIN_SLOUGH_74_8_150_9",
+    "displayName": "Runnelvein Slough",
+    "center": {
+      "x": 150.92662544233625,
+      "y": -74.84520906880668
+    }
+  },
+  {
+    "zoneId": "RUSSERDELL_202_2_169_4",
+    "displayName": "Russerdell",
+    "center": {
+      "x": 169.41432065869873,
+      "y": -202.17772322305353
+    }
+  },
+  {
+    "zoneId": "RUSSERDELL_202_2_169_4",
+    "displayName": "Russerdell",
+    "center": {
+      "x": 169.41432065869873,
+      "y": -202.17772322305353
+    }
+  },
+  {
+    "zoneId": "SADDLE_TOR_248_2_114_6",
+    "displayName": "Saddle Tor",
+    "center": {
+      "x": 114.6288119254995,
+      "y": -248.1928428650981
+    }
+  },
+  {
+    "zoneId": "SADDLE_TOR_248_2_114_6",
+    "displayName": "Saddle Tor",
+    "center": {
+      "x": 114.6288119254995,
+      "y": -248.1928428650981
+    }
+  },
+  {
+    "zoneId": "SANDGUST_CLEFT_257_5_144_8",
+    "displayName": "Sandgust Cleft",
+    "center": {
+      "x": 144.7583990357374,
+      "y": -257.534459061899
+    }
+  },
+  {
+    "zoneId": "SANDGUST_CLEFT_257_5_144_8",
+    "displayName": "Sandgust Cleft",
+    "center": {
+      "x": 144.7583990357374,
+      "y": -257.53445906189893
+    }
+  },
+  {
+    "zoneId": "SANDMOUNT_ASCENT_58_5_56_9",
+    "displayName": "Sandmount Ascent",
+    "center": {
+      "x": 56.91080007060704,
+      "y": -58.49362584484429
+    }
+  },
+  {
+    "zoneId": "SANDMOUNT_ASCENT_58_5_56_9",
+    "displayName": "Sandmount Ascent",
+    "center": {
+      "x": 56.91080007060704,
+      "y": -58.49362584484429
+    }
+  },
+  {
+    "zoneId": "SANDMOUNT_DESERT_71_9_45_5",
+    "displayName": "Sandmount Desert",
+    "center": {
+      "x": 45.50549842823406,
+      "y": -71.88102676456847
+    }
+  },
+  {
+    "zoneId": "SANDMOUNT_DESERT_71_9_45_5",
+    "displayName": "Sandmount Desert",
+    "center": {
+      "x": 45.50549842823406,
+      "y": -71.88102676456847
+    }
+  },
+  {
+    "zoneId": "SANDMOUNT_ESKER_67_6_48_4",
+    "displayName": "Sandmount Esker",
+    "center": {
+      "x": 48.41420389496524,
+      "y": -67.59663498583829
+    }
+  },
+  {
+    "zoneId": "SANDMOUNT_ESKER_67_6_48_4",
+    "displayName": "Sandmount Esker",
+    "center": {
+      "x": 48.41420389496524,
+      "y": -67.5966349858383
+    }
+  },
+  {
+    "zoneId": "SANDMOUNT_STRAND_60_0_60_9",
+    "displayName": "Sandmount Strand",
+    "center": {
+      "x": 60.91811358447991,
+      "y": -60.01192348894052
+    }
+  },
+  {
+    "zoneId": "SANDMOUNT_STRAND_60_0_60_9",
+    "displayName": "Sandmount Strand",
+    "center": {
+      "x": 60.91811358447991,
+      "y": -60.01192348894051
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_COAST_142_5_111_8",
+    "displayName": "Sandrift Coast",
+    "center": {
+      "x": 111.83206889344777,
+      "y": -142.46397262325473
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_COAST_142_5_111_8",
+    "displayName": "Sandrift Coast",
+    "center": {
+      "x": 111.83206889344777,
+      "y": -142.46397262325473
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_DUNES_130_3_104_3",
+    "displayName": "Sandrift Dunes",
+    "center": {
+      "x": 104.2518714757314,
+      "y": -130.27414320267388
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_DUNES_130_3_104_3",
+    "displayName": "Sandrift Dunes",
+    "center": {
+      "x": 104.2518714757314,
+      "y": -130.27414320267388
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_EXPANSE_139_4_115_0",
+    "displayName": "Sandrift Expanse",
+    "center": {
+      "x": 114.97392406088379,
+      "y": -139.44422198528613
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_EXPANSE_139_4_115_0",
+    "displayName": "Sandrift Expanse",
+    "center": {
+      "x": 114.97392406088379,
+      "y": -139.44422198528613
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_FRINGE_146_8_116_8",
+    "displayName": "Sandrift Fringe",
+    "center": {
+      "x": 116.77162121019828,
+      "y": -146.82157316277934
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_FRINGE_146_8_116_8",
+    "displayName": "Sandrift Fringe",
+    "center": {
+      "x": 116.77162121019828,
+      "y": -146.82157316277932
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_PRAIRIE_134_5_96_6",
+    "displayName": "Sandrift Prairie",
+    "center": {
+      "x": 96.63507523604282,
+      "y": -134.51499141370084
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_PRAIRIE_134_5_96_6",
+    "displayName": "Sandrift Prairie",
+    "center": {
+      "x": 96.63507523604281,
+      "y": -134.51499141370084
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_SHORE_146_7_109_9",
+    "displayName": "Sandrift Shore",
+    "center": {
+      "x": 109.8589454530831,
+      "y": -146.697122505055
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_SHORE_146_7_109_9",
+    "displayName": "Sandrift Shore",
+    "center": {
+      "x": 109.8589454530831,
+      "y": -146.697122505055
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_STEPPE_133_3_109_3",
+    "displayName": "Sandrift Steppe",
+    "center": {
+      "x": 109.33743438034071,
+      "y": -133.2692010020719
+    }
+  },
+  {
+    "zoneId": "SANDRIFT_STEPPE_133_3_109_3",
+    "displayName": "Sandrift Steppe",
+    "center": {
+      "x": 109.33743438034072,
+      "y": -133.26920100207192
+    }
+  },
+  {
+    "zoneId": "SCUTTLESINK_MARSH_11_8_130_2",
+    "displayName": "Scuttlesink Marsh",
+    "center": {
+      "x": 130.17837673316507,
+      "y": -11.835899717768534
+    }
+  },
+  {
+    "zoneId": "SCUTTLESINK_MARSH_11_8_130_2",
+    "displayName": "Scuttlesink Marsh",
+    "center": {
+      "x": 130.17837673316504,
+      "y": -11.835899717768555
+    }
+  },
+  {
+    "zoneId": "SCUTTLESINK_MOUTH_4_8_130_4",
+    "displayName": "Scuttlesink Mouth",
+    "center": {
+      "x": 130.38202461751763,
+      "y": -4.753511635453151
+    }
+  },
+  {
+    "zoneId": "SCUTTLESINK_MOUTH_4_8_130_4",
+    "displayName": "Scuttlesink Mouth",
+    "center": {
+      "x": 130.3820246175176,
+      "y": -4.753511635453137
+    }
+  },
+  {
+    "zoneId": "SCUTTLESINK_POOLS_8_4_127_7",
+    "displayName": "Scuttlesink Pools",
+    "center": {
+      "x": 127.68936335240426,
+      "y": -8.35126958048528
+    }
+  },
+  {
+    "zoneId": "SCUTTLESINK_POOLS_8_4_127_7",
+    "displayName": "Scuttlesink Pools",
+    "center": {
+      "x": 127.68936335240426,
+      "y": -8.35126958048528
+    }
+  },
+  {
+    "zoneId": "SHALEHEATH_HILLS_15_2_123_3",
+    "displayName": "Shaleheath Hills",
+    "center": {
+      "x": 123.27818732780733,
+      "y": -15.201604676793856
+    }
+  },
+  {
+    "zoneId": "SHALEHEATH_HILLS_15_2_123_3",
+    "displayName": "Shaleheath Hills",
+    "center": {
+      "x": 123.27818732780733,
+      "y": -15.201604676793863
+    }
+  },
+  {
+    "zoneId": "SHALEHEATH_STEEP_19_1_125_9",
+    "displayName": "Shaleheath Steep",
+    "center": {
+      "x": 125.85318511943456,
+      "y": -19.13424748829928
+    }
+  },
+  {
+    "zoneId": "SHALEHEATH_STEEP_19_1_125_9",
+    "displayName": "Shaleheath Steep",
+    "center": {
+      "x": 125.85318511943457,
+      "y": -19.13424748829928
+    }
+  },
+  {
+    "zoneId": "SHIFTSHADOW_EXPANSE_233_2_130_8",
+    "displayName": "Shiftshadow Expanse",
+    "center": {
+      "x": 130.83455915475264,
+      "y": -233.201738095586
+    }
+  },
+  {
+    "zoneId": "SHIFTSHADOW_EXPANSE_233_2_130_8",
+    "displayName": "Shiftshadow Expanse",
+    "center": {
+      "x": 130.83455915475264,
+      "y": -233.201738095586
+    }
+  },
+  {
+    "zoneId": "SKULLMARSH_LOWER_126_8_181_0",
+    "displayName": "Skullmarsh Lower",
+    "center": {
+      "x": 181.03534079686102,
+      "y": -126.82166753004142
+    }
+  },
+  {
+    "zoneId": "SKULLMARSH_LOWER_126_8_181_0",
+    "displayName": "Skullmarsh Lower",
+    "center": {
+      "x": 181.03534079686105,
+      "y": -126.82166753004142
+    }
+  },
+  {
+    "zoneId": "SKULLMARSH_UPPER_122_0_184_1",
+    "displayName": "Skullmarsh Upper",
+    "center": {
+      "x": 184.13529805695373,
+      "y": -121.9567749119455
+    }
+  },
+  {
+    "zoneId": "SKULLMARSH_UPPER_122_0_184_1",
+    "displayName": "Skullmarsh Upper",
+    "center": {
+      "x": 184.13529805695373,
+      "y": -121.9567749119455
+    }
+  },
+  {
+    "zoneId": "SKYLAKE_BRIDGE_75_3_174_5",
+    "displayName": "Skylake Bridge",
+    "center": {
+      "x": 174.48286125165689,
+      "y": -75.32842615721677
+    }
+  },
+  {
+    "zoneId": "SKYLAKE_BRIDGE_75_3_174_5",
+    "displayName": "Skylake Bridge",
+    "center": {
+      "x": 174.48286125165689,
+      "y": -75.32842615721677
+    }
+  },
+  {
+    "zoneId": "SKYLAKE_HINTERLANDS_79_4_172_1",
+    "displayName": "Skylake Hinterlands",
+    "center": {
+      "x": 172.1296064897555,
+      "y": -79.44662035005645
+    }
+  },
+  {
+    "zoneId": "SKYLAKE_HINTERLANDS_79_4_172_1",
+    "displayName": "Skylake Hinterlands",
+    "center": {
+      "x": 172.12960648975553,
+      "y": -79.44662035005646
+    }
+  },
+  {
+    "zoneId": "SKYSAND_PLATEAU_31_0_129_8",
+    "displayName": "Skysand Plateau",
+    "center": {
+      "x": 129.79369978303941,
+      "y": -31.003134823698623
+    }
+  },
+  {
+    "zoneId": "SKYSAND_PLATEAU_31_0_129_8",
+    "displayName": "Skysand Plateau",
+    "center": {
+      "x": 129.7936997830394,
+      "y": -31.003134823698602
+    }
+  },
+  {
+    "zoneId": "SKYSAND_RIDGE_36_2_126_8",
+    "displayName": "Skysand Ridge",
+    "center": {
+      "x": 126.82842611322454,
+      "y": -36.17495455064761
+    }
+  },
+  {
+    "zoneId": "SKYSAND_RIDGE_36_2_126_8",
+    "displayName": "Skysand Ridge",
+    "center": {
+      "x": 126.82842611322455,
+      "y": -36.17495455064761
+    }
+  },
+  {
+    "zoneId": "SLAKESANDS_CANYON_112_6_185_8",
+    "displayName": "Slakesands Canyon",
+    "center": {
+      "x": 185.778050793748,
+      "y": -112.5573440807956
+    }
+  },
+  {
+    "zoneId": "SLAKESANDS_CANYON_112_6_185_8",
+    "displayName": "Slakesands Canyon",
+    "center": {
+      "x": 185.778050793748,
+      "y": -112.5573440807956
+    }
+  },
+  {
+    "zoneId": "SLAKESANDS_MESA_112_3_182_5",
+    "displayName": "Slakesands Mesa",
+    "center": {
+      "x": 182.45566783475863,
+      "y": -112.3433649703901
+    }
+  },
+  {
+    "zoneId": "SLAKESANDS_MESA_112_3_182_5",
+    "displayName": "Slakesands Mesa",
+    "center": {
+      "x": 182.45566783475866,
+      "y": -112.3433649703901
+    }
+  },
+  {
+    "zoneId": "SLEETWATER_BASIN_189_7_130_1",
+    "displayName": "Sleetwater Basin",
+    "center": {
+      "x": 130.06296672413777,
+      "y": -189.66432753880872
+    }
+  },
+  {
+    "zoneId": "SLEETWATER_BASIN_189_7_130_1",
+    "displayName": "Sleetwater Basin",
+    "center": {
+      "x": 130.06296672413774,
+      "y": -189.6643275388087
+    }
+  },
+  {
+    "zoneId": "SLIMEHAG_213_5_97_5",
+    "displayName": "Slimehag",
+    "center": {
+      "x": 97.5175390005013,
+      "y": -213.50730770611693
+    }
+  },
+  {
+    "zoneId": "SLIMEHAG_213_5_97_5",
+    "displayName": "Slimehag",
+    "center": {
+      "x": 97.5175390005013,
+      "y": -213.50730770611693
+    }
+  },
+  {
+    "zoneId": "SLITHERTAIL_MARSH_199_8_118_7",
+    "displayName": "Slithertail Marsh",
+    "center": {
+      "x": 118.73569286238853,
+      "y": -199.8176869337682
+    }
+  },
+  {
+    "zoneId": "SLITHERTAIL_MARSH_199_8_118_7",
+    "displayName": "Slithertail Marsh",
+    "center": {
+      "x": 118.73569286238855,
+      "y": -199.8176869337682
+    }
+  },
+  {
+    "zoneId": "SLOWTREE_PLAIN_240_3_133_6",
+    "displayName": "Slowtree Plain",
+    "center": {
+      "x": 133.59964693501564,
+      "y": -240.26419821175125
+    }
+  },
+  {
+    "zoneId": "SLOWTREE_PLAIN_240_3_133_6",
+    "displayName": "Slowtree Plain",
+    "center": {
+      "x": 133.5996469350156,
+      "y": -240.26419821175128
+    }
+  },
+  {
+    "zoneId": "SMOOTHFLOOR_CLEFT_244_0_128_7",
+    "displayName": "Smoothfloor Cleft",
+    "center": {
+      "x": 128.67364694084915,
+      "y": -244.02443866021406
+    }
+  },
+  {
+    "zoneId": "SMOOTHFLOOR_CLEFT_244_0_128_7",
+    "displayName": "Smoothfloor Cleft",
+    "center": {
+      "x": 128.67364694084915,
+      "y": -244.02443866021406
+    }
+  },
+  {
+    "zoneId": "SNAPSHAFT_TROUGH_247_5_141_6",
+    "displayName": "Snapshaft Trough",
+    "center": {
+      "x": 141.58485062734223,
+      "y": -247.49547673438082
+    }
+  },
+  {
+    "zoneId": "SNAPSHAFT_TROUGH_247_5_141_6",
+    "displayName": "Snapshaft Trough",
+    "center": {
+      "x": 141.58485062734223,
+      "y": -247.49547673438082
+    }
+  },
+  {
+    "zoneId": "SOUTHGROVE_COPSE_146_6_122_6",
+    "displayName": "Southgrove Copse",
+    "center": {
+      "x": 122.55293901504268,
+      "y": -146.5821624195873
+    }
+  },
+  {
+    "zoneId": "SOUTHGROVE_COPSE_146_6_122_6",
+    "displayName": "Southgrove Copse",
+    "center": {
+      "x": 122.55293901504268,
+      "y": -146.5821624195873
+    }
+  },
+  {
+    "zoneId": "SOUTHGROVE_ESCARP_152_2_124_8",
+    "displayName": "Southgrove Escarp",
+    "center": {
+      "x": 124.80620921749554,
+      "y": -152.18700390809573
+    }
+  },
+  {
+    "zoneId": "SOUTHGROVE_ESCARP_152_2_124_8",
+    "displayName": "Southgrove Escarp",
+    "center": {
+      "x": 124.80620921749554,
+      "y": -152.1870039080957
+    }
+  },
+  {
+    "zoneId": "SOUTHGROVE_THICKET_143_7_125_3",
+    "displayName": "Southgrove Thicket",
+    "center": {
+      "x": 125.30401273086211,
+      "y": -143.7243502902664
+    }
+  },
+  {
+    "zoneId": "SOUTHGROVE_THICKET_143_7_125_3",
+    "displayName": "Southgrove Thicket",
+    "center": {
+      "x": 125.30401273086211,
+      "y": -143.72435029026636
+    }
+  },
+  {
+    "zoneId": "SPECTRAL_SUMP_196_8_137_9",
+    "displayName": "Spectral Sump",
+    "center": {
+      "x": 137.90454967529485,
+      "y": -196.76851691112745
+    }
+  },
+  {
+    "zoneId": "SPECTRAL_SUMP_196_8_137_9",
+    "displayName": "Spectral Sump",
+    "center": {
+      "x": 137.90454967529485,
+      "y": -196.76851691112745
+    }
+  },
+  {
+    "zoneId": "SPINDLEWOOD_239_0_159_0",
+    "displayName": "Spindlewood",
+    "center": {
+      "x": 159.03965028191357,
+      "y": -238.99027350339475
+    }
+  },
+  {
+    "zoneId": "SPINDLEWOOD_239_0_159_0",
+    "displayName": "Spindlewood",
+    "center": {
+      "x": 159.03965028191357,
+      "y": -238.99027350339475
+    }
+  },
+  {
+    "zoneId": "SPRINGSUMP_BASIN_126_6_120_7",
+    "displayName": "Springsump Basin",
+    "center": {
+      "x": 120.72010529532463,
+      "y": -126.60397589407424
+    }
+  },
+  {
+    "zoneId": "SPRINGSUMP_BASIN_126_6_120_7",
+    "displayName": "Springsump Basin",
+    "center": {
+      "x": 120.72010529532461,
+      "y": -126.60397589407422
+    }
+  },
+  {
+    "zoneId": "SPRINGSUMP_MELT_128_8_117_7",
+    "displayName": "Springsump Melt",
+    "center": {
+      "x": 117.71067146069336,
+      "y": -128.75175800620664
+    }
+  },
+  {
+    "zoneId": "SPRINGSUMP_MELT_128_8_117_7",
+    "displayName": "Springsump Melt",
+    "center": {
+      "x": 117.71067146069336,
+      "y": -128.75175800620664
+    }
+  },
+  {
+    "zoneId": "SPRINGSUMP_WETLAND_124_1_115_7",
+    "displayName": "Springsump Wetland",
+    "center": {
+      "x": 115.65341892867977,
+      "y": -124.10864204217825
+    }
+  },
+  {
+    "zoneId": "SPRINGSUMP_WETLAND_124_1_115_7",
+    "displayName": "Springsump Wetland",
+    "center": {
+      "x": 115.65341892867977,
+      "y": -124.10864204217825
+    }
+  },
+  {
+    "zoneId": "STAGBOURNE_232_8_171_9",
+    "displayName": "Stagbourne",
+    "center": {
+      "x": 171.8916058871908,
+      "y": -232.7836024364938
+    }
+  },
+  {
+    "zoneId": "STAGBOURNE_232_8_171_9",
+    "displayName": "Stagbourne",
+    "center": {
+      "x": 171.8916058871908,
+      "y": -232.78360243649377
+    }
+  },
+  {
+    "zoneId": "STEELHIDE_MEADOW_253_3_164_1",
+    "displayName": "Steelhide Meadow",
+    "center": {
+      "x": 164.11230173348224,
+      "y": -253.3202442936576
+    }
+  },
+  {
+    "zoneId": "STEELHIDE_MEADOW_253_3_164_1",
+    "displayName": "Steelhide Meadow",
+    "center": {
+      "x": 164.11230173348224,
+      "y": -253.32024429365757
+    }
+  },
+  {
+    "zoneId": "STEPPE_CROSS_257_1_128_1",
+    "displayName": "Steppe Cross",
+    "center": {
+      "x": 128.05779766378626,
+      "y": -257.1245620453357
+    }
+  },
+  {
+    "zoneId": "STEPPE_CROSS_257_1_128_1",
+    "displayName": "Steppe Cross",
+    "center": {
+      "x": 128.05779766378626,
+      "y": -257.1245620453357
+    }
+  },
+  {
+    "zoneId": "STINKHAG_185_4_110_4",
+    "displayName": "Stinkhag",
+    "center": {
+      "x": 110.42129084500925,
+      "y": -185.43218647097964
+    }
+  },
+  {
+    "zoneId": "STINKHAG_185_4_110_4",
+    "displayName": "Stinkhag",
+    "center": {
+      "x": 110.42129084500925,
+      "y": -185.43218647097964
+    }
+  },
+  {
+    "zoneId": "STONELAKE_FIELDS_129_2_94_8",
+    "displayName": "Stonelake Fields",
+    "center": {
+      "x": 94.83433871098313,
+      "y": -129.22875472717433
+    }
+  },
+  {
+    "zoneId": "STONELAKE_FIELDS_129_2_94_8",
+    "displayName": "Stonelake Fields",
+    "center": {
+      "x": 94.83433871098313,
+      "y": -129.22875472717433
+    }
+  },
+  {
+    "zoneId": "STONELAKE_HILLOCK_124_5_97_9",
+    "displayName": "Stonelake Hillock",
+    "center": {
+      "x": 97.86641181937887,
+      "y": -124.47699792693291
+    }
+  },
+  {
+    "zoneId": "STONELAKE_HILLOCK_124_5_97_9",
+    "displayName": "Stonelake Hillock",
+    "center": {
+      "x": 97.86641181937887,
+      "y": -124.47699792693292
+    }
+  },
+  {
+    "zoneId": "STONEMOUTH_BAY_130_0_138_2",
+    "displayName": "Stonemouth Bay",
+    "center": {
+      "x": 138.23943411184717,
+      "y": -129.9950125405852
+    }
+  },
+  {
+    "zoneId": "STONEMOUTH_BAY_130_0_138_2",
+    "displayName": "Stonemouth Bay",
+    "center": {
+      "x": 138.23943411184717,
+      "y": -129.9950125405852
+    }
+  },
+  {
+    "zoneId": "STONEMOUTH_NORTHBLUFF_135_7_144_0",
+    "displayName": "Stonemouth Northbluff",
+    "center": {
+      "x": 143.98110426976484,
+      "y": -135.69837448152526
+    }
+  },
+  {
+    "zoneId": "STONEMOUTH_NORTHBLUFF_135_7_144_0",
+    "displayName": "Stonemouth Northbluff",
+    "center": {
+      "x": 143.98110426976484,
+      "y": -135.6983744815253
+    }
+  },
+  {
+    "zoneId": "STONEMOUTH_SOUTHBLUFF_141_2_139_0",
+    "displayName": "Stonemouth Southbluff",
+    "center": {
+      "x": 139.02912958480388,
+      "y": -141.2068976404517
+    }
+  },
+  {
+    "zoneId": "STONEMOUTH_SOUTHBLUFF_141_2_139_0",
+    "displayName": "Stonemouth Southbluff",
+    "center": {
+      "x": 139.02912958480388,
+      "y": -141.20689764045167
+    }
+  },
+  {
+    "zoneId": "STUMPROT_SWAMP_207_1_124_4",
+    "displayName": "Stumprot Swamp",
+    "center": {
+      "x": 124.44123316739044,
+      "y": -207.11829857736956
+    }
+  },
+  {
+    "zoneId": "STUMPROT_SWAMP_207_1_124_4",
+    "displayName": "Stumprot Swamp",
+    "center": {
+      "x": 124.44123316739044,
+      "y": -207.11829857736956
+    }
+  },
+  {
+    "zoneId": "SUNFANG_APPROACH_104_0_116_0",
+    "displayName": "Sunfang Approach",
+    "center": {
+      "x": 115.99097545953282,
+      "y": -103.95393261047758
+    }
+  },
+  {
+    "zoneId": "SUNFANG_APPROACH_104_0_116_0",
+    "displayName": "Sunfang Approach",
+    "center": {
+      "x": 115.99097545953282,
+      "y": -103.9539326104776
+    }
+  },
+  {
+    "zoneId": "SUNFANG_CLIFFS_85_2_111_1",
+    "displayName": "Sunfang Cliffs",
+    "center": {
+      "x": 111.12608822676216,
+      "y": -85.23923253958571
+    }
+  },
+  {
+    "zoneId": "SUNFANG_CLIFFS_85_2_111_1",
+    "displayName": "Sunfang Cliffs",
+    "center": {
+      "x": 111.12608822676215,
+      "y": -85.23923253958571
+    }
+  },
+  {
+    "zoneId": "SUNFANG_DAWN_99_9_108_3",
+    "displayName": "Sunfang Dawn",
+    "center": {
+      "x": 108.27673881928071,
+      "y": -99.85824330717284
+    }
+  },
+  {
+    "zoneId": "SUNFANG_DAWN_99_9_108_3",
+    "displayName": "Sunfang Dawn",
+    "center": {
+      "x": 108.27673881928071,
+      "y": -99.85824330717284
+    }
+  },
+  {
+    "zoneId": "SUNFANG_RAVINE_98_8_122_5",
+    "displayName": "Sunfang Ravine",
+    "center": {
+      "x": 122.46241477499424,
+      "y": -98.79488099188254
+    }
+  },
+  {
+    "zoneId": "SUNFANG_RAVINE_98_8_122_5",
+    "displayName": "Sunfang Ravine",
+    "center": {
+      "x": 122.46241477499424,
+      "y": -98.79488099188254
+    }
+  },
+  {
+    "zoneId": "SUNFANG_WASTELAND_90_8_118_4",
+    "displayName": "Sunfang Wasteland",
+    "center": {
+      "x": 118.41210541267401,
+      "y": -90.7621440204328
+    }
+  },
+  {
+    "zoneId": "SUNFANG_WASTELAND_90_8_118_4",
+    "displayName": "Sunfang Wasteland",
+    "center": {
+      "x": 118.41210541267401,
+      "y": -90.7621440204328
+    }
+  },
+  {
+    "zoneId": "SUNKENBOUGH_SPRING_116_2_134_9",
+    "displayName": "Sunkenbough Spring",
+    "center": {
+      "x": 134.90482531055227,
+      "y": -116.17094415929053
+    }
+  },
+  {
+    "zoneId": "SUNKENBOUGH_SPRING_116_2_134_9",
+    "displayName": "Sunkenbough Spring",
+    "center": {
+      "x": 134.90482531055224,
+      "y": -116.17094415929054
+    }
+  },
+  {
+    "zoneId": "SUNKENBOUGH_WOODS_110_2_138_3",
+    "displayName": "Sunkenbough Woods",
+    "center": {
+      "x": 138.31518502447472,
+      "y": -110.23982819267167
+    }
+  },
+  {
+    "zoneId": "SUNKENBOUGH_WOODS_110_2_138_3",
+    "displayName": "Sunkenbough Woods",
+    "center": {
+      "x": 138.31518502447472,
+      "y": -110.23982819267168
+    }
+  },
+  {
+    "zoneId": "SUNSTRAND_DELTA_148_7_138_8",
+    "displayName": "Sunstrand Delta",
+    "center": {
+      "x": 138.82095734842255,
+      "y": -148.69204718338
+    }
+  },
+  {
+    "zoneId": "SUNSTRAND_DELTA_148_7_138_8",
+    "displayName": "Sunstrand Delta",
+    "center": {
+      "x": 138.82095734842255,
+      "y": -148.69204718338
+    }
+  },
+  {
+    "zoneId": "SUNSTRAND_DUNES_152_4_136_1",
+    "displayName": "Sunstrand Dunes",
+    "center": {
+      "x": 136.13843986383972,
+      "y": -152.4336137676524
+    }
+  },
+  {
+    "zoneId": "SUNSTRAND_DUNES_152_4_136_1",
+    "displayName": "Sunstrand Dunes",
+    "center": {
+      "x": 136.13843986383975,
+      "y": -152.4336137676524
+    }
+  },
+  {
+    "zoneId": "SUNSTRAND_QUICKSANDS_147_1_129_5",
+    "displayName": "Sunstrand Quicksands",
+    "center": {
+      "x": 129.53534011677593,
+      "y": -147.14108880880508
+    }
+  },
+  {
+    "zoneId": "SUNSTRAND_QUICKSANDS_147_1_129_5",
+    "displayName": "Sunstrand Quicksands",
+    "center": {
+      "x": 129.53534011677593,
+      "y": -147.14108880880508
+    }
+  },
+  {
+    "zoneId": "SUNSTRAND_SHOAL_140_0_129_9",
+    "displayName": "Sunstrand Shoal",
+    "center": {
+      "x": 129.94531619353415,
+      "y": -140.0043719362389
+    }
+  },
+  {
+    "zoneId": "SUNSTRAND_SHOAL_140_0_129_9",
+    "displayName": "Sunstrand Shoal",
+    "center": {
+      "x": 129.94531619353415,
+      "y": -140.0043719362389
+    }
+  },
+  {
+    "zoneId": "SWAMP_CROSS_179_3_111_2",
+    "displayName": "Swamp Cross",
+    "center": {
+      "x": 111.24110202971782,
+      "y": -179.336030378732
+    }
+  },
+  {
+    "zoneId": "SWAMP_CROSS_179_3_111_2",
+    "displayName": "Swamp Cross",
+    "center": {
+      "x": 111.24110202971782,
+      "y": -179.336030378732
+    }
+  },
+  {
+    "zoneId": "SWIFTSANDS_BASIN_70_1_190_0",
+    "displayName": "Swiftsands Basin",
+    "center": {
+      "x": 190.02788247398925,
+      "y": -70.10331818441503
+    }
+  },
+  {
+    "zoneId": "SWIFTSANDS_BASIN_70_1_190_0",
+    "displayName": "Swiftsands Basin",
+    "center": {
+      "x": 190.02788247398925,
+      "y": -70.10331818441503
+    }
+  },
+  {
+    "zoneId": "SWIFTSANDS_CHAPARRAL_74_8_189_6",
+    "displayName": "Swiftsands Chaparral",
+    "center": {
+      "x": 189.59688534582057,
+      "y": -74.82257866498965
+    }
+  },
+  {
+    "zoneId": "SWIFTSANDS_CHAPARRAL_74_8_189_6",
+    "displayName": "Swiftsands Chaparral",
+    "center": {
+      "x": 189.59688534582057,
+      "y": -74.82257866498965
+    }
+  },
+  {
+    "zoneId": "SWIFTSANDS_PLAIN_72_8_193_6",
+    "displayName": "Swiftsands Plain",
+    "center": {
+      "x": 193.57092931593297,
+      "y": -72.83265369546969
+    }
+  },
+  {
+    "zoneId": "SWIFTSANDS_PLAIN_72_8_193_6",
+    "displayName": "Swiftsands Plain",
+    "center": {
+      "x": 193.57092931593297,
+      "y": -72.83265369546969
+    }
+  },
+  {
+    "zoneId": "THARCAL_FISSURE_203_0_152_4",
+    "displayName": "Tharcal Fissure",
+    "center": {
+      "x": 152.37587823875322,
+      "y": -203.0420920457855
+    }
+  },
+  {
+    "zoneId": "THARCAL_FISSURE_203_0_152_4",
+    "displayName": "Tharcal Fissure",
+    "center": {
+      "x": 152.37587823875322,
+      "y": -203.04209204578547
+    }
+  },
+  {
+    "zoneId": "THE_COVE_234_0_88_6",
+    "displayName": "The Cove",
+    "center": {
+      "x": 88.55968289088929,
+      "y": -233.99630097484052
+    }
+  },
+  {
+    "zoneId": "THE_COVE_234_0_88_6",
+    "displayName": "The Cove",
+    "center": {
+      "x": 88.55968289088928,
+      "y": -233.99630097484055
+    }
+  },
+  {
+    "zoneId": "THE_LIGHTHOUSE_236_3_88_1",
+    "displayName": "The Lighthouse",
+    "center": {
+      "x": 88.10668924336338,
+      "y": -236.32737430613298
+    }
+  },
+  {
+    "zoneId": "THE_LIGHTHOUSE_236_3_88_1",
+    "displayName": "The Lighthouse",
+    "center": {
+      "x": 88.10668924336338,
+      "y": -236.32737430613298
+    }
+  },
+  {
+    "zoneId": "THETFORD_188_0_121_7",
+    "displayName": "Thetford",
+    "center": {
+      "x": 121.66992511019473,
+      "y": -187.95183619773
+    }
+  },
+  {
+    "zoneId": "THETFORD_188_0_121_7",
+    "displayName": "Thetford",
+    "center": {
+      "x": 121.66992511019473,
+      "y": -187.95183619773
+    }
+  },
+  {
+    "zoneId": "THETFORD_PORTAL_19_9_87_9",
+    "displayName": "Thetford Portal",
+    "center": {
+      "x": 87.89226120500462,
+      "y": -19.90935802970902
+    }
+  },
+  {
+    "zoneId": "THETFORD_PORTAL_19_9_87_9",
+    "displayName": "Thetford Portal",
+    "center": {
+      "x": 87.89226120500462,
+      "y": -19.909358029708997
+    }
+  },
+  {
+    "zoneId": "THIRSTWATER_GULLY_125_9_144_8",
+    "displayName": "Thirstwater Gully",
+    "center": {
+      "x": 144.76359245785932,
+      "y": -125.93919978315755
+    }
+  },
+  {
+    "zoneId": "THIRSTWATER_GULLY_125_9_144_8",
+    "displayName": "Thirstwater Gully",
+    "center": {
+      "x": 144.76359245785935,
+      "y": -125.93919978315755
+    }
+  },
+  {
+    "zoneId": "THIRSTWATER_STEPPE_130_3_147_8",
+    "displayName": "Thirstwater Steppe",
+    "center": {
+      "x": 147.80512416597148,
+      "y": -130.33750042281653
+    }
+  },
+  {
+    "zoneId": "THIRSTWATER_STEPPE_130_3_147_8",
+    "displayName": "Thirstwater Steppe",
+    "center": {
+      "x": 147.80512416597148,
+      "y": -130.33750042281653
+    }
+  },
+  {
+    "zoneId": "THIRSTWATER_WASTE_122_9_148_5",
+    "displayName": "Thirstwater Waste",
+    "center": {
+      "x": 148.47448832509576,
+      "y": -122.86187055100311
+    }
+  },
+  {
+    "zoneId": "THIRSTWATER_WASTE_122_9_148_5",
+    "displayName": "Thirstwater Waste",
+    "center": {
+      "x": 148.47448832509573,
+      "y": -122.86187055100311
+    }
+  },
+  {
+    "zoneId": "THUNDERROCK_ASCENT_86_4_138_0",
+    "displayName": "Thunderrock Ascent",
+    "center": {
+      "x": 137.98374721870692,
+      "y": -86.3851919640453
+    }
+  },
+  {
+    "zoneId": "THUNDERROCK_ASCENT_86_4_138_0",
+    "displayName": "Thunderrock Ascent",
+    "center": {
+      "x": 137.98374721870692,
+      "y": -86.3851919640453
+    }
+  },
+  {
+    "zoneId": "THUNDERROCK_DRAW_86_0_146_7",
+    "displayName": "Thunderrock Draw",
+    "center": {
+      "x": 146.6500448516005,
+      "y": -85.95527203669023
+    }
+  },
+  {
+    "zoneId": "THUNDERROCK_DRAW_86_0_146_7",
+    "displayName": "Thunderrock Draw",
+    "center": {
+      "x": 146.65004485160054,
+      "y": -85.95527203669023
+    }
+  },
+  {
+    "zoneId": "THUNDERROCK_RAPIDS_103_2_148_1",
+    "displayName": "Thunderrock Rapids",
+    "center": {
+      "x": 148.10339882209354,
+      "y": -103.16696656969627
+    }
+  },
+  {
+    "zoneId": "THUNDERROCK_RAPIDS_103_2_148_1",
+    "displayName": "Thunderrock Rapids",
+    "center": {
+      "x": 148.10339882209354,
+      "y": -103.16696656969627
+    }
+  },
+  {
+    "zoneId": "THUNDERROCK_UPLAND_97_5_148_2",
+    "displayName": "Thunderrock Upland",
+    "center": {
+      "x": 148.1660832386192,
+      "y": -97.47262466387633
+    }
+  },
+  {
+    "zoneId": "THUNDERROCK_UPLAND_97_5_148_2",
+    "displayName": "Thunderrock Upland",
+    "center": {
+      "x": 148.1660832386192,
+      "y": -97.47262466387635
+    }
+  },
+  {
+    "zoneId": "TIMBERSCAR_COPSE_22_0_104_0",
+    "displayName": "Timberscar Copse",
+    "center": {
+      "x": 104.02108720899567,
+      "y": -22.01370826306851
+    }
+  },
+  {
+    "zoneId": "TIMBERSCAR_COPSE_22_0_104_0",
+    "displayName": "Timberscar Copse",
+    "center": {
+      "x": 104.02108720899567,
+      "y": -22.01370826306851
+    }
+  },
+  {
+    "zoneId": "TIMBERSCAR_DELL_31_3_103_9",
+    "displayName": "Timberscar Dell",
+    "center": {
+      "x": 103.88423025531519,
+      "y": -31.287434741827894
+    }
+  },
+  {
+    "zoneId": "TIMBERSCAR_DELL_31_3_103_9",
+    "displayName": "Timberscar Dell",
+    "center": {
+      "x": 103.88423025531517,
+      "y": -31.287434741827894
+    }
+  },
+  {
+    "zoneId": "TIMBERSLOPE_BRIDGE_72_2_179_8",
+    "displayName": "Timberslope Bridge",
+    "center": {
+      "x": 179.79761995570124,
+      "y": -72.21945096635372
+    }
+  },
+  {
+    "zoneId": "TIMBERSLOPE_BRIDGE_72_2_179_8",
+    "displayName": "Timberslope Bridge",
+    "center": {
+      "x": 179.79761995570126,
+      "y": -72.21945096635372
+    }
+  },
+  {
+    "zoneId": "TIMBERSLOPE_DELL_63_3_181_0",
+    "displayName": "Timberslope Dell",
+    "center": {
+      "x": 181.04479855936302,
+      "y": -63.33771842029979
+    }
+  },
+  {
+    "zoneId": "TIMBERSLOPE_DELL_63_3_181_0",
+    "displayName": "Timberslope Dell",
+    "center": {
+      "x": 181.04479855936302,
+      "y": -63.33771842029978
+    }
+  },
+  {
+    "zoneId": "TIMBERSLOPE_GROVE_67_3_182_3",
+    "displayName": "Timberslope Grove",
+    "center": {
+      "x": 182.31193526889433,
+      "y": -67.27488762030146
+    }
+  },
+  {
+    "zoneId": "TIMBERSLOPE_GROVE_67_3_182_3",
+    "displayName": "Timberslope Grove",
+    "center": {
+      "x": 182.31193526889433,
+      "y": -67.27488762030147
+    }
+  },
+  {
+    "zoneId": "TIMBERTOP_DALE_6_0_121_6",
+    "displayName": "Timbertop Dale",
+    "center": {
+      "x": 121.5788753257591,
+      "y": -5.989987516129716
+    }
+  },
+  {
+    "zoneId": "TIMBERTOP_DALE_6_0_121_6",
+    "displayName": "Timbertop Dale",
+    "center": {
+      "x": 121.5788753257591,
+      "y": -5.98998751612973
+    }
+  },
+  {
+    "zoneId": "TIMBERTOP_ESCARP_8_9_118_4",
+    "displayName": "Timbertop Escarp",
+    "center": {
+      "x": 118.3668578194515,
+      "y": -8.850905348943286
+    }
+  },
+  {
+    "zoneId": "TIMBERTOP_ESCARP_8_9_118_4",
+    "displayName": "Timbertop Escarp",
+    "center": {
+      "x": 118.3668578194515,
+      "y": -8.850905348943272
+    }
+  },
+  {
+    "zoneId": "TIMBERTOP_WOOD_2_2_117_7",
+    "displayName": "Timbertop Wood",
+    "center": {
+      "x": 117.73328607057329,
+      "y": -2.1531885598992986
+    }
+  },
+  {
+    "zoneId": "TIMBERTOP_WOOD_2_2_117_7",
+    "displayName": "Timbertop Wood",
+    "center": {
+      "x": 117.7332860705733,
+      "y": -2.1531885598993057
+    }
+  },
+  {
+    "zoneId": "TWINCHANNEL_NARROWS_66_4_66_7",
+    "displayName": "Twinchannel Narrows",
+    "center": {
+      "x": 66.66439070033752,
+      "y": -66.37124522710056
+    }
+  },
+  {
+    "zoneId": "TWINCHANNEL_NARROWS_66_4_66_7",
+    "displayName": "Twinchannel Narrows",
+    "center": {
+      "x": 66.66439070033752,
+      "y": -66.37124522710057
+    }
+  },
+  {
+    "zoneId": "UNHALLOWED_CLOISTER_63_2_70_7",
+    "displayName": "Unhallowed Cloister",
+    "center": {
+      "x": 70.70446344183529,
+      "y": -63.23363171379629
+    }
+  },
+  {
+    "zoneId": "UNHALLOWED_CLOISTER_63_2_70_7",
+    "displayName": "Unhallowed Cloister",
+    "center": {
+      "x": 70.70446344183529,
+      "y": -63.2336317137963
+    }
+  },
+  {
+    "zoneId": "VIXEN_TOR_245_8_124_7",
+    "displayName": "Vixen Tor",
+    "center": {
+      "x": 124.67429510992119,
+      "y": -245.8315594430975
+    }
+  },
+  {
+    "zoneId": "VIXEN_TOR_245_8_124_7",
+    "displayName": "Vixen Tor",
+    "center": {
+      "x": 124.67429510992119,
+      "y": -245.8315594430975
+    }
+  },
+  {
+    "zoneId": "WAILING_BULWARK_94_4_128_8",
+    "displayName": "Wailing Bulwark",
+    "center": {
+      "x": 128.82072929215326,
+      "y": -94.42596028825687
+    }
+  },
+  {
+    "zoneId": "WAILING_BULWARK_94_4_128_8",
+    "displayName": "Wailing Bulwark",
+    "center": {
+      "x": 128.82072929215326,
+      "y": -94.42596028825687
+    }
+  },
+  {
+    "zoneId": "WANDERLURE_BASIN_202_4_114_6",
+    "displayName": "Wanderlure Basin",
+    "center": {
+      "x": 114.6238734917397,
+      "y": -202.41986749398342
+    }
+  },
+  {
+    "zoneId": "WANDERLURE_BASIN_202_4_114_6",
+    "displayName": "Wanderlure Basin",
+    "center": {
+      "x": 114.62387349173969,
+      "y": -202.41986749398342
+    }
+  },
+  {
+    "zoneId": "WATCHWOOD_BLUFFS_117_0_179_5",
+    "displayName": "Watchwood Bluffs",
+    "center": {
+      "x": 179.5419346691076,
+      "y": -116.95611394520088
+    }
+  },
+  {
+    "zoneId": "WATCHWOOD_BLUFFS_117_0_179_5",
+    "displayName": "Watchwood Bluffs",
+    "center": {
+      "x": 179.5419346691076,
+      "y": -116.95611394520088
+    }
+  },
+  {
+    "zoneId": "WATCHWOOD_GROVE_119_6_176_4",
+    "displayName": "Watchwood Grove",
+    "center": {
+      "x": 176.36092238094147,
+      "y": -119.61210227676312
+    }
+  },
+  {
+    "zoneId": "WATCHWOOD_GROVE_119_6_176_4",
+    "displayName": "Watchwood Grove",
+    "center": {
+      "x": 176.36092238094147,
+      "y": -119.61210227676312
+    }
+  },
+  {
+    "zoneId": "WATCHWOOD_LAKESIDE_109_9_177_7",
+    "displayName": "Watchwood Lakeside",
+    "center": {
+      "x": 177.67223491346175,
+      "y": -109.91770527989493
+    }
+  },
+  {
+    "zoneId": "WATCHWOOD_LAKESIDE_109_9_177_7",
+    "displayName": "Watchwood Lakeside",
+    "center": {
+      "x": 177.67223491346178,
+      "y": -109.91770527989493
+    }
+  },
+  {
+    "zoneId": "WATCHWOOD_PRECIPICE_112_0_174_2",
+    "displayName": "Watchwood Precipice",
+    "center": {
+      "x": 174.247114113551,
+      "y": -111.97808265819593
+    }
+  },
+  {
+    "zoneId": "WATCHWOOD_PRECIPICE_112_0_174_2",
+    "displayName": "Watchwood Precipice",
+    "center": {
+      "x": 174.247114113551,
+      "y": -111.97808265819593
+    }
+  },
+  {
+    "zoneId": "WESTWEALD_SHORE_66_0_57_9",
+    "displayName": "Westweald Shore",
+    "center": {
+      "x": 57.8668490029417,
+      "y": -66.01372902908619
+    }
+  },
+  {
+    "zoneId": "WESTWEALD_SHORE_66_0_57_9",
+    "displayName": "Westweald Shore",
+    "center": {
+      "x": 57.866849002941706,
+      "y": -66.01372902908619
+    }
+  },
+  {
+    "zoneId": "WESTWEALD_THICKET_71_7_62_2",
+    "displayName": "Westweald Thicket",
+    "center": {
+      "x": 62.204528077173094,
+      "y": -71.66832544702825
+    }
+  },
+  {
+    "zoneId": "WESTWEALD_THICKET_71_7_62_2",
+    "displayName": "Westweald Thicket",
+    "center": {
+      "x": 62.204528077173094,
+      "y": -71.66832544702827
+    }
+  },
+  {
+    "zoneId": "WETGRAVE_BOG_81_4_188_6",
+    "displayName": "Wetgrave Bog",
+    "center": {
+      "x": 188.57973799108424,
+      "y": -81.36995013868876
+    }
+  },
+  {
+    "zoneId": "WETGRAVE_BOG_81_4_188_6",
+    "displayName": "Wetgrave Bog",
+    "center": {
+      "x": 188.57973799108424,
+      "y": -81.36995013868878
+    }
+  },
+  {
+    "zoneId": "WETGRAVE_MARSH_85_9_184_1",
+    "displayName": "Wetgrave Marsh",
+    "center": {
+      "x": 184.1402387308278,
+      "y": -85.88185704282905
+    }
+  },
+  {
+    "zoneId": "WETGRAVE_MARSH_85_9_184_1",
+    "displayName": "Wetgrave Marsh",
+    "center": {
+      "x": 184.1402387308278,
+      "y": -85.88185704282907
+    }
+  },
+  {
+    "zoneId": "WETGRAVE_SWALE_76_8_185_2",
+    "displayName": "Wetgrave Swale",
+    "center": {
+      "x": 185.17616240669867,
+      "y": -76.83770134505923
+    }
+  },
+  {
+    "zoneId": "WETGRAVE_SWALE_76_8_185_2",
+    "displayName": "Wetgrave Swale",
+    "center": {
+      "x": 185.1761624066987,
+      "y": -76.83770134505923
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_CROSS_47_5_149_6",
+    "displayName": "Whitebank Cross",
+    "center": {
+      "x": 149.56898359029645,
+      "y": -47.511288430162814
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_CROSS_47_5_149_6",
+    "displayName": "Whitebank Cross",
+    "center": {
+      "x": 149.56898359029645,
+      "y": -47.51128843016281
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_DESCENT_32_5_153_0",
+    "displayName": "Whitebank Descent",
+    "center": {
+      "x": 152.98680967300575,
+      "y": -32.4721006258042
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_DESCENT_32_5_153_0",
+    "displayName": "Whitebank Descent",
+    "center": {
+      "x": 152.98680967300575,
+      "y": -32.4721006258042
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_RIDGE_37_4_150_3",
+    "displayName": "Whitebank Ridge",
+    "center": {
+      "x": 150.30731326537597,
+      "y": -37.44336880414264
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_RIDGE_37_4_150_3",
+    "displayName": "Whitebank Ridge",
+    "center": {
+      "x": 150.307313265376,
+      "y": -37.44336880414262
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_SHORE_45_6_160_5",
+    "displayName": "Whitebank Shore",
+    "center": {
+      "x": 160.5443721546335,
+      "y": -45.5507451616147
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_SHORE_45_6_160_5",
+    "displayName": "Whitebank Shore",
+    "center": {
+      "x": 160.5443721546335,
+      "y": -45.55074516161473
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_STREAM_40_5_152_5",
+    "displayName": "Whitebank Stream",
+    "center": {
+      "x": 152.51163912035432,
+      "y": -40.45957633707157
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_STREAM_40_5_152_5",
+    "displayName": "Whitebank Stream",
+    "center": {
+      "x": 152.51163912035432,
+      "y": -40.45957633707155
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_WALL_43_2_146_2",
+    "displayName": "Whitebank Wall",
+    "center": {
+      "x": 146.19857733284147,
+      "y": -43.19931824245843
+    }
+  },
+  {
+    "zoneId": "WHITEBANK_WALL_43_2_146_2",
+    "displayName": "Whitebank Wall",
+    "center": {
+      "x": 146.19857733284147,
+      "y": -43.19931824245843
+    }
+  },
+  {
+    "zoneId": "WHITECLIFF_EXPANSE_139_2_156_1",
+    "displayName": "Whitecliff Expanse",
+    "center": {
+      "x": 156.1225553609191,
+      "y": -139.2441224034909
+    }
+  },
+  {
+    "zoneId": "WHITECLIFF_EXPANSE_139_2_156_1",
+    "displayName": "Whitecliff Expanse",
+    "center": {
+      "x": 156.1225553609191,
+      "y": -139.2441224034909
+    }
+  },
+  {
+    "zoneId": "WHITECLIFF_PEAK_136_4_151_8",
+    "displayName": "Whitecliff Peak",
+    "center": {
+      "x": 151.80071998144228,
+      "y": -136.41569401160933
+    }
+  },
+  {
+    "zoneId": "WHITECLIFF_PEAK_136_4_151_8",
+    "displayName": "Whitecliff Peak",
+    "center": {
+      "x": 151.80071998144228,
+      "y": -136.41569401160936
+    }
+  },
+  {
+    "zoneId": "WHITEPEAK_ASCENT_44_9_107_8",
+    "displayName": "Whitepeak Ascent",
+    "center": {
+      "x": 107.77269620297044,
+      "y": -44.909950288682424
+    }
+  },
+  {
+    "zoneId": "WHITEPEAK_ASCENT_44_9_107_8",
+    "displayName": "Whitepeak Ascent",
+    "center": {
+      "x": 107.77269620297044,
+      "y": -44.90995028868241
+    }
+  },
+  {
+    "zoneId": "WHITEPEAK_SPRING_39_0_105_4",
+    "displayName": "Whitepeak Spring",
+    "center": {
+      "x": 105.35500873979649,
+      "y": -39.04863243645469
+    }
+  },
+  {
+    "zoneId": "WHITEPEAK_SPRING_39_0_105_4",
+    "displayName": "Whitepeak Spring",
+    "center": {
+      "x": 105.35500873979649,
+      "y": -39.04863243645468
+    }
+  },
+  {
+    "zoneId": "WHITEPEAK_TUNDRA_39_2_112_2",
+    "displayName": "Whitepeak Tundra",
+    "center": {
+      "x": 112.1601519063284,
+      "y": -39.24630464625226
+    }
+  },
+  {
+    "zoneId": "WHITEPEAK_TUNDRA_39_2_112_2",
+    "displayName": "Whitepeak Tundra",
+    "center": {
+      "x": 112.1601519063284,
+      "y": -39.246304646252284
+    }
+  },
+  {
+    "zoneId": "WHITEWALL_PASS_111_4_95_7",
+    "displayName": "Whitewall Pass",
+    "center": {
+      "x": 95.69603636713848,
+      "y": -111.44633754415663
+    }
+  },
+  {
+    "zoneId": "WHITEWALL_PASS_111_4_95_7",
+    "displayName": "Whitewall Pass",
+    "center": {
+      "x": 95.69603636713848,
+      "y": -111.44633754415663
+    }
+  },
+  {
+    "zoneId": "WHITEWALL_RIDGE_116_5_97_7",
+    "displayName": "Whitewall Ridge",
+    "center": {
+      "x": 97.6759357391269,
+      "y": -116.50356531108508
+    }
+  },
+  {
+    "zoneId": "WHITEWALL_RIDGE_116_5_97_7",
+    "displayName": "Whitewall Ridge",
+    "center": {
+      "x": 97.6759357391269,
+      "y": -116.50356531108508
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_DELTA_22_4_78_3",
+    "displayName": "Widemoor Delta",
+    "center": {
+      "x": 78.33895850768843,
+      "y": -22.40472677308201
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_DELTA_22_4_78_3",
+    "displayName": "Widemoor Delta",
+    "center": {
+      "x": 78.33895850768843,
+      "y": -22.404726773082004
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_END_23_9_98_9",
+    "displayName": "Widemoor End",
+    "center": {
+      "x": 98.94240328805532,
+      "y": -23.942576994480348
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_END_23_9_98_9",
+    "displayName": "Widemoor End",
+    "center": {
+      "x": 98.94240328805532,
+      "y": -23.942576994480348
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_ESTUARY_24_7_84_4",
+    "displayName": "Widemoor Estuary",
+    "center": {
+      "x": 84.43437622206461,
+      "y": -24.708664174539642
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_ESTUARY_24_7_84_4",
+    "displayName": "Widemoor Estuary",
+    "center": {
+      "x": 84.43437622206463,
+      "y": -24.70866417453965
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_FEN_38_5_76_2",
+    "displayName": "Widemoor Fen",
+    "center": {
+      "x": 76.23461279981235,
+      "y": -38.4909906056999
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_FEN_38_5_76_2",
+    "displayName": "Widemoor Fen",
+    "center": {
+      "x": 76.23461279981234,
+      "y": -38.49099060569988
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_FLATS_34_7_78_7",
+    "displayName": "Widemoor Flats",
+    "center": {
+      "x": 78.71416407360708,
+      "y": -34.72808555261139
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_FLATS_34_7_78_7",
+    "displayName": "Widemoor Flats",
+    "center": {
+      "x": 78.71416407360707,
+      "y": -34.72808555261139
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_HILLS_14_6_98_8",
+    "displayName": "Widemoor Hills",
+    "center": {
+      "x": 98.81342542724771,
+      "y": -14.622343254194206
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_HILLS_14_6_98_8",
+    "displayName": "Widemoor Hills",
+    "center": {
+      "x": 98.81342542724771,
+      "y": -14.622343254194206
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_POOL_18_4_97_2",
+    "displayName": "Widemoor Pool",
+    "center": {
+      "x": 97.22339117794614,
+      "y": -18.436345314073336
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_POOL_18_4_97_2",
+    "displayName": "Widemoor Pool",
+    "center": {
+      "x": 97.22339117794613,
+      "y": -18.436345314073336
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_SHORE_10_9_93_4",
+    "displayName": "Widemoor Shore",
+    "center": {
+      "x": 93.40656159603894,
+      "y": -10.883277995106418
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_SHORE_10_9_93_4",
+    "displayName": "Widemoor Shore",
+    "center": {
+      "x": 93.40656159603893,
+      "y": -10.88327799510644
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_WOODS_31_7_87_8",
+    "displayName": "Widemoor Woods",
+    "center": {
+      "x": 87.81985369688529,
+      "y": -31.70276482748652
+    }
+  },
+  {
+    "zoneId": "WIDEMOOR_WOODS_31_7_87_8",
+    "displayName": "Widemoor Woods",
+    "center": {
+      "x": 87.81985369688527,
+      "y": -31.70276482748652
+    }
+  },
+  {
+    "zoneId": "WILLOW_WOOD_237_5_163_5",
+    "displayName": "Willow Wood",
+    "center": {
+      "x": 163.45198958201834,
+      "y": -237.4896397261038
+    }
+  },
+  {
+    "zoneId": "WILLOW_WOOD_237_5_163_5",
+    "displayName": "Willow Wood",
+    "center": {
+      "x": 163.45198958201834,
+      "y": -237.4896397261038
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_HILLS_39_6_93_1",
+    "displayName": "Willowshade Hills",
+    "center": {
+      "x": 93.06832425146324,
+      "y": -39.56906732661721
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_HILLS_39_6_93_1",
+    "displayName": "Willowshade Hills",
+    "center": {
+      "x": 93.06832425146324,
+      "y": -39.5690673266172
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_ICEMARSH_49_9_84_4",
+    "displayName": "Willowshade Icemarsh",
+    "center": {
+      "x": 84.3578528546756,
+      "y": -49.87440958308974
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_ICEMARSH_49_9_84_4",
+    "displayName": "Willowshade Icemarsh",
+    "center": {
+      "x": 84.3578528546756,
+      "y": -49.874409583089744
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_LAKE_49_8_93_8",
+    "displayName": "Willowshade Lake",
+    "center": {
+      "x": 93.80664872223687,
+      "y": -49.82057020124118
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_LAKE_49_8_93_8",
+    "displayName": "Willowshade Lake",
+    "center": {
+      "x": 93.80664872223687,
+      "y": -49.820570201241196
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_MIRE_47_2_88_4",
+    "displayName": "Willowshade Mire",
+    "center": {
+      "x": 88.4213237029943,
+      "y": -47.195794581234296
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_MIRE_47_2_88_4",
+    "displayName": "Willowshade Mire",
+    "center": {
+      "x": 88.4213237029943,
+      "y": -47.195794581234296
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_POOLS_33_5_99_3",
+    "displayName": "Willowshade Pools",
+    "center": {
+      "x": 99.26823515126188,
+      "y": -33.48229351180843
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_POOLS_33_5_99_3",
+    "displayName": "Willowshade Pools",
+    "center": {
+      "x": 99.26823515126186,
+      "y": -33.48229351180842
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_SINK_43_8_98_4",
+    "displayName": "Willowshade Sink",
+    "center": {
+      "x": 98.40948530448335,
+      "y": -43.78580776714394
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_SINK_43_8_98_4",
+    "displayName": "Willowshade Sink",
+    "center": {
+      "x": 98.40948530448337,
+      "y": -43.785807767143964
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_WETLANDS_30_7_93_1",
+    "displayName": "Willowshade Wetlands",
+    "center": {
+      "x": 93.11465909207249,
+      "y": -30.663733977340883
+    }
+  },
+  {
+    "zoneId": "WILLOWSHADE_WETLANDS_30_7_93_1",
+    "displayName": "Willowshade Wetlands",
+    "center": {
+      "x": 93.1146590920725,
+      "y": -30.663733977340883
+    }
+  },
+  {
+    "zoneId": "WILLOWSIGH_MARSH_192_2_125_4",
+    "displayName": "Willowsigh Marsh",
+    "center": {
+      "x": 125.40290155764251,
+      "y": -192.19099475164745
+    }
+  },
+  {
+    "zoneId": "WILLOWSIGH_MARSH_192_2_125_4",
+    "displayName": "Willowsigh Marsh",
+    "center": {
+      "x": 125.40290155764252,
+      "y": -192.19099475164745
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_BORDER_79_9_62_2",
+    "displayName": "Windgrass Border",
+    "center": {
+      "x": 62.18189927990269,
+      "y": -79.86849912697814
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_BORDER_79_9_62_2",
+    "displayName": "Windgrass Border",
+    "center": {
+      "x": 62.18189927990268,
+      "y": -79.86849912697812
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_COAST_76_8_48_6",
+    "displayName": "Windgrass Coast",
+    "center": {
+      "x": 48.58391047280153,
+      "y": -76.77657892175638
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_COAST_76_8_48_6",
+    "displayName": "Windgrass Coast",
+    "center": {
+      "x": 48.58391047280152,
+      "y": -76.77657892175638
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_FIELDS_83_7_67_4",
+    "displayName": "Windgrass Fields",
+    "center": {
+      "x": 67.43146018182352,
+      "y": -83.66990502424508
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_FIELDS_83_7_67_4",
+    "displayName": "Windgrass Fields",
+    "center": {
+      "x": 67.43146018182352,
+      "y": -83.66990502424508
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_GULLY_79_2_52_0",
+    "displayName": "Windgrass Gully",
+    "center": {
+      "x": 52.036439433001014,
+      "y": -79.19095995362152
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_GULLY_79_2_52_0",
+    "displayName": "Windgrass Gully",
+    "center": {
+      "x": 52.03643943300102,
+      "y": -79.1909599536215
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_PRECIPICE_81_0_47_4",
+    "displayName": "Windgrass Precipice",
+    "center": {
+      "x": 47.4430737824132,
+      "y": -81.02378073045703
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_PRECIPICE_81_0_47_4",
+    "displayName": "Windgrass Precipice",
+    "center": {
+      "x": 47.443073782413194,
+      "y": -81.02378073045702
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_RILL_87_3_63_4",
+    "displayName": "Windgrass Rill",
+    "center": {
+      "x": 63.358525122189015,
+      "y": -87.29029174392022
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_RILL_87_3_63_4",
+    "displayName": "Windgrass Rill",
+    "center": {
+      "x": 63.35852512218902,
+      "y": -87.29029174392022
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_TERRACE_92_5_67_4",
+    "displayName": "Windgrass Terrace",
+    "center": {
+      "x": 67.38729619297364,
+      "y": -92.45738213706989
+    }
+  },
+  {
+    "zoneId": "WINDGRASS_TERRACE_92_5_67_4",
+    "displayName": "Windgrass Terrace",
+    "center": {
+      "x": 67.38729619297365,
+      "y": -92.4573821370699
+    }
+  },
+  {
+    "zoneId": "WINDRIPPLE_FEN_184_1_125_8",
+    "displayName": "Windripple Fen",
+    "center": {
+      "x": 125.7796089052273,
+      "y": -184.0984201190046
+    }
+  },
+  {
+    "zoneId": "WINDRIPPLE_FEN_184_1_125_8",
+    "displayName": "Windripple Fen",
+    "center": {
+      "x": 125.7796089052273,
+      "y": -184.0984201190046
+    }
+  },
+  {
+    "zoneId": "WISPWHISPER_MARSH_199_6_109_6",
+    "displayName": "Wispwhisper Marsh",
+    "center": {
+      "x": 109.60896381423728,
+      "y": -199.567530656518
+    }
+  },
+  {
+    "zoneId": "WISPWHISPER_MARSH_199_6_109_6",
+    "displayName": "Wispwhisper Marsh",
+    "center": {
+      "x": 109.60896381423728,
+      "y": -199.567530656518
+    }
+  },
+  {
+    "zoneId": "WYRE_FOREST_222_0_141_9",
+    "displayName": "Wyre Forest",
+    "center": {
+      "x": 141.92158596397758,
+      "y": -222.0197349662538
+    }
+  },
+  {
+    "zoneId": "WYRE_FOREST_222_0_141_9",
+    "displayName": "Wyre Forest",
+    "center": {
+      "x": 141.92158596397758,
+      "y": -222.0197349662538
+    }
+  },
+  {
+    "zoneId": "YEW_WOOD_220_5_162_8",
+    "displayName": "Yew Wood",
+    "center": {
+      "x": 162.75238989896923,
+      "y": -220.49918001103785
+    }
+  },
+  {
+    "zoneId": "YEW_WOOD_220_5_162_8",
+    "displayName": "Yew Wood",
+    "center": {
+      "x": 162.7523898989692,
+      "y": -220.49918001103782
+    }
+  }
+]

@@ -1,0 +1,131 @@
+// ============================================================
+// Shared types — used across pages and components
+// ============================================================
+
+export type ZoneCenter = { x: number; y: number };
+
+export type ZoneData = {
+  zoneId: string;
+  displayName: string;
+  center: ZoneCenter;
+};
+
+// ── Timers (scraped from unslave.online) ─────────────────────
+export type TimerItem = {
+  id: string;
+  objective: string;
+  zoneName: string;
+  zoneKey: string;
+  zoneId: string | null;
+  center: ZoneCenter | null;
+  spawnMs?: number;
+  respawnAt?: string;
+  status?: "COUNTDOWN" | "SPAWNED";
+  source?: string;
+};
+
+// ── Guild Tracker (reported by bot or web form) ───────────────
+export type TrackerType = "node" | "orb" | "vortex";
+
+export type NodeObjective = "couro" | "linho" | "minério" | "madeira";
+export type OrbObjective = "verde" | "azul" | "roxa" | "dourada";
+export type VortexObjective = "verde" | "azul" | "roxo" | "dourado";
+export type TrackerObjective = NodeObjective | OrbObjective | VortexObjective;
+
+export type TrackerSource = "discord" | "web";
+
+export type GuildTracker = {
+  id: string;
+  guildId: string;
+  zoneName: string;
+  zoneId: string | null;
+  center: ZoneCenter | null;
+  type: TrackerType;
+  objective: TrackerObjective;
+  reportedById: string;
+  reportedByName: string;
+  source: TrackerSource;
+  createdAt: string;
+  expiresAt: string;
+};
+
+// ── Map ping (unified shape for WorldMap) ────────────────────
+export type PingSource = "unslave" | "guild";
+
+export type Ping = {
+  id: string;
+  zoneId: string;
+  label: string;
+  objective: string;
+  center: ZoneCenter;
+  source: PingSource;
+  status?: "COUNTDOWN" | "SPAWNED";
+  expiresAt?: string;
+};
+
+// ── Auth ─────────────────────────────────────────────────────
+export type DiscordUser = {
+  id: string;
+  username: string;
+  discriminator: string;
+  avatar: string | null;
+  guildId: string | null;
+  guildName: string | null;
+  hasAccess: boolean;
+};
+
+export type GuildAccess = {
+  guild_id: string;
+  guild_name: string;
+  icon?: string | null;
+  plan?: string | null;           // basic / plus / premium
+  plan_status?: string | null;    // active / trial / expired
+  plan_expires_at?: string | null;
+};
+
+// ── Constants shared between bot/web form ────────────────────
+export const OBJECTIVES_BY_TYPE: Record<TrackerType, string[]> = {
+  node: ["couro", "linho", "minério", "madeira"],
+  orb: ["verde", "azul", "roxa", "dourada"],
+  vortex: ["verde", "azul", "roxo", "dourado"],
+};
+
+export const TYPE_LABELS: Record<TrackerType, string> = {
+  node: "Node",
+  orb: "Orb",
+  vortex: "Vortex",
+};
+
+// ── Avalonian Road Routes ─────────────────────────────────────
+export type RouteWaypoint = {
+  id: string;
+  order: number;
+  zoneName: string;
+  zoneId: string | null;
+  center: ZoneCenter | null;
+  expiresAt: string | null;  // null = first waypoint (entry, already open)
+};
+
+export type Route = {
+  id: string;
+  guildId: string;
+  reportedByName: string;
+  source: TrackerSource;
+  createdAt: string;
+  waypoints: RouteWaypoint[];
+};
+
+export const OBJECTIVE_EMOJI: Record<string, string> = {
+  // nodes
+  couro: "🐂",
+  linho: "🌾",
+  minério: "⛏️",
+  madeira: "🌲",
+  // orbs & vortex — same names, share color emojis
+  verde: "🟢",
+  azul: "🔵",
+  roxa: "🟣",
+  dourada: "🟡",
+  roxo: "🟣",
+  dourado: "🟡",
+};

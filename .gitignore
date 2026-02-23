@@ -1,0 +1,30 @@
+# frontend
+frontend/node_modules
+frontend/.next
+frontend/out
+frontend/.env.local
+frontend/.env.production
+
+# backend
+backend/__pycache__/
+backend/.venv/
+backend/.env
+
+# bot
+bot/__pycache__/
+bot/.venv/
+bot/.env
+
+# Python geral
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.db
+*.sqlite
+*.log

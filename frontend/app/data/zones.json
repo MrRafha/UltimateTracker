@@ -1,0 +1,18 @@
+[
+  {
+    "zoneId": "GRENSHORE_BAY",
+    "displayName": "Greenshore Bay",
+    "center": {
+      "x": 4096,
+      "y": 4096
+    }
+  },
+  {
+    "zoneId": "TIMBERSLOPE_BRIDGE",
+    "displayName": "Timberslope Bridge",
+    "center": {
+      "x": 4600,
+      "y": 3800
+    }
+  }
+]
