@@ -2,8 +2,7 @@
 
 import Link from 'next/link';
 
-// Replace SEU_CLIENT_ID with your Discord Application ID
-const BOT_INVITE = `https://discord.com/oauth2/authorize?client_id=SEU_CLIENT_ID&scope=bot+applications.commands&permissions=277025704960`;
+const BOT_INVITE = `https://discord.com/oauth2/authorize?client_id=1475280862768529498&permissions=2147568640&integration_type=0&scope=bot+applications.commands`;
 
 const FEATURES = [
   {
