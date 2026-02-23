@@ -80,6 +80,16 @@ DISCORD_OAUTH_URL  = "https://discord.com/api/oauth2"
 BACKEND_URL        = os.getenv("BACKEND_URL", "http://localhost:8000")
 OAUTH_REDIRECT_URI = f"{BACKEND_URL.rstrip('/')}/auth/discord/callback"
 
+# Em produção (HTTPS) o cookie precisa de SameSite=None; Secure para funcionar
+# entre domínios diferentes (ex: backend.railway.app -> frontend.vercel.app)
+_IS_PRODUCTION = SITE_URL.startswith("https://")
+_COOKIE_KWARGS: dict = {
+    "httponly": True,
+    "samesite": "none" if _IS_PRODUCTION else "lax",
+    "secure": _IS_PRODUCTION,
+    "max_age": 60 * 60 * 24 * 7,  # 7 days
+}
+
 # in-memory session store  {token -> {user_id, username, guild_id, ...}}
 # For production replace with Redis or DB-backed sessions.
 _SESSIONS: Dict[str, Dict[str, Any]] = {}
@@ -889,13 +899,7 @@ async def auth_discord_callback(
     # Redirect to dashboard so user can pick which guild to open
     redirect_url = f"{SITE_URL}/dashboard"
     redirect = RedirectResponse(redirect_url)
-    redirect.set_cookie(
-        "session",
-        session_token,
-        httponly=True,
-        samesite="lax",
-        max_age=60 * 60 * 24 * 7,  # 7 days
-    )
+    redirect.set_cookie("session", session_token, **_COOKIE_KWARGS)
     return redirect
 
 
@@ -950,7 +954,7 @@ async def auth_logout_get(request: Request):
     if token:
         _SESSIONS.pop(token, None)
     resp = RedirectResponse(url=f"{SITE_URL}/login", status_code=302)
-    resp.delete_cookie("session")
+    resp.delete_cookie("session", samesite=_COOKIE_KWARGS["samesite"], secure=_COOKIE_KWARGS["secure"])
     return resp
 
 
@@ -959,7 +963,7 @@ async def auth_logout(request: Request, response: Response):
     token = request.cookies.get("session")
     if token:
         _SESSIONS.pop(token, None)
-    response.delete_cookie("session")
+    response.delete_cookie("session", samesite=_COOKIE_KWARGS["samesite"], secure=_COOKIE_KWARGS["secure"])
     return {"ok": True}
 
 
