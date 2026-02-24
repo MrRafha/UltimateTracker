@@ -302,7 +302,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   }, [isLoading, user, router, guildId]);
 
   const { trackers, mutate }  = useTrackers(guildId);
-  const { data: timersData }  = useTimers();
+  const { data: timersData }  = useTimers(guildId);
   const { routes, mutate: mutateRoutes } = useRoutes(guildId);
 
   // Admin bypass: when the user is an admin but not a regular guild member,
@@ -362,14 +362,8 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
     [trackers, search, timeFilter, now],
   );
   const filteredTimers = useMemo(
-    () => {
-      // Only show unslave.online timers for WEST (NA) server
-      const gAccess = guilds.find((g) => g.guild_id === guildId);
-      const region = gAccess?.server_region ?? adminGuildInfo?.server_region;
-      if (region && region !== "WEST") return [];
-      return timerItems.filter((it) => matchesSearch(it.objective, it.zoneName) && timePassesForMs((it.spawnMs ?? 0) - now));
-    },
-    [timerItems, guilds, guildId, adminGuildInfo, search, timeFilter, now],
+    () => timerItems.filter((it) => matchesSearch(it.objective, it.zoneName) && timePassesForMs((it.spawnMs ?? 0) - now)),
+    [timerItems, search, timeFilter, now],
   );
 
   // Merged + sorted by countdown ascending

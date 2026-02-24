@@ -10,8 +10,11 @@ const fetcher = (url: string) =>
     return r.json();
   });
 
-export function useTimers() {
-  return useSWR(`${API_BASE}/timers`, fetcher, {
+export function useTimers(guildId?: string) {
+  const url = guildId
+    ? `${API_BASE}/timers?guild_id=${encodeURIComponent(guildId)}`
+    : `${API_BASE}/timers`;
+  return useSWR(url, fetcher, {
     refreshInterval: 30_000,
     revalidateOnFocus: true,
     dedupingInterval: 0,
