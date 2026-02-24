@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import type { ZoneData } from "../types";
 import { OBJECTIVES_BY_TYPE, TYPE_LABELS, OBJECTIVE_EMOJI } from "../types";
-import type { TrackerType } from "../types";
+import type { TrackerType, NodeTier } from "../types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
 
@@ -31,6 +31,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
   const [minutes, setMinutes]     = useState(0);
   const [type, setType]           = useState<TrackerType | "">("");
   const [objective, setObjective] = useState("");
+  const [tier, setTier]           = useState<NodeTier | "">("");
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -52,6 +53,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!zoneName || !type || !objective) { setError(t('modal.fill_all')); return; }
+    if (type === "node" && !tier) { setError(t('modal.tier_required')); return; }
     setLoading(true);
     setError("");
     try {
@@ -63,6 +65,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
           guild_id: guildId, zone_name: zoneName, type, objective,
           hours, minutes,
           reported_by_id: "web_user", reported_by_name: "Web", source: "web",
+          ...(type === "node" && tier ? { tier } : {}),
         }),
       });
       if (!res.ok) {
@@ -81,7 +84,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
     }
   }
 
-  const canSubmit = !!zoneName && !!type && !!objective && !loading;
+  const canSubmit = !!zoneName && !!type && !!objective && !(type === "node" && !tier) && !loading;
 
   // ── Shared input style ────────────────────────────────────────────────────
   const inputStyle: React.CSSProperties = {
@@ -204,7 +207,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
                   <button
                     key={t}
                     type="button"
-                    onClick={() => { setType(t); setObjective(""); }}
+                    onClick={() => { setType(t); setObjective(""); setTier(""); }}
                     style={{
                       padding: "10px 0", borderRadius: 10, cursor: "pointer",
                       border: `1px solid ${selected ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.08)"}`,
@@ -253,6 +256,46 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
               </div>
             </div>
           )}
+
+          {/* Tier (nodes only) */}
+          {type === "node" && objective && (() => {
+            const TIER_COLORS: Record<string, string> = {
+              "T4.4": "#888888",
+              "T5.4": "#22cc77",
+              "T6.4": "#4499ff",
+              "T7.4": "#aa44ff",
+              "T8.4": "#FFD700",
+            };
+            const TIERS = ["T4.4", "T5.4", "T6.4", "T7.4", "T8.4"] as const;
+            return (
+              <div>
+                <label style={labelStyle}>{t("modal.field_tier")}</label>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
+                  {TIERS.map((tierOpt) => {
+                    const selected = tier === tierOpt;
+                    const color = TIER_COLORS[tierOpt];
+                    return (
+                      <button
+                        key={tierOpt}
+                        type="button"
+                        onClick={() => setTier(tierOpt)}
+                        style={{
+                          padding: "8px 0", borderRadius: 10, cursor: "pointer",
+                          border: `1px solid ${selected ? color : "rgba(255,255,255,0.1)"}`,
+                          background: selected ? `${color}22` : "rgba(255,255,255,0.03)",
+                          color: selected ? color : "#666",
+                          fontWeight: 700, fontSize: 11,
+                          transition: "all 0.15s",
+                        }}
+                      >
+                        {tierOpt}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Error */}
           {error && (

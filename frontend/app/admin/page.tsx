@@ -29,8 +29,9 @@ type Stats = {
 type AdminGuild = {
   guild_id: string; guild_name: string;
   plan: string | null; plan_status: string | null; plan_expires_at: string | null;
-  member_count: number; tracker_count: number;
+  member_count: number; tracker_count: number; server_region: string;
 };
+type AdminGuildMember = { id: string; discord_username: string; last_seen_at: string | null };
 type Key = {
   id: number; key: string; plan: string; duration_days: number;
   is_trial: boolean; is_used: boolean; used_by_guild_id: string | null;
@@ -42,6 +43,8 @@ type AdminUser = { id: number; discord_id: string; username: string; created_at:
 
 const PLAN_COLOR: Record<string, string> = { basic: "#22cc77", plus: "#5865F2", premium: "#FFD700" };
 const STATUS_COLOR: Record<string, string> = { active: "#22cc77", trial: "#f59e0b", expired: "#ef4444" };
+const PLAN_MEMBER_LIMIT: Record<string, number> = { basic: 5, plus: 10, premium: 30 };
+const REGION_LABEL: Record<string, string> = { WEST: "🌎 WEST", EAST: "🌍 EAST", ASIA: "🌏 ASIA" };
 
 function Pill({ label, color }: { label: string; color: string }) {
   return <span style={{ fontSize: 11, fontWeight: 700, color, background: `${color}1a`, border: `1px solid ${color}44`, borderRadius: 999, padding: "2px 9px", letterSpacing: 0.3 }}>{label}</span>;
@@ -124,6 +127,93 @@ function EditPlanModal({ guild, onClose, onSave }: { guild: AdminGuild; onClose:
   return <Overlay onClose={onClose}><ModalBox title={t('admin.edit_plan_title', { guild_name: guild.guild_name })}><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}><label style={labelStyle}>{t('admin.field_plan')}<select value={plan} onChange={e => setPlan(e.target.value)} style={inp}><option value="basic">{t('admin.option_basic')}</option><option value="plus">{t('admin.option_plus')}</option><option value="premium">{t('admin.option_premium')}</option></select></label><label style={labelStyle}>{t('admin.field_status')}<select value={status} onChange={e => setStatus(e.target.value)} style={inp}><option value="active">{t('admin.option_active')}</option><option value="trial">{t('admin.option_trial')}</option><option value="expired">{t('admin.option_expired')}</option></select></label><label style={labelStyle}>{t('admin.field_expires')}<input type="date" value={expires} onChange={e => setExpires(e.target.value)} style={inp} /></label>{error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}<ModalButtons onClose={onClose} loading={loading} confirmLabel={t('common.save')} /></form></ModalBox></Overlay>;
 }
 
+// ── Edit Region Modal ────────────────────────────────────────────────────────
+
+function EditRegionModal({ guild, onClose, onSave }: { guild: AdminGuild; onClose: () => void; onSave: () => void }) {
+  const t = useTranslations();
+  const [region, setRegion] = useState(guild.server_region ?? "WEST");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  async function submit(e: React.FormEvent) {
+    e.preventDefault(); setLoading(true); setError("");
+    try { await apiFetch(`/admin/guilds/${guild.guild_id}/settings`, "PATCH", { server_region: region }); onSave(); }
+    catch (err: any) { setError(err.message); } finally { setLoading(false); }
+  }
+  return <Overlay onClose={onClose}><ModalBox title={t('admin.edit_region_title', { guild_name: guild.guild_name })}><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+    <label style={labelStyle}>{t('dashboard.server_label')}<select value={region} onChange={e => setRegion(e.target.value)} style={inp}><option value="WEST">{t('dashboard.server_west')}</option><option value="EAST">{t('dashboard.server_east')}</option><option value="ASIA">{t('dashboard.server_asia')}</option></select></label>
+    {error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}
+    <ModalButtons onClose={onClose} loading={loading} confirmLabel={t('common.save')} />
+  </form></ModalBox></Overlay>;
+}
+
+// ── Guild Row (with collapsible members panel) ────────────────────────────────
+
+function GuildRow({ g, onEditPlan, onMutate }: { g: AdminGuild; onEditPlan: () => void; onMutate: () => void }) {
+  const t = useTranslations();
+  const [showMembers, setShowMembers] = useState(false);
+  const [editRegion, setEditRegion] = useState(false);
+  const { data: members } = useSWR<AdminGuildMember[]>(
+    showMembers ? `${API_BASE}/admin/guilds/${g.guild_id}/members` : null,
+    fetcher,
+  );
+  const limit = PLAN_MEMBER_LIMIT[g.plan ?? ""] ?? 0;
+  const overLimit = limit > 0 && g.member_count > limit;
+  const regionLabel = REGION_LABEL[g.server_region] ?? g.server_region ?? "—";
+  return (
+    <>
+      <tr style={{ borderBottom: showMembers ? "none" : "1px solid rgba(255,255,255,0.05)" }}>
+        <td style={td}>{g.guild_name}<div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>{g.guild_id}</div></td>
+        <td style={td}>{g.plan ? <Pill label={g.plan.toUpperCase()} color={PLAN_COLOR[g.plan] ?? "#888"} /> : <span style={{ color: "#444" }}>—</span>}</td>
+        <td style={td}>{g.plan_status ? <Pill label={g.plan_status.toUpperCase()} color={STATUS_COLOR[g.plan_status] ?? "#888"} /> : <span style={{ color: "#444" }}>—</span>}</td>
+        <td style={td}>{g.plan_expires_at ? g.plan_expires_at.slice(0, 10) : <span style={{ color: "#444" }}>—</span>}</td>
+        <td style={td}>
+          <span style={{ color: overLimit ? "#ef4444" : "#ccd" }}>{g.member_count}</span>
+          {limit > 0 && <span style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", marginLeft: 3 }}>/ {limit}</span>}
+        </td>
+        <td style={td}>{g.tracker_count}</td>
+        <td style={td}>
+          <span style={{ fontSize: 11, fontWeight: 600, color: "#a3e635", background: "rgba(163,230,53,0.08)", border: "1px solid rgba(163,230,53,0.25)", borderRadius: 4, padding: "2px 7px" }}>
+            {regionLabel}
+          </span>
+        </td>
+        <td style={{ ...td, whiteSpace: "nowrap" }}>
+          <div style={{ display: "flex", gap: 6, flexWrap: "nowrap" }}>
+            <button onClick={onEditPlan} style={btnSm}>{t('admin.edit')}</button>
+            <button onClick={() => setEditRegion(true)} style={btnSm}>{t('admin.edit_region')}</button>
+            <a href={`/map/${g.guild_id}`} target="_blank" rel="noopener noreferrer" style={{ ...btnSm, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>{t('admin.view_map')}</a>
+            <button onClick={() => setShowMembers(v => !v)} style={{ ...btnSm, color: showMembers ? "#a0a9ff" : undefined }}>{t('admin.members_list')}</button>
+          </div>
+        </td>
+      </tr>
+      {showMembers && (
+        <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+          <td colSpan={8} style={{ padding: "0 12px 12px 12px", background: "rgba(0,0,0,0.2)" }}>
+            <div style={{ paddingTop: 8 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.4)", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                {t('admin.members_title')} — <span style={{ color: overLimit ? "#ef4444" : "#ccd" }}>{g.member_count}</span>
+                {limit > 0 && <span style={{ color: "rgba(255,255,255,0.3)" }}>/{limit}</span>}
+              </div>
+              {!members && <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>{t('common.loading')}</div>}
+              {members && members.length === 0 && <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>{t('admin.no_members')}</div>}
+              {members && members.length > 0 && (
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  {members.map(m => (
+                    <div key={m.id} style={{ fontSize: 12, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, padding: "4px 10px" }}>
+                      <span style={{ fontWeight: 600, color: "#ddd" }}>{m.discord_username}</span>
+                      {m.last_seen_at && <span style={{ marginLeft: 6, color: "rgba(255,255,255,0.3)", fontSize: 10 }}>{m.last_seen_at.slice(0, 10)}</span>}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </td>
+        </tr>
+      )}
+      {editRegion && <EditRegionModal guild={g} onClose={() => setEditRegion(false)} onSave={() => { setEditRegion(false); onMutate(); }} />}
+    </>
+  );
+}
+
 // ── Guilds Tab ────────────────────────────────────────────────────────────────
 
 function GuildsTab() {
@@ -136,15 +226,10 @@ function GuildsTab() {
     {editing && <EditPlanModal guild={editing} onClose={() => setEditing(null)} onSave={() => { setEditing(null); mutate(); }} />}
     <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_server'), t('admin.col_plan'), t('admin.col_status'), t('admin.col_expires'), t('admin.col_members'), t('admin.col_trackers'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
-        <tbody>{data.map(g => <tr key={g.guild_id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-          <td style={td}>{g.guild_name}<div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>{g.guild_id}</div></td>
-          <td style={td}>{g.plan ? <Pill label={g.plan.toUpperCase()} color={PLAN_COLOR[g.plan] ?? "#888"} /> : <span style={{ color: "#444" }}>—</span>}</td>
-          <td style={td}>{g.plan_status ? <Pill label={g.plan_status.toUpperCase()} color={STATUS_COLOR[g.plan_status] ?? "#888"} /> : <span style={{ color: "#444" }}>—</span>}</td>
-          <td style={td}>{g.plan_expires_at ? g.plan_expires_at.slice(0, 10) : <span style={{ color: "#444" }}>—</span>}</td>
-          <td style={td}>{g.member_count}</td><td style={td}>{g.tracker_count}</td>
-          <td style={td}><button onClick={() => setEditing(g)} style={btnSm}>{t('admin.edit')}</button></td>
-        </tr>)}</tbody>
+        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_server'), t('admin.col_plan'), t('admin.col_status'), t('admin.col_expires'), t('admin.col_members'), t('admin.col_trackers'), t('admin.col_region'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
+        <tbody>{data.map(g => (
+          <GuildRow key={g.guild_id} g={g} onEditPlan={() => setEditing(g)} onMutate={() => mutate()} />
+        ))}</tbody>
       </table>
     </div>
   </>;

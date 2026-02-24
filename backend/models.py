@@ -32,6 +32,9 @@ class Guild(Base):
     plan_status: Mapped[str | None] = mapped_column(String, nullable=True)    # active / trial / expired
     plan_expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
+    # Server region: WEST / EAST / ASIA
+    server_region: Mapped[str] = mapped_column(String, nullable=False, default="WEST")
+
     trackers: Mapped[list["Tracker"]] = relationship(back_populates="guild", cascade="all, delete-orphan")
     routes: Mapped[list["Route"]] = relationship(back_populates="guild", cascade="all, delete-orphan")
     members: Mapped[list["GuildMember"]] = relationship(back_populates="guild", cascade="all, delete-orphan")
@@ -53,6 +56,7 @@ class Tracker(Base):
     source: Mapped[TrackerSource] = mapped_column(SAEnum(TrackerSource), nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    tier: Mapped[str | None] = mapped_column(String, nullable=True)          # T4.4 – T8.4 (nodes only)
 
     guild: Mapped["Guild"] = relationship(back_populates="trackers")
 

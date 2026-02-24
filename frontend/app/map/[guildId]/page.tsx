@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { use, useState, useEffect, useMemo } from "react";
 import { useTranslations } from "next-intl";
+import useSWR from "swr";
 import { useMe } from "../../components/useMe";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
 import { useMyGuilds } from "../../components/useMyGuilds";
@@ -257,7 +258,18 @@ function UnifiedCard({ item, selected, now, onClick }: {
       {/* Labels */}
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontWeight: 700, fontSize: 13, color: selected ? "#fff" : "#ddd", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{objective}</div>
-        <div style={{ fontSize: 11, color: "#666", marginTop: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{zoneName}</div>
+        <div style={{ fontSize: 11, color: "#666", marginTop: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", display: "flex", alignItems: "center", gap: 4 }}>
+          <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{zoneName}</span>
+          {isGuild && item.data.tier && (() => {
+            const TIER_COLORS: Record<string, string> = { "T4.4": "#888", "T5.4": "#22cc77", "T6.4": "#4499ff", "T7.4": "#aa44ff", "T8.4": "#FFD700" };
+            const tc = TIER_COLORS[item.data.tier] ?? "#aaa";
+            return (
+              <span style={{ flexShrink: 0, fontSize: 9, fontWeight: 700, color: tc, background: `${tc}1a`, border: `1px solid ${tc}44`, borderRadius: 4, padding: "1px 4px", letterSpacing: 0.3 }}>
+                {item.data.tier}
+              </span>
+            );
+          })()}
+        </div>
       </div>
 
       {/* Timer */}
@@ -292,6 +304,20 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   const { trackers, mutate }  = useTrackers(guildId);
   const { data: timersData }  = useTimers();
   const { routes, mutate: mutateRoutes } = useRoutes(guildId);
+
+  // Admin bypass: when the user is an admin but not a regular guild member,
+  // fetch guild data directly from the admin endpoint to allow map access.
+  const _adminFetchKey = (user?.isAdmin && !guildsLoading && !guilds.some(g => g.guild_id === guildId))
+    ? `${API_BASE}/admin/guilds/${guildId}`
+    : null;
+  const { data: adminGuildInfo } = useSWR<{
+    guild_id: string; guild_name: string;
+    plan: string | null; plan_status: string | null; server_region?: string;
+  }>(
+    _adminFetchKey,
+    (url: string) => fetch(url, { credentials: "include" }).then(r => r.ok ? r.json() : null),
+    { revalidateOnFocus: false },
+  );
 
   const [zones, setZones]                   = useState<ZoneData[]>([]);
   const [selectedPingId, setSelectedPingId] = useState<string | null>(null);
@@ -336,8 +362,14 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
     [trackers, search, timeFilter, now],
   );
   const filteredTimers = useMemo(
-    () => timerItems.filter((it) => matchesSearch(it.objective, it.zoneName) && timePassesForMs((it.spawnMs ?? 0) - now)),
-    [timerItems, search, timeFilter, now],
+    () => {
+      // Only show unslave.online timers for WEST (NA) server
+      const gAccess = guilds.find((g) => g.guild_id === guildId);
+      const region = gAccess?.server_region ?? adminGuildInfo?.server_region;
+      if (region && region !== "WEST") return [];
+      return timerItems.filter((it) => matchesSearch(it.objective, it.zoneName) && timePassesForMs((it.spawnMs ?? 0) - now));
+    },
+    [timerItems, guilds, guildId, adminGuildInfo, search, timeFilter, now],
   );
 
   // Merged + sorted by countdown ascending
@@ -386,7 +418,8 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   }
 
   const guildAccess = guilds.find((g) => g.guild_id === guildId);
-  const planOk = guildAccess?.plan_status === "active" || guildAccess?.plan_status === "trial";
+  const isAdminBypass = !!user?.isAdmin && !guildAccess;
+  const planOk = guildAccess?.plan_status === "active" || guildAccess?.plan_status === "trial" || isAdminBypass;
   if (!planOk) {
     return (
       <div style={{ display: "flex", height: "100vh", background: "#0d0d0d", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 16, fontFamily: "system-ui" }}>

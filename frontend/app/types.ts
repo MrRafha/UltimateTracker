@@ -34,6 +34,9 @@ export type TrackerObjective = NodeObjective | OrbObjective | VortexObjective;
 
 export type TrackerSource = "discord" | "web";
 
+export type ServerRegion = "WEST" | "EAST" | "ASIA";
+export type NodeTier = "T4.4" | "T5.4" | "T6.4" | "T7.4" | "T8.4";
+
 export type GuildTracker = {
   id: string;
   guildId: string;
@@ -47,6 +50,7 @@ export type GuildTracker = {
   source: TrackerSource;
   createdAt: string;
   expiresAt: string;
+  tier?: NodeTier;
 };
 
 // ── Map ping (unified shape for WorldMap) ────────────────────
@@ -72,6 +76,7 @@ export type DiscordUser = {
   guildId: string | null;
   guildName: string | null;
   hasAccess: boolean;
+  isAdmin?: boolean;
 };
 
 export type GuildAccess = {
@@ -81,6 +86,7 @@ export type GuildAccess = {
   plan?: string | null;           // basic / plus / premium
   plan_status?: string | null;    // active / trial / expired
   plan_expires_at?: string | null;
+  server_region?: ServerRegion;   // WEST / EAST / ASIA
 };
 
 // ── Constants shared between bot/web form ────────────────────
