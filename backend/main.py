@@ -28,6 +28,7 @@ from schemas import (
     GuildOut,
     GuildRegisterIn,
     GuildRolePatch,
+    GuildRegionPatch,
     TrackerCreate,
     TrackerOut,
     ZoneCenterOut,
@@ -533,6 +534,41 @@ async def set_guild_role(
     return guild
 
 
+@app.patch("/guilds/{guild_id}/region", response_model=GuildOut)
+async def set_guild_region_bot(
+    guild_id: str,
+    payload: GuildRegionPatch,
+    guild: Guild = Depends(_require_api_key),
+    db: AsyncSession = Depends(get_db),
+):
+    """Set the server region via bot (X-Api-Key auth)."""
+    if guild.guild_id != guild_id:
+        raise HTTPException(status_code=403, detail="API key does not belong to this guild")
+    guild.server_region = payload.server_region
+    await db.commit()
+    await db.refresh(guild)
+    return guild
+
+
+@app.patch("/guilds/{guild_id}/settings", response_model=GuildOut)
+async def set_guild_settings_web(
+    guild_id: str,
+    payload: GuildRegionPatch,
+    db: AsyncSession = Depends(get_db),
+    session: Dict[str, Any] = Depends(_require_session),
+):
+    """Set the server region from the web dashboard (session auth)."""
+    if guild_id not in _user_guild_ids(session):
+        raise HTTPException(status_code=403, detail="Not a member of this guild")
+    guild = await db.get(Guild, guild_id)
+    if not guild:
+        raise HTTPException(status_code=404, detail="Guild not found")
+    guild.server_region = payload.server_region
+    await db.commit()
+    await db.refresh(guild)
+    return guild
+
+
 # =============================================================================
 # Tracker routes
 # =============================================================================
@@ -573,6 +609,7 @@ async def create_tracker(
         reported_by_name=payload.reported_by_name,
         source=payload.source,
         expires_at=expires_at,
+        tier=payload.tier,
     )
     db.add(tracker)
     await db.commit()
@@ -622,6 +659,7 @@ def _tracker_to_out(t: Tracker) -> TrackerOut:
         source=t.source,
         created_at=t.created_at,
         expires_at=t.expires_at,
+        tier=t.tier,
     )
 
 
@@ -904,12 +942,15 @@ async def auth_discord_callback(
 
 
 @app.get("/auth/me")
-async def auth_me(request: Request):
+async def auth_me(request: Request, db: AsyncSession = Depends(get_db)):
     """Return current user info. Returns 401 if not authenticated."""
     session = _get_session(request)
     if not session:
         raise HTTPException(status_code=401, detail="Not authenticated")
-    return session
+    discord_id = session.get("id") or session.get("user_id", "")
+    admin_res = await db.execute(select(AdminUser).where(AdminUser.discord_id == discord_id))
+    is_admin = admin_res.scalar_one_or_none() is not None
+    return {**session, "is_admin": is_admin}
 
 
 @app.get("/auth/guilds")
@@ -1116,6 +1157,7 @@ async def admin_list_guilds(
             created_at=g.created_at,
             member_count=member_count,
             tracker_count=tracker_count,
+            server_region=g.server_region,
         ))
 
     return out
@@ -1138,6 +1180,56 @@ async def admin_set_plan(
         guild.plan_status = payload.plan_status
     if payload.plan_expires_at is not None:
         guild.plan_expires_at = payload.plan_expires_at
+    await db.commit()
+    await db.refresh(guild)
+    return guild
+
+
+@app.get("/admin/guilds/{guild_id}", response_model=AdminGuildOut)
+async def admin_get_guild(
+    guild_id: str,
+    _admin: AdminUser = Depends(_require_admin),
+    db: AsyncSession = Depends(get_db),
+):
+    from sqlalchemy import func
+    result = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
+    g = result.scalar_one_or_none()
+    if not g:
+        raise HTTPException(status_code=404, detail="Guild not found")
+    member_count_res = await db.execute(select(func.count()).where(GuildMember.guild_id == guild_id))
+    member_count = member_count_res.scalar() or 0
+    tracker_count_res = await db.execute(
+        select(func.count()).where(
+            Tracker.guild_id == guild_id,
+            Tracker.expires_at > datetime.now(timezone.utc),
+        )
+    )
+    tracker_count = tracker_count_res.scalar() or 0
+    return AdminGuildOut(
+        guild_id=g.guild_id,
+        guild_name=g.guild_name,
+        plan=g.plan,
+        plan_status=g.plan_status,
+        plan_expires_at=g.plan_expires_at,
+        created_at=g.created_at,
+        member_count=member_count,
+        tracker_count=tracker_count,
+        server_region=g.server_region,
+    )
+
+
+@app.patch("/admin/guilds/{guild_id}/settings", response_model=GuildOut)
+async def admin_set_guild_settings(
+    guild_id: str,
+    payload: GuildRegionPatch,
+    _admin: AdminUser = Depends(_require_admin),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
+    guild = result.scalar_one_or_none()
+    if not guild:
+        raise HTTPException(status_code=404, detail="Guild not found")
+    guild.server_region = payload.server_region
     await db.commit()
     await db.refresh(guild)
     return guild

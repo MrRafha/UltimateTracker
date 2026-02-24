@@ -37,3 +37,10 @@ OBJECTIVES_BY_TYPE: dict[str, list[str]] = {
 class TrackerSource(str, Enum):
     discord = "discord"
     web = "web"
+
+
+# Server regions
+SERVER_REGIONS: list[str] = ["WEST", "EAST", "ASIA"]
+
+# Node tiers (only .4 suffix)
+NODE_TIERS: list[str] = ["T4.4", "T5.4", "T6.4", "T7.4", "T8.4"]

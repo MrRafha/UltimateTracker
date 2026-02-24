@@ -58,7 +58,14 @@
     "activate": "Ativar",
     "plan_basic": "BÁSICO",
     "plan_plus": "PLUS",
-    "plan_premium": "PREMIUM"
+    "plan_premium": "PREMIUM",
+    "server_label": "Região",
+    "server_config": "Configurar Região",
+    "server_config_title": "Região do Servidor",
+    "server_config_desc": "Selecione a região do seu servidor Albion Online.",
+    "server_west": "WEST – NA",
+    "server_east": "EAST – EU",
+    "server_asia": "ASIA – CH"
   },
   "pricing": {
     "badge": "Planos & Preços",
@@ -193,7 +200,14 @@
     "add_key_btn": "＋ Nova Key",
     "zones_instruction": "Selecione uma zona e clique no mapa para salvar center.",
     "zones_undefined": "(não definido)",
-    "zones_paste_json": "Cole isto em backend/zones.json:"
+    "zones_paste_json": "Cole isto em backend/zones.json:",
+    "col_region": "Região",
+    "view_map": "Abrir Mapa",
+    "edit_region": "Região",
+    "edit_region_title": "Editar Região \u2014 {guild_name}",
+    "members_list": "Membros",
+    "members_title": "Membros",
+    "no_members": "Nenhum membro registrado"
   },
   "modal": {
     "report_title": "Reportar Node",
@@ -206,6 +220,8 @@
     "field_type": "Tipo",
     "field_objective": "Objetivo",
     "fill_all": "Preencha todos os campos.",
+    "field_tier": "Tier do Node",
+    "tier_required": "Selecione o tier do node.",
     "registering": "Registrando...",
     "register": "Registrar",
     "route_preview": "Prévia da rota",

@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { useMe } from "../components/useMe";
 import { useMyGuilds } from "../components/useMyGuilds";
 import LanguageSwitcher from "../components/LanguageSwitcher";
-import type { GuildAccess } from "../types";
+import type { GuildAccess, ServerRegion } from "../types";
 
 
 
@@ -202,11 +202,108 @@ function GuildInitial({ name }: { name: string }) {
 
 
 
+// ── Server Region Modal ────────────────────────────────────────────────────────
+
+
+
+function ServerRegionModal({ guild, onClose, onSuccess }: {
+  guild: GuildAccess;
+  onClose: () => void;
+  onSuccess: () => void;
+}) {
+  const t = useTranslations();
+  const [region, setRegion] = useState<ServerRegion>(guild.server_region ?? "WEST");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const REGIONS: { value: ServerRegion; label: string; flag: string }[] = [
+    { value: "WEST", label: t("dashboard.server_west"), flag: "🌎" },
+    { value: "EAST", label: t("dashboard.server_east"), flag: "🌍" },
+    { value: "ASIA", label: t("dashboard.server_asia"), flag: "🌏" },
+  ];
+
+  async function submit() {
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(`${API_BASE}/guilds/${guild.guild_id}/settings`, {
+        method: "PATCH",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ server_region: region }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.detail ?? `Erro ${res.status}`);
+      }
+      onSuccess();
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : t("common.error_unknown"));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+      style={{ position: "fixed", inset: 0, zIndex: 200, background: "rgba(0,0,0,0.72)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}
+    >
+      <div style={{ width: "100%", maxWidth: 400, background: "#16181f", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 18, padding: "28px 24px", fontFamily: "system-ui" }}>
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ fontWeight: 800, fontSize: 17, color: "#fff", marginBottom: 4 }}>{t("dashboard.server_config_title")}</div>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.35)" }}>{guild.guild_name}</div>
+          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 4 }}>{t("dashboard.server_config_desc")}</div>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>
+          {REGIONS.map((r) => {
+            const selected = region === r.value;
+            return (
+              <button
+                key={r.value}
+                type="button"
+                onClick={() => setRegion(r.value)}
+                style={{
+                  padding: "12px 16px", borderRadius: 10, cursor: "pointer",
+                  border: `1px solid ${selected ? "rgba(88,101,242,0.6)" : "rgba(255,255,255,0.1)"}`,
+                  background: selected ? "rgba(88,101,242,0.18)" : "rgba(255,255,255,0.04)",
+                  color: selected ? "#aab4ff" : "rgba(255,255,255,0.55)",
+                  fontWeight: 700, fontSize: 14, textAlign: "left",
+                  display: "flex", alignItems: "center", gap: 10,
+                  transition: "all 0.15s",
+                }}
+              >
+                <span style={{ fontSize: 20 }}>{r.flag}</span>
+                {r.label}
+                {selected && <span style={{ marginLeft: "auto", fontSize: 11, color: "#5865F2" }}>✓</span>}
+              </button>
+            );
+          })}
+        </div>
+
+        {error && <div style={{ fontSize: 12, color: "#f87171", marginBottom: 12 }}>{error}</div>}
+
+        <div style={{ display: "flex", gap: 10 }}>
+          <button type="button" onClick={onClose} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+            {t("common.cancel")}
+          </button>
+          <button type="button" disabled={loading} onClick={submit} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "none", background: loading ? "rgba(88,101,242,0.4)" : "#5865F2", color: "#fff", fontSize: 13, fontWeight: 700, cursor: loading ? "default" : "pointer" }}>
+            {loading ? t("common.saving") : t("common.save")}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
 // ── GuildCard ─────────────────────────────────────────────────────────────────
 
 
 
-function GuildCard({ guild, onActivate }: { guild: GuildAccess; onActivate: () => void }) {
+function GuildCard({ guild, onActivate, onConfigureRegion }: { guild: GuildAccess; onActivate: () => void; onConfigureRegion: () => void }) {
   const t = useTranslations();
   const { guild_id: guildId, guild_name: guildName, icon } = guild;
 
@@ -244,7 +341,14 @@ function GuildCard({ guild, onActivate }: { guild: GuildAccess; onActivate: () =
 
           <div style={{ fontWeight: 700, fontSize: 15, color: "#f0f0f5", marginBottom: 5 }}>{guildName}</div>
 
-          <PlanBadge plan={guild.plan} status={guild.plan_status} />
+          <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+            <PlanBadge plan={guild.plan} status={guild.plan_status} />
+            {guild.server_region && (
+              <span style={{ fontSize: 10, fontWeight: 700, color: "#5865F2", background: "rgba(88,101,242,0.12)", border: "1px solid rgba(88,101,242,0.3)", borderRadius: 999, padding: "2px 8px", letterSpacing: 0.5 }}>
+                {guild.server_region}
+              </span>
+            )}
+          </div>
 
         </div>
 
@@ -300,6 +404,24 @@ function GuildCard({ guild, onActivate }: { guild: GuildAccess; onActivate: () =
 
         </button>
 
+        <button
+
+          onClick={onConfigureRegion}
+
+          title={t("dashboard.server_config")}
+
+          style={{ padding: "10px 14px", borderRadius: 10, border: "1px solid rgba(88,101,242,0.3)", background: "rgba(88,101,242,0.06)", color: "rgba(148,161,255,0.7)", fontSize: 12, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap", transition: "background 0.15s" }}
+
+          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(88,101,242,0.14)")}
+
+          onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(88,101,242,0.06)")}
+
+        >
+
+          🌐
+
+        </button>
+
       </div>
 
     </div>
@@ -323,6 +445,8 @@ export default function DashboardPage() {
   const { guilds, isLoading: guildsLoading, isAuthenticated, mutate } = useMyGuilds();
 
   const [activatingGuild, setActivatingGuild] = useState<GuildAccess | null>(null);
+
+  const [configuringRegionGuild, setConfiguringRegionGuild] = useState<GuildAccess | null>(null);
 
 
 
@@ -442,7 +566,7 @@ export default function DashboardPage() {
 
             {guilds.map((guild) => (
 
-              <GuildCard key={guild.guild_id} guild={guild} onActivate={() => setActivatingGuild(guild)} />
+              <GuildCard key={guild.guild_id} guild={guild} onActivate={() => setActivatingGuild(guild)} onConfigureRegion={() => setConfiguringRegionGuild(guild)} />
 
             ))}
 
@@ -466,6 +590,14 @@ export default function DashboardPage() {
 
         />
 
+      )}
+
+      {configuringRegionGuild && (
+        <ServerRegionModal
+          guild={configuringRegionGuild}
+          onClose={() => setConfiguringRegionGuild(null)}
+          onSuccess={() => { setConfiguringRegionGuild(null); mutate(); }}
+        />
       )}
 
     </div>

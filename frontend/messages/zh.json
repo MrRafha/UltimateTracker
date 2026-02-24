@@ -58,7 +58,14 @@
     "activate": "激活",
     "plan_basic": "基础",
     "plan_plus": "PLUS",
-    "plan_premium": "高级"
+    "plan_premium": "高级",
+    "server_label": "服务器区",
+    "server_config": "配置服务器区",
+    "server_config_title": "服务器区域",
+    "server_config_desc": "选择您的Albion Online服务器区域。",
+    "server_west": "西区 – NA",
+    "server_east": "东区 – EU",
+    "server_asia": "亚洲 – CH"
   },
   "pricing": {
     "badge": "计划 & 价格",
@@ -193,7 +200,14 @@
     "add_key_btn": "＋ 新密鑰",
     "zones_instruction": "选择一个区域，点击地图保存中心点。",
     "zones_undefined": "(未设定)",
-    "zones_paste_json": "将此内容粘贴到 backend/zones.json："
+    "zones_paste_json": "将此内容粘贴到 backend/zones.json：",
+    "col_region": "地区",
+    "view_map": "打开地图",
+    "edit_region": "地区",
+    "edit_region_title": "编辑地区 — {guild_name}",
+    "members_list": "成员",
+    "members_title": "成员",
+    "no_members": "没有已注册的成员"
   },
   "modal": {
     "report_title": "报告节点",
@@ -206,6 +220,8 @@
     "field_type": "类型",
     "field_objective": "目标",
     "fill_all": "请填写所有字段。",
+    "field_tier": "节点等级",
+    "tier_required": "请选择节点等级。",
     "registering": "注册中...",
     "register": "注册",
     "route_preview": "路线预览",

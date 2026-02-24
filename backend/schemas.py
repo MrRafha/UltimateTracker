@@ -20,6 +20,7 @@ class GuildOut(BaseModel):
     allowed_role_id: Optional[str]
     api_key: str
     created_at: datetime
+    server_region: str = "WEST"
 
     class Config:
         from_attributes = True
@@ -27,6 +28,17 @@ class GuildOut(BaseModel):
 
 class GuildRolePatch(BaseModel):
     allowed_role_id: str
+
+
+class GuildRegionPatch(BaseModel):
+    server_region: str
+
+    @field_validator("server_region")
+    @classmethod
+    def validate_region(cls, v: str) -> str:
+        if v not in ("WEST", "EAST", "ASIA"):
+            raise ValueError("server_region must be WEST, EAST, or ASIA")
+        return v
 
 
 # ── Tracker ───────────────────────────────────────────────────
@@ -40,6 +52,7 @@ class TrackerCreate(BaseModel):
     reported_by_id: str
     reported_by_name: str
     source: TrackerSource
+    tier: Optional[str] = None                         # T4.4 – T8.4 (nodes only)
 
     @field_validator("objective")
     @classmethod
@@ -76,6 +89,7 @@ class TrackerOut(BaseModel):
     source: TrackerSource
     created_at: datetime
     expires_at: datetime
+    tier: Optional[str] = None                         # T4.4 – T8.4 (nodes only)
 
     class Config:
         from_attributes = True
@@ -199,6 +213,7 @@ class GuildPlanOut(BaseModel):
     plan: Optional[str]
     plan_status: Optional[str]
     plan_expires_at: Optional[datetime]
+    server_region: str = "WEST"
 
     class Config:
         from_attributes = True
@@ -252,6 +267,7 @@ class AdminGuildOut(BaseModel):
     created_at: datetime
     member_count: int = 0
     tracker_count: int = 0
+    server_region: str = "WEST"
 
     class Config:
         from_attributes = True

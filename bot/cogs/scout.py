@@ -101,16 +101,22 @@ class ObjectiveSelect(discord.ui.Select):
     async def callback(self, interaction: discord.Interaction):
         objective = self.values[0]
 
+        # For nodes, ask the tier before posting
+        if self.tracker_type == "node":
+            await interaction.response.send_message(
+                embed=discord.Embed(
+                    title="🌿 Objetivo selecionado",
+                    description="Agora selecione o **tier** do node:",
+                    color=0x5865F2,
+                ),
+                view=TierView(self.zone, self.hours, self.minutes, self.tracker_type, objective),
+                ephemeral=True,
+            )
+            return
+
         # Defer immediately — Discord requires a response within 3 seconds.
         # The HTTP call below can exceed that limit, causing error 10062 otherwise.
         await interaction.response.defer(ephemeral=True)
-
-        api_key = config.get_api_key(interaction.guild_id)
-        if not api_key:
-            await interaction.followup.send(
-                "❌ Esta guilda não está registrada. Use `/setup` primeiro.", ephemeral=True
-            )
-            return
 
         payload = {
             "guild_id":         str(interaction.guild_id),
@@ -124,48 +130,115 @@ class ObjectiveSelect(discord.ui.Select):
             "source":           "discord",
         }
 
-        try:
-            async with httpx.AsyncClient(timeout=10) as client:
-                r = await client.post(
-                    f"{config.API_BASE_URL}/trackers",
-                    json=payload,
-                    headers={"X-Api-Key": api_key},
-                )
-                r.raise_for_status()
-        except httpx.HTTPStatusError as e:
-            if e.response.status_code == 402:
-                embed = discord.Embed(
-                    title="🔒 Plano Inativo",
-                    description="Esta guilda não possui um plano ativo ou o plano expirou.",
-                    color=0xEF4444,
-                )
-                embed.add_field(
-                    name="Ativar Plano",
-                    value=f"[Acessar Dashboard]({config.SITE_URL}/dashboard)",
-                    inline=False,
-                )
-                await interaction.followup.send(embed=embed, ephemeral=True)
-            else:
-                await interaction.followup.send(
-                    f"❌ Erro ao registrar: `{e.response.status_code}` — {e.response.text}", ephemeral=True
-                )
-            return
-        except Exception as e:
-            await interaction.followup.send(f"❌ Erro inesperado: {e}", ephemeral=True)
-            return
+        await _post_tracker(interaction, payload, objective, self.zone, self.hours, self.minutes)
 
-        embed = discord.Embed(
-            title="✅ Tracker registrado!",
-            color=0x57F287,
+
+# ── Step 3 (nodes only): Select tier ─────────────────────────
+NODE_TIERS = ["T4.4", "T5.4", "T6.4", "T7.4", "T8.4"]
+
+class TierView(discord.ui.View):
+    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str, objective: str):
+        super().__init__(timeout=120)
+        self.add_item(TierSelect(zone, hours, minutes, tracker_type, objective))
+
+
+class TierSelect(discord.ui.Select):
+    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str, objective: str):
+        self.zone         = zone
+        self.hours        = hours
+        self.minutes      = minutes
+        self.tracker_type = tracker_type
+        self.objective    = objective
+
+        options = [
+            discord.SelectOption(label=tier, value=tier)
+            for tier in NODE_TIERS
+        ]
+        super().__init__(placeholder="Selecione o tier do node…", options=options, min_values=1, max_values=1)
+
+    async def callback(self, interaction: discord.Interaction):
+        tier = self.values[0]
+        await interaction.response.defer(ephemeral=True)
+
+        payload = {
+            "guild_id":         str(interaction.guild_id),
+            "zone_name":        self.zone,
+            "type":             self.tracker_type,
+            "objective":        self.objective,
+            "hours":            self.hours,
+            "minutes":          self.minutes,
+            "reported_by_id":   str(interaction.user.id),
+            "reported_by_name": str(interaction.user.display_name),
+            "source":           "discord",
+            "tier":             tier,
+        }
+
+        await _post_tracker(interaction, payload, self.objective, self.zone, self.hours, self.minutes, tier=tier)
+
+
+# ── Shared POST helper ────────────────────────────────────────
+
+async def _post_tracker(
+    interaction: discord.Interaction,
+    payload: dict,
+    objective: str,
+    zone: str,
+    hours: int,
+    minutes: int,
+    tier: str | None = None,
+) -> None:
+    api_key = config.get_api_key(interaction.guild_id)
+    if not api_key:
+        await interaction.followup.send(
+            "❌ Esta guilda não está registrada. Use `/setup` primeiro.", ephemeral=True
         )
-        embed.add_field(name="Mapa",     value=self.zone,              inline=True)
-        embed.add_field(name="Tipo",     value=self.tracker_type.title(), inline=True)
-        embed.add_field(name="Objetivo", value=f"{OBJECTIVE_EMOJI.get(objective, '')} {objective.capitalize()}", inline=True)
-        time_str = f"{self.hours}h {self.minutes}m" if self.hours else f"{self.minutes}m"
-        embed.add_field(name="Tempo restante", value=time_str, inline=True)
-        embed.set_footer(text=f"Reportado por {interaction.user.display_name}")
+        return
 
-        await interaction.edit_original_response(embed=embed, view=None)
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            r = await client.post(
+                f"{config.API_BASE_URL}/trackers",
+                json=payload,
+                headers={"X-Api-Key": api_key},
+            )
+            r.raise_for_status()
+    except httpx.HTTPStatusError as e:
+        if e.response.status_code == 402:
+            embed = discord.Embed(
+                title="🔒 Plano Inativo",
+                description="Esta guilda não possui um plano ativo ou o plano expirou.",
+                color=0xEF4444,
+            )
+            embed.add_field(
+                name="Ativar Plano",
+                value=f"[Acessar Dashboard]({config.SITE_URL}/dashboard)",
+                inline=False,
+            )
+            await interaction.followup.send(embed=embed, ephemeral=True)
+        else:
+            await interaction.followup.send(
+                f"❌ Erro ao registrar: `{e.response.status_code}` — {e.response.text}", ephemeral=True
+            )
+        return
+    except Exception as e:
+        await interaction.followup.send(f"❌ Erro inesperado: {e}", ephemeral=True)
+        return
+
+    tracker_type = payload.get("type", "")
+    embed = discord.Embed(
+        title="✅ Tracker registrado!",
+        color=0x57F287,
+    )
+    embed.add_field(name="Mapa",     value=zone,                       inline=True)
+    embed.add_field(name="Tipo",     value=tracker_type.title(),       inline=True)
+    embed.add_field(name="Objetivo", value=f"{OBJECTIVE_EMOJI.get(objective, '')} {objective.capitalize()}", inline=True)
+    if tier:
+        embed.add_field(name="Tier", value=tier, inline=True)
+    time_str = f"{hours}h {minutes}m" if hours else f"{minutes}m"
+    embed.add_field(name="Tempo restante", value=time_str, inline=True)
+    embed.set_footer(text=f"Reportado por {interaction.user.display_name}")
+
+    await interaction.edit_original_response(embed=embed, view=None)
 
 
 # ── Modal (zone + time entry) ──────────────────────────────────
