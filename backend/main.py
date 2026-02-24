@@ -491,7 +491,15 @@ async def _require_api_key_or_session(
     session = _get_session(request)
     if not session:
         raise HTTPException(status_code=401, detail="Not authenticated")
-    guild_id = session.get("guild_id")
+    # Read guild_id from request body so users can act on any guild they belong to,
+    # not just the primary guild stored in the session.
+    try:
+        body = await request.json()
+        guild_id = body.get("guild_id") or session.get("guild_id")
+    except Exception:
+        guild_id = session.get("guild_id")
+    if guild_id not in _user_guild_ids(session):
+        raise HTTPException(status_code=403, detail="You don't have access to this guild")
     result = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
     guild = result.scalar_one_or_none()
     if not guild:
@@ -590,6 +598,8 @@ async def create_tracker(
     db: AsyncSession = Depends(get_db),
 ):
     """Create a tracker entry. Used by the bot and the web form."""
+    # For bot requests (X-Api-Key), verify the key matches the target guild.
+    # For session requests, guild ownership is already validated in _require_api_key_or_session.
     if guild.guild_id != payload.guild_id:
         raise HTTPException(status_code=403, detail="API key does not belong to this guild")
 
