@@ -2,10 +2,13 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
 
 function LoginContent() {
+  const t = useTranslations();
   const params   = useSearchParams();
   const error    = params.get("error");
   const next     = params.get("next") ?? params.get("redirect") ?? "";
@@ -29,6 +32,11 @@ function LoginContent() {
         backgroundImage: "linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)",
         backgroundSize: "40px 40px",
       }} />
+
+      {/* Language switcher top-right */}
+      <div style={{ position: "fixed", top: 16, right: 20, zIndex: 10 }}>
+        <LanguageSwitcher />
+      </div>
 
       <div style={{
         position: "relative",
@@ -62,7 +70,6 @@ function LoginContent() {
             height={46}
             style={{ display: "block" }}
             onError={(e) => {
-              // Fallback to emoji if asset isn't present yet
               (e.currentTarget as HTMLImageElement).style.display = "none";
               const fallback = (e.currentTarget as HTMLImageElement).nextElementSibling as HTMLElement | null;
               if (fallback) fallback.style.display = "block";
@@ -73,12 +80,12 @@ function LoginContent() {
 
         {/* Title */}
         <h1 style={{ margin: 0, fontSize: 22, fontWeight: 800, color: "#f0f0f5", letterSpacing: -0.5 }}>
-          Ultimate Tracker
+          {t('login.title')}
         </h1>
 
         {/* Subtitle */}
         <p style={{ margin: "8px 0 28px", fontSize: 13, color: "rgba(255,255,255,0.35)", textAlign: "center", lineHeight: 1.6 }}>
-          Faça login com o Discord para acessar o mapa de tracking da sua guilda.
+          {t('login.subtitle')}
         </p>
 
         {/* Error banner */}
@@ -92,7 +99,7 @@ function LoginContent() {
             fontSize: 13, color: "#f87171",
             textAlign: "center", lineHeight: 1.5,
           }}>
-            Você não é membro de nenhuma guilda registrada neste tracker.
+            {t('login.error_no_guild')}
           </div>
         )}
 
@@ -122,12 +129,12 @@ function LoginContent() {
           <svg width="22" height="22" viewBox="0 0 127.14 96.36" fill="currentColor" style={{ flexShrink: 0 }}>
             <path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15zM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.12 12.69-11.44 12.69zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.12 12.69-11.43 12.69z" />
           </svg>
-          Entrar com Discord
+          {t('login.cta')}
         </a>
 
         {/* Footer note */}
         <p style={{ margin: "20px 0 0", fontSize: 11, color: "rgba(255,255,255,0.18)", textAlign: "center", lineHeight: 1.6 }}>
-          Apenas membros com a role configurada pelo admin da guilda terão acesso.
+          {t('login.footer_note')}
         </p>
       </div>
     </main>

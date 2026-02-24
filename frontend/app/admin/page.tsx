@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 import useSWR from "swr";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
@@ -68,7 +70,8 @@ function ModalBox({ title, children }: { title: string; children: React.ReactNod
   return <div style={{ width: "100%", maxWidth: 440, background: "#16181f", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 18, padding: "28px 24px", fontFamily: "system-ui" }}><div style={{ fontWeight: 800, fontSize: 16, color: "#fff", marginBottom: 20 }}>{title}</div>{children}</div>;
 }
 function ModalButtons({ onClose, loading, confirmLabel }: { onClose: () => void; loading: boolean; confirmLabel: string }) {
-  return <div style={{ display: "flex", gap: 10, marginTop: 4 }}><button type="button" onClick={onClose} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Cancelar</button><button type="submit" disabled={loading} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "none", background: loading ? "rgba(88,101,242,0.4)" : "#5865F2", color: "#fff", fontSize: 13, fontWeight: 700, cursor: loading ? "default" : "pointer" }}>{loading ? "Salvando…" : confirmLabel}</button></div>;
+  const t = useTranslations();
+  return <div style={{ display: "flex", gap: 10, marginTop: 4 }}><button type="button" onClick={onClose} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>{t('common.cancel')}</button><button type="submit" disabled={loading} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "none", background: loading ? "rgba(88,101,242,0.4)" : "#5865F2", color: "#fff", fontSize: 13, fontWeight: 700, cursor: loading ? "default" : "pointer" }}>{loading ? t('common.saving') : confirmLabel}</button></div>;
 }
 const td: React.CSSProperties = { padding: "10px 12px", color: "#ccd", verticalAlign: "middle" };
 const thStyle: React.CSSProperties = { padding: "8px 12px", textAlign: "left", color: "rgba(255,255,255,0.35)", fontWeight: 600, fontSize: 11, textTransform: "uppercase", letterSpacing: 0.5 };
@@ -81,22 +84,23 @@ const inp = { background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,
 // ── Overview Tab ──────────────────────────────────────────────────────────────
 
 function OverviewTab() {
+  const t = useTranslations();
   const { data, error } = useSWR<Stats>(`${API_BASE}/admin/stats`, fetcher, swrOpts);
   if (error) return <p style={{ color: "#f87171" }}>{error.message}</p>;
-  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>Carregando...</p>;
+  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>{t('common.loading')}</p>;
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-        <StatCard title="Servidores" value={data.total_guilds} />
-        <StatCard title="Ativos" value={data.active_guilds} color="#22cc77" />
-        <StatCard title="Trial" value={data.trial_guilds} color="#f59e0b" />
-        <StatCard title="Expirados" value={data.expired_guilds} color="#ef4444" />
-        <StatCard title="Sem plano" value={data.no_plan_guilds} color="#555" />
+        <StatCard title={t('admin.stat_servers')} value={data.total_guilds} />
+        <StatCard title={t('admin.stat_active')} value={data.active_guilds} color="#22cc77" />
+        <StatCard title={t('admin.stat_trial')} value={data.trial_guilds} color="#f59e0b" />
+        <StatCard title={t('admin.stat_expired')} value={data.expired_guilds} color="#ef4444" />
+        <StatCard title={t('admin.stat_no_plan')} value={data.no_plan_guilds} color="#555" />
       </div>
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-        <StatCard title="Membros" value={data.total_members} color="#a78bfa" />
-        <StatCard title="Keys totais" value={data.total_keys} color="#38bdf8" />
-        <StatCard title="Keys usadas" value={data.used_keys} color="#fb923c" sub={`${data.total_keys - data.used_keys} disponíveis`} />
+        <StatCard title={t('admin.stat_members')} value={data.total_members} color="#a78bfa" />
+        <StatCard title={t('admin.stat_total_keys')} value={data.total_keys} color="#38bdf8" />
+        <StatCard title={t('admin.stat_used_keys')} value={data.used_keys} color="#fb923c" sub={`${data.total_keys - data.used_keys} ${t('admin.stat_available')}`} />
       </div>
     </div>
   );
@@ -105,6 +109,7 @@ function OverviewTab() {
 // ── Edit Plan Modal ───────────────────────────────────────────────────────────
 
 function EditPlanModal({ guild, onClose, onSave }: { guild: AdminGuild; onClose: () => void; onSave: () => void }) {
+  const t = useTranslations();
   const [plan, setPlan] = useState(guild.plan ?? "basic");
   const [status, setStatus] = useState(guild.plan_status ?? "active");
   const [expires, setExpires] = useState(guild.plan_expires_at ? guild.plan_expires_at.slice(0, 10) : "");
@@ -116,28 +121,29 @@ function EditPlanModal({ guild, onClose, onSave }: { guild: AdminGuild; onClose:
     catch (err: any) { setError(err.message); }
     finally { setLoading(false); }
   }
-  return <Overlay onClose={onClose}><ModalBox title={`Editar plano — ${guild.guild_name}`}><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}><label style={labelStyle}>Plano<select value={plan} onChange={e => setPlan(e.target.value)} style={inp}><option value="basic">Básico</option><option value="plus">Plus</option><option value="premium">Premium</option></select></label><label style={labelStyle}>Status<select value={status} onChange={e => setStatus(e.target.value)} style={inp}><option value="active">Ativo</option><option value="trial">Trial</option><option value="expired">Expirado</option></select></label><label style={labelStyle}>Expira em<input type="date" value={expires} onChange={e => setExpires(e.target.value)} style={inp} /></label>{error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}<ModalButtons onClose={onClose} loading={loading} confirmLabel="Salvar" /></form></ModalBox></Overlay>;
+  return <Overlay onClose={onClose}><ModalBox title={t('admin.edit_plan_title', { guild_name: guild.guild_name })}><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}><label style={labelStyle}>{t('admin.field_plan')}<select value={plan} onChange={e => setPlan(e.target.value)} style={inp}><option value="basic">{t('admin.option_basic')}</option><option value="plus">{t('admin.option_plus')}</option><option value="premium">{t('admin.option_premium')}</option></select></label><label style={labelStyle}>{t('admin.field_status')}<select value={status} onChange={e => setStatus(e.target.value)} style={inp}><option value="active">{t('admin.option_active')}</option><option value="trial">{t('admin.option_trial')}</option><option value="expired">{t('admin.option_expired')}</option></select></label><label style={labelStyle}>{t('admin.field_expires')}<input type="date" value={expires} onChange={e => setExpires(e.target.value)} style={inp} /></label>{error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}<ModalButtons onClose={onClose} loading={loading} confirmLabel={t('common.save')} /></form></ModalBox></Overlay>;
 }
 
 // ── Guilds Tab ────────────────────────────────────────────────────────────────
 
 function GuildsTab() {
+  const t = useTranslations();
   const { data, error, mutate } = useSWR<AdminGuild[]>(`${API_BASE}/admin/guilds`, fetcher, swrOpts);
   const [editing, setEditing] = useState<AdminGuild | null>(null);
   if (error) return <p style={{ color: "#f87171" }}>{error.message}</p>;
-  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>Carregando...</p>;
+  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>{t('common.loading')}</p>;
   return <>
     {editing && <EditPlanModal guild={editing} onClose={() => setEditing(null)} onSave={() => { setEditing(null); mutate(); }} />}
     <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{["Servidor", "Plano", "Status", "Expira", "Membros", "Trackers", ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
+        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_server'), t('admin.col_plan'), t('admin.col_status'), t('admin.col_expires'), t('admin.col_members'), t('admin.col_trackers'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
         <tbody>{data.map(g => <tr key={g.guild_id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
           <td style={td}>{g.guild_name}<div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>{g.guild_id}</div></td>
           <td style={td}>{g.plan ? <Pill label={g.plan.toUpperCase()} color={PLAN_COLOR[g.plan] ?? "#888"} /> : <span style={{ color: "#444" }}>—</span>}</td>
           <td style={td}>{g.plan_status ? <Pill label={g.plan_status.toUpperCase()} color={STATUS_COLOR[g.plan_status] ?? "#888"} /> : <span style={{ color: "#444" }}>—</span>}</td>
           <td style={td}>{g.plan_expires_at ? g.plan_expires_at.slice(0, 10) : <span style={{ color: "#444" }}>—</span>}</td>
           <td style={td}>{g.member_count}</td><td style={td}>{g.tracker_count}</td>
-          <td style={td}><button onClick={() => setEditing(g)} style={btnSm}>Editar</button></td>
+          <td style={td}><button onClick={() => setEditing(g)} style={btnSm}>{t('admin.edit')}</button></td>
         </tr>)}</tbody>
       </table>
     </div>
@@ -147,6 +153,7 @@ function GuildsTab() {
 // ── Keys Tab ──────────────────────────────────────────────────────────────────
 
 function NewKeyModal({ onClose, onSave }: { onClose: () => void; onSave: () => void }) {
+  const t = useTranslations();
   const [plan, setPlan] = useState("basic"); const [days, setDays] = useState("30");
   const [trial, setTrial] = useState(false); const [note, setNote] = useState("");
   const [loading, setLoading] = useState(false); const [error, setError] = useState("");
@@ -155,38 +162,39 @@ function NewKeyModal({ onClose, onSave }: { onClose: () => void; onSave: () => v
     try { await apiFetch("/admin/keys", "POST", { plan, duration_days: parseInt(days), is_trial: trial, note: note || null }); onSave(); }
     catch (err: any) { setError(err.message); } finally { setLoading(false); }
   }
-  return <Overlay onClose={onClose}><ModalBox title="Nova Chave de Ativação"><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-    <label style={labelStyle}>Plano<select value={plan} onChange={e => setPlan(e.target.value)} style={inp}><option value="basic">Básico</option><option value="plus">Plus</option><option value="premium">Premium</option></select></label>
-    <label style={labelStyle}>Duração (dias)<input type="number" min={1} value={days} onChange={e => setDays(e.target.value)} style={inp} /></label>
-    <label style={{ ...labelStyle, flexDirection: "row", alignItems: "center", gap: 8 }}><input type="checkbox" checked={trial} onChange={e => setTrial(e.target.checked)} />É trial</label>
-    <label style={labelStyle}>Nota<input value={note} onChange={e => setNote(e.target.value)} placeholder="ex: key para servidor X" style={inp} /></label>
+  return <Overlay onClose={onClose}><ModalBox title={t('admin.new_key_title')}><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+    <label style={labelStyle}>{t('admin.field_plan')}<select value={plan} onChange={e => setPlan(e.target.value)} style={inp}><option value="basic">{t('admin.option_basic')}</option><option value="plus">{t('admin.option_plus')}</option><option value="premium">{t('admin.option_premium')}</option></select></label>
+    <label style={labelStyle}>{t('admin.field_duration_days')}<input type="number" min={1} value={days} onChange={e => setDays(e.target.value)} style={inp} /></label>
+    <label style={{ ...labelStyle, flexDirection: "row", alignItems: "center", gap: 8 }}><input type="checkbox" checked={trial} onChange={e => setTrial(e.target.checked)} />{t('admin.field_is_trial')}</label>
+    <label style={labelStyle}>{t('admin.field_note')}<input value={note} onChange={e => setNote(e.target.value)} placeholder={t('admin.note_placeholder')} style={inp} /></label>
     {error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}
-    <ModalButtons onClose={onClose} loading={loading} confirmLabel="Criar" />
+    <ModalButtons onClose={onClose} loading={loading} confirmLabel={t('admin.create')} />
   </form></ModalBox></Overlay>;
 }
 
 function KeysTab() {
+  const t = useTranslations();
   const { data, error, mutate } = useSWR<Key[]>(`${API_BASE}/admin/keys`, fetcher, swrOpts);
   const [showNew, setShowNew] = useState(false);
-  async function deleteKey(id: number) { if (!confirm("Remover esta key?")) return; await apiFetch(`/admin/keys/${id}`, "DELETE"); mutate(); }
+  async function deleteKey(id: number) { if (!confirm(t('admin.confirm_remove_key'))) return; await apiFetch(`/admin/keys/${id}`, "DELETE"); mutate(); }
   if (error) return <p style={{ color: "#f87171" }}>{error.message}</p>;
-  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>Carregando...</p>;
+  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>{t('common.loading')}</p>;
   return <>
     {showNew && <NewKeyModal onClose={() => setShowNew(false)} onSave={() => { setShowNew(false); mutate(); }} />}
-    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}><button onClick={() => setShowNew(true)} style={btnPrimary}>＋ Nova Key</button></div>
+    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}><button onClick={() => setShowNew(true)} style={btnPrimary}>{t('admin.add_key_btn')}</button></div>
     <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{["Chave", "Plano", "Dias", "Trial", "Status", "Usado por", "Criada", "Nota", ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
+        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_key'), t('admin.col_plan'), t('admin.col_days'), t('admin.col_is_trial'), t('admin.col_status'), t('admin.col_used_by'), t('admin.col_created'), t('admin.col_note'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
         <tbody>{data.map(k => <tr key={k.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", opacity: k.is_used ? 0.45 : 1 }}>
           <td style={{ ...td, fontFamily: "monospace", fontSize: 11 }}>{k.key}</td>
           <td style={td}><Pill label={k.plan.toUpperCase()} color={PLAN_COLOR[k.plan] ?? "#888"} /></td>
           <td style={td}>{k.duration_days}d</td>
           <td style={td}>{k.is_trial ? <Pill label="TRIAL" color="#f59e0b" /> : <span style={{ color: "#444" }}>—</span>}</td>
-          <td style={td}>{k.is_used ? <Pill label="USADA" color="#ef4444" /> : <Pill label="LIVRE" color="#22cc77" />}</td>
+          <td style={td}>{k.is_used ? <Pill label={t('admin.key_used')} color="#ef4444" /> : <Pill label={t('admin.key_free')} color="#22cc77" />}</td>
           <td style={td}>{k.used_by_guild_id ?? <span style={{ color: "#444" }}>—</span>}</td>
           <td style={td}>{k.created_at.slice(0, 10)}</td>
           <td style={td}>{k.note ?? <span style={{ color: "#444" }}>—</span>}</td>
-          <td style={td}>{!k.is_used && <button onClick={() => deleteKey(k.id)} style={btnDanger}>Remover</button>}</td>
+          <td style={td}>{!k.is_used && <button onClick={() => deleteKey(k.id)} style={btnDanger}>{t('admin.remove')}</button>}</td>
         </tr>)}</tbody>
       </table>
     </div>
@@ -196,6 +204,7 @@ function KeysTab() {
 // ── Admins Tab ────────────────────────────────────────────────────────────────
 
 function AddAdminModal({ onClose, onSave }: { onClose: () => void; onSave: () => void }) {
+  const t = useTranslations();
   const [discordId, setDiscordId] = useState(""); const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false); const [error, setError] = useState("");
   async function submit(e: React.FormEvent) {
@@ -203,31 +212,32 @@ function AddAdminModal({ onClose, onSave }: { onClose: () => void; onSave: () =>
     try { await apiFetch("/admin/users", "POST", { discord_id: discordId, username }); onSave(); }
     catch (err: any) { setError(err.message); } finally { setLoading(false); }
   }
-  return <Overlay onClose={onClose}><ModalBox title="Adicionar Administrador"><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-    <label style={labelStyle}>Discord ID<input value={discordId} onChange={e => setDiscordId(e.target.value)} placeholder="1234567890" style={inp} required /></label>
-    <label style={labelStyle}>Username<input value={username} onChange={e => setUsername(e.target.value)} placeholder="usuario#0" style={inp} required /></label>
+  return <Overlay onClose={onClose}><ModalBox title={t('admin.add_admin_title')}><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+    <label style={labelStyle}>{t('admin.field_discord_id')}<input value={discordId} onChange={e => setDiscordId(e.target.value)} placeholder="1234567890" style={inp} required /></label>
+    <label style={labelStyle}>{t('admin.field_username')}<input value={username} onChange={e => setUsername(e.target.value)} placeholder="usuario#0" style={inp} required /></label>
     {error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}
-    <ModalButtons onClose={onClose} loading={loading} confirmLabel="Adicionar" />
+    <ModalButtons onClose={onClose} loading={loading} confirmLabel={t('admin.add')} />
   </form></ModalBox></Overlay>;
 }
 
 function AdminsTab() {
+  const t = useTranslations();
   const { data, error, mutate } = useSWR<AdminUser[]>(`${API_BASE}/admin/users`, fetcher, swrOpts);
   const [showAdd, setShowAdd] = useState(false);
-  async function deleteAdmin(id: number) { if (!confirm("Remover este admin?")) return; await apiFetch(`/admin/users/${id}`, "DELETE"); mutate(); }
+  async function deleteAdmin(id: number) { if (!confirm(t('admin.confirm_remove_admin'))) return; await apiFetch(`/admin/users/${id}`, "DELETE"); mutate(); }
   if (error) return <p style={{ color: "#f87171" }}>{error.message}</p>;
-  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>Carregando...</p>;
+  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>{t('common.loading')}</p>;
   return <>
     {showAdd && <AddAdminModal onClose={() => setShowAdd(false)} onSave={() => { setShowAdd(false); mutate(); }} />}
-    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}><button onClick={() => setShowAdd(true)} style={btnPrimary}>＋ Adicionar Admin</button></div>
+    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}><button onClick={() => setShowAdd(true)} style={btnPrimary}>{t('admin.add_admin_btn')}</button></div>
     <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{["Discord ID", "Username", "Adicionado em", ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
+        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_discord_id'), t('admin.col_username'), t('admin.col_added_at'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
         <tbody>{data.map(u => <tr key={u.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
           <td style={{ ...td, fontFamily: "monospace", fontSize: 11 }}>{u.discord_id}</td>
           <td style={td}>{u.username}</td>
           <td style={td}>{u.created_at.slice(0, 10)}</td>
-          <td style={td}><button onClick={() => deleteAdmin(u.id)} style={btnDanger}>Remover</button></td>
+          <td style={td}><button onClick={() => deleteAdmin(u.id)} style={btnDanger}>{t('admin.remove')}</button></td>
         </tr>)}</tbody>
       </table>
     </div>
@@ -236,19 +246,27 @@ function AdminsTab() {
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 
-const TABS = ["Visão Geral", "Servidores", "Keys", "Admins"] as const;
-type Tab = (typeof TABS)[number];
+const TABS_KEYS = ["overview", "servers", "keys", "admins"] as const;
+type TabKey = (typeof TABS_KEYS)[number];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<Tab>("Visão Geral");
+  const t = useTranslations();
+  const [activeTab, setActiveTab] = useState<TabKey>("overview");
 
-  const tabContent: Record<Tab, React.ReactNode> = {
-    "Visão Geral": <OverviewTab />,
-    "Servidores":  <GuildsTab />,
-    "Keys":        <KeysTab />,
-    "Admins":      <AdminsTab />,
+  const tabLabels: Record<TabKey, string> = {
+    overview: t('admin.tab_overview'),
+    servers: t('admin.tab_servers'),
+    keys: t('admin.tab_keys'),
+    admins: t('admin.tab_admins'),
+  };
+
+  const tabContent: Record<TabKey, React.ReactNode> = {
+    overview: <OverviewTab />,
+    servers:  <GuildsTab />,
+    keys:     <KeysTab />,
+    admins:   <AdminsTab />,
   };
 
   return (
@@ -261,30 +279,31 @@ export default function AdminDashboard() {
           <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
             <img src="/brand/icon.png" alt="Ultimate Tracker" height={34} style={{ display: "block", width: "auto" }} />
           </Link>
-          <span style={{ fontSize: 11, fontWeight: 700, color: "#5865F2", background: "rgba(88,101,242,0.15)", border: "1px solid rgba(88,101,242,0.3)", borderRadius: 6, padding: "2px 8px", letterSpacing: 0.5 }}>ADMIN</span>
+          <span style={{ fontSize: 11, fontWeight: 700, color: "#5865F2", background: "rgba(88,101,242,0.15)", border: "1px solid rgba(88,101,242,0.3)", borderRadius: 6, padding: "2px 8px", letterSpacing: 0.5 }}>{t('admin.badge')}</span>
         </div>
         <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <Link href="/dashboard" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Dashboard</Link>
-          <Link href="/admin/zones" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Zone Centers</Link>
+          <LanguageSwitcher />
+          <Link href="/dashboard" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>{t('admin.dashboard_link')}</Link>
+          <Link href="/admin/zones" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>{t('admin.zone_centers_link')}</Link>
         </div>
       </nav>
 
       {/* Content */}
       <main style={{ maxWidth: 1100, margin: "0 auto", padding: "48px 24px 80px" }}>
         <div style={{ marginBottom: 32 }}>
-          <h1 style={{ margin: "0 0 4px", fontSize: 24, fontWeight: 800, color: "#fff" }}>Painel Admin</h1>
-          <p style={{ margin: 0, fontSize: 13, color: "rgba(255,255,255,0.3)" }}>Gerencie planos, chaves e administradores do Ultimate Tracker.</p>
+          <h1 style={{ margin: "0 0 4px", fontSize: 24, fontWeight: 800, color: "#fff" }}>{t('admin.page_title')}</h1>
+          <p style={{ margin: 0, fontSize: 13, color: "rgba(255,255,255,0.3)" }}>{t('admin.page_subtitle')}</p>
         </div>
 
         {/* Tabs */}
         <div style={{ display: "flex", gap: 4, borderBottom: "1px solid rgba(255,255,255,0.08)", marginBottom: 28 }}>
-          {TABS.map(tab => (
+          {TABS_KEYS.map(tabKey => (
             <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              style={{ padding: "10px 18px", borderRadius: "8px 8px 0 0", border: "none", background: activeTab === tab ? "rgba(88,101,242,0.15)" : "transparent", color: activeTab === tab ? "#a0a9ff" : "rgba(255,255,255,0.35)", fontSize: 13, fontWeight: activeTab === tab ? 700 : 500, cursor: "pointer", borderBottom: activeTab === tab ? "2px solid #5865F2" : "2px solid transparent", transition: "all 0.15s" }}
+              key={tabKey}
+              onClick={() => setActiveTab(tabKey)}
+              style={{ padding: "10px 18px", borderRadius: "8px 8px 0 0", border: "none", background: activeTab === tabKey ? "rgba(88,101,242,0.15)" : "transparent", color: activeTab === tabKey ? "#a0a9ff" : "rgba(255,255,255,0.35)", fontSize: 13, fontWeight: activeTab === tabKey ? 700 : 500, cursor: "pointer", borderBottom: activeTab === tabKey ? "2px solid #5865F2" : "2px solid transparent", transition: "all 0.15s" }}
             >
-              {tab}
+              {tabLabels[tabKey]}
             </button>
           ))}
         </div>

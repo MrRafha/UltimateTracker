@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import type { ZoneData } from "../types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
@@ -177,6 +178,7 @@ function ZoneAutocomplete({
 
 // ── Route Preview ───────────────────────────────────────────────────────────
 function RoutePreview({ waypoints }: { waypoints: WaypointForm[] }) {
+  const t = useTranslations();
   const filled = waypoints.filter((w) => w.zoneName);
   if (filled.length === 0) return null;
 
@@ -194,7 +196,7 @@ function RoutePreview({ waypoints }: { waypoints: WaypointForm[] }) {
       }}
     >
       <div style={{ fontSize: 10, color: "#555", marginBottom: 6, textTransform: "uppercase", fontWeight: 700, letterSpacing: 0.5 }}>
-        Prévia da rota
+        {t('modal.route_preview')}
       </div>
       <div style={{ display: "inline-flex", alignItems: "center", gap: 0 }}>
         {waypoints.map((wp, i) => {
@@ -251,6 +253,7 @@ export default function RouteModal({
   onClose: () => void;
   onSuccess: () => void;
 }) {
+  const t = useTranslations();
   const [avalonZones, setAvalonZones] = useState<AvalonZone[]>([]);
   const [waypoints, setWaypoints] = useState<WaypointForm[]>([makeWaypoint(), makeWaypoint()]);
   const [submitting, setSubmitting] = useState(false);
@@ -288,7 +291,7 @@ export default function RouteModal({
 
   async function handleSubmit() {
     if (waypoints.some((w) => !w.zoneName)) {
-      setError("Preencha todos os nomes de zona.");
+      setError(t('modal.route_error_fill_zones'));
       return;
     }
     setSubmitting(true);
@@ -316,7 +319,7 @@ export default function RouteModal({
       }
       onSuccess();
     } catch {
-      setError("Falha na conexão.");
+      setError(t('modal.route_error_connection'));
     } finally {
       setSubmitting(false);
     }
@@ -365,8 +368,8 @@ export default function RouteModal({
         >
           <MIcon name="route" size={18} color="#88aadd" />
           <div>
-            <div style={{ fontWeight: 800, fontSize: 15, color: "#eee" }}>Nova Rota Avalônica</div>
-            <div style={{ fontSize: 11, color: "#555", marginTop: 2 }}>Misture zonas do 🌍&nbsp;mundo e zonas Avalonianas (TNL) em qualquer ordem</div>
+            <div style={{ fontWeight: 800, fontSize: 15, color: "#eee" }}>{t('modal.route_title')}</div>
+            <div style={{ fontSize: 11, color: "#555", marginTop: 2 }}>{t('modal.route_subtitle')}</div>
           </div>
           <button
             onClick={onClose}
@@ -383,11 +386,11 @@ export default function RouteModal({
           <div style={{ display: "flex", gap: 10, marginBottom: 12, padding: "7px 10px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 6 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
               <span style={{ fontSize: 10, fontWeight: 700, color: "#88cc88", background: "rgba(100,160,100,0.18)", borderRadius: 4, padding: "1px 5px", fontFamily: "monospace" }}>🌍</span>
-              <span style={{ fontSize: 11, color: "#555" }}>Zona no mapa (tem pin)</span>
+                <span style={{ fontSize: 11, color: "#555" }}>{t('modal.route_zone_world')}</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
               <span style={{ fontSize: 10, fontWeight: 700, color: "#6688aa", background: "rgba(100,136,170,0.15)", borderRadius: 4, padding: "1px 5px", fontFamily: "monospace" }}>TNL-xxx</span>
-              <span style={{ fontSize: 11, color: "#555" }}>Zona Avalônica instanciada</span>
+                <span style={{ fontSize: 11, color: "#555" }}>{t('modal.route_zone_avalon')}</span>
             </div>
           </div>
 
@@ -397,7 +400,7 @@ export default function RouteModal({
           {/* Waypoints */}
           <div style={{ marginBottom: 8 }}>
             <div style={{ fontSize: 10, color: "#555", textTransform: "uppercase", fontWeight: 700, letterSpacing: 0.5, marginBottom: 10 }}>
-              Waypoints — mínimo 2 zonas
+              {t('modal.route_waypoints_min')}
             </div>
 
             {waypoints.map((wp, i) => (
@@ -423,7 +426,7 @@ export default function RouteModal({
                       letterSpacing: 0.5,
                     }}
                   >
-                    {i === 0 ? "🟢 Entrada" : `🔵 Passo ${i + 1}`}
+                    {i === 0 ? t('modal.route_step_entry') : t('modal.route_step_n', { n: i + 1 })}
                   </span>
                   {waypoints.length > 2 && (
                     <button
@@ -441,7 +444,7 @@ export default function RouteModal({
                   query={wp.query}
                   suggestions={wp.suggestions}
                   focused={wp.focused}
-                  placeholder={i === 0 ? "Zona de entrada — mundo ou TNL…" : "Próxima zona — mundo ou TNL…"}
+                  placeholder={i === 0 ? t('modal.route_entry_placeholder') : t('modal.route_next_placeholder')}
                   worldZones={zones}
                   avalonZones={avalonZones}
                   onChange={(query, suggestions) => updateWaypoint(i, { query, suggestions, zoneName: "" })}
@@ -454,7 +457,7 @@ export default function RouteModal({
                 {i > 0 && (
                   <div style={{ marginTop: 8, display: "flex", alignItems: "center", gap: 8 }}>
                     <MIcon name="timer" size={14} color="#555" />
-                    <span style={{ fontSize: 11, color: "#555" }}>Tempo restante desta conexão:</span>
+                    <span style={{ fontSize: 11, color: "#555" }}>{t('modal.route_time_label')}</span>
                     <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
                       <input
                         type="number"
@@ -521,7 +524,7 @@ export default function RouteModal({
             }}
           >
             <MIcon name="add" size={15} color="#555" />
-            Adicionar zona
+            {t('modal.add_waypoint')}
           </button>
 
           {error && (
@@ -566,7 +569,7 @@ export default function RouteModal({
               fontWeight: 600,
             }}
           >
-            Cancelar
+            {t('common.cancel')}
           </button>
           <button
             onClick={handleSubmit}
@@ -583,7 +586,7 @@ export default function RouteModal({
               cursor: canSubmit ? "pointer" : "not-allowed",
             }}
           >
-            {submitting ? "Salvando…" : "Salvar Rota"}
+            {submitting ? t('modal.submitting') : t('modal.submit_route')}
           </button>
         </div>
       </div>

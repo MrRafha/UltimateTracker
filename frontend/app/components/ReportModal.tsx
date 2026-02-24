@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import type { ZoneData } from "../types";
 import { OBJECTIVES_BY_TYPE, TYPE_LABELS, OBJECTIVE_EMOJI } from "../types";
 import type { TrackerType } from "../types";
@@ -23,6 +24,7 @@ function MIcon({ name, size = 18, color }: { name: string; size?: number; color?
 }
 
 export default function ReportModal({ guildId, zones, onClose, onSuccess }: Props) {
+  const t = useTranslations();
   const [zoneName, setZoneName]   = useState("");
   const [zoneQuery, setZoneQuery] = useState("");
   const [hours, setHours]         = useState(0);
@@ -49,7 +51,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!zoneName || !type || !objective) { setError("Preencha todos os campos."); return; }
+    if (!zoneName || !type || !objective) { setError(t('modal.fill_all')); return; }
     setLoading(true);
     setError("");
     try {
@@ -73,7 +75,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
       }
       onSuccess();
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "Erro desconhecido");
+      setError(err instanceof Error ? err.message : t('common.error_unknown'));
     } finally {
       setLoading(false);
     }
@@ -124,8 +126,8 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
               <MIcon name="radar" size={18} color="#aaa" />
             </div>
             <div>
-              <div style={{ fontWeight: 800, fontSize: 15, color: "#eee" }}>Reportar Node</div>
-              <div style={{ fontSize: 11, color: "#555", marginTop: 1 }}>Scout da guilda</div>
+              <div style={{ fontWeight: 800, fontSize: 15, color: "#eee" }}>{t('modal.report_title')}</div>
+              <div style={{ fontSize: 11, color: "#555", marginTop: 1 }}>{t('modal.report_subtitle')}</div>
             </div>
           </div>
           <button
@@ -141,7 +143,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
 
           {/* Zone autocomplete */}
           <div style={{ position: "relative" }}>
-            <label style={labelStyle}>Mapa / Zona</label>
+            <label style={labelStyle}>{t('modal.field_zone')}</label>
             <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
               <MIcon name="map" size={15} color="#555" />
               <input
@@ -151,7 +153,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
                 onChange={(e) => { setZoneQuery(e.target.value); setZoneName(""); setShowSuggestions(true); }}
                 onFocus={() => setShowSuggestions(true)}
                 onBlur={() => setTimeout(() => setShowSuggestions(false), 160)}
-                placeholder="Digite o nome do mapa..."
+                placeholder={t('modal.zone_placeholder')}
                 style={{ ...inputStyle, paddingLeft: 34, marginLeft: -19 }}
                 required
               />
@@ -177,23 +179,23 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
 
           {/* Time */}
           <div>
-            <label style={labelStyle}>Tempo restante</label>
+            <label style={labelStyle}>{t('modal.field_time')}</label>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ flex: 1 }}>
                 <input type="number" min={0} max={23} value={hours} onChange={(e) => setHours(Number(e.target.value))} style={{ ...inputStyle, textAlign: "center" }} />
-                <div style={{ fontSize: 10, color: "#555", textAlign: "center", marginTop: 4 }}>horas</div>
+                <div style={{ fontSize: 10, color: "#555", textAlign: "center", marginTop: 4 }}>{t('modal.hours')}</div>
               </div>
               <span style={{ color: "#444", fontSize: 22, paddingBottom: 18, fontWeight: 200 }}>:</span>
               <div style={{ flex: 1 }}>
                 <input type="number" min={0} max={59} value={minutes} onChange={(e) => setMinutes(Number(e.target.value))} style={{ ...inputStyle, textAlign: "center" }} />
-                <div style={{ fontSize: 10, color: "#555", textAlign: "center", marginTop: 4 }}>minutos</div>
+                <div style={{ fontSize: 10, color: "#555", textAlign: "center", marginTop: 4 }}>{t('modal.minutes')}</div>
               </div>
             </div>
           </div>
 
           {/* Type */}
           <div>
-            <label style={labelStyle}>Tipo</label>
+            <label style={labelStyle}>{t('modal.field_type')}</label>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
               {(["node", "orb", "vortex"] as TrackerType[]).map((t) => {
                 const selected = type === t;
@@ -224,7 +226,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
           {/* Objective */}
           {type && (
             <div>
-              <label style={labelStyle}>Objetivo</label>
+              <label style={labelStyle}>{t('modal.field_objective')}</label>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
                 {objectives.map((obj) => {
                   const selected = objective === obj;
@@ -244,7 +246,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
                       }}
                     >
                       <span style={{ fontSize: 16 }}>{OBJECTIVE_EMOJI[obj] ?? "📍"}</span>
-                      {obj.charAt(0).toUpperCase() + obj.slice(1)}
+                      {t(`objectives.${obj}`) ?? (obj.charAt(0).toUpperCase() + obj.slice(1))}
                     </button>
                   );
                 })}
@@ -271,7 +273,7 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
               transition: "all 0.15s",
             }}
           >
-            {loading ? "Registrando..." : "Registrar"}
+            {loading ? t('modal.registering') : t('modal.register')}
           </button>
         </form>
       </div>

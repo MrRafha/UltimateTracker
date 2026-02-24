@@ -1,60 +1,64 @@
 'use client';
 
 import Link from 'next/link';
-
-const PLANS = [
-  {
-    name: 'Básico',
-    price: 'R$ 25',
-    period: '/mês',
-    highlight: false,
-    badge: null,
-    description: 'Para guildas pequenas começando a organizar o gathering.',
-    features: [
-      '🗺️ Mapa interativo da guilda',
-      '⏱️ Timers ao vivo de nodes',
-      '🤖 Integração com bot Discord',
-      '👥 Até 5 usuários',
-      '📍 Reporte via /scout',
-    ],
-    cta: 'Começar agora',
-  },
-  {
-    name: 'Plus',
-    price: 'R$ 30',
-    period: '/mês',
-    highlight: true,
-    badge: 'Mais popular',
-    description: 'Mais controle e visibilidade para guildas em crescimento.',
-    features: [
-      '✅ Tudo do Básico',
-      '👥 Até 10 usuários',
-      '🧑‍💼 Dashboard de controle de usuários',
-      '📋 Logs semanais de atividade',
-      '🛤️ Rotas Avalônicas no mapa',
-    ],
-    cta: 'Assinar Plus',
-  },
-  {
-    name: 'Premium',
-    price: 'R$ 40',
-    period: '/mês',
-    highlight: false,
-    badge: null,
-    description: 'Para guildas competitivas que precisam do máximo de controle.',
-    features: [
-      '✅ Tudo do Plus',
-      '👥 Até 30 usuários',
-      '🔔 Pings personalizados',
-      '🔐 Logs de segurança acessíveis',
-      '🔗 Registro de compartilhamento de links',
-      '🎭 Controle de acesso por roles específicas',
-    ],
-    cta: 'Assinar Premium',
-  },
-];
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 export default function PricingPage() {
+  const t = useTranslations();
+
+  const PLANS = [
+    {
+      name: t('pricing.plan_basic_name'),
+      price: 'R$ 25',
+      period: t('pricing.period'),
+      highlight: false,
+      badge: null,
+      description: t('pricing.plan_basic_desc'),
+      features: [
+        t('pricing.feature_basic_0'),
+        t('pricing.feature_basic_1'),
+        t('pricing.feature_basic_2'),
+        t('pricing.feature_basic_3'),
+        t('pricing.feature_basic_4'),
+      ],
+      cta: t('pricing.cta_basic'),
+    },
+    {
+      name: t('pricing.plan_plus_name'),
+      price: 'R$ 30',
+      period: t('pricing.period'),
+      highlight: true,
+      badge: t('pricing.badge_popular'),
+      description: t('pricing.plan_plus_desc'),
+      features: [
+        t('pricing.feature_plus_0'),
+        t('pricing.feature_plus_1'),
+        t('pricing.feature_plus_2'),
+        t('pricing.feature_plus_3'),
+        t('pricing.feature_plus_4'),
+      ],
+      cta: t('pricing.cta_plus'),
+    },
+    {
+      name: t('pricing.plan_premium_name'),
+      price: 'R$ 40',
+      period: t('pricing.period'),
+      highlight: false,
+      badge: null,
+      description: t('pricing.plan_premium_desc'),
+      features: [
+        t('pricing.feature_premium_0'),
+        t('pricing.feature_premium_1'),
+        t('pricing.feature_premium_2'),
+        t('pricing.feature_premium_3'),
+        t('pricing.feature_premium_4'),
+        t('pricing.feature_premium_5'),
+      ],
+      cta: t('pricing.cta_premium'),
+    },
+  ];
+
   return (
     <div style={{
       minHeight: '100vh',
@@ -81,6 +85,7 @@ export default function PricingPage() {
           <img src="/brand/icon.png" alt="Ultimate Tracker" height={36} style={{ display: 'block', width: 'auto' }} />
         </Link>
         <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+          <LanguageSwitcher />
           <Link
             href="/pricing"
             style={{
@@ -90,7 +95,7 @@ export default function PricingPage() {
               padding: '6px 4px',
             }}
           >
-            Preços
+            {t('nav.pricing')}
           </Link>
           <Link
             href="/login"
@@ -101,7 +106,7 @@ export default function PricingPage() {
               textDecoration: 'none',
             }}
           >
-            Entrar
+            {t('nav.login')}
           </Link>
         </div>
       </nav>
@@ -117,20 +122,20 @@ export default function PricingPage() {
           borderRadius: 999, padding: '4px 14px', fontSize: 12, color: '#8a93f5',
           marginBottom: 24, fontWeight: 600, letterSpacing: 0.5,
         }}>
-          Planos & Preços
+          {t('pricing.badge')}
         </div>
         <h1 style={{
           margin: '0 0 16px',
           fontSize: 44, fontWeight: 900, lineHeight: 1.1, color: '#fff',
         }}>
-          O plano certo para<br />
-          <span style={{ color: '#5865F2' }}>sua guilda</span>
+          {t('pricing.h1_a')}<br />
+          <span style={{ color: '#5865F2' }}>{t('pricing.h1_b')}</span>
         </h1>
         <p style={{
           margin: 0, fontSize: 16, color: 'rgba(255,255,255,0.4)',
           maxWidth: 460, marginInline: 'auto', lineHeight: 1.6,
         }}>
-          Comece gratuitamente com os recursos básicos ou escolha um plano para desbloquear controles avançados.
+          {t('pricing.subtitle')}
         </p>
       </section>
 
@@ -153,8 +158,7 @@ export default function PricingPage() {
         textAlign: 'center',
       }}>
         <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)', lineHeight: 1.8 }}>
-          Todos os planos incluem suporte via Discord.<br />
-          Pagamentos gerenciados manualmente — entre em contato para assinar.
+          {t('pricing.footer_note')}
         </p>
       </section>
 
@@ -170,9 +174,12 @@ export default function PricingPage() {
   );
 }
 
-function PlanCard({ plan }: {
-  plan: typeof PLANS[number];
-}) {
+type PlanItem = {
+  name: string; price: string; period: string; highlight: boolean;
+  badge: string | null; description: string; features: string[]; cta: string;
+};
+
+function PlanCard({ plan }: { plan: PlanItem }) {
   return (
     <div style={{
       position: 'relative',
