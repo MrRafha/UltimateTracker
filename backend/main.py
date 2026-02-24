@@ -366,11 +366,21 @@ def enrich_items(data: Dict[str, Any]) -> Dict[str, Any]:
 # =============================================================================
 
 @app.get("/timers")
-async def timers():
+async def timers(
+    guild_id: Optional[str] = None,
+    db: AsyncSession = Depends(get_db),
+):
     """
     Endpoint principal consumido pelo Next.js.
     Usa cache TTL para reduzir fetch do site de terceiros.
+    Se guild_id for informado, retorna vazio para guildas fora do servidor WEST.
     """
+    if guild_id:
+        result = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
+        guild = result.scalar_one_or_none()
+        if guild and guild.server_region != "WEST":
+            return {"updatedAt": datetime.now(timezone.utc).isoformat(), "items": []}
+
     if "timers" in cache:
         return cache["timers"]
 
@@ -1104,7 +1114,11 @@ async def admin_stats(
     expired = sum(1 for g in guilds if g.plan_status in ("active", "trial") and g.plan_expires_at and g.plan_expires_at <= now)
     no_plan = sum(1 for g in guilds if not g.plan_status)
 
-    members_result = await db.execute(select(GuildMember))
+    members_result = await db.execute(
+        select(GuildMember).where(
+            GuildMember.discord_user_id.not_in(select(AdminUser.discord_id).scalar_subquery())
+        )
+    )
     total_members = len(members_result.scalars().all())
 
     keys_result = await db.execute(select(ActivationKey))
@@ -1134,9 +1148,13 @@ async def admin_list_guilds(
     guilds = guilds_result.scalars().all()
 
     out = []
+    admin_ids_subq = select(AdminUser.discord_id).scalar_subquery()
     for g in guilds:
         member_count_res = await db.execute(
-            select(func.count()).where(GuildMember.guild_id == g.guild_id)
+            select(func.count()).where(
+                GuildMember.guild_id == g.guild_id,
+                GuildMember.discord_user_id.not_in(admin_ids_subq),
+            )
         )
         member_count = member_count_res.scalar() or 0
 
@@ -1196,7 +1214,12 @@ async def admin_get_guild(
     g = result.scalar_one_or_none()
     if not g:
         raise HTTPException(status_code=404, detail="Guild not found")
-    member_count_res = await db.execute(select(func.count()).where(GuildMember.guild_id == guild_id))
+    member_count_res = await db.execute(
+        select(func.count()).where(
+            GuildMember.guild_id == guild_id,
+            GuildMember.discord_user_id.not_in(select(AdminUser.discord_id).scalar_subquery()),
+        )
+    )
     member_count = member_count_res.scalar() or 0
     tracker_count_res = await db.execute(
         select(func.count()).where(
@@ -1242,7 +1265,10 @@ async def admin_guild_members(
     db: AsyncSession = Depends(get_db),
 ):
     result = await db.execute(
-        select(GuildMember).where(GuildMember.guild_id == guild_id).order_by(GuildMember.last_seen_at.desc())
+        select(GuildMember).where(
+            GuildMember.guild_id == guild_id,
+            GuildMember.discord_user_id.not_in(select(AdminUser.discord_id).scalar_subquery()),
+        ).order_by(GuildMember.last_seen_at.desc())
     )
     return result.scalars().all()
 
