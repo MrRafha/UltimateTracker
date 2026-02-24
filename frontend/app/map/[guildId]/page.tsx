@@ -3,7 +3,9 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { use, useState, useEffect, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { useMe } from "../../components/useMe";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 import { useMyGuilds } from "../../components/useMyGuilds";
 import { useTrackers } from "../../components/useTrackers";
 import { useTimers } from "../../components/useTimers";
@@ -74,6 +76,7 @@ function routeBottleneck(route: Route, now: number): { ms: number; label: string
 function RouteDetailModal({ route, now, onClose, onDelete }: {
   route: Route; now: number; onClose: () => void; onDelete: () => void;
 }) {
+  const t = useTranslations();
   const entry = route.waypoints[0];
   const exit  = route.waypoints[route.waypoints.length - 1];
   return (
@@ -121,7 +124,7 @@ function RouteDetailModal({ route, now, onClose, onDelete }: {
             const urgent  = msLeft !== null && msLeft > 0 && msLeft < 10 * 60_000;
             const timeColor  = msLeft === null ? "#444" : expired ? "#555" : urgent ? "#FFD700" : "#66dd88";
             const roleColor  = isFirst ? "#44dd88" : isLast ? "#FF8C44" : "#88aadd";
-            const roleLabel  = isFirst ? "Entrada" : isLast ? "Saída" : "Portal";
+            const roleLabel  = isFirst ? t('map.waypoint_entry') : isLast ? t('map.waypoint_exit') : t('map.waypoint_portal');
             return (
               <div key={wp.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px", borderRadius: 8, background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.04)" }}>
                 {/* Timeline dot */}
@@ -134,7 +137,7 @@ function RouteDetailModal({ route, now, onClose, onDelete }: {
                   <div style={{ fontSize: 12, fontWeight: 700, color: "#ccc", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{wp.zoneName}</div>
                   <div style={{ fontSize: 10, color: "#444", marginTop: 1 }}>
                     <span style={{ color: roleColor, fontWeight: 700, marginRight: 4 }}>{roleLabel}</span>
-                    {wp.expiresAt ? (expired ? "expirado" : "expira em") : "sem timer"}
+                    {wp.expiresAt ? (expired ? t('map.timer_expired') : t('map.timer_expires_in')) : t('map.timer_no_timer')}
                   </div>
                 </div>
                 {msLeft !== null && (
@@ -154,7 +157,7 @@ function RouteDetailModal({ route, now, onClose, onDelete }: {
             style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 8, color: "#f87171", fontSize: 12, fontWeight: 700, padding: "6px 14px", cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}
           >
             <MIcon name="delete_outline" size={14} color="#f87171" />
-            Deletar rota
+            {t('map.route_delete')}
           </button>
         </div>
       </div>
@@ -273,6 +276,7 @@ function UnifiedCard({ item, selected, now, onClick }: {
 // ── Page ─────────────────────────────────────────────────────────────────────
 
 export default function GuildMapPage({ params }: { params: Promise<{ guildId: string }> }) {
+  const t = useTranslations();
   const { guildId }           = use(params);
   const router                = useRouter();
   const { user, isLoading }   = useMe();
@@ -328,7 +332,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   }
 
   const filteredTrackers = useMemo(
-    () => trackers.filter((t) => matchesSearch(t.objective, t.zoneName) && timePassesForMs(new Date(t.expiresAt).getTime() - now)),
+    () => trackers.filter((tr) => matchesSearch(tr.objective, tr.zoneName) && timePassesForMs(new Date(tr.expiresAt).getTime() - now)),
     [trackers, search, timeFilter, now],
   );
   const filteredTimers = useMemo(
@@ -339,21 +343,21 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   // Merged + sorted by countdown ascending
   const allItems: UnifiedItem[] = useMemo(() => {
     const g: UnifiedItem[] = filteredTrackers.map((data) => ({ kind: "guild" as const, data }));
-    const t: UnifiedItem[] = filteredTimers.map((data)   => ({ kind: "timer" as const, data }));
-    return [...g, ...t].sort((a, b) => {
+    const timerUnified: UnifiedItem[] = filteredTimers.map((data)   => ({ kind: "timer" as const, data }));
+    return [...g, ...timerUnified].sort((a, b) => {
       const msA = a.kind === "guild" ? new Date(a.data.expiresAt).getTime() - now : (a.data.spawnMs ?? 0) - now;
       const msB = b.kind === "guild" ? new Date(b.data.expiresAt).getTime() - now : (b.data.spawnMs ?? 0) - now;
       return msA - msB;
     });
   }, [filteredTrackers, filteredTimers, now]);
 
-  const activeGuildCount = trackers.filter((t) => new Date(t.expiresAt).getTime() > now).length;
+  const activeGuildCount = trackers.filter((tr) => new Date(tr.expiresAt).getTime() > now).length;
   const totalCount = allItems.length;
 
   const allPings: Ping[] = useMemo(() => {
-    const guildPings: Ping[] = trackers.flatMap((t) => {
-      if (!t.center) return [];
-      return [{ id: t.id, zoneId: t.zoneId ?? t.zoneName, label: `${t.objective} - ${t.zoneName}`, objective: t.objective, center: t.center!, source: "guild" as const, status: "COUNTDOWN" as const, expiresAt: t.expiresAt }];
+    const guildPings: Ping[] = trackers.flatMap((tr) => {
+      if (!tr.center) return [];
+      return [{ id: tr.id, zoneId: tr.zoneId ?? tr.zoneName, label: `${tr.objective} - ${tr.zoneName}`, objective: tr.objective, center: tr.center!, source: "guild" as const, status: "COUNTDOWN" as const, expiresAt: tr.expiresAt }];
     });
     const unslavePings: Ping[] = timerItems.flatMap((it) => {
       if (!it.center) return [];
@@ -367,16 +371,16 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   const selectedCenter = allPings.find((p) => p.id === selectedPingId)?.center ?? null;
 
   const TIME_FILTERS: { key: "all" | "10m" | "30m" | "1h"; label: string }[] = [
-    { key: "all", label: "Todos" },
-    { key: "10m", label: "< 10m" },
-    { key: "30m", label: "< 30m" },
-    { key: "1h",  label: "< 1h"  },
+    { key: "all", label: t('map.filter_all') },
+    { key: "10m", label: t('map.filter_10m') },
+    { key: "30m", label: t('map.filter_30m') },
+    { key: "1h",  label: t('map.filter_1h')  },
   ];
 
   if (isLoading || guildsLoading || !user) {
     return (
       <div style={{ display: "flex", height: "100vh", background: "#0d0d0d", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.3)", fontFamily: "system-ui" }}>
-        Carregando...
+        {t('map.loading')}
       </div>
     );
   }
@@ -387,9 +391,9 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
     return (
       <div style={{ display: "flex", height: "100vh", background: "#0d0d0d", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 16, fontFamily: "system-ui" }}>
         <div style={{ fontSize: 48 }}>🔒</div>
-        <div style={{ fontSize: 22, fontWeight: 700, color: "#fff" }}>Plano Inativo</div>
+        <div style={{ fontSize: 22, fontWeight: 700, color: "#fff" }}>{t('map.plan_inactive_title')}</div>
         <div style={{ color: "rgba(255,255,255,0.5)", textAlign: "center", maxWidth: 360 }}>
-          Esta guilda não possui um plano ativo. Acesse o dashboard para ativar ou renovar seu plano.
+          {t('map.plan_inactive_desc')}
         </div>
         <a
           href="/dashboard"
@@ -404,7 +408,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
             fontSize: 15,
           }}
         >
-          Ir para o Dashboard
+          {t('map.go_to_dashboard')}
         </a>
       </div>
     );
@@ -424,18 +428,19 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
             {user?.guildName && (
               <span style={{ marginLeft: "auto", fontSize: 11, color: "#444" }}>{user.guildName}</span>
             )}
+            <LanguageSwitcher />
           </div>
           <div style={{ fontSize: 11, color: "#555", display: "flex", gap: 10, marginBottom: 10 }}>
-            <span style={{ color: "#66dd88" }}>{activeGuildCount} scout{activeGuildCount !== 1 ? "s" : ""} ativos</span>
+            <span style={{ color: "#66dd88" }}>{t('map.scouts_active', { count: activeGuildCount })}</span>
             <span>&bull;</span>
-            <span style={{ color: "#aaa" }}>{timerItems.length} mapeados</span>
+            <span style={{ color: "#aaa" }}>{t('map.mapped_count', { count: timerItems.length })}</span>
           </div>
           {/* Tabs */}
           <div style={{ display: "flex", gap: 4 }}>
-            {(["nodes", "routes"] as const).map((t) => (
+            {(["nodes", "routes"] as const).map((tabKey) => (
               <button
-                key={t}
-                onClick={() => setTab(t)}
+                key={tabKey}
+                onClick={() => setTab(tabKey)}
                 style={{
                   flex: 1,
                   padding: "5px 0",
@@ -444,13 +449,13 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
                   cursor: "pointer",
                   borderRadius: 5,
                   border: "none",
-                  background: tab === t ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.04)",
-                  color: tab === t ? "#ddd" : "#555",
+                  background: tab === tabKey ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.04)",
+                  color: tab === tabKey ? "#ddd" : "#555",
                   textTransform: "uppercase",
                   letterSpacing: 0.4,
                 }}
               >
-                {t === "nodes" ? "⚔️ Nodes" : "🛤️ Rotas"}
+                {tabKey === "nodes" ? t('map.tab_nodes') : t('map.tab_routes')}
               </button>
             ))}
           </div>
@@ -464,7 +469,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
             <input
               type="text" value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Buscar zona ou objetivo..."
+              placeholder={t('map.search_placeholder')}
               style={{ background: "none", border: "none", outline: "none", color: "#ddd", fontSize: 12, flex: 1, padding: 0 }}
             />
             {search && (
@@ -490,15 +495,15 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
             <>
               {/* List header label */}
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8, padding: "0 2px" }}>
-                <span style={{ fontSize: 11, fontWeight: 700, color: "#555", letterSpacing: 0.5, textTransform: "uppercase" }}>Nodes</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: "#555", letterSpacing: 0.5, textTransform: "uppercase" }}>{t('map.section_nodes')}</span>
                 <span style={{ fontSize: 11, color: "#444", background: "rgba(255,255,255,0.06)", borderRadius: 999, padding: "1px 8px" }}>{totalCount}</span>
               </div>
 
               {allItems.length === 0 ? (
                 <div style={{ fontSize: 12, color: "#444", padding: "16px 4px", textAlign: "center" }}>
                   {trackers.length === 0 && timerItems.length === 0
-                    ? "Nenhum node. Use o botão + para scout."
-                    : "Nenhum resultado para os filtros."}
+                    ? t('map.empty_nodes')
+                    : t('map.empty_filter')}
                 </div>
               ) : (
                 allItems.map((item) => {
@@ -519,13 +524,13 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
             <>
               {/* Routes tab */}
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8, padding: "0 2px" }}>
-                <span style={{ fontSize: 11, fontWeight: 700, color: "#555", letterSpacing: 0.5, textTransform: "uppercase" }}>Rotas Avalônicas</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: "#555", letterSpacing: 0.5, textTransform: "uppercase" }}>{t('map.section_routes')}</span>
                 <span style={{ fontSize: 11, color: "#444", background: "rgba(255,255,255,0.06)", borderRadius: 999, padding: "1px 8px" }}>{routes.length}</span>
               </div>
 
               {routes.length === 0 ? (
                 <div style={{ fontSize: 12, color: "#444", padding: "16px 4px", textAlign: "center" }}>
-                  Nenhuma rota. Use o botão + para reportar.
+                  {t('map.empty_routes')}
                 </div>
               ) : (
                 routes.map((route) => (
@@ -571,7 +576,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
                 window.location.href = "/login";
               }}
               style={{ fontSize: 11, color: "#444", background: "none", border: "none", cursor: "pointer", padding: 0 }}
-            >Sair</button>
+            >{t('common.logout')}</button>
           </div>
         )}
       </aside>
@@ -598,8 +603,8 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
             }}
           >
             {[
-              { label: "Node / Orb / Vortex", icon: "sword_rose", action: () => { setShowFabMenu(false); setShowReport(true); } },
-              { label: "Rota Avalônica", icon: "filter_tilt_shift", action: () => { setShowFabMenu(false); setShowRouteModal(true); } },
+              { label: t('map.report_node'), icon: "sword_rose", action: () => { setShowFabMenu(false); setShowReport(true); } },
+              { label: t('map.report_route'), icon: "filter_tilt_shift", action: () => { setShowFabMenu(false); setShowRouteModal(true); } },
             ].map(({ label, icon, action }) => (
               <button
                 key={label}

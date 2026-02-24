@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useMemo, useState } from 'react';
 import useSWR from 'swr';
+import { useTranslations } from 'next-intl';
 
 const fetcher = (url: string) => fetch(url).then(r => r.json());
 
@@ -23,6 +24,7 @@ type ZoneRow = {
 const AdminMap = dynamic(() => import('../../components/AdminMap'), { ssr: false });
 
 export default function AdminZonesPage() {
+  const t = useTranslations();
   const { data } = useSWR('http://localhost:8000/timers', fetcher, {
     refreshInterval: 60_000,
   });
@@ -77,10 +79,10 @@ export default function AdminZonesPage() {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '360px 1fr', height: '100vh' }}>
       <div style={{ padding: 12, borderRight: '1px solid #333', overflow: 'auto' }}>
-        <h2 style={{ margin: 0, marginBottom: 8 }}>Admin: Centers</h2>
+        <h2 style={{ margin: 0, marginBottom: 8 }}>{t('admin.zone_centers_link')}</h2>
 
         <div style={{ marginBottom: 8 }}>
-          <div style={{ fontSize: 12, opacity: 0.8 }}>Selecione uma zona e clique no mapa para salvar center.</div>
+          <div style={{ fontSize: 12, opacity: 0.8 }}>{t('admin.zones_instruction')}</div>
         </div>
 
         <select
@@ -103,14 +105,14 @@ export default function AdminZonesPage() {
           <div><b>zoneId:</b> {selected?.zoneId ?? '-'}</div>
           <div>
             <b>center:</b>{' '}
-            {selectedCenter ? `x=${Math.round(selectedCenter.x)}, y=${Math.round(selectedCenter.y)}` : '(não definido)'}
+            {selectedCenter ? `x=${Math.round(selectedCenter.x)}, y=${Math.round(selectedCenter.y)}` : t('admin.zones_undefined')}
           </div>
         </div>
 
         <hr style={{ margin: '12px 0' }} />
 
         <div style={{ fontSize: 12, opacity: 0.9, marginBottom: 6 }}>
-          Cole isto em <code>backend/zones.json</code>:
+          {t('admin.zones_paste_json')} <code>backend/zones.json</code>:
         </div>
         <textarea
           readOnly
