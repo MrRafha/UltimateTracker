@@ -3,24 +3,8 @@ from __future__ import annotations
 import discord
 from discord import app_commands
 from discord.ext import commands
-import httpx
 
 import config
-
-
-async def _get_plan_status(guild_id: str, api_key: str) -> dict | None:
-    """Returns plan info from the backend, or None on failure."""
-    try:
-        async with httpx.AsyncClient(timeout=5) as client:
-            r = await client.get(
-                f"{config.API_BASE_URL}/guilds/{guild_id}/bot-plan-status",
-                headers={"X-Api-Key": api_key},
-            )
-            if r.status_code == 200:
-                return r.json()
-    except Exception:
-        pass
-    return None
 
 
 class Mapa(commands.Cog):
@@ -38,22 +22,6 @@ class Mapa(commands.Cog):
                 title="⚠️ Guilda não registrada",
                 description="Esta guilda ainda não foi registrada. Use `/setup` para configurar o bot.",
                 color=0xF59E0B,
-            )
-            await interaction.response.send_message(embed=embed, ephemeral=True)
-            return
-
-        plan = await _get_plan_status(guild_id, api_key)
-        if plan is None or not plan.get("active"):
-            status_label = "Expirado" if plan and plan.get("plan_status") == "expired" else "Inativo"
-            embed = discord.Embed(
-                title="🔒 Plano Inativo",
-                description=f"Esta guilda não possui um plano ativo (status: **{status_label}**).",
-                color=0xEF4444,
-            )
-            embed.add_field(
-                name="Ativar Plano",
-                value=f"[Acessar Dashboard]({config.SITE_URL}/dashboard)",
-                inline=False,
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
             return

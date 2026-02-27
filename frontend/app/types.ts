@@ -83,9 +83,6 @@ export type GuildAccess = {
   guild_id: string;
   guild_name: string;
   icon?: string | null;
-  plan?: string | null;           // basic / plus / premium
-  plan_status?: string | null;    // active / trial / expired
-  plan_expires_at?: string | null;
   server_region?: ServerRegion;   // WEST / EAST / ASIA
 };
 

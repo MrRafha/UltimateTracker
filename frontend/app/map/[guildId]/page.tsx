@@ -312,7 +312,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
     : null;
   const { data: adminGuildInfo } = useSWR<{
     guild_id: string; guild_name: string;
-    plan: string | null; plan_status: string | null; server_region?: string;
+    server_region?: string;
   }>(
     _adminFetchKey,
     (url: string) => fetch(url, { credentials: "include" }).then(r => r.ok ? r.json() : null),
@@ -412,34 +412,6 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   }
 
   const guildAccess = guilds.find((g) => g.guild_id === guildId);
-  const isAdminBypass = !!user?.isAdmin && !guildAccess;
-  const planOk = guildAccess?.plan_status === "active" || guildAccess?.plan_status === "trial" || isAdminBypass;
-  if (!planOk) {
-    return (
-      <div style={{ display: "flex", height: "100vh", background: "#0d0d0d", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 16, fontFamily: "system-ui" }}>
-        <div style={{ fontSize: 48 }}>🔒</div>
-        <div style={{ fontSize: 22, fontWeight: 700, color: "#fff" }}>{t('map.plan_inactive_title')}</div>
-        <div style={{ color: "rgba(255,255,255,0.5)", textAlign: "center", maxWidth: 360 }}>
-          {t('map.plan_inactive_desc')}
-        </div>
-        <a
-          href="/dashboard"
-          style={{
-            marginTop: 8,
-            padding: "10px 24px",
-            background: "#5865F2",
-            color: "#fff",
-            borderRadius: 8,
-            textDecoration: "none",
-            fontWeight: 600,
-            fontSize: 15,
-          }}
-        >
-          {t('map.go_to_dashboard')}
-        </a>
-      </div>
-    );
-  }
 
   return (
     <div style={{ display: "flex", height: "100vh", background: "#0d0d0d", fontFamily: "system-ui, sans-serif" }}>

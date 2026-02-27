@@ -65,7 +65,7 @@ export default function LandingPage() {
               padding: '6px 4px',
             }}
           >
-            {t('nav.pricing')}
+            {t('nav.donate')}
           </Link>
           <Link
             href="/login"
@@ -192,7 +192,7 @@ export default function LandingPage() {
         display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'center',
       }}>
         <div style={{ display: 'flex', gap: 20 }}>
-          <Link href="/pricing" style={{ color: '#555', textDecoration: 'none' }}>{t('nav.pricing')}</Link>
+          <Link href="/pricing" style={{ color: '#555', textDecoration: 'none' }}>{t('nav.donate')}</Link>
           <Link href="/login" style={{ color: '#555', textDecoration: 'none' }}>{t('nav.login')}</Link>
         </div>
         {t('common.footer_legal')}

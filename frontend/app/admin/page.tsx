@@ -22,28 +22,18 @@ const fetcher = (url: string) =>
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 type Stats = {
-  total_guilds: number; active_guilds: number; trial_guilds: number;
-  expired_guilds: number; no_plan_guilds: number;
-  total_members: number; total_keys: number; used_keys: number;
+  total_guilds: number;
+  total_members: number;
 };
 type AdminGuild = {
   guild_id: string; guild_name: string;
-  plan: string | null; plan_status: string | null; plan_expires_at: string | null;
   member_count: number; tracker_count: number; server_region: string;
 };
 type AdminGuildMember = { id: string; discord_username: string; last_seen_at: string | null };
-type Key = {
-  id: number; key: string; plan: string; duration_days: number;
-  is_trial: boolean; is_used: boolean; used_by_guild_id: string | null;
-  used_at: string | null; note: string | null; created_at: string;
-};
 type AdminUser = { id: number; discord_id: string; username: string; created_at: string; };
 
 // ── Utils ─────────────────────────────────────────────────────────────────────
 
-const PLAN_COLOR: Record<string, string> = { basic: "#22cc77", plus: "#5865F2", premium: "#FFD700" };
-const STATUS_COLOR: Record<string, string> = { active: "#22cc77", trial: "#f59e0b", expired: "#ef4444" };
-const PLAN_MEMBER_LIMIT: Record<string, number> = { basic: 5, plus: 10, premium: 30 };
 const REGION_LABEL: Record<string, string> = { WEST: "🌎 WEST", EAST: "🌍 EAST", ASIA: "🌏 ASIA" };
 
 function Pill({ label, color }: { label: string; color: string }) {
@@ -95,36 +85,10 @@ function OverviewTab() {
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
         <StatCard title={t('admin.stat_servers')} value={data.total_guilds} />
-        <StatCard title={t('admin.stat_active')} value={data.active_guilds} color="#22cc77" />
-        <StatCard title={t('admin.stat_trial')} value={data.trial_guilds} color="#f59e0b" />
-        <StatCard title={t('admin.stat_expired')} value={data.expired_guilds} color="#ef4444" />
-        <StatCard title={t('admin.stat_no_plan')} value={data.no_plan_guilds} color="#555" />
-      </div>
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
         <StatCard title={t('admin.stat_members')} value={data.total_members} color="#a78bfa" />
-        <StatCard title={t('admin.stat_total_keys')} value={data.total_keys} color="#38bdf8" />
-        <StatCard title={t('admin.stat_used_keys')} value={data.used_keys} color="#fb923c" sub={`${data.total_keys - data.used_keys} ${t('admin.stat_available')}`} />
       </div>
     </div>
   );
-}
-
-// ── Edit Plan Modal ───────────────────────────────────────────────────────────
-
-function EditPlanModal({ guild, onClose, onSave }: { guild: AdminGuild; onClose: () => void; onSave: () => void }) {
-  const t = useTranslations();
-  const [plan, setPlan] = useState(guild.plan ?? "basic");
-  const [status, setStatus] = useState(guild.plan_status ?? "active");
-  const [expires, setExpires] = useState(guild.plan_expires_at ? guild.plan_expires_at.slice(0, 10) : "");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  async function submit(e: React.FormEvent) {
-    e.preventDefault(); setLoading(true); setError("");
-    try { await apiFetch(`/admin/guilds/${guild.guild_id}/plan`, "PATCH", { plan, plan_status: status, plan_expires_at: expires || null }); onSave(); }
-    catch (err: any) { setError(err.message); }
-    finally { setLoading(false); }
-  }
-  return <Overlay onClose={onClose}><ModalBox title={t('admin.edit_plan_title', { guild_name: guild.guild_name })}><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}><label style={labelStyle}>{t('admin.field_plan')}<select value={plan} onChange={e => setPlan(e.target.value)} style={inp}><option value="basic">{t('admin.option_basic')}</option><option value="plus">{t('admin.option_plus')}</option><option value="premium">{t('admin.option_premium')}</option></select></label><label style={labelStyle}>{t('admin.field_status')}<select value={status} onChange={e => setStatus(e.target.value)} style={inp}><option value="active">{t('admin.option_active')}</option><option value="trial">{t('admin.option_trial')}</option><option value="expired">{t('admin.option_expired')}</option></select></label><label style={labelStyle}>{t('admin.field_expires')}<input type="date" value={expires} onChange={e => setExpires(e.target.value)} style={inp} /></label>{error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}<ModalButtons onClose={onClose} loading={loading} confirmLabel={t('common.save')} /></form></ModalBox></Overlay>;
 }
 
 // ── Edit Region Modal ────────────────────────────────────────────────────────
@@ -148,7 +112,7 @@ function EditRegionModal({ guild, onClose, onSave }: { guild: AdminGuild; onClos
 
 // ── Guild Row (with collapsible members panel) ────────────────────────────────
 
-function GuildRow({ g, onEditPlan, onMutate }: { g: AdminGuild; onEditPlan: () => void; onMutate: () => void }) {
+function GuildRow({ g, onMutate }: { g: AdminGuild; onMutate: () => void }) {
   const t = useTranslations();
   const [showMembers, setShowMembers] = useState(false);
   const [editRegion, setEditRegion] = useState(false);
@@ -156,20 +120,12 @@ function GuildRow({ g, onEditPlan, onMutate }: { g: AdminGuild; onEditPlan: () =
     showMembers ? `${API_BASE}/admin/guilds/${g.guild_id}/members` : null,
     fetcher,
   );
-  const limit = PLAN_MEMBER_LIMIT[g.plan ?? ""] ?? 0;
-  const overLimit = limit > 0 && g.member_count > limit;
   const regionLabel = REGION_LABEL[g.server_region] ?? g.server_region ?? "—";
   return (
     <>
       <tr style={{ borderBottom: showMembers ? "none" : "1px solid rgba(255,255,255,0.05)" }}>
         <td style={td}>{g.guild_name}<div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>{g.guild_id}</div></td>
-        <td style={td}>{g.plan ? <Pill label={g.plan.toUpperCase()} color={PLAN_COLOR[g.plan] ?? "#888"} /> : <span style={{ color: "#444" }}>—</span>}</td>
-        <td style={td}>{g.plan_status ? <Pill label={g.plan_status.toUpperCase()} color={STATUS_COLOR[g.plan_status] ?? "#888"} /> : <span style={{ color: "#444" }}>—</span>}</td>
-        <td style={td}>{g.plan_expires_at ? g.plan_expires_at.slice(0, 10) : <span style={{ color: "#444" }}>—</span>}</td>
-        <td style={td}>
-          <span style={{ color: overLimit ? "#ef4444" : "#ccd" }}>{g.member_count}</span>
-          {limit > 0 && <span style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", marginLeft: 3 }}>/ {limit}</span>}
-        </td>
+        <td style={td}>{g.member_count}</td>
         <td style={td}>{g.tracker_count}</td>
         <td style={td}>
           <span style={{ fontSize: 11, fontWeight: 600, color: "#a3e635", background: "rgba(163,230,53,0.08)", border: "1px solid rgba(163,230,53,0.25)", borderRadius: 4, padding: "2px 7px" }}>
@@ -178,7 +134,6 @@ function GuildRow({ g, onEditPlan, onMutate }: { g: AdminGuild; onEditPlan: () =
         </td>
         <td style={{ ...td, whiteSpace: "nowrap" }}>
           <div style={{ display: "flex", gap: 6, flexWrap: "nowrap" }}>
-            <button onClick={onEditPlan} style={btnSm}>{t('admin.edit')}</button>
             <button onClick={() => setEditRegion(true)} style={btnSm}>{t('admin.edit_region')}</button>
             <a href={`/map/${g.guild_id}`} target="_blank" rel="noopener noreferrer" style={{ ...btnSm, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>{t('admin.view_map')}</a>
             <button onClick={() => setShowMembers(v => !v)} style={{ ...btnSm, color: showMembers ? "#a0a9ff" : undefined }}>{t('admin.members_list')}</button>
@@ -187,11 +142,10 @@ function GuildRow({ g, onEditPlan, onMutate }: { g: AdminGuild; onEditPlan: () =
       </tr>
       {showMembers && (
         <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-          <td colSpan={8} style={{ padding: "0 12px 12px 12px", background: "rgba(0,0,0,0.2)" }}>
+          <td colSpan={5} style={{ padding: "0 12px 12px 12px", background: "rgba(0,0,0,0.2)" }}>
             <div style={{ paddingTop: 8 }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.4)", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
-                {t('admin.members_title')} — <span style={{ color: overLimit ? "#ef4444" : "#ccd" }}>{g.member_count}</span>
-                {limit > 0 && <span style={{ color: "rgba(255,255,255,0.3)" }}>/{limit}</span>}
+                {t('admin.members_title')} — <span style={{ color: "#ccd" }}>{g.member_count}</span>
               </div>
               {!members && <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>{t('common.loading')}</div>}
               {members && members.length === 0 && <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>{t('admin.no_members')}</div>}
@@ -219,68 +173,15 @@ function GuildRow({ g, onEditPlan, onMutate }: { g: AdminGuild; onEditPlan: () =
 function GuildsTab() {
   const t = useTranslations();
   const { data, error, mutate } = useSWR<AdminGuild[]>(`${API_BASE}/admin/guilds`, fetcher, swrOpts);
-  const [editing, setEditing] = useState<AdminGuild | null>(null);
   if (error) return <p style={{ color: "#f87171" }}>{error.message}</p>;
   if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>{t('common.loading')}</p>;
   return <>
-    {editing && <EditPlanModal guild={editing} onClose={() => setEditing(null)} onSave={() => { setEditing(null); mutate(); }} />}
     <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_server'), t('admin.col_plan'), t('admin.col_status'), t('admin.col_expires'), t('admin.col_members'), t('admin.col_trackers'), t('admin.col_region'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
+        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_server'), t('admin.col_members'), t('admin.col_trackers'), t('admin.col_region'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
         <tbody>{data.map(g => (
-          <GuildRow key={g.guild_id} g={g} onEditPlan={() => setEditing(g)} onMutate={() => mutate()} />
+          <GuildRow key={g.guild_id} g={g} onMutate={() => mutate()} />
         ))}</tbody>
-      </table>
-    </div>
-  </>;
-}
-
-// ── Keys Tab ──────────────────────────────────────────────────────────────────
-
-function NewKeyModal({ onClose, onSave }: { onClose: () => void; onSave: () => void }) {
-  const t = useTranslations();
-  const [plan, setPlan] = useState("basic"); const [days, setDays] = useState("30");
-  const [trial, setTrial] = useState(false); const [note, setNote] = useState("");
-  const [loading, setLoading] = useState(false); const [error, setError] = useState("");
-  async function submit(e: React.FormEvent) {
-    e.preventDefault(); setLoading(true); setError("");
-    try { await apiFetch("/admin/keys", "POST", { plan, duration_days: parseInt(days), is_trial: trial, note: note || null }); onSave(); }
-    catch (err: any) { setError(err.message); } finally { setLoading(false); }
-  }
-  return <Overlay onClose={onClose}><ModalBox title={t('admin.new_key_title')}><form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-    <label style={labelStyle}>{t('admin.field_plan')}<select value={plan} onChange={e => setPlan(e.target.value)} style={inp}><option value="basic">{t('admin.option_basic')}</option><option value="plus">{t('admin.option_plus')}</option><option value="premium">{t('admin.option_premium')}</option></select></label>
-    <label style={labelStyle}>{t('admin.field_duration_days')}<input type="number" min={1} value={days} onChange={e => setDays(e.target.value)} style={inp} /></label>
-    <label style={{ ...labelStyle, flexDirection: "row", alignItems: "center", gap: 8 }}><input type="checkbox" checked={trial} onChange={e => setTrial(e.target.checked)} />{t('admin.field_is_trial')}</label>
-    <label style={labelStyle}>{t('admin.field_note')}<input value={note} onChange={e => setNote(e.target.value)} placeholder={t('admin.note_placeholder')} style={inp} /></label>
-    {error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}
-    <ModalButtons onClose={onClose} loading={loading} confirmLabel={t('admin.create')} />
-  </form></ModalBox></Overlay>;
-}
-
-function KeysTab() {
-  const t = useTranslations();
-  const { data, error, mutate } = useSWR<Key[]>(`${API_BASE}/admin/keys`, fetcher, swrOpts);
-  const [showNew, setShowNew] = useState(false);
-  async function deleteKey(id: number) { if (!confirm(t('admin.confirm_remove_key'))) return; await apiFetch(`/admin/keys/${id}`, "DELETE"); mutate(); }
-  if (error) return <p style={{ color: "#f87171" }}>{error.message}</p>;
-  if (!data) return <p style={{ color: "rgba(255,255,255,0.3)" }}>{t('common.loading')}</p>;
-  return <>
-    {showNew && <NewKeyModal onClose={() => setShowNew(false)} onSave={() => { setShowNew(false); mutate(); }} />}
-    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}><button onClick={() => setShowNew(true)} style={btnPrimary}>{t('admin.add_key_btn')}</button></div>
-    <div style={{ overflowX: "auto" }}>
-      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_key'), t('admin.col_plan'), t('admin.col_days'), t('admin.col_is_trial'), t('admin.col_status'), t('admin.col_used_by'), t('admin.col_created'), t('admin.col_note'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
-        <tbody>{data.map(k => <tr key={k.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", opacity: k.is_used ? 0.45 : 1 }}>
-          <td style={{ ...td, fontFamily: "monospace", fontSize: 11 }}>{k.key}</td>
-          <td style={td}><Pill label={k.plan.toUpperCase()} color={PLAN_COLOR[k.plan] ?? "#888"} /></td>
-          <td style={td}>{k.duration_days}d</td>
-          <td style={td}>{k.is_trial ? <Pill label="TRIAL" color="#f59e0b" /> : <span style={{ color: "#444" }}>—</span>}</td>
-          <td style={td}>{k.is_used ? <Pill label={t('admin.key_used')} color="#ef4444" /> : <Pill label={t('admin.key_free')} color="#22cc77" />}</td>
-          <td style={td}>{k.used_by_guild_id ?? <span style={{ color: "#444" }}>—</span>}</td>
-          <td style={td}>{k.created_at.slice(0, 10)}</td>
-          <td style={td}>{k.note ?? <span style={{ color: "#444" }}>—</span>}</td>
-          <td style={td}>{!k.is_used && <button onClick={() => deleteKey(k.id)} style={btnDanger}>{t('admin.remove')}</button>}</td>
-        </tr>)}</tbody>
       </table>
     </div>
   </>;
@@ -331,7 +232,7 @@ function AdminsTab() {
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 
-const TABS_KEYS = ["overview", "servers", "keys", "admins"] as const;
+const TABS_KEYS = ["overview", "servers", "admins"] as const;
 type TabKey = (typeof TABS_KEYS)[number];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -343,14 +244,12 @@ export default function AdminDashboard() {
   const tabLabels: Record<TabKey, string> = {
     overview: t('admin.tab_overview'),
     servers: t('admin.tab_servers'),
-    keys: t('admin.tab_keys'),
     admins: t('admin.tab_admins'),
   };
 
   const tabContent: Record<TabKey, React.ReactNode> = {
     overview: <OverviewTab />,
     servers:  <GuildsTab />,
-    keys:     <KeysTab />,
     admins:   <AdminsTab />,
   };
 
