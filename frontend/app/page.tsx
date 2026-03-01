@@ -194,6 +194,7 @@ export default function LandingPage() {
         <div style={{ display: 'flex', gap: 20 }}>
           <Link href="/pricing" style={{ color: '#555', textDecoration: 'none' }}>{t('nav.donate')}</Link>
           <Link href="/login" style={{ color: '#555', textDecoration: 'none' }}>{t('nav.login')}</Link>
+          <a href="https://discord.gg/kekQ2qSyEY" target="_blank" rel="noopener noreferrer" style={{ color: '#5865F2', textDecoration: 'none' }}>Discord</a>
         </div>
         {t('common.footer_legal')}
       </footer>

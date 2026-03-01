@@ -8,6 +8,7 @@ import httpx
 
 import config
 from game_data import OBJECTIVES_BY_TYPE, OBJECTIVE_EMOJI, TYPE_EMOJI
+from i18n import t
 
 # ── Zone autocomplete ─────────────────────────────────────────
 _zone_cache: list[str] = []
@@ -39,53 +40,61 @@ async def zone_autocomplete(
 
 # ── Step 1: Select type ───────────────────────────────────────
 class TypeView(discord.ui.View):
-    def __init__(self, zone: str, hours: int, minutes: int):
+    def __init__(self, zone: str, hours: int, minutes: int, guild_id: str):
         super().__init__(timeout=120)
-        self.zone    = zone
-        self.hours   = hours
-        self.minutes = minutes
-        self.add_item(TypeSelect(zone, hours, minutes))
+        self.zone     = zone
+        self.hours    = hours
+        self.minutes  = minutes
+        self.guild_id = guild_id
+        self.add_item(TypeSelect(zone, hours, minutes, guild_id))
 
 
 class TypeSelect(discord.ui.Select):
-    def __init__(self, zone: str, hours: int, minutes: int):
-        self.zone    = zone
-        self.hours   = hours
-        self.minutes = minutes
+    def __init__(self, zone: str, hours: int, minutes: int, guild_id: str):
+        self.zone     = zone
+        self.hours    = hours
+        self.minutes  = minutes
+        self.guild_id = guild_id
 
         options = [
             discord.SelectOption(label="Node",   value="node",   emoji="🌿"),
             discord.SelectOption(label="Orb",    value="orb",    emoji="🔮"),
             discord.SelectOption(label="Vortex", value="vortex", emoji="🌀"),
         ]
-        super().__init__(placeholder="Selecione o tipo de objetivo…", options=options, min_values=1, max_values=1)
+        super().__init__(
+            placeholder=t(guild_id, "scout.type_placeholder"),
+            options=options,
+            min_values=1,
+            max_values=1,
+        )
 
     async def callback(self, interaction: discord.Interaction):
         selected_type = self.values[0]
         await interaction.response.send_message(
             embed=discord.Embed(
-                title=f"{TYPE_EMOJI[selected_type]} Tipo selecionado: {selected_type.title()}",
-                description="Agora selecione o objetivo:",
+                title=f"{TYPE_EMOJI[selected_type]} {t(self.guild_id, 'scout.type_selected', type=selected_type.title())}",
+                description=t(self.guild_id, "scout.select_objective"),
                 color=0x5865F2,
             ),
-            view=ObjectiveView(self.zone, self.hours, self.minutes, selected_type),
+            view=ObjectiveView(self.zone, self.hours, self.minutes, selected_type, self.guild_id),
             ephemeral=True,
         )
 
 
 # ── Step 2: Select objective ──────────────────────────────────
 class ObjectiveView(discord.ui.View):
-    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str):
+    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str, guild_id: str):
         super().__init__(timeout=120)
-        self.add_item(ObjectiveSelect(zone, hours, minutes, tracker_type))
+        self.add_item(ObjectiveSelect(zone, hours, minutes, tracker_type, guild_id))
 
 
 class ObjectiveSelect(discord.ui.Select):
-    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str):
+    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str, guild_id: str):
         self.zone         = zone
         self.hours        = hours
         self.minutes      = minutes
         self.tracker_type = tracker_type
+        self.guild_id     = guild_id
 
         objectives = OBJECTIVES_BY_TYPE[tracker_type]
         options = [
@@ -96,7 +105,12 @@ class ObjectiveSelect(discord.ui.Select):
             )
             for obj in objectives
         ]
-        super().__init__(placeholder="Selecione o objetivo…", options=options, min_values=1, max_values=1)
+        super().__init__(
+            placeholder=t(guild_id, "scout.objective_placeholder"),
+            options=options,
+            min_values=1,
+            max_values=1,
+        )
 
     async def callback(self, interaction: discord.Interaction):
         objective = self.values[0]
@@ -105,11 +119,11 @@ class ObjectiveSelect(discord.ui.Select):
         if self.tracker_type == "node":
             await interaction.response.send_message(
                 embed=discord.Embed(
-                    title="🌿 Objetivo selecionado",
-                    description="Agora selecione o **tier** do node:",
+                    title=f"🌿 {t(self.guild_id, 'scout.objective_title')}",
+                    description=t(self.guild_id, "scout.select_tier"),
                     color=0x5865F2,
                 ),
-                view=TierView(self.zone, self.hours, self.minutes, self.tracker_type, objective),
+                view=TierView(self.zone, self.hours, self.minutes, self.tracker_type, objective, self.guild_id),
                 ephemeral=True,
             )
             return
@@ -130,31 +144,37 @@ class ObjectiveSelect(discord.ui.Select):
             "source":           "discord",
         }
 
-        await _post_tracker(interaction, payload, objective, self.zone, self.hours, self.minutes)
+        await _post_tracker(interaction, payload, objective, self.zone, self.hours, self.minutes, guild_id=self.guild_id)
 
 
 # ── Step 3 (nodes only): Select tier ─────────────────────────
 NODE_TIERS = ["T4.4", "T5.4", "T6.4", "T7.4", "T8.4"]
 
 class TierView(discord.ui.View):
-    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str, objective: str):
+    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str, objective: str, guild_id: str):
         super().__init__(timeout=120)
-        self.add_item(TierSelect(zone, hours, minutes, tracker_type, objective))
+        self.add_item(TierSelect(zone, hours, minutes, tracker_type, objective, guild_id))
 
 
 class TierSelect(discord.ui.Select):
-    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str, objective: str):
+    def __init__(self, zone: str, hours: int, minutes: int, tracker_type: str, objective: str, guild_id: str):
         self.zone         = zone
         self.hours        = hours
         self.minutes      = minutes
         self.tracker_type = tracker_type
         self.objective    = objective
+        self.guild_id     = guild_id
 
         options = [
             discord.SelectOption(label=tier, value=tier)
             for tier in NODE_TIERS
         ]
-        super().__init__(placeholder="Selecione o tier do node…", options=options, min_values=1, max_values=1)
+        super().__init__(
+            placeholder=t(guild_id, "scout.tier_placeholder"),
+            options=options,
+            min_values=1,
+            max_values=1,
+        )
 
     async def callback(self, interaction: discord.Interaction):
         tier = self.values[0]
@@ -173,7 +193,7 @@ class TierSelect(discord.ui.Select):
             "tier":             tier,
         }
 
-        await _post_tracker(interaction, payload, self.objective, self.zone, self.hours, self.minutes, tier=tier)
+        await _post_tracker(interaction, payload, self.objective, self.zone, self.hours, self.minutes, tier=tier, guild_id=self.guild_id)
 
 
 # ── Shared POST helper ────────────────────────────────────────
@@ -186,12 +206,12 @@ async def _post_tracker(
     hours: int,
     minutes: int,
     tier: str | None = None,
+    guild_id: str | None = None,
 ) -> None:
+    gid = guild_id or str(interaction.guild_id)
     api_key = config.get_api_key(interaction.guild_id)
     if not api_key:
-        await interaction.followup.send(
-            "❌ Esta guilda não está registrada. Use `/setup` primeiro.", ephemeral=True
-        )
+        await interaction.followup.send(t(gid, "scout.not_registered"), ephemeral=True)
         return
 
     try:
@@ -204,72 +224,78 @@ async def _post_tracker(
             r.raise_for_status()
     except httpx.HTTPStatusError as e:
         await interaction.followup.send(
-            f"❌ Erro ao registrar: `{e.response.status_code}` — {e.response.text}", ephemeral=True
+            t(gid, "scout.error_register", status=str(e.response.status_code), text=e.response.text),
+            ephemeral=True,
         )
         return
     except Exception as e:
-        await interaction.followup.send(f"❌ Erro inesperado: {e}", ephemeral=True)
+        await interaction.followup.send(t(gid, "scout.error_unexpected", error=str(e)), ephemeral=True)
         return
 
     tracker_type = payload.get("type", "")
     embed = discord.Embed(
-        title="✅ Tracker registrado!",
+        title=t(gid, "scout.registered_title"),
         color=0x57F287,
     )
-    embed.add_field(name="Mapa",     value=zone,                       inline=True)
-    embed.add_field(name="Tipo",     value=tracker_type.title(),       inline=True)
-    embed.add_field(name="Objetivo", value=f"{OBJECTIVE_EMOJI.get(objective, '')} {objective.capitalize()}", inline=True)
+    embed.add_field(name=t(gid, "scout.field_map"),       value=zone,                                                        inline=True)
+    embed.add_field(name=t(gid, "scout.field_type"),      value=tracker_type.title(),                                        inline=True)
+    embed.add_field(name=t(gid, "scout.field_objective"), value=f"{OBJECTIVE_EMOJI.get(objective, '')} {objective.capitalize()}", inline=True)
     if tier:
-        embed.add_field(name="Tier", value=tier, inline=True)
+        embed.add_field(name=t(gid, "scout.field_tier"), value=tier, inline=True)
     time_str = f"{hours}h {minutes}m" if hours else f"{minutes}m"
-    embed.add_field(name="Tempo restante", value=time_str, inline=True)
-    embed.set_footer(text=f"Reportado por {interaction.user.display_name}")
+    embed.add_field(name=t(gid, "scout.field_time"), value=time_str, inline=True)
+    embed.set_footer(text=t(gid, "scout.footer_reported_by", name=interaction.user.display_name))
 
     await interaction.edit_original_response(embed=embed, view=None)
 
 
-# ── Modal (zone + time entry) ──────────────────────────────────
-class ScoutModal(discord.ui.Modal, title="🗺️ Scout — Registrar Objetivo"):
-    mapa = discord.ui.TextInput(
-        label="Mapa",
-        placeholder="Ex: Watchwood Bluffs",
-        min_length=2,
-        max_length=100,
-    )
-    tempo = discord.ui.TextInput(
-        label="Tempo restante (HH:MM)",
-        placeholder="Ex: 01:30  ou  00:45",
-        min_length=4,
-        max_length=5,
-    )
+# ── Modal factory (zone + time entry) — dynamic title for i18n ────────────────
+def make_scout_modal(guild_id: str) -> discord.ui.Modal:
+    """Create a ScoutModal with title and labels translated for the guild's language."""
+    _gid = guild_id
 
-    async def on_submit(self, interaction: discord.Interaction):
-        # Parse tempo
-        raw = self.tempo.value.strip()
-        try:
-            parts = raw.split(":")
-            if len(parts) != 2:
-                raise ValueError
-            hours   = int(parts[0])
-            minutes = int(parts[1])
-            if not (0 <= hours <= 23 and 0 <= minutes <= 59):
-                raise ValueError
-        except ValueError:
-            await interaction.response.send_message(
-                "❌ Formato de tempo inválido. Use `HH:MM` (ex: `01:30`).", ephemeral=True
-            )
-            return
-
-        zone = self.mapa.value.strip()
-        await interaction.response.send_message(
-            embed=discord.Embed(
-                title=f"🗺️ {zone}  |  ⏱ {hours:02d}:{minutes:02d}",
-                description="Selecione o **tipo** de objetivo:",
-                color=0x5865F2,
-            ),
-            view=TypeView(zone, hours, minutes),
-            ephemeral=True,
+    class _ScoutModal(discord.ui.Modal, title=t(_gid, "scout.modal_title")):
+        mapa = discord.ui.TextInput(
+            label=t(_gid, "scout.modal_map_label"),
+            placeholder=t(_gid, "scout.modal_map_placeholder"),
+            min_length=2,
+            max_length=100,
         )
+        tempo = discord.ui.TextInput(
+            label=t(_gid, "scout.modal_time_label"),
+            placeholder=t(_gid, "scout.modal_time_placeholder"),
+            min_length=4,
+            max_length=5,
+        )
+
+        async def on_submit(self, interaction: discord.Interaction):
+            raw = self.tempo.value.strip()
+            try:
+                parts = raw.split(":")
+                if len(parts) != 2:
+                    raise ValueError
+                hours   = int(parts[0])
+                minutes = int(parts[1])
+                if not (0 <= hours <= 23 and 0 <= minutes <= 59):
+                    raise ValueError
+            except ValueError:
+                await interaction.response.send_message(
+                    t(_gid, "scout.time_invalid"), ephemeral=True
+                )
+                return
+
+            zone = self.mapa.value.strip()
+            await interaction.response.send_message(
+                embed=discord.Embed(
+                    title=f"🗺️ {zone}  |  ⏱ {hours:02d}:{minutes:02d}",
+                    description=t(_gid, "scout.select_type_title"),
+                    color=0x5865F2,
+                ),
+                view=TypeView(zone, hours, minutes, _gid),
+                ephemeral=True,
+            )
+
+    return _ScoutModal()
 
 
 # ── Cog ───────────────────────────────────────────────────────
@@ -277,44 +303,18 @@ class Scout(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="scout", description="Registra um objective no mapa da guilda.")
+    @app_commands.command(name="scout", description="Report an objective on the guild map.")
     async def scout(self, interaction: discord.Interaction):
         """Opens the scout modal for the user to fill in zone and time."""
         guild_id = str(interaction.guild_id)
         api_key = config.get_api_key(guild_id)
         if not api_key:
             await interaction.response.send_message(
-                "❌ Esta guilda não está registrada. Use `/setup` primeiro.", ephemeral=True
+                t(guild_id, "scout.not_registered"), ephemeral=True
             )
             return
 
-        # Pre-check plan before showing the modal to avoid wasting user's time
-        try:
-            async with httpx.AsyncClient(timeout=5) as client:
-                r = await client.get(
-                    f"{config.API_BASE_URL}/guilds/{guild_id}/bot-plan-status",
-                    headers={"X-Api-Key": api_key},
-                )
-                data = r.json() if r.status_code == 200 else {}
-        except Exception:
-            data = {}
-
-        if not data.get("active"):
-            status_label = "Expirado" if data.get("plan_status") == "expired" else "Inativo"
-            embed = discord.Embed(
-                title="🔒 Plano Inativo",
-                description=f"Esta guilda não possui um plano ativo (status: **{status_label}**).",
-                color=0xEF4444,
-            )
-            embed.add_field(
-                name="Ativar Plano",
-                value=f"[Acessar Dashboard]({config.SITE_URL}/dashboard)",
-                inline=False,
-            )
-            await interaction.response.send_message(embed=embed, ephemeral=True)
-            return
-
-        await interaction.response.send_modal(ScoutModal())
+        await interaction.response.send_modal(make_scout_modal(guild_id))
 
 
 async def setup(bot: commands.Bot):

@@ -104,7 +104,8 @@ export default function DonatePage() {
         <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)', textAlign: 'center', lineHeight: 1.8 }}>{t('donation.footer_note')}</p>
       </section>
 
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', textAlign: 'center', padding: '28px 24px', fontSize: 12, color: '#444' }}>
+      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', textAlign: 'center', padding: '28px 24px', fontSize: 12, color: '#444', display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
+        <a href="https://discord.gg/kekQ2qSyEY" target="_blank" rel="noopener noreferrer" style={{ color: '#5865F2', textDecoration: 'none' }}>Discord</a>
         {t('common.footer_legal')}
       </footer>
     </div>

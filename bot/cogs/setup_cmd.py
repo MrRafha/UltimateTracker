@@ -7,20 +7,60 @@ from discord.ext import commands
 import httpx
 
 import config
+from i18n import t, SUPPORTED_LANGUAGES
 
 
-# ── Server region select ──────────────────────────────────────────────────────
+# ── Language select (step 3) ──────────────────────────────────────────────────
+
+LANGUAGE_OPTIONS = [
+    discord.SelectOption(label="🇺🇸 English",          value="en",    description="English"),
+    discord.SelectOption(label="🇧🇷 Português (BR)",   value="pt-BR", description="Portuguese (Brazil)"),
+    discord.SelectOption(label="🇪🇸 Español",          value="es",    description="Spanish"),
+    discord.SelectOption(label="🇨🇳 中文",              value="zh",    description="Chinese"),
+]
+
+
+class LanguageSelect(discord.ui.Select):
+    def __init__(self, guild_id: str):
+        self.guild_id = guild_id
+        super().__init__(
+            placeholder="Select bot language…",
+            min_values=1, max_values=1,
+            options=LANGUAGE_OPTIONS,
+        )
+
+    async def callback(self, interaction: discord.Interaction):
+        lang = self.values[0]
+        config.GUILD_LANGUAGES[self.guild_id] = lang
+        # Confirmation uses the newly chosen language
+        await interaction.response.send_message(
+            t(self.guild_id, "setup.lang_set"), ephemeral=True
+        )
+        self.view.stop()
+
+
+class LanguageView(discord.ui.View):
+    def __init__(self, guild_id: str):
+        super().__init__(timeout=120)
+        self.add_item(LanguageSelect(guild_id))
+
+
+# ── Server region select (step 2) ─────────────────────────────────────────────
 
 class ServerRegionSelect(discord.ui.Select):
     def __init__(self, guild_id: str, api_key: str):
         self.guild_id = guild_id
         self.api_key  = api_key
         options = [
-            discord.SelectOption(label="🌎 WEST – NA", value="WEST", description="Servidor Norte-Americano"),
-            discord.SelectOption(label="🌍 EAST – EU", value="EAST", description="Servidor Europeu"),
-            discord.SelectOption(label="🌏 ASIA – CH", value="ASIA", description="Servidor Asiático"),
+            discord.SelectOption(label="🌎 WEST – NA", value="WEST", description="North American Server"),
+            discord.SelectOption(label="🌍 EAST – EU", value="EAST", description="European Server"),
+            discord.SelectOption(label="🌏 ASIA – CH", value="ASIA", description="Asian Server"),
         ]
-        super().__init__(placeholder="Selecione a região do servidor…", min_values=1, max_values=1, options=options)
+        super().__init__(
+            placeholder="Select server region…",
+            min_values=1, max_values=1,
+            options=options,
+        )
 
     async def callback(self, interaction: discord.Interaction):
         region = self.values[0]
@@ -33,14 +73,24 @@ class ServerRegionSelect(discord.ui.Select):
                 )
                 r.raise_for_status()
         except Exception as e:
-            await interaction.response.send_message(f"❌ Erro ao definir região: {e}", ephemeral=True)
+            await interaction.response.send_message(
+                t(self.guild_id, "setup.region_error", error=str(e)), ephemeral=True
+            )
             return
 
         region_labels = {"WEST": "🌎 WEST – NA", "EAST": "🌍 EAST – EU", "ASIA": "🌏 ASIA – CH"}
         await interaction.response.send_message(
-            f"✅ Região definida como **{region_labels.get(region, region)}**!", ephemeral=True
+            t(self.guild_id, "setup.region_set", region=region_labels.get(region, region)),
+            ephemeral=True,
         )
         self.view.stop()
+
+        # Step 3: language selection
+        await interaction.followup.send(
+            "🌍 **Select the bot language for this guild:**",
+            view=LanguageView(self.guild_id),
+            ephemeral=True,
+        )
 
 
 class ServerRegionView(discord.ui.View):
@@ -58,7 +108,7 @@ class Setup(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="setup", description="Registra esta guilda no bot de tracking. (Apenas admins)")
+    @app_commands.command(name="setup", description="Register this guild with the tracking bot. (Admins only)")
     @app_commands.default_permissions(administrator=True)
     async def setup_cmd(self, interaction: discord.Interaction):
         guild_id   = str(interaction.guild_id)
@@ -74,30 +124,30 @@ class Setup(commands.Cog):
                 r.raise_for_status()
                 data = r.json()
         except Exception as e:
-            await interaction.response.send_message(f"❌ Erro ao registrar: {e}", ephemeral=True)
+            # Setup always shows in English (language not set yet)
+            await interaction.response.send_message(
+                f"❌ Error registering: {e}", ephemeral=True
+            )
             return
 
         api_key = data["api_key"]
-        # Store in runtime dict — for persistence, update .env manually or use a DB.
         config.GUILD_API_KEYS[guild_id] = api_key
 
-        embed = discord.Embed(
-            title="✅ Guilda registrada com sucesso!",
-            color=0x57F287,
-        )
-        embed.add_field(name="Guilda",   value=guild_name, inline=True)
+        # Setup confirmation is always in English
+        embed = discord.Embed(title="✅ Guild registered successfully!", color=0x57F287)
+        embed.add_field(name="Guild",    value=guild_name, inline=True)
         embed.add_field(name="Guild ID", value=guild_id,   inline=True)
         embed.add_field(
-            name="Próximos passos",
-            value="• Use `/role @role` para definir quem pode usar o tracker.\n• Use `/scout` para reportar um objetivo.\n• Use `/mapa` para ver o link do mapa.",
+            name="Next Steps",
+            value="• Use `/role @role` to define who can use the tracker.\n• Use `/scout` to report an objective.\n• Use `/map` to see the map link.",
             inline=False,
         )
-        embed.set_footer(text="API key armazenada em memória. Adicione ao .env para persistir.")
+        embed.set_footer(text="API key stored in memory. Add to .env to persist.")
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
-        # Follow-up: ask the admin to select the server region
+        # Step 2: region selection
         await interaction.followup.send(
-            "🌐 **Defina a região do servidor Albion Online desta guilda:**",
+            "🌐 **Select the Albion Online server region for this guild:**",
             view=ServerRegionView(guild_id, api_key),
             ephemeral=True,
         )
@@ -105,3 +155,4 @@ class Setup(commands.Cog):
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Setup(bot))
+
