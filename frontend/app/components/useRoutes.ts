@@ -33,7 +33,7 @@ function normalizeRoute(raw: Record<string, unknown>): Route {
 
 export function useRoutes(guildId: string) {
   const { data, error, mutate } = useSWR<Route[]>(
-    `${API_BASE}/routes?guild_id=${guildId}`,
+    guildId ? `${API_BASE}/routes?guild_id=${guildId}` : null,
     (url: string) => fetcher(url).then((arr) => arr.map(normalizeRoute)),
     { refreshInterval: 30_000 },
   );

@@ -22,7 +22,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from constants import TrackerSource, TrackerType
 from database import SessionLocal, create_tables, get_db
-from models import Guild, Tracker, Route, RouteWaypoint, ActivationKey, GuildMember, AdminUser
+from models import Guild, Tracker, Route, RouteWaypoint, GuildMember, AdminUser
 from sqlalchemy import delete as sa_delete
 from schemas import (
     GuildOut,
@@ -35,12 +35,7 @@ from schemas import (
     RouteCreate,
     RouteOut,
     RouteWaypointOut,
-    ActivationKeyCreate,
-    ActivationKeyOut,
-    ActivateKeyIn,
     GuildMemberOut,
-    GuildPlanOut,
-    PlanPatch,
     AdminUserCreate,
     AdminUserOut,
     AdminGuildOut,
@@ -54,7 +49,7 @@ load_dotenv()
 # Config
 # =============================================================================
 
-TIMERS_URL = "https://timers.unslave.online/"
+TIMERS_URL = os.getenv("TIMERS_URL", "")
 
 # Cache simples: evita bater no site a cada request do frontend.
 CACHE_TTL_SECONDS = 60
@@ -94,14 +89,6 @@ _COOKIE_KWARGS: dict = {
 # in-memory session store  {token -> {user_id, username, guild_id, ...}}
 # For production replace with Redis or DB-backed sessions.
 _SESSIONS: Dict[str, Dict[str, Any]] = {}
-
-# Plan member limits
-PLAN_LIMITS: Dict[str, int] = {
-    "basic": 5,
-    "plus": 10,
-    "premium": 30,
-}
-
 
 # =============================================================================
 # Lifespan — create DB tables on startup
@@ -268,7 +255,7 @@ async def fetch_timers_raw() -> Dict[str, Any]:
         r = await client.get(TIMERS_URL)
         r.raise_for_status()
 
-    soup = BeautifulSoup(r.text, "html.parser")
+    soup = BeautifulSoup(r.content.decode("utf-8"), "html.parser")
 
     # "Última atualização"
     last_update_el = soup.select_one("div.last-update")
@@ -449,22 +436,6 @@ async def _require_admin(request: Request, db: AsyncSession = Depends(get_db)) -
     return admin
 
 
-def _check_plan_active(guild: Guild) -> None:
-    """Raise HTTP 402 if guild has no active plan."""
-    now = datetime.now(timezone.utc)
-    status = guild.plan_status
-    if not status or status == "expired":
-        raise HTTPException(
-            status_code=402,
-            detail="Esta guilda não possui um plano ativo. Ative uma chave ou contate o administrador."
-        )
-    if guild.plan_expires_at and guild.plan_expires_at < now:
-        raise HTTPException(
-            status_code=402,
-            detail="O plano desta guilda expirou. Renove para continuar utilizando."
-        )
-
-
 async def _require_api_key(
     db: AsyncSession = Depends(get_db),
     x_api_key: str = Header(..., alias="X-Api-Key"),
@@ -587,6 +558,27 @@ async def set_guild_settings_web(
     return guild
 
 
+@app.get("/guilds/{guild_id}/bot-plan-status")
+async def bot_plan_status(
+    guild_id: str,
+    db: AsyncSession = Depends(get_db),
+    x_api_key: Optional[str] = Header(None, alias="X-Api-Key"),
+):
+    """Returns whether the guild has an active plan. Used by the bot before showing scout modal."""
+    if not x_api_key:
+        raise HTTPException(status_code=401, detail="Missing API key")
+    result = await db.execute(select(Guild).where(Guild.api_key == x_api_key, Guild.guild_id == guild_id))
+    guild = result.scalar_one_or_none()
+    if not guild:
+        raise HTTPException(status_code=403, detail="Invalid API key")
+    now = datetime.now(timezone.utc)
+    active = (
+        guild.plan_status in ("active", "trial")
+        and (guild.plan_expires_at is None or guild.plan_expires_at > now)
+    )
+    return {"active": active, "plan": guild.plan, "plan_status": guild.plan_status}
+
+
 # =============================================================================
 # Tracker routes
 # =============================================================================
@@ -602,9 +594,6 @@ async def create_tracker(
     # For session requests, guild ownership is already validated in _require_api_key_or_session.
     if guild.guild_id != payload.guild_id:
         raise HTTPException(status_code=403, detail="API key does not belong to this guild")
-
-    # Enforce active plan
-    _check_plan_active(guild)
 
     now = datetime.now(timezone.utc)
     expires_at = now + timedelta(hours=payload.hours, minutes=payload.minutes)
@@ -651,7 +640,6 @@ async def list_trackers(
     guild = result_g.scalar_one_or_none()
     if not guild:
         raise HTTPException(status_code=404, detail="Guild not found")
-    _check_plan_active(guild)
 
     now = datetime.now(timezone.utc)
     result = await db.execute(
@@ -725,7 +713,6 @@ async def create_route(
     guild_obj = result_guild.scalar_one_or_none()
     if not guild_obj:
         raise HTTPException(status_code=404, detail="Guild not found")
-    _check_plan_active(guild_obj)
 
     now = datetime.now(timezone.utc)
     route = Route(
@@ -788,7 +775,6 @@ async def list_routes(
     guild = result_g.scalar_one_or_none()
     if not guild:
         raise HTTPException(status_code=404, detail="Guild not found")
-    _check_plan_active(guild)
 
     from sqlalchemy.orm import selectinload
     result = await db.execute(
@@ -975,7 +961,7 @@ async def auth_me(request: Request, db: AsyncSession = Depends(get_db)):
 
 @app.get("/auth/guilds")
 async def auth_guilds(request: Request, db: AsyncSession = Depends(get_db)):
-    """Return list of guilds the authenticated user has access to, enriched with plan status."""
+    """Return list of guilds the authenticated user has access to, enriched with server region."""
     session = _get_session(request)
     if not session:
         raise HTTPException(status_code=401, detail="Not authenticated")
@@ -986,8 +972,7 @@ async def auth_guilds(request: Request, db: AsyncSession = Depends(get_db)):
         gname = session.get("guild_name")
         guilds = [{"guild_id": gid, "guild_name": gname}] if gid else []
 
-    # Enrich with plan info from DB
-    now = datetime.now(timezone.utc)
+    # Enrich with server_region from DB
     guild_ids = [g["guild_id"] for g in guilds if g.get("guild_id")]
     db_result = await db.execute(select(Guild).where(Guild.guild_id.in_(guild_ids)))
     db_guilds = {g.guild_id: g for g in db_result.scalars().all()}
@@ -996,15 +981,9 @@ async def auth_guilds(request: Request, db: AsyncSession = Depends(get_db)):
     for g in guilds:
         gid = g.get("guild_id")
         db_g = db_guilds.get(gid)
-        status = db_g.plan_status if db_g else None
-        # Normalise expired plans
-        if status in ("active", "trial") and db_g and db_g.plan_expires_at and db_g.plan_expires_at < now:
-            status = "expired"
         enriched.append({
             **g,
-            "plan": db_g.plan if db_g else None,
-            "plan_status": status,
-            "plan_expires_at": db_g.plan_expires_at.isoformat() if (db_g and db_g.plan_expires_at) else None,
+            "server_region": db_g.server_region if db_g else "WEST",
         })
     return enriched
 
@@ -1029,83 +1008,6 @@ async def auth_logout(request: Request, response: Response):
 
 
 # =============================================================================
-# Plan / Key endpoints  (user-facing)
-# =============================================================================
-
-@app.get("/guilds/{guild_id}/plan", response_model=GuildPlanOut)
-async def get_guild_plan(
-    guild_id: str,
-    session: Dict[str, Any] = Depends(_require_session),
-    db: AsyncSession = Depends(get_db),
-):
-    """Return plan status for a guild the user has access to."""
-    if guild_id not in _user_guild_ids(session):
-        raise HTTPException(status_code=403, detail="Access denied")
-    result = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
-    guild = result.scalar_one_or_none()
-    if not guild:
-        raise HTTPException(status_code=404, detail="Guild not found")
-    return guild
-
-
-@app.get("/guilds/{guild_id}/bot-plan-status")
-async def get_guild_plan_bot(
-    guild_id: str,
-    guild: Guild = Depends(_require_api_key),
-):
-    """Return plan status for use by the bot (API key auth). Does not raise 402."""
-    if guild.guild_id != guild_id:
-        raise HTTPException(status_code=403, detail="API key does not belong to this guild")
-    now = datetime.now(timezone.utc)
-    expired = bool(guild.plan_expires_at and guild.plan_expires_at < now)
-    return {
-        "plan": guild.plan,
-        "plan_status": guild.plan_status,
-        "plan_expires_at": guild.plan_expires_at.isoformat() if guild.plan_expires_at else None,
-        "active": guild.plan_status in ("active", "trial") and not expired,
-    }
-
-
-@app.post("/guilds/{guild_id}/activate-key", response_model=GuildPlanOut)
-async def activate_key(
-    guild_id: str,
-    body: ActivateKeyIn,
-    session: Dict[str, Any] = Depends(_require_session),
-    db: AsyncSession = Depends(get_db),
-):
-    """Activate an unused activation key for a guild."""
-    if guild_id not in _user_guild_ids(session):
-        raise HTTPException(status_code=403, detail="Access denied")
-
-    result_guild = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
-    guild = result_guild.scalar_one_or_none()
-    if not guild:
-        raise HTTPException(status_code=404, detail="Guild not found")
-
-    result_key = await db.execute(select(ActivationKey).where(ActivationKey.key == body.key))
-    activation_key = result_key.scalar_one_or_none()
-    if not activation_key:
-        raise HTTPException(status_code=404, detail="Chave não encontrada.")
-    if activation_key.is_used:
-        raise HTTPException(status_code=409, detail="Esta chave já foi utilizada.")
-
-    now = datetime.now(timezone.utc)
-    expires_at = now + timedelta(days=activation_key.duration_days)
-
-    activation_key.is_used = True
-    activation_key.used_by_guild_id = guild_id
-    activation_key.used_at = now
-
-    guild.plan = activation_key.plan
-    guild.plan_status = "trial" if activation_key.is_trial else "active"
-    guild.plan_expires_at = expires_at
-
-    await db.commit()
-    await db.refresh(guild)
-    return guild
-
-
-# =============================================================================
 # Admin endpoints
 # =============================================================================
 
@@ -1114,15 +1016,8 @@ async def admin_stats(
     _admin: AdminUser = Depends(_require_admin),
     db: AsyncSession = Depends(get_db),
 ):
-    now = datetime.now(timezone.utc)
-
     guilds_result = await db.execute(select(Guild))
     guilds = guilds_result.scalars().all()
-
-    active = sum(1 for g in guilds if g.plan_status == "active" and (not g.plan_expires_at or g.plan_expires_at > now))
-    trial  = sum(1 for g in guilds if g.plan_status == "trial"  and (not g.plan_expires_at or g.plan_expires_at > now))
-    expired = sum(1 for g in guilds if g.plan_status in ("active", "trial") and g.plan_expires_at and g.plan_expires_at <= now)
-    no_plan = sum(1 for g in guilds if not g.plan_status)
 
     members_result = await db.execute(
         select(GuildMember).where(
@@ -1131,20 +1026,9 @@ async def admin_stats(
     )
     total_members = len(members_result.scalars().all())
 
-    keys_result = await db.execute(select(ActivationKey))
-    all_keys = keys_result.scalars().all()
-    keys_used = sum(1 for k in all_keys if k.is_used)
-
     return AdminStatsOut(
         total_guilds=len(guilds),
-        active_guilds=active,
-        trial_guilds=trial,
-        expired_guilds=expired,
-        no_plan_guilds=no_plan,
         total_members=total_members,
-        keys_total=len(all_keys),
-        keys_used=keys_used,
-        keys_available=len(all_keys) - keys_used,
     )
 
 
@@ -1179,9 +1063,6 @@ async def admin_list_guilds(
         out.append(AdminGuildOut(
             guild_id=g.guild_id,
             guild_name=g.guild_name,
-            plan=g.plan,
-            plan_status=g.plan_status,
-            plan_expires_at=g.plan_expires_at,
             created_at=g.created_at,
             member_count=member_count,
             tracker_count=tracker_count,
@@ -1191,29 +1072,7 @@ async def admin_list_guilds(
     return out
 
 
-@app.patch("/admin/guilds/{guild_id}/plan", response_model=GuildPlanOut)
-async def admin_set_plan(
-    guild_id: str,
-    payload: PlanPatch,
-    _admin: AdminUser = Depends(_require_admin),
-    db: AsyncSession = Depends(get_db),
-):
-    result = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
-    guild = result.scalar_one_or_none()
-    if not guild:
-        raise HTTPException(status_code=404, detail="Guild not found")
-    if payload.plan is not None:
-        guild.plan = payload.plan
-    if payload.plan_status is not None:
-        guild.plan_status = payload.plan_status
-    if payload.plan_expires_at is not None:
-        guild.plan_expires_at = payload.plan_expires_at
-    await db.commit()
-    await db.refresh(guild)
-    return guild
-
-
-@app.get("/admin/guilds/{guild_id}", response_model=AdminGuildOut)
+@app.get("/admin/guilds/{guild_id}/settings", response_model=AdminGuildOut)
 async def admin_get_guild(
     guild_id: str,
     _admin: AdminUser = Depends(_require_admin),
@@ -1241,9 +1100,6 @@ async def admin_get_guild(
     return AdminGuildOut(
         guild_id=g.guild_id,
         guild_name=g.guild_name,
-        plan=g.plan,
-        plan_status=g.plan_status,
-        plan_expires_at=g.plan_expires_at,
         created_at=g.created_at,
         member_count=member_count,
         tracker_count=tracker_count,
@@ -1281,51 +1137,6 @@ async def admin_guild_members(
         ).order_by(GuildMember.last_seen_at.desc())
     )
     return result.scalars().all()
-
-
-@app.get("/admin/keys", response_model=List[ActivationKeyOut])
-async def admin_list_keys(
-    _admin: AdminUser = Depends(_require_admin),
-    db: AsyncSession = Depends(get_db),
-):
-    result = await db.execute(select(ActivationKey).order_by(ActivationKey.created_at.desc()))
-    return result.scalars().all()
-
-
-@app.post("/admin/keys", response_model=ActivationKeyOut)
-async def admin_create_key(
-    payload: ActivationKeyCreate,
-    _admin: AdminUser = Depends(_require_admin),
-    db: AsyncSession = Depends(get_db),
-):
-    new_key = ActivationKey(
-        key=secrets.token_urlsafe(24),
-        plan=payload.plan,
-        duration_days=payload.duration_days,
-        is_trial=payload.is_trial,
-        note=payload.note,
-    )
-    db.add(new_key)
-    await db.commit()
-    await db.refresh(new_key)
-    return new_key
-
-
-@app.delete("/admin/keys/{key_id}")
-async def admin_delete_key(
-    key_id: str,
-    _admin: AdminUser = Depends(_require_admin),
-    db: AsyncSession = Depends(get_db),
-):
-    result = await db.execute(select(ActivationKey).where(ActivationKey.id == key_id))
-    key = result.scalar_one_or_none()
-    if not key:
-        raise HTTPException(status_code=404, detail="Key not found")
-    if key.is_used:
-        raise HTTPException(status_code=409, detail="Cannot delete an already-used key")
-    await db.delete(key)
-    await db.commit()
-    return {"ok": True}
 
 
 @app.get("/admin/users", response_model=List[AdminUserOut])

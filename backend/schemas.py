@@ -148,49 +148,6 @@ class RouteOut(BaseModel):
         from_attributes = True
 
 
-# ── Activation Keys ───────────────────────────────────────────
-
-class ActivationKeyCreate(BaseModel):
-    plan: str                      # basic / plus / premium
-    duration_days: int
-    is_trial: bool = False
-    note: Optional[str] = None
-
-    @field_validator("plan")
-    @classmethod
-    def validate_plan(cls, v: str) -> str:
-        if v not in ("basic", "plus", "premium"):
-            raise ValueError("plan must be basic, plus, or premium")
-        return v
-
-    @field_validator("duration_days")
-    @classmethod
-    def validate_days(cls, v: int) -> int:
-        if v <= 0:
-            raise ValueError("duration_days must be > 0")
-        return v
-
-
-class ActivationKeyOut(BaseModel):
-    id: str
-    key: str
-    plan: str
-    duration_days: int
-    is_trial: bool
-    is_used: bool
-    used_by_guild_id: Optional[str]
-    used_at: Optional[datetime]
-    created_at: datetime
-    note: Optional[str]
-
-    class Config:
-        from_attributes = True
-
-
-class ActivateKeyIn(BaseModel):
-    key: str
-
-
 # ── Guild Members ─────────────────────────────────────────────
 
 class GuildMemberOut(BaseModel):
@@ -203,40 +160,6 @@ class GuildMemberOut(BaseModel):
 
     class Config:
         from_attributes = True
-
-
-# ── Guild Plan ────────────────────────────────────────────────
-
-class GuildPlanOut(BaseModel):
-    guild_id: str
-    guild_name: str
-    plan: Optional[str]
-    plan_status: Optional[str]
-    plan_expires_at: Optional[datetime]
-    server_region: str = "WEST"
-
-    class Config:
-        from_attributes = True
-
-
-class PlanPatch(BaseModel):
-    plan: Optional[str] = None
-    plan_status: Optional[str] = None
-    plan_expires_at: Optional[datetime] = None
-
-    @field_validator("plan")
-    @classmethod
-    def validate_plan(cls, v: Optional[str]) -> Optional[str]:
-        if v is not None and v not in ("basic", "plus", "premium"):
-            raise ValueError("plan must be basic, plus, or premium")
-        return v
-
-    @field_validator("plan_status")
-    @classmethod
-    def validate_status(cls, v: Optional[str]) -> Optional[str]:
-        if v is not None and v not in ("active", "trial", "expired"):
-            raise ValueError("plan_status must be active, trial, or expired")
-        return v
 
 
 # ── Admin Users ───────────────────────────────────────────────
@@ -261,9 +184,6 @@ class AdminUserOut(BaseModel):
 class AdminGuildOut(BaseModel):
     guild_id: str
     guild_name: str
-    plan: Optional[str]
-    plan_status: Optional[str]
-    plan_expires_at: Optional[datetime]
     created_at: datetime
     member_count: int = 0
     tracker_count: int = 0
@@ -277,11 +197,4 @@ class AdminGuildOut(BaseModel):
 
 class AdminStatsOut(BaseModel):
     total_guilds: int
-    active_guilds: int
-    trial_guilds: int
-    expired_guilds: int
-    no_plan_guilds: int
     total_members: int
-    keys_total: int
-    keys_used: int
-    keys_available: int

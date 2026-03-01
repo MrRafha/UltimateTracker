@@ -15,168 +15,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
 
 
 
-// ── Plan helpers ──────────────────────────────────────────────────────────────
-
-const PLAN_COLOR: Record<string, string> = { basic: "#22cc77", plus: "#5865F2", premium: "#FFD700" };
-const STATUS_COLOR: Record<string, string> = {
-  active: "#22cc77",
-  trial:  "#f59e0b",
-  expired: "#ef4444",
-};
-
-
-
-function PlanBadge({ plan, status }: { plan?: string | null; status?: string | null }) {
-  const t = useTranslations();
-  const PLAN_LABEL: Record<string, string> = {
-    basic: t("dashboard.plan_basic"),
-    plus: t("dashboard.plan_plus"),
-    premium: t("dashboard.plan_premium"),
-  };
-
-  if (!plan || !status) {
-    return (
-      <span style={{ fontSize: 10, fontWeight: 700, color: "#555", background: "rgba(255,255,255,0.05)", borderRadius: 999, padding: "2px 8px", letterSpacing: 0.5 }}>
-        {t("dashboard.no_plan")}
-      </span>
-    );
-  }
-  const color = status === "expired" ? "#ef4444" : PLAN_COLOR[plan] ?? "#aaa";
-  return (
-    <span style={{ fontSize: 10, fontWeight: 700, color, background: `${color}18`, border: `1px solid ${color}44`, borderRadius: 999, padding: "2px 8px", letterSpacing: 0.5 }}>
-      {PLAN_LABEL[plan] ?? plan.toUpperCase()}
-      {status === "trial" && ` · ${t("dashboard.trial")}`}
-      {status === "expired" && ` · ${t("dashboard.expired")}`}
-    </span>
-  );
-}
-
-
-
-// ── Activate Key Modal ────────────────────────────────────────────────────────
-
-
-
-function ActivateKeyModal({ guild, onClose, onSuccess }: {
-  guild: GuildAccess;
-  onClose: () => void;
-  onSuccess: () => void;
-}) {
-  const t = useTranslations();
-  const [key, setKey] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-
-
-  async function submit(e: React.FormEvent) {
-
-    e.preventDefault();
-
-    if (!key.trim()) return;
-
-    setLoading(true);
-
-    setError("");
-
-    try {
-
-      const res = await fetch(`${API_BASE}/guilds/${guild.guild_id}/activate-key`, {
-
-        method: "POST",
-
-        credentials: "include",
-
-        headers: { "Content-Type": "application/json" },
-
-        body: JSON.stringify({ key: key.trim() }),
-
-      });
-
-      if (!res.ok) {
-
-        const data = await res.json().catch(() => ({}));
-
-        throw new Error(data.detail ?? `Erro ${res.status}`);
-
-      }
-
-      onSuccess();
-
-    } catch (err: unknown) {
-
-      setError(err instanceof Error ? err.message : t("common.error_unknown"));
-
-    } finally {
-
-      setLoading(false);
-
-    }
-
-  }
-
-
-
-  return (
-
-    <div
-
-      onClick={(e) => e.target === e.currentTarget && onClose()}
-
-      style={{ position: "fixed", inset: 0, zIndex: 200, background: "rgba(0,0,0,0.72)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}
-
-    >
-
-      <div style={{ width: "100%", maxWidth: 400, background: "#16181f", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 18, padding: "28px 24px", fontFamily: "system-ui" }}>
-
-        <div style={{ marginBottom: 20 }}>
-
-          <div style={{ fontWeight: 800, fontSize: 17, color: "#fff", marginBottom: 4 }}>{t("dashboard.activate_key_title")}</div>
-
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.35)" }}>{guild.guild_name}</div>
-
-        </div>
-
-
-
-        <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-
-          <input
-
-            value={key}
-
-            onChange={(e) => setKey(e.target.value)}
-
-            placeholder={t("dashboard.key_placeholder")}
-
-            autoFocus
-
-            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 10, padding: "11px 14px", color: "#eee", fontSize: 13, outline: "none", fontFamily: "monospace" }}
-
-          />
-
-          {error && <div style={{ fontSize: 12, color: "#f87171" }}>{error}</div>}
-
-          <div style={{ display: "flex", gap: 10, marginTop: 4 }}>
-
-            <button type="button" onClick={onClose} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
-              {t("common.cancel")}
-            </button>
-            <button type="submit" disabled={loading || !key.trim()} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "none", background: loading ? "rgba(88,101,242,0.4)" : "#5865F2", color: "#fff", fontSize: 13, fontWeight: 700, cursor: loading ? "default" : "pointer" }}>
-              {loading ? t("dashboard.activating") : t("dashboard.activate")}
-            </button>
-
-          </div>
-
-        </form>
-
-      </div>
-
-    </div>
-
-  );
-
-}
+// ─────────────────────────────────────────────────────────────────────────────
 
 
 
@@ -303,15 +142,11 @@ function ServerRegionModal({ guild, onClose, onSuccess }: {
 
 
 
-function GuildCard({ guild, onActivate, onConfigureRegion }: { guild: GuildAccess; onActivate: () => void; onConfigureRegion: () => void }) {
+function GuildCard({ guild, onConfigureRegion }: { guild: GuildAccess; onConfigureRegion: () => void }) {
   const t = useTranslations();
   const { guild_id: guildId, guild_name: guildName, icon } = guild;
 
   const iconUrl = icon ? `https://cdn.discordapp.com/icons/${guildId}/${icon}.png?size=128` : null;
-
-  const canOpen = guild.plan_status === "active" || guild.plan_status === "trial";
-
-
 
   return (
 
@@ -342,7 +177,6 @@ function GuildCard({ guild, onActivate, onConfigureRegion }: { guild: GuildAcces
           <div style={{ fontWeight: 700, fontSize: 15, color: "#f0f0f5", marginBottom: 5 }}>{guildName}</div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-            <PlanBadge plan={guild.plan} status={guild.plan_status} />
             {guild.server_region && (
               <span style={{ fontSize: 10, fontWeight: 700, color: "#5865F2", background: "rgba(88,101,242,0.12)", border: "1px solid rgba(88,101,242,0.3)", borderRadius: 999, padding: "2px 8px", letterSpacing: 0.5 }}>
                 {guild.server_region}
@@ -358,51 +192,21 @@ function GuildCard({ guild, onActivate, onConfigureRegion }: { guild: GuildAcces
 
       <div style={{ display: "flex", gap: 8 }}>
 
-        {canOpen ? (
+        <Link
 
-          <Link
+          href={`/map/${guildId}`}
 
-            href={`/map/${guildId}`}
+          style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "linear-gradient(135deg, #5865F2 0%, #4752c4 100%)", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 13, padding: "10px 16px", borderRadius: 10, boxShadow: "0 4px 16px rgba(88,101,242,0.25)", transition: "filter 0.15s" }}
 
-            style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "linear-gradient(135deg, #5865F2 0%, #4752c4 100%)", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 13, padding: "10px 16px", borderRadius: 10, boxShadow: "0 4px 16px rgba(88,101,242,0.25)", transition: "filter 0.15s" }}
+          onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.12)")}
 
-            onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.12)")}
-
-            onMouseLeave={(e) => (e.currentTarget.style.filter = "none")}
-
-          >
-
-            {t("dashboard.open_map")}
-
-          </Link>
-
-        ) : (
-
-          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, fontSize: 12, color: "#555", fontWeight: 600, padding: "10px" }}>
-
-            {t("dashboard.locked")}
-
-          </div>
-
-        )}
-
-        <button
-
-          onClick={onActivate}
-
-          title={t("dashboard.activate_key_title")}
-
-          style={{ padding: "10px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.55)", fontSize: 12, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap", transition: "background 0.15s" }}
-
-          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.09)")}
-
-          onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.04)")}
+          onMouseLeave={(e) => (e.currentTarget.style.filter = "none")}
 
         >
 
-          {t("dashboard.activate_key_btn")}
+          {t("dashboard.open_map")}
 
-        </button>
+        </Link>
 
         <button
 
@@ -443,8 +247,6 @@ export default function DashboardPage() {
   const { user, isLoading: userLoading } = useMe();
 
   const { guilds, isLoading: guildsLoading, isAuthenticated, mutate } = useMyGuilds();
-
-  const [activatingGuild, setActivatingGuild] = useState<GuildAccess | null>(null);
 
   const [configuringRegionGuild, setConfiguringRegionGuild] = useState<GuildAccess | null>(null);
 
@@ -566,7 +368,7 @@ export default function DashboardPage() {
 
             {guilds.map((guild) => (
 
-              <GuildCard key={guild.guild_id} guild={guild} onActivate={() => setActivatingGuild(guild)} onConfigureRegion={() => setConfiguringRegionGuild(guild)} />
+              <GuildCard key={guild.guild_id} guild={guild} onConfigureRegion={() => setConfiguringRegionGuild(guild)} />
 
             ))}
 
@@ -577,20 +379,6 @@ export default function DashboardPage() {
       </main>
 
 
-
-      {activatingGuild && (
-
-        <ActivateKeyModal
-
-          guild={activatingGuild}
-
-          onClose={() => setActivatingGuild(null)}
-
-          onSuccess={() => { setActivatingGuild(null); mutate(); }}
-
-        />
-
-      )}
 
       {configuringRegionGuild && (
         <ServerRegionModal

@@ -203,22 +203,9 @@ async def _post_tracker(
             )
             r.raise_for_status()
     except httpx.HTTPStatusError as e:
-        if e.response.status_code == 402:
-            embed = discord.Embed(
-                title="🔒 Plano Inativo",
-                description="Esta guilda não possui um plano ativo ou o plano expirou.",
-                color=0xEF4444,
-            )
-            embed.add_field(
-                name="Ativar Plano",
-                value=f"[Acessar Dashboard]({config.SITE_URL}/dashboard)",
-                inline=False,
-            )
-            await interaction.followup.send(embed=embed, ephemeral=True)
-        else:
-            await interaction.followup.send(
-                f"❌ Erro ao registrar: `{e.response.status_code}` — {e.response.text}", ephemeral=True
-            )
+        await interaction.followup.send(
+            f"❌ Erro ao registrar: `{e.response.status_code}` — {e.response.text}", ephemeral=True
+        )
         return
     except Exception as e:
         await interaction.followup.send(f"❌ Erro inesperado: {e}", ephemeral=True)

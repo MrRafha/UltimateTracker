@@ -20,6 +20,7 @@ function normalizeTracker(raw: Record<string, unknown>): GuildTracker {
     source: raw.source as GuildTracker["source"],
     createdAt: raw.created_at as string,
     expiresAt: raw.expires_at as string,
+    tier: (raw.tier as GuildTracker["tier"]) ?? undefined,
   };
 }
 
