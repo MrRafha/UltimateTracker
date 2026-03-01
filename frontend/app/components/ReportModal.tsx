@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import type { ZoneData } from "../types";
+import type { ZoneData, DiscordUser } from "../types";
 import { OBJECTIVES_BY_TYPE, TYPE_LABELS, OBJECTIVE_EMOJI } from "../types";
 import type { TrackerType, NodeTier } from "../types";
 
@@ -11,6 +11,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
 interface Props {
   guildId: string;
   zones: ZoneData[];
+  user: DiscordUser | null;
   onClose: () => void;
   onSuccess: () => void;
 }
@@ -23,7 +24,7 @@ function MIcon({ name, size = 18, color }: { name: string; size?: number; color?
   );
 }
 
-export default function ReportModal({ guildId, zones, onClose, onSuccess }: Props) {
+export default function ReportModal({ guildId, zones, user, onClose, onSuccess }: Props) {
   const t = useTranslations();
   const [zoneName, setZoneName]   = useState("");
   const [zoneQuery, setZoneQuery] = useState("");
@@ -64,7 +65,9 @@ export default function ReportModal({ guildId, zones, onClose, onSuccess }: Prop
         body: JSON.stringify({
           guild_id: guildId, zone_name: zoneName, type, objective,
           hours, minutes,
-          reported_by_id: "web_user", reported_by_name: "Web", source: "web",
+          reported_by_id: user?.id ?? "web_user",
+          reported_by_name: user?.username ?? "Web",
+          source: "web",
           ...(type === "node" && tier ? { tier } : {}),
         }),
       });

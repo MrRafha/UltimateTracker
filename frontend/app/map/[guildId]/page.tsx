@@ -664,6 +664,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
         <ReportModal
           guildId={guildId}
           zones={zones}
+          user={user}
           onClose={() => setShowReport(false)}
           onSuccess={() => { setShowReport(false); mutate(); }}
         />

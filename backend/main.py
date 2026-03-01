@@ -49,7 +49,7 @@ load_dotenv()
 # Config
 # =============================================================================
 
-TIMERS_URL = "https://timers.unslave.online/"
+TIMERS_URL = os.getenv("TIMERS_URL", "")
 
 # Cache simples: evita bater no site a cada request do frontend.
 CACHE_TTL_SECONDS = 60
@@ -255,7 +255,7 @@ async def fetch_timers_raw() -> Dict[str, Any]:
         r = await client.get(TIMERS_URL)
         r.raise_for_status()
 
-    soup = BeautifulSoup(r.text, "html.parser")
+    soup = BeautifulSoup(r.content.decode("utf-8"), "html.parser")
 
     # "Última atualização"
     last_update_el = soup.select_one("div.last-update")
@@ -556,6 +556,27 @@ async def set_guild_settings_web(
     await db.commit()
     await db.refresh(guild)
     return guild
+
+
+@app.get("/guilds/{guild_id}/bot-plan-status")
+async def bot_plan_status(
+    guild_id: str,
+    db: AsyncSession = Depends(get_db),
+    x_api_key: Optional[str] = Header(None, alias="X-Api-Key"),
+):
+    """Returns whether the guild has an active plan. Used by the bot before showing scout modal."""
+    if not x_api_key:
+        raise HTTPException(status_code=401, detail="Missing API key")
+    result = await db.execute(select(Guild).where(Guild.api_key == x_api_key, Guild.guild_id == guild_id))
+    guild = result.scalar_one_or_none()
+    if not guild:
+        raise HTTPException(status_code=403, detail="Invalid API key")
+    now = datetime.now(timezone.utc)
+    active = (
+        guild.plan_status in ("active", "trial")
+        and (guild.plan_expires_at is None or guild.plan_expires_at > now)
+    )
+    return {"active": active, "plan": guild.plan, "plan_status": guild.plan_status}
 
 
 # =============================================================================
@@ -1051,7 +1072,7 @@ async def admin_list_guilds(
     return out
 
 
-@app.patch("/admin/guilds/{guild_id}/settings", response_model=GuildOut)
+@app.get("/admin/guilds/{guild_id}/settings", response_model=AdminGuildOut)
 async def admin_get_guild(
     guild_id: str,
     _admin: AdminUser = Depends(_require_admin),
