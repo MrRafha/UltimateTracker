@@ -5,13 +5,14 @@ from discord import app_commands
 from discord.ext import commands
 
 import config
+from i18n import t
 
 
 class Mapa(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="mapa", description="Retorna o link do mapa de tracking da guilda.")
+    @app_commands.command(name="mapa", description="Returns the guild tracking map link.")
     async def mapa(self, interaction: discord.Interaction):
         guild_id = str(interaction.guild_id)
         url = f"{config.SITE_URL}/map/{guild_id}"
@@ -19,19 +20,19 @@ class Mapa(commands.Cog):
         api_key = config.get_api_key(guild_id)
         if not api_key:
             embed = discord.Embed(
-                title="⚠️ Guilda não registrada",
-                description="Esta guilda ainda não foi registrada. Use `/setup` para configurar o bot.",
+                title=t(guild_id, "mapa.not_registered_title"),
+                description=t(guild_id, "mapa.not_registered_desc"),
                 color=0xF59E0B,
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
             return
 
         embed = discord.Embed(
-            title="🗺️ Ultimate Tracker",
-            description=f"**[Abrir Mapa]({url})**\n\n{url}",
+            title=t(guild_id, "mapa.embed_title"),
+            description=f"**[{t(guild_id, 'mapa.open_map')}]({url})**\n\n{url}",
             color=0x5865F2,
         )
-        embed.set_footer(text="Use /scout para reportar um objetivo no mapa.")
+        embed.set_footer(text=t(guild_id, "mapa.footer"))
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
 

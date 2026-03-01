@@ -7,14 +7,15 @@ from discord.ext import commands
 import httpx
 
 import config
+from i18n import t
 
 
 class Role(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="role", description="Define qual role pode usar o bot e ver o mapa.")
-    @app_commands.describe(role="A role que terá acesso ao tracker desta guilda.")
+    @app_commands.command(name="role", description="Sets which role can use the bot and view the map.")
+    @app_commands.describe(role="The role that will have access to this guild's tracker.")
     @app_commands.default_permissions(manage_guild=True)
     async def role(self, interaction: discord.Interaction, role: discord.Role):
         guild_id = str(interaction.guild_id)
@@ -22,7 +23,7 @@ class Role(commands.Cog):
 
         if not api_key:
             await interaction.response.send_message(
-                "❌ Esta guilda não está registrada. Use `/setup` primeiro.", ephemeral=True
+                t(guild_id, "role.not_registered"), ephemeral=True
             )
             return
 
@@ -36,16 +37,18 @@ class Role(commands.Cog):
                 r.raise_for_status()
         except httpx.HTTPStatusError as e:
             await interaction.response.send_message(
-                f"❌ Erro ao configurar role: `{e.response.status_code}`", ephemeral=True
+                t(guild_id, "role.error_set", status=str(e.response.status_code)), ephemeral=True
             )
             return
         except Exception as e:
-            await interaction.response.send_message(f"❌ Erro inesperado: {e}", ephemeral=True)
+            await interaction.response.send_message(
+                t(guild_id, "role.error_unexpected", error=str(e)), ephemeral=True
+            )
             return
 
         embed = discord.Embed(
-            title="✅ Role configurada!",
-            description=f"Apenas membros com a role {role.mention} poderão usar os comandos do bot e acessar o mapa de tracking.",
+            title=t(guild_id, "role.set_title"),
+            description=t(guild_id, "role.set_desc", role=role.mention),
             color=0x57F287,
         )
         await interaction.response.send_message(embed=embed)

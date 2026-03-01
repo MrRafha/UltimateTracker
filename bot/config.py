@@ -15,6 +15,14 @@ BOT_SECRET:    str = os.getenv("BOT_SECRET",   "")
 _raw = os.getenv("GUILD_API_KEYS", "{}")
 GUILD_API_KEYS: dict[str, str] = json.loads(_raw)
 
+# { guild_id -> language }  — persisted in .env as a JSON string
+_raw_lang = os.getenv("GUILD_LANGUAGES", "{}")
+GUILD_LANGUAGES: dict[str, str] = json.loads(_raw_lang)
+
 
 def get_api_key(guild_id: str | int) -> str | None:
     return GUILD_API_KEYS.get(str(guild_id))
+
+
+def get_language(guild_id: str | int) -> str:
+    return GUILD_LANGUAGES.get(str(guild_id), "en")
