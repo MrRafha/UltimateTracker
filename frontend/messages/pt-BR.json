@@ -100,7 +100,7 @@
     "route_delete": "Deletar rota",
     "reported_by": "por {name} · {count} zonas",
     "zones_count": "{count} zonas"
-  },,
+  },
   "admin": {
     "badge": "ADMIN",
     "dashboard_link": "Dashboard",

@@ -100,7 +100,7 @@
     "route_delete": "Delete route",
     "reported_by": "by {name} · {count} zones",
     "zones_count": "{count} zones"
-  },,
+  },
   "admin": {
     "badge": "ADMIN",
     "dashboard_link": "Dashboard",

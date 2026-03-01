@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Backend (FastAPI)",
+			"type": "shell",
+			"command": "cd backend; ../.venv/Scripts/python -m uvicorn main:app --reload --port 8000",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

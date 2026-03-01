@@ -100,7 +100,7 @@
     "route_delete": "删除路线",
     "reported_by": "由 {name} · {count} 个区域",
     "zones_count": "{count} 个区域"
-  },,
+  },
   "admin": {
     "badge": "管理员",
     "dashboard_link": "控制台",
