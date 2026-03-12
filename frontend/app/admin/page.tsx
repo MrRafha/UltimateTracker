@@ -144,7 +144,7 @@ function GuildRow({ g, onMutate }: { g: AdminGuild; onMutate: () => void }) {
         </td>
       </tr>
       {showMembers && (
-        <tr style={{ borderBottom: "1px solid #1F1F1F" }}>>
+        <tr style={{ borderBottom: "1px solid #1F1F1F" }}>
           <td colSpan={5} style={{ padding: "0 12px 12px 12px", background: "rgba(0,0,0,0.3)" }}>
             <div style={{ paddingTop: 8 }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.4)", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
