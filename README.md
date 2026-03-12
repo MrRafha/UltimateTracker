@@ -115,7 +115,11 @@ O arquivo `.env.local` já está criado. Ajuste se necessário:
 ```env
 NEXT_PUBLIC_API_BASE=http://localhost:8000
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+# Modo preview para testar páginas sem login (somente desenvolvimento)
+NEXT_PUBLIC_DEV_PREVIEW_AUTH=false
 ```
+
+Quando quiser testar o frontend sem autenticação, altere para `NEXT_PUBLIC_DEV_PREVIEW_AUTH=true` e reinicie o frontend.
 
 ### 3.3 Iniciar em modo desenvolvimento
 

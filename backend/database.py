@@ -13,9 +13,10 @@ _RAW_URL = os.getenv("DATABASE_URL", "postgresql+asyncpg://postgres:postgres@loc
 # asyncpg não aceita sslmode/channel_binding na URL — remove e passa via connect_args
 def _parse_url(url: str) -> tuple[str, dict]:
     connect_args: dict = {}
-    if "neon.tech" in url or "sslmode=require" in url:
+    if "neon.tech" in url or "sslmode=require" in url or "ssl=require" in url:
         connect_args["ssl"] = "require"
     url = re.sub(r"[?&]sslmode=[^&]*", "", url)
+    url = re.sub(r"[?&]ssl=[^&]*", "", url)
     url = re.sub(r"[?&]channel_binding=[^&]*", "", url)
     url = url.rstrip("?&")
     return url, connect_args

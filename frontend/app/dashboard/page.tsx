@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Inter } from "next/font/google";
 import { useMe } from "../components/useMe";
 import { useMyGuilds } from "../components/useMyGuilds";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+import FloatingLangSwitcher from "../components/FloatingLangSwitcher";
 import type { GuildAccess, ServerRegion } from "../types";
+
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800", "900"] });
 
 
 
@@ -88,11 +91,11 @@ function ServerRegionModal({ guild, onClose, onSuccess }: {
       onClick={(e) => e.target === e.currentTarget && onClose()}
       style={{ position: "fixed", inset: 0, zIndex: 200, background: "rgba(0,0,0,0.72)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}
     >
-      <div style={{ width: "100%", maxWidth: 400, background: "#16181f", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 18, padding: "28px 24px", fontFamily: "system-ui" }}>
+      <div style={{ width: "100%", maxWidth: 400, background: "#111111", border: "1px solid #1F1F1F", borderRadius: 16, padding: "28px 24px" }}>
         <div style={{ marginBottom: 20 }}>
           <div style={{ fontWeight: 800, fontSize: 17, color: "#fff", marginBottom: 4 }}>{t("dashboard.server_config_title")}</div>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.35)" }}>{guild.guild_name}</div>
-          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 4 }}>{t("dashboard.server_config_desc")}</div>
+          <div style={{ fontSize: 13, color: "#8A8A8A" }}>{guild.guild_name}</div>
+          <div style={{ fontSize: 12, color: "#8A8A8A", marginTop: 4 }}>{t("dashboard.server_config_desc")}</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>
@@ -124,7 +127,7 @@ function ServerRegionModal({ guild, onClose, onSuccess }: {
         {error && <div style={{ fontSize: 12, color: "#f87171", marginBottom: 12 }}>{error}</div>}
 
         <div style={{ display: "flex", gap: 10 }}>
-          <button type="button" onClick={onClose} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+          <button type="button" onClick={onClose} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "1px solid #1F1F1F", background: "transparent", color: "#8A8A8A", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
             {t("common.cancel")}
           </button>
           <button type="button" disabled={loading} onClick={submit} style={{ flex: 1, padding: "10px", borderRadius: 10, border: "none", background: loading ? "rgba(88,101,242,0.4)" : "#5865F2", color: "#fff", fontSize: 13, fontWeight: 700, cursor: loading ? "default" : "pointer" }}>
@@ -152,11 +155,11 @@ function GuildCard({ guild, onConfigureRegion }: { guild: GuildAccess; onConfigu
 
     <div
 
-      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 16, padding: "20px 22px", display: "flex", flexDirection: "column", gap: 14, transition: "border-color 0.15s" }}
+      style={{ background: "#111111", border: "1px solid #1F1F1F", borderRadius: 16, padding: "20px 22px", display: "flex", flexDirection: "column", gap: 14, transition: "border-color 0.15s" }}
 
       onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(88,101,242,0.5)")}
 
-      onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)")}
+      onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#1F1F1F")}
 
     >
 
@@ -272,7 +275,7 @@ export default function DashboardPage() {
 
     return (
 
-      <div style={{ minHeight: "100vh", background: "#0a0a0f", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.25)", fontFamily: "system-ui" }}>
+      <div style={{ minHeight: "100vh", background: "#0D0D0D", display: "flex", alignItems: "center", justifyContent: "center", color: "#8A8A8A" }}>
 
         {t("common.loading")}
 
@@ -294,15 +297,13 @@ export default function DashboardPage() {
 
   return (
 
-    <div style={{ minHeight: "100vh", background: "radial-gradient(ellipse at 50% 0%, rgba(88,101,242,0.10) 0%, #0a0a0f 55%)", fontFamily: "system-ui, -apple-system, sans-serif", color: "#e0e0e0" }}>
-
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", backgroundImage: "linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+    <div className={inter.className} style={{ minHeight: "100vh", background: "#0D0D0D", color: "#E0E0E0" }}>
 
 
 
       {/* Navbar */}
 
-      <nav style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(10,10,15,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 28px", height: 56 }}>
+      <nav style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(13,13,13,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid #1F1F1F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 28px", height: 64 }}>
 
         <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
 
@@ -311,7 +312,6 @@ export default function DashboardPage() {
         </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <LanguageSwitcher />
 
           {avatarUrl ? (
 
@@ -327,9 +327,9 @@ export default function DashboardPage() {
 
           )}
 
-          <span style={{ fontSize: 13, color: "rgba(255,255,255,0.5)" }}>{user?.username}</span>
+          <span style={{ fontSize: 13, color: "#8A8A8A" }}>{user?.username}</span>
 
-          <a href={`${API_BASE}/auth/logout`} style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.35)", textDecoration: "none", padding: "4px 10px", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6 }}>
+          <a href={`${API_BASE}/auth/logout`} style={{ fontSize: 12, fontWeight: 600, color: "#8A8A8A", textDecoration: "none", padding: "4px 10px", border: "1px solid #1F1F1F", borderRadius: 6, transition: "color 0.15s" }}>
 
             {t("common.logout")}
 
@@ -348,7 +348,7 @@ export default function DashboardPage() {
         <div style={{ marginBottom: 40 }}>
 
           <h1 style={{ margin: "0 0 8px", fontSize: 28, fontWeight: 800, color: "#fff" }}>{t("dashboard.title")}</h1>
-          <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.3)" }}>{t("dashboard.subtitle")}</p>
+          <p style={{ margin: 0, fontSize: 14, color: "#8A8A8A" }}>{t("dashboard.subtitle")}</p>
 
         </div>
 
@@ -356,7 +356,7 @@ export default function DashboardPage() {
 
         {guilds.length === 0 ? (
 
-          <div style={{ padding: "48px 24px", textAlign: "center", border: "1px dashed rgba(255,255,255,0.08)", borderRadius: 16, color: "rgba(255,255,255,0.25)", fontSize: 14 }}>
+          <div style={{ padding: "48px 24px", textAlign: "center", border: "1px dashed #1F1F1F", borderRadius: 16, color: "#8A8A8A", fontSize: 14 }}>
 
             {t("dashboard.empty")}
 
@@ -388,6 +388,7 @@ export default function DashboardPage() {
         />
       )}
 
+      <FloatingLangSwitcher />
     </div>
 
   );

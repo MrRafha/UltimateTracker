@@ -4,9 +4,10 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { use, useState, useEffect, useMemo } from "react";
 import { useTranslations } from "next-intl";
+import { Inter } from "next/font/google";
 import useSWR from "swr";
 import { useMe } from "../../components/useMe";
-import LanguageSwitcher from "../../components/LanguageSwitcher";
+import FloatingLangSwitcher from "../../components/FloatingLangSwitcher";
 import { useMyGuilds } from "../../components/useMyGuilds";
 import { useTrackers } from "../../components/useTrackers";
 import { useTimers } from "../../components/useTimers";
@@ -18,6 +19,7 @@ const ReportModal = dynamic(() => import("../../components/ReportModal"), { ssr:
 const RouteModal = dynamic(() => import("../../components/RouteModal"), { ssr: false });
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800", "900"] });
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -405,7 +407,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
 
   if (isLoading || guildsLoading || !user) {
     return (
-      <div style={{ display: "flex", height: "100vh", background: "#0d0d0d", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.3)", fontFamily: "system-ui" }}>
+      <div className={inter.className} style={{ display: "flex", height: "100vh", background: "#0D0D0D", alignItems: "center", justifyContent: "center", color: "#8A8A8A" }}>
         {t('map.loading')}
       </div>
     );
@@ -414,20 +416,19 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   const guildAccess = guilds.find((g) => g.guild_id === guildId);
 
   return (
-    <div style={{ display: "flex", height: "100vh", background: "#0d0d0d", fontFamily: "system-ui, sans-serif" }}>
+    <div className={inter.className} style={{ display: "flex", height: "100vh", background: "#0D0D0D" }}>
 
       {/* SIDEBAR */}
-      <aside style={{ width: 340, flexShrink: 0, borderRight: "1px solid rgba(255,255,255,0.07)", background: "#111116", display: "flex", flexDirection: "column", overflow: "hidden" }}>
+      <aside style={{ width: 340, flexShrink: 0, borderRight: "1px solid #1F1F1F", background: "#111111", display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
         {/* Header */}
-        <div style={{ padding: "14px 14px 10px", borderBottom: "1px solid rgba(255,255,255,0.07)", background: "rgba(0,0,0,0.25)", flexShrink: 0 }}>
+        <div style={{ padding: "14px 14px 10px", borderBottom: "1px solid #1F1F1F", background: "#111111", flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
             <img src="/brand/icon.png" alt="" height={20} style={{ display: 'block', width: 'auto' }} />
             <span style={{ fontWeight: 800, fontSize: 15, color: "#eee", letterSpacing: 0.3 }}>Ultimate Tracker</span>
             {user?.guildName && (
-              <span style={{ marginLeft: "auto", fontSize: 11, color: "#444" }}>{user.guildName}</span>
+              <span style={{ marginLeft: "auto", fontSize: 11, color: "#8A8A8A" }}>{user.guildName}</span>
             )}
-            <LanguageSwitcher />
           </div>
           <div style={{ fontSize: 11, color: "#555", display: "flex", gap: 10, marginBottom: 10 }}>
             <span style={{ color: "#66dd88" }}>{t('map.scouts_active', { count: activeGuildCount })}</span>
@@ -554,7 +555,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
 
         {/* User footer */}
         {user && (
-          <div style={{ padding: "10px 12px", borderTop: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", gap: 8, flexShrink: 0, background: "rgba(0,0,0,0.2)" }}>
+          <div style={{ padding: "10px 12px", borderTop: "1px solid #1F1F1F", display: "flex", alignItems: "center", gap: 8, flexShrink: 0, background: "#111111" }}>
             {user.id && user.avatar ? (
               <img
                 src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`}
@@ -568,13 +569,13 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
                 {user.username[0].toUpperCase()}
               </div>
             )}
-            <span style={{ fontSize: 12, color: "#666", flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{user.username}</span>
+            <span style={{ fontSize: 12, color: "#8A8A8A", flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{user.username}</span>
             <button
               onClick={async () => {
                 await fetch(`${API_BASE}/auth/logout`, { method: "POST", credentials: "include" });
                 window.location.href = "/login";
               }}
-              style={{ fontSize: 11, color: "#444", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+              style={{ fontSize: 11, color: "#8A8A8A", background: "none", border: "none", cursor: "pointer", padding: 0 }}
             >{t('common.logout')}</button>
           </div>
         )}
@@ -694,7 +695,8 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
           onClose={() => setShowRouteModal(false)}
           onSuccess={() => { setShowRouteModal(false); mutateRoutes(); setTab("routes"); }}
         />
-      )}
+      )} 
+      <FloatingLangSwitcher />
     </div>
   );
 }

@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+import { Inter } from "next/font/google";
+import FloatingLangSwitcher from "../components/FloatingLangSwitcher";
 import useSWR from "swr";
+
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800", "900"] });
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
 
@@ -41,7 +44,7 @@ function Pill({ label, color }: { label: string; color: string }) {
 }
 function StatCard({ title, value, sub, color = "#5865F2" }: { title: string; value: number | string; sub?: string; color?: string }) {
   return (
-    <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 14, padding: "18px 20px", flex: 1, minWidth: 120 }}>
+    <div style={{ background: "#111111", border: "1px solid #1F1F1F", borderRadius: 14, padding: "18px 20px", flex: 1, minWidth: 120 }}>
       <div style={{ fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.35)", marginBottom: 6, textTransform: "uppercase", letterSpacing: 0.5 }}>{title}</div>
       <div style={{ fontSize: 28, fontWeight: 800, color }}>{value}</div>
       {sub && <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", marginTop: 2 }}>{sub}</div>}
@@ -60,7 +63,7 @@ function Overlay({ children, onClose }: { children: React.ReactNode; onClose: ()
   return <div onClick={e => e.target === e.currentTarget && onClose()} style={{ position: "fixed", inset: 0, zIndex: 200, background: "rgba(0,0,0,0.72)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>{children}</div>;
 }
 function ModalBox({ title, children }: { title: string; children: React.ReactNode }) {
-  return <div style={{ width: "100%", maxWidth: 440, background: "#16181f", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 18, padding: "28px 24px", fontFamily: "system-ui" }}><div style={{ fontWeight: 800, fontSize: 16, color: "#fff", marginBottom: 20 }}>{title}</div>{children}</div>;
+  return <div style={{ width: "100%", maxWidth: 440, background: "#111111", border: "1px solid #1F1F1F", borderRadius: 16, padding: "28px 24px" }}><div style={{ fontWeight: 800, fontSize: 16, color: "#fff", marginBottom: 20 }}>{title}</div>{children}</div>;
 }
 function ModalButtons({ onClose, loading, confirmLabel }: { onClose: () => void; loading: boolean; confirmLabel: string }) {
   const t = useTranslations();
@@ -70,9 +73,9 @@ const td: React.CSSProperties = { padding: "10px 12px", color: "#ccd", verticalA
 const thStyle: React.CSSProperties = { padding: "8px 12px", textAlign: "left", color: "rgba(255,255,255,0.35)", fontWeight: 600, fontSize: 11, textTransform: "uppercase", letterSpacing: 0.5 };
 const labelStyle: React.CSSProperties = { display: "flex", flexDirection: "column", gap: 6, fontSize: 12, color: "rgba(255,255,255,0.45)", fontWeight: 600 };
 const btnPrimary: React.CSSProperties = { padding: "8px 18px", borderRadius: 8, border: "none", background: "#5865F2", color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer" };
-const btnSm: React.CSSProperties = { padding: "5px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.6)", fontSize: 12, fontWeight: 600, cursor: "pointer" };
+const btnSm: React.CSSProperties = { padding: "5px 12px", borderRadius: 6, border: "1px solid #1F1F1F", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.6)", fontSize: 12, fontWeight: 600, cursor: "pointer" };
 const btnDanger: React.CSSProperties = { padding: "5px 12px", borderRadius: 6, border: "1px solid rgba(239,68,68,0.3)", background: "rgba(239,68,68,0.08)", color: "#f87171", fontSize: 12, fontWeight: 600, cursor: "pointer" };
-const inp = { background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, padding: "9px 12px", color: "#eee", fontSize: 13, width: "100%", boxSizing: "border-box" } as React.CSSProperties;
+const inp = { background: "rgba(255,255,255,0.04)", border: "1px solid #1F1F1F", borderRadius: 8, padding: "9px 12px", color: "#eee", fontSize: 13, width: "100%", boxSizing: "border-box" } as React.CSSProperties;
 
 // ── Overview Tab ──────────────────────────────────────────────────────────────
 
@@ -123,7 +126,7 @@ function GuildRow({ g, onMutate }: { g: AdminGuild; onMutate: () => void }) {
   const regionLabel = REGION_LABEL[g.server_region] ?? g.server_region ?? "—";
   return (
     <>
-      <tr style={{ borderBottom: showMembers ? "none" : "1px solid rgba(255,255,255,0.05)" }}>
+      <tr style={{ borderBottom: showMembers ? "none" : "1px solid #1F1F1F" }}>
         <td style={td}>{g.guild_name}<div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>{g.guild_id}</div></td>
         <td style={td}>{g.member_count}</td>
         <td style={td}>{g.tracker_count}</td>
@@ -141,8 +144,8 @@ function GuildRow({ g, onMutate }: { g: AdminGuild; onMutate: () => void }) {
         </td>
       </tr>
       {showMembers && (
-        <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-          <td colSpan={5} style={{ padding: "0 12px 12px 12px", background: "rgba(0,0,0,0.2)" }}>
+        <tr style={{ borderBottom: "1px solid #1F1F1F" }}>>
+          <td colSpan={5} style={{ padding: "0 12px 12px 12px", background: "rgba(0,0,0,0.3)" }}>
             <div style={{ paddingTop: 8 }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.4)", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
                 {t('admin.members_title')} — <span style={{ color: "#ccd" }}>{g.member_count}</span>
@@ -178,7 +181,7 @@ function GuildsTab() {
   return <>
     <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_server'), t('admin.col_members'), t('admin.col_trackers'), t('admin.col_region'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
+        <thead><tr style={{ borderBottom: "1px solid #1F1F1F" }}>{[t('admin.col_server'), t('admin.col_members'), t('admin.col_trackers'), t('admin.col_region'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
         <tbody>{data.map(g => (
           <GuildRow key={g.guild_id} g={g} onMutate={() => mutate()} />
         ))}</tbody>
@@ -218,7 +221,7 @@ function AdminsTab() {
     <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}><button onClick={() => setShowAdd(true)} style={btnPrimary}>{t('admin.add_admin_btn')}</button></div>
     <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-        <thead><tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>{[t('admin.col_discord_id'), t('admin.col_username'), t('admin.col_added_at'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
+        <thead><tr style={{ borderBottom: "1px solid #1F1F1F" }}>{[t('admin.col_discord_id'), t('admin.col_username'), t('admin.col_added_at'), ""].map(h => <th key={h} style={thStyle}>{h}</th>)}</tr></thead>
         <tbody>{data.map(u => <tr key={u.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
           <td style={{ ...td, fontFamily: "monospace", fontSize: 11 }}>{u.discord_id}</td>
           <td style={td}>{u.username}</td>
@@ -254,11 +257,10 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "radial-gradient(ellipse at 50% 0%, rgba(88,101,242,0.08) 0%, #0a0a0f 55%)", fontFamily: "system-ui, -apple-system, sans-serif", color: "#e0e0e0" }}>
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", backgroundImage: "linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+    <div className={inter.className} style={{ minHeight: "100vh", background: "#0D0D0D", color: "#E0E0E0" }}>
 
       {/* Navbar */}
-      <nav style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(10,10,15,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 28px", height: 56 }}>
+      <nav style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(13,13,13,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid #1F1F1F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 28px", height: 64 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
             <img src="/brand/icon.png" alt="Ultimate Tracker" height={34} style={{ display: "block", width: "auto" }} />
@@ -266,9 +268,8 @@ export default function AdminDashboard() {
           <span style={{ fontSize: 11, fontWeight: 700, color: "#5865F2", background: "rgba(88,101,242,0.15)", border: "1px solid rgba(88,101,242,0.3)", borderRadius: 6, padding: "2px 8px", letterSpacing: 0.5 }}>{t('admin.badge')}</span>
         </div>
         <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <LanguageSwitcher />
-          <Link href="/dashboard" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>{t('admin.dashboard_link')}</Link>
-          <Link href="/admin/zones" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>{t('admin.zone_centers_link')}</Link>
+          <Link href="/dashboard" style={{ fontSize: 13, color: "#8A8A8A", textDecoration: "none" }}>{t('admin.dashboard_link')}</Link>
+          <Link href="/admin/zones" style={{ fontSize: 13, color: "#8A8A8A", textDecoration: "none" }}>{t('admin.zone_centers_link')}</Link>
         </div>
       </nav>
 
@@ -276,11 +277,11 @@ export default function AdminDashboard() {
       <main style={{ maxWidth: 1100, margin: "0 auto", padding: "48px 24px 80px" }}>
         <div style={{ marginBottom: 32 }}>
           <h1 style={{ margin: "0 0 4px", fontSize: 24, fontWeight: 800, color: "#fff" }}>{t('admin.page_title')}</h1>
-          <p style={{ margin: 0, fontSize: 13, color: "rgba(255,255,255,0.3)" }}>{t('admin.page_subtitle')}</p>
+          <p style={{ margin: 0, fontSize: 13, color: "#8A8A8A" }}>{t('admin.page_subtitle')}</p>
         </div>
 
         {/* Tabs */}
-        <div style={{ display: "flex", gap: 4, borderBottom: "1px solid rgba(255,255,255,0.08)", marginBottom: 28 }}>
+        <div style={{ display: "flex", gap: 4, borderBottom: "1px solid #1F1F1F", marginBottom: 28 }}>
           {TABS_KEYS.map(tabKey => (
             <button
               key={tabKey}
@@ -294,6 +295,8 @@ export default function AdminDashboard() {
 
         {tabContent[activeTab]}
       </main>
+
+      <FloatingLangSwitcher />
     </div>
   );
 }

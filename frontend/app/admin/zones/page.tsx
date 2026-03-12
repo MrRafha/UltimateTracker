@@ -4,6 +4,9 @@ import dynamic from 'next/dynamic';
 import { useMemo, useState } from 'react';
 import useSWR from 'swr';
 import { useTranslations } from 'next-intl';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
 
 const fetcher = (url: string) => fetch(url).then(r => r.json());
 
@@ -77,16 +80,16 @@ export default function AdminZonesPage() {
   }, [zones, draftCenters]);
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '360px 1fr', height: '100vh' }}>
-      <div style={{ padding: 12, borderRight: '1px solid #333', overflow: 'auto' }}>
-        <h2 style={{ margin: 0, marginBottom: 8 }}>{t('admin.zone_centers_link')}</h2>
+    <div className={inter.className} style={{ display: 'grid', gridTemplateColumns: '360px 1fr', height: '100vh', background: '#0D0D0D', color: '#E0E0E0' }}>
+      <div style={{ padding: 16, borderRight: '1px solid #1F1F1F', background: '#111111', overflow: 'auto' }}>
+        <h2 style={{ margin: 0, marginBottom: 8, color: '#FFFFFF', fontWeight: 700 }}>{t('admin.zone_centers_link')}</h2>
 
         <div style={{ marginBottom: 8 }}>
-          <div style={{ fontSize: 12, opacity: 0.8 }}>{t('admin.zones_instruction')}</div>
+          <div style={{ fontSize: 12, color: '#8A8A8A' }}>{t('admin.zones_instruction')}</div>
         </div>
 
         <select
-          style={{ width: '100%', padding: 8 }}
+          style={{ width: '100%', padding: '9px 12px', background: '#0D0D0D', border: '1px solid #1F1F1F', borderRadius: 8, color: '#E0E0E0', fontSize: 13 }}
           value={selected?.zoneKey ?? ''}
           onChange={(e) => {
             const z = zones.find(x => x.zoneKey === e.target.value) ?? null;
@@ -100,24 +103,24 @@ export default function AdminZonesPage() {
           ))}
         </select>
 
-        <div style={{ marginTop: 12, fontSize: 13 }}>
-          <div><b>zoneKey:</b> {selected?.zoneKey ?? '-'}</div>
-          <div><b>zoneId:</b> {selected?.zoneId ?? '-'}</div>
+        <div style={{ marginTop: 12, fontSize: 13, color: '#E0E0E0' }}>
+          <div><b style={{ color: '#8A8A8A' }}>zoneKey:</b> {selected?.zoneKey ?? '-'}</div>
+          <div><b style={{ color: '#8A8A8A' }}>zoneId:</b> {selected?.zoneId ?? '-'}</div>
           <div>
-            <b>center:</b>{' '}
+            <b style={{ color: '#8A8A8A' }}>center:</b>{' '}
             {selectedCenter ? `x=${Math.round(selectedCenter.x)}, y=${Math.round(selectedCenter.y)}` : t('admin.zones_undefined')}
           </div>
         </div>
 
-        <hr style={{ margin: '12px 0' }} />
+        <hr style={{ margin: '12px 0', borderColor: '#1F1F1F', borderStyle: 'solid' }} />
 
-        <div style={{ fontSize: 12, opacity: 0.9, marginBottom: 6 }}>
+        <div style={{ fontSize: 12, color: '#8A8A8A', marginBottom: 6 }}>
           {t('admin.zones_paste_json')} <code>backend/zones.json</code>:
         </div>
         <textarea
           readOnly
           value={exportZonesJson}
-          style={{ width: '100%', height: 360, fontFamily: 'monospace', fontSize: 12 }}
+          style={{ width: '100%', height: 360, fontFamily: 'monospace', fontSize: 12, background: '#0D0D0D', border: '1px solid #1F1F1F', borderRadius: 8, color: '#E0E0E0', padding: '8px', boxSizing: 'border-box', resize: 'vertical' }}
         />
       </div>
 

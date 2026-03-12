@@ -3,9 +3,11 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+import { Inter } from "next/font/google";
+import FloatingLangSwitcher from "../components/FloatingLangSwitcher";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800", "900"] });
 
 function LoginContent() {
   const t = useTranslations();
@@ -17,41 +19,31 @@ function LoginContent() {
   const loginUrl = `${API_BASE}/auth/discord${guildId ? `?guild_id=${guildId}` : ""}`;
 
   return (
-    <main style={{
-      minHeight: "100vh",
-      background: "radial-gradient(ellipse at 50% 0%, rgba(88,101,242,0.12) 0%, #0a0a0f 55%)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontFamily: "system-ui, -apple-system, sans-serif",
-      padding: 16,
-    }}>
-      {/* Subtle grid overlay */}
-      <div style={{
-        position: "fixed", inset: 0, pointerEvents: "none",
-        backgroundImage: "linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)",
-        backgroundSize: "40px 40px",
-      }} />
-
-      {/* Language switcher top-right */}
-      <div style={{ position: "fixed", top: 16, right: 20, zIndex: 10 }}>
-        <LanguageSwitcher />
-      </div>
-
-      <div style={{
-        position: "relative",
-        width: "100%", maxWidth: 380,
-        background: "rgba(255,255,255,0.03)",
-        border: "1px solid rgba(255,255,255,0.08)",
-        borderRadius: 20,
-        padding: "40px 36px 36px",
+    <main
+      className={inter.className}
+      style={{
+        minHeight: "100vh",
+        background: "#0D0D0D",
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
-        gap: 0,
-        boxShadow: "0 0 0 1px rgba(0,0,0,0.5), 0 32px 64px rgba(0,0,0,0.5), 0 0 80px rgba(88,101,242,0.06)",
-        backdropFilter: "blur(12px)",
-      }}>
+        justifyContent: "center",
+        padding: 16,
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          maxWidth: 420,
+          background: "#111111",
+          border: "1px solid #1F1F1F",
+          borderRadius: 16,
+          padding: "36px 30px 30px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
 
         {/* Logo placeholder */}
         <div style={{
@@ -84,7 +76,7 @@ function LoginContent() {
         </h1>
 
         {/* Subtitle */}
-        <p style={{ margin: "8px 0 28px", fontSize: 13, color: "rgba(255,255,255,0.35)", textAlign: "center", lineHeight: 1.6 }}>
+        <p style={{ margin: "8px 0 28px", fontSize: 13, color: "#8A8A8A", textAlign: "center", lineHeight: 1.6 }}>
           {t('login.subtitle')}
         </p>
 
@@ -104,7 +96,7 @@ function LoginContent() {
         )}
 
         {/* Divider */}
-        <div style={{ width: "100%", height: 1, background: "rgba(255,255,255,0.05)", marginBottom: 24 }} />
+        <div style={{ width: "100%", height: 1, background: "#1F1F1F", marginBottom: 24 }} />
 
         {/* Discord button */}
         <a
@@ -137,6 +129,8 @@ function LoginContent() {
           {t('login.footer_note')}
         </p>
       </div>
+
+      <FloatingLangSwitcher />
     </main>
   );
 }
