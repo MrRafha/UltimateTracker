@@ -434,6 +434,17 @@ def _user_guild_ids(session: Dict[str, Any]) -> set:
     return {gid} if gid else set()
 
 
+async def _can_access_guild(guild_id: str, session: Dict[str, Any], db: AsyncSession) -> bool:
+    """Return True if the session user is a guild member OR a system admin."""
+    if guild_id in _user_guild_ids(session):
+        return True
+    discord_id = session.get("id") or session.get("user_id")
+    if not discord_id:
+        return False
+    result = await db.execute(select(AdminUser).where(AdminUser.discord_id == discord_id))
+    return result.scalar_one_or_none() is not None
+
+
 async def _require_admin(request: Request, db: AsyncSession = Depends(get_db)) -> AdminUser:
     """Verify the session user exists in admin_users table."""
     session = _get_session(request)
@@ -644,7 +655,7 @@ async def list_trackers(
     session: Dict[str, Any] = Depends(_require_session),
 ):
     """Return active (non-expired) trackers for a guild. Requires Discord session."""
-    if guild_id not in _user_guild_ids(session):
+    if not await _can_access_guild(guild_id, session, db):
         raise HTTPException(status_code=403, detail="You don't have access to this guild's map")
 
     result_g = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
@@ -779,7 +790,7 @@ async def list_routes(
     db: AsyncSession = Depends(get_db),
 ):
     """List all routes for a guild. Requires Discord session."""
-    if guild_id not in _user_guild_ids(session):
+    if not await _can_access_guild(guild_id, session, db):
         raise HTTPException(status_code=403, detail="You don't have access to this guild's map")
 
     result_g = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
@@ -908,7 +919,7 @@ async def list_avalon_portals(
     db: AsyncSession = Depends(get_db),
 ):
     """List active Avalonian portal connections for a guild."""
-    if guild_id not in _user_guild_ids(session):
+    if not await _can_access_guild(guild_id, session, db):
         raise HTTPException(status_code=403, detail="You don't have access to this guild's map")
 
     result_g = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
