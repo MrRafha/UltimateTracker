@@ -2,39 +2,30 @@
 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import LanguageSwitcher from '../components/LanguageSwitcher';
+import { Inter } from 'next/font/google';
+import FloatingLangSwitcher from '../components/FloatingLangSwitcher';
 
 const PAYPAL_DONATE_URL = process.env.NEXT_PUBLIC_PAYPAL_DONATE_URL ?? 'https://www.paypal.com/donate/?business=S53JLJTYQN3FL&no_recurring=0&item_name=help+me+to+keep+the+servers+on&currency_code=USD';
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
 
 export default function DonatePage() {
   const t = useTranslations();
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: 'radial-gradient(ellipse at 50% -10%, rgba(88,101,242,0.12) 0%, #0a0a0f 55%)',
-      fontFamily: 'system-ui, -apple-system, sans-serif',
-      color: '#e0e0e0',
-    }}>
-      <div style={{
-        position: 'fixed', inset: 0, pointerEvents: 'none',
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-      }} />
+    <div className={inter.className} style={{ minHeight: '100vh', background: '#0D0D0D', color: '#E0E0E0' }}>
 
       <nav style={{
         position: 'sticky', top: 0, zIndex: 50,
-        background: 'rgba(10,10,15,0.85)', backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
+        background: 'rgba(13,13,13,0.85)', backdropFilter: 'blur(12px)',
+        borderBottom: '1px solid #1F1F1F',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 32px', height: 56,
+        padding: '0 32px', height: 64,
       }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img src="/brand/icon.png" alt="Ultimate Tracker" height={36} style={{ display: 'block', width: 'auto' }} />
         </Link>
         <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-          <LanguageSwitcher />
-          <Link href="/pricing" style={{ fontSize: 13, fontWeight: 700, color: '#8a93f5', textDecoration: 'none', padding: '6px 4px' }}>
+          <Link href="/pricing" style={{ fontSize: 13, fontWeight: 700, color: '#5865F2', textDecoration: 'none', padding: '6px 4px' }}>
             {t('nav.donate')}
           </Link>
           <Link href="/login" style={{ fontSize: 13, fontWeight: 700, background: '#5865F2', color: '#fff', padding: '7px 18px', borderRadius: 8, textDecoration: 'none' }}>
@@ -56,7 +47,7 @@ export default function DonatePage() {
           {t('donation.h1_a')}<br />
           <span style={{ color: '#5865F2' }}>{t('donation.h1_b')}</span>
         </h1>
-        <p style={{ margin: 0, fontSize: 16, color: 'rgba(255,255,255,0.4)', maxWidth: 540, marginInline: 'auto', lineHeight: 1.7 }}>
+        <p style={{ margin: 0, fontSize: 16, color: '#8A8A8A', maxWidth: 540, marginInline: 'auto', lineHeight: 1.7 }}>
           {t('donation.subtitle')}
         </p>
       </section>
@@ -64,20 +55,20 @@ export default function DonatePage() {
       <section style={{ maxWidth: 520, margin: '0 auto', padding: '0 24px 100px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24 }}>
         <div style={{
           width: '100%',
-          background: 'linear-gradient(160deg, rgba(88,101,242,0.12) 0%, rgba(88,101,242,0.04) 100%)',
-          border: '1px solid rgba(88,101,242,0.4)',
-          borderRadius: 24, padding: '40px 36px',
+          background: '#111111',
+          border: '1px solid #1F1F1F',
+          borderRadius: 16, padding: '40px 36px',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20,
-          boxShadow: '0 0 60px rgba(88,101,242,0.12)', textAlign: 'center',
+          textAlign: 'center',
         }}>
           <span className="material-icons" style={{ fontSize: 52, color: '#e05a5a' }}>favorite</span>
           <div>
             <div style={{ fontSize: 22, fontWeight: 800, color: '#fff', marginBottom: 8 }}>{t('donation.card_title')}</div>
-            <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.7 }}>{t('donation.card_desc')}</div>
+            <div style={{ fontSize: 14, color: '#8A8A8A', lineHeight: 1.7 }}>{t('donation.card_desc')}</div>
           </div>
           <ul style={{ textAlign: 'left', width: '100%', listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
             {[t('donation.benefit_0'), t('donation.benefit_1'), t('donation.benefit_2')].map((item) => (
-              <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.65)' }}>
+              <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 14, color: '#C7C7C7' }}>
                 <span className="material-icons" style={{ fontSize: 16, color: '#5865F2', flexShrink: 0 }}>check_circle</span>
                 {item}
               </li>
@@ -99,15 +90,16 @@ export default function DonatePage() {
             <span className="material-icons" style={{ fontSize: 20 }}>volunteer_activism</span>
             {t('donation.cta')}
           </a>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', margin: 0 }}>{t('donation.secure_note')}</p>
+          <p style={{ fontSize: 12, color: '#8A8A8A', margin: 0 }}>{t('donation.secure_note')}</p>
         </div>
-        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)', textAlign: 'center', lineHeight: 1.8 }}>{t('donation.footer_note')}</p>
+        <p style={{ fontSize: 13, color: '#8A8A8A', textAlign: 'center', lineHeight: 1.8 }}>{t('donation.footer_note')}</p>
       </section>
 
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', textAlign: 'center', padding: '28px 24px', fontSize: 12, color: '#444', display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
-        <a href="https://discord.gg/kekQ2qSyEY" target="_blank" rel="noopener noreferrer" style={{ color: '#5865F2', textDecoration: 'none' }}>Discord</a>
+      <footer style={{ borderTop: '1px solid #1F1F1F', textAlign: 'center', padding: '28px 24px', fontSize: 12, color: '#8A8A8A' }}>
         {t('common.footer_legal')}
       </footer>
+
+      <FloatingLangSwitcher />
     </div>
   );
 }
