@@ -129,7 +129,7 @@ interface PortalModalProps {
   onSuccess: () => void;
 }
 
-const SIZES: PortalSize[] = [2, 7, 20, 0];
+const SIZES: PortalSize[] = [7, 20, 0];
 
 export default function PortalModal({ guildId, zones, onClose, onSuccess }: PortalModalProps) {
   const t = useTranslations();
@@ -137,6 +137,7 @@ export default function PortalModal({ guildId, zones, onClose, onSuccess }: Port
   const [conn1, setConn1] = useState("");
   const [conn2, setConn2] = useState("");
   const [size, setSize] = useState<PortalSize>(7);
+  const [charges, setCharges] = useState<number | null>(null);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [error, setError] = useState("");
@@ -165,6 +166,7 @@ export default function PortalModal({ guildId, zones, onClose, onSuccess }: Port
           size,
           hours: size === 0 ? 0 : hours,
           minutes: size === 0 ? 0 : minutes,
+          charges: charges,
           reported_by_name: "web",
         }),
       });
@@ -220,7 +222,7 @@ export default function PortalModal({ guildId, zones, onClose, onSuccess }: Port
                       color: active ? color : "#666", fontSize: 11, fontWeight: 700, cursor: "pointer",
                     }}
                   >
-                    {s === 0 ? "Royal" : `${s}m`}
+                    {PORTAL_SIZE_LABEL[s]}
                   </button>
                 );
               })}
@@ -248,6 +250,21 @@ export default function PortalModal({ guildId, zones, onClose, onSuccess }: Port
               </div>
             </div>
           )}
+
+          {/* Charges remaining */}
+          <div style={{ marginBottom: 14 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#666", marginBottom: 4, textTransform: "uppercase", letterSpacing: 0.5 }}>{t("modal.portal_charges")}</div>
+            <input
+              type="number" min={1} max={500}
+              value={charges ?? ""}
+              onChange={(e) => {
+                const v = parseInt(e.target.value);
+                setCharges(isNaN(v) ? null : Math.max(1, v));
+              }}
+              placeholder={t("modal.portal_charges_placeholder")}
+              style={{ width: "100%", boxSizing: "border-box", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, padding: "8px 10px", color: "#ddd", fontSize: 12, outline: "none" }}
+            />
+          </div>
 
           {error && (
             <div style={{ fontSize: 12, color: "#f87171", marginBottom: 10, padding: "6px 10px", background: "rgba(239,68,68,0.08)", borderRadius: 6, border: "1px solid rgba(239,68,68,0.15)" }}>

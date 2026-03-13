@@ -189,7 +189,9 @@
     "portal_size_20": "20人",
     "portal_size_royal": "皇家（永久）",
     "portal_error_fill": "请填写两个区域。",
-    "portal_error_same": "区域必须不同。"
+    "portal_error_same": "区域必须不同。",
+    "portal_charges": "剩余充能",
+    "portal_charges_placeholder": "可选..."
   },
   "objectives": {
     "couro": "皮革",

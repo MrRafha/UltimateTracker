@@ -102,7 +102,8 @@ class AvalonPortal(Base):
     # conn1/conn2 are always stored in alphabetical order (Portaler pattern)
     conn1: Mapped[str] = mapped_column(String(150), nullable=False)
     conn2: Mapped[str] = mapped_column(String(150), nullable=False)
-    size: Mapped[int] = mapped_column(nullable=False)   # 0=Royal, 2, 7, 20
+    size: Mapped[int] = mapped_column(nullable=False)   # 0=Royal, 7, 20
+    charges: Mapped[int | None] = mapped_column(Integer, nullable=True)  # charges remaining (None = unknown)
     expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)  # None = Royal (permanent)
     reported_by_name: Mapped[str] = mapped_column(String, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)

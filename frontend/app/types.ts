@@ -126,6 +126,7 @@ export type AvalonPortal = {
   conn1: string;
   conn2: string;
   size: PortalSize;
+  charges: number | null;  // charges remaining; null = unknown
   expiresAt: string | null;   // null = Royal (permanent)
   timeLeft: number;            // seconds; 999999 = Royal
   reportedByName: string;

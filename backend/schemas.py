@@ -199,16 +199,17 @@ class AvalonPortalCreate(BaseModel):
     guild_id: str
     conn1: str
     conn2: str
-    size: int   # 0, 2, 7, 20
+    size: int   # 0, 7, 20
     hours: int = 0
     minutes: int = 0
+    charges: Optional[int] = None
     reported_by_name: str
 
     @field_validator("size")
     @classmethod
     def validate_size(cls, v: int) -> int:
         if v not in (0, 2, 7, 20):
-            raise ValueError("size must be 0 (Royal), 2, 7, or 20")
+            raise ValueError("size must be 0 (Royal), 7, or 20")
         return v
 
     @field_validator("hours", "minutes")
@@ -224,6 +225,7 @@ class AvalonPortalOut(BaseModel):
     conn1: str
     conn2: str
     size: int
+    charges: Optional[int] = None
     expires_at: Optional[datetime]
     time_left: int          # seconds remaining; 999999 for Royal
     reported_by_name: str

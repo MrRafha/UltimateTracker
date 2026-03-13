@@ -189,7 +189,9 @@
     "portal_size_20": "20-man",
     "portal_size_royal": "Royal (no expiry)",
     "portal_error_fill": "Please fill both zones.",
-    "portal_error_same": "Zones must be different."
+    "portal_error_same": "Zones must be different.",
+    "portal_charges": "Charges remaining",
+    "portal_charges_placeholder": "Optional..."
   },
   "objectives": {
     "couro": "Hide",

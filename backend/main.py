@@ -842,6 +842,7 @@ def _portal_to_out(portal: AvalonPortal, now: datetime) -> AvalonPortalOut:
         conn1=portal.conn1,
         conn2=portal.conn2,
         size=portal.size,
+        charges=portal.charges,
         expires_at=portal.expires_at,
         time_left=time_left,
         reported_by_name=portal.reported_by_name,
@@ -880,6 +881,7 @@ async def create_avalon_portal(
 
     if portal:
         portal.size = payload.size
+        portal.charges = payload.charges
         portal.expires_at = expires_at
         portal.reported_by_name = session.get("username", payload.reported_by_name)
     else:
@@ -888,6 +890,7 @@ async def create_avalon_portal(
             conn1=c1,
             conn2=c2,
             size=payload.size,
+            charges=payload.charges,
             expires_at=expires_at,
             reported_by_name=session.get("username", payload.reported_by_name),
         )

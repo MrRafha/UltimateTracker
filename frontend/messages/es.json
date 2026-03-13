@@ -189,7 +189,9 @@
     "portal_size_20": "20 jugadores",
     "portal_size_royal": "Royal (sin expirar)",
     "portal_error_fill": "Completa las dos zonas.",
-    "portal_error_same": "Las zonas deben ser diferentes."
+    "portal_error_same": "Las zonas deben ser diferentes.",
+    "portal_charges": "Cargas restantes",
+    "portal_charges_placeholder": "Opcional..."
   },
   "objectives": {
     "couro": "Cuero",

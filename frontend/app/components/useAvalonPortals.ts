@@ -16,6 +16,7 @@ function normalizePortal(raw: Record<string, unknown>): AvalonPortal {
     conn1: raw.conn1 as string,
     conn2: raw.conn2 as string,
     size: raw.size as PortalSize,
+    charges: (raw.charges as number | null) ?? null,
     expiresAt: (raw.expires_at as string | null) ?? null,
     timeLeft: raw.time_left as number,
     reportedByName: raw.reported_by_name as string,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import {
   ReactFlow,
   Background,
@@ -8,11 +8,14 @@ import {
   MiniMap,
   useNodesState,
   useEdgesState,
+  useReactFlow,
   type Node,
   type Edge,
   BackgroundVariant,
+  Panel,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
+import * as dagre from "@dagrejs/dagre";
 import type { AvalonPortal, PortalSize, Route } from "../types";
 import { PORTAL_SIZE_COLOR, PORTAL_SIZE_LABEL } from "../types";
 
@@ -20,15 +23,40 @@ import { PORTAL_SIZE_COLOR, PORTAL_SIZE_LABEL } from "../types";
 
 function fmtSec(seconds: number): string {
   if (seconds <= 0) return "EXPIRED";
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = seconds % 60;
+  const total = Math.floor(seconds);
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60);
+  const s = total % 60;
   const p = (n: number) => String(n).padStart(2, "0");
   return h > 0 ? `${h}h ${p(m)}m` : `${p(m)}m ${p(s)}s`;
 }
 
 function isAvalonZone(name: string): boolean {
   return /^TNL-\d+$/i.test(name.trim());
+}
+
+// ── Dagre layout ──────────────────────────────────────────────
+
+const NODE_W = 120;
+const NODE_H = 42;
+
+function applyDagreLayout(nodes: Node[], edges: Edge[]): Node[] {
+  const g = new dagre.graphlib.Graph();
+  g.setDefaultEdgeLabel(() => ({}));
+  g.setGraph({ rankdir: "LR", nodesep: 80, ranksep: 120, edgesep: 40 });
+
+  nodes.forEach((n) => g.setNode(n.id, { width: NODE_W, height: NODE_H }));
+  edges.forEach((e) => g.setEdge(e.source, e.target));
+
+  dagre.layout(g);
+
+  return nodes.map((node) => {
+    const pos = g.node(node.id);
+    return {
+      ...node,
+      position: { x: pos.x - NODE_W / 2, y: pos.y - NODE_H / 2 },
+    };
+  });
 }
 
 // ── Graph builder ─────────────────────────────────────────────
@@ -38,28 +66,23 @@ type RoutePair = { count: number; earliestExpiry: number | null };
 function buildGraph(
   portals: AvalonPortal[],
   routes: Route[],
-  now: number,
 ): { nodes: Node[]; edges: Edge[] } {
-  // ── 1. Extract route-derived pairs ─────────────────────────
-  const routePairs = new Map<string, RoutePair>();
+  const now = Date.now() / 1000;
 
+  // ── Extract route-derived pairs ────────────────────────────
+  const routePairs = new Map<string, RoutePair>();
   for (const route of routes) {
     const sorted = [...route.waypoints].sort((a, b) => a.order - b.order);
     for (let i = 0; i < sorted.length - 1; i++) {
-      const a = sorted[i].zoneName;
-      const b = sorted[i + 1].zoneName;
-      const pairKey = [a, b].sort().join("|");
-      // Time of this connection = expiresAt of the destination waypoint
+      const pairKey = [sorted[i].zoneName, sorted[i + 1].zoneName].sort().join("|");
       const expiresAt = sorted[i + 1].expiresAt;
       const timeLeft = expiresAt ? new Date(expiresAt).getTime() / 1000 - now : null;
 
       const existing = routePairs.get(pairKey);
       if (existing) {
         existing.count++;
-        if (timeLeft !== null) {
-          if (existing.earliestExpiry === null || timeLeft < existing.earliestExpiry) {
-            existing.earliestExpiry = timeLeft;
-          }
+        if (timeLeft !== null && (existing.earliestExpiry === null || timeLeft < existing.earliestExpiry)) {
+          existing.earliestExpiry = timeLeft;
         }
       } else {
         routePairs.set(pairKey, { count: 1, earliestExpiry: timeLeft });
@@ -67,7 +90,7 @@ function buildGraph(
     }
   }
 
-  // ── 2. Collect all unique zones ────────────────────────────
+  // ── Collect all unique zones ───────────────────────────────
   const zoneSet = new Set<string>();
   portals.forEach((p) => { zoneSet.add(p.conn1); zoneSet.add(p.conn2); });
   routePairs.forEach((_, key) => {
@@ -76,7 +99,7 @@ function buildGraph(
     zoneSet.add(b);
   });
 
-  // ── 3. Build nodes in a circle ────────────────────────────
+  // ── Build nodes — initial circle (dagre applied after mount) ─
   const zoneList = Array.from(zoneSet);
   const total = zoneList.length;
   const radius = Math.max(200, total * 35);
@@ -105,7 +128,7 @@ function buildGraph(
     };
   });
 
-  // ── 4. Build portal edges ──────────────────────────────────
+  // ── Portal edges ────────────────────────────────────────────
   const portalPairKeys = new Set<string>();
   const portalEdges: Edge[] = portals.map((p) => {
     portalPairKeys.add([p.conn1, p.conn2].sort().join("|"));
@@ -113,13 +136,14 @@ function buildGraph(
     const expired  = timeLeft <= 0;
     const urgent   = !expired && p.size !== 0 && timeLeft < 3600;
     const color    = expired ? "#444" : urgent ? "#ff4444" : PORTAL_SIZE_COLOR[p.size as PortalSize];
-    const labelText = p.size === 0 ? "Royal" : expired ? "Expired" : fmtSec(timeLeft);
+    const timeLabel = p.size === 0 ? "Royal" : expired ? "Expired" : fmtSec(timeLeft);
+    const chargesLabel = p.charges != null ? ` · ${p.charges}⚡` : "";
 
     return {
       id: p.id,
       source: p.conn1,
       target: p.conn2,
-      label: `${PORTAL_SIZE_LABEL[p.size as PortalSize]} · ${labelText}`,
+      label: `${PORTAL_SIZE_LABEL[p.size as PortalSize]}${chargesLabel} · ${timeLabel}`,
       style: { stroke: color, strokeWidth: expired ? 1 : 2 },
       labelStyle: { fill: color, fontSize: 10, fontWeight: 700 },
       labelBgStyle: { fill: "rgba(13,13,13,0.85)", stroke: color, strokeWidth: 0.5 },
@@ -129,10 +153,10 @@ function buildGraph(
     };
   });
 
-  // ── 5. Build route-derived edges (not covered by a portal) ─
+  // ── Route-derived edges (not covered by a portal) ────────────
   const routeEdges: Edge[] = [];
   routePairs.forEach((data, pairKey) => {
-    if (portalPairKeys.has(pairKey)) return; // portal takes priority
+    if (portalPairKeys.has(pairKey)) return;
     const [conn1, conn2] = pairKey.split("|");
     const expired = data.earliestExpiry !== null && data.earliestExpiry <= 0;
     const timeLabel =
@@ -159,6 +183,45 @@ function buildGraph(
   return { nodes, edges: [...portalEdges, ...routeEdges] };
 }
 
+// ── Inner panel — has access to ReactFlow context ─────────────
+
+function GraphControls({ nodes, edges }: { nodes: Node[]; edges: Edge[] }) {
+  const { setNodes, fitView } = useReactFlow();
+
+  // Auto-apply dagre layout on mount
+  useEffect(() => {
+    setNodes(applyDagreLayout(nodes, edges));
+    requestAnimationFrame(() => fitView({ padding: 0.2 }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <Panel position="top-left" style={{ margin: "10px 0 0 10px" }}>
+      <button
+        onClick={() => {
+          setNodes(applyDagreLayout(nodes, edges));
+          requestAnimationFrame(() => fitView({ padding: 0.2, duration: 300 }));
+        }}
+        style={{
+          display: "flex", alignItems: "center", gap: 6,
+          padding: "6px 12px", borderRadius: 8,
+          background: "rgba(13,13,13,0.9)",
+          border: "1px solid rgba(255,255,255,0.12)",
+          color: "#aaa", fontSize: 11, fontWeight: 700, cursor: "pointer",
+          backdropFilter: "blur(8px)",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.6)",
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = "#eee")}
+        onMouseLeave={(e) => (e.currentTarget.style.color = "#aaa")}
+        title="Auto-organizar grafo"
+      >
+        <span className="material-icons" style={{ fontSize: 14, lineHeight: 1 }}>auto_fix_high</span>
+        Auto-organizar
+      </button>
+    </Panel>
+  );
+}
+
 // ── Component ──────────────────────────────────────────────────
 
 interface AvalonGraphProps {
@@ -168,17 +231,16 @@ interface AvalonGraphProps {
 }
 
 export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonGraphProps) {
-  const now = Date.now() / 1000;
   const { nodes: initNodes, edges: initEdges } = useMemo(
-    () => buildGraph(portals, routes, now),
+    () => buildGraph(portals, routes),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [portals, routes],
   );
 
-  const [nodes, , onNodesChange] = useNodesState(initNodes);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initNodes);
   const [edges, , onEdgesChange] = useEdgesState(initEdges);
 
-  // Remount graph when portal or route set changes so new nodes are picked up
+  // Remount when portal/route set changes so new nodes are picked up
   const graphKey = [
     ...portals.map((p) => p.id),
     ...routes.map((r) => r.id),
@@ -193,8 +255,7 @@ export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonG
           width: "100%", height: "100%",
           display: "flex", alignItems: "center", justifyContent: "center",
           flexDirection: "column", gap: 12,
-          background: "#0D0D0D",
-          color: "#444",
+          background: "#0D0D0D", color: "#444",
         }}
       >
         <span className="material-icons" style={{ fontSize: 48, color: "#222" }}>hub</span>
@@ -216,6 +277,7 @@ export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonG
         style={{ background: "#0D0D0D" }}
         defaultEdgeOptions={{ type: "default" }}
       >
+        <GraphControls nodes={nodes} edges={edges} />
         <Background
           variant={BackgroundVariant.Dots}
           gap={24}
@@ -230,10 +292,7 @@ export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonG
         />
         <MiniMap
           style={{ background: "#111", border: "1px solid #1f1f1f" }}
-          nodeColor={(n) => {
-            const name = String(n.id);
-            return isAvalonZone(name) ? "#FFB347" : "#4499ff";
-          }}
+          nodeColor={(n) => (isAvalonZone(String(n.id)) ? "#FFB347" : "#4499ff")}
           maskColor="rgba(0,0,0,0.6)"
         />
       </ReactFlow>

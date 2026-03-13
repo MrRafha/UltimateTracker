@@ -618,6 +618,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
                         </div>
                         <div style={{ fontSize: 10, color: "#444", marginTop: 2 }}>
                           <span style={{ color, fontWeight: 700 }}>{portal.size === 0 ? "Royal" : `${portal.size}-man`}</span>
+                          {portal.charges != null && <span style={{ color: "#888" }}> · {portal.charges}⚡</span>}
                           {" · "}por {portal.reportedByName}
                         </div>
                       </div>
