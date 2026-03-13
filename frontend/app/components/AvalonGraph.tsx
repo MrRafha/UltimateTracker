@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
+import useSWR from "swr";
 import {
   ReactFlow,
   Background,
@@ -19,6 +20,8 @@ import dagre from "@dagrejs/dagre";
 import type { AvalonPortal, PortalSize, Route } from "../types";
 import { PORTAL_SIZE_COLOR, PORTAL_SIZE_LABEL } from "../types";
 
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
+
 // ── Helpers ───────────────────────────────────────────────────
 
 function fmtSec(seconds: number): string {
@@ -29,10 +32,6 @@ function fmtSec(seconds: number): string {
   const s = total % 60;
   const p = (n: number) => String(n).padStart(2, "0");
   return h > 0 ? `${h}h ${p(m)}m` : `${p(m)}m ${p(s)}s`;
-}
-
-function isAvalonZone(name: string): boolean {
-  return /^TNL-\d+$/i.test(name.trim());
 }
 
 // ── Dagre layout ──────────────────────────────────────────────
@@ -66,6 +65,8 @@ type RoutePair = { count: number; earliestExpiry: number | null };
 function buildGraph(
   portals: AvalonPortal[],
   routes: Route[],
+  avalonZoneSet: Set<string>,
+  indexToName: Map<string, string>,
 ): { nodes: Node[]; edges: Edge[] } {
   const now = Date.now() / 1000;
 
@@ -99,21 +100,23 @@ function buildGraph(
     zoneSet.add(b);
   });
 
-  // ── Build nodes — initial circle (dagre applied after mount) ─
+  // ── Build nodes ────────────────────────────────────────────
   const zoneList = Array.from(zoneSet);
   const total = zoneList.length;
   const radius = Math.max(200, total * 35);
 
   const nodes: Node[] = zoneList.map((name, i) => {
     const angle = (2 * Math.PI * i) / total - Math.PI / 2;
-    const isAvalon = isAvalonZone(name);
+    const isAvalon = avalonZoneSet.has(name);
+    // Show human-readable name; backward-compat for old TNL-xxx portals
+    const label = indexToName.get(name) ?? name;
     return {
       id: name,
       position: {
         x: Math.cos(angle) * radius + radius + 80,
         y: Math.sin(angle) * radius + radius + 80,
       },
-      data: { label: name },
+      data: { label },
       style: {
         background: isAvalon ? "rgba(255,179,71,0.15)" : "rgba(68,153,255,0.12)",
         border: `1.5px solid ${isAvalon ? "#FFB347" : "#4499ff"}`,
@@ -230,21 +233,37 @@ interface AvalonGraphProps {
   emptyText: string;
 }
 
+type AvalonZone = { index: string; uniqueName: string };
+
 export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonGraphProps) {
-  const { nodes: initNodes, edges: initEdges } = useMemo(
-    () => buildGraph(portals, routes),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [portals, routes],
+  // Fetch static zone list for name lookup and avalon zone identification
+  const { data: avalonZoneList = [] } = useSWR<AvalonZone[]>(
+    `${API_BASE}/avalon-zones`,
+    (url: string) => fetch(url).then((r) => r.json()),
+    { revalidateOnFocus: false, dedupingInterval: 3_600_000 },
   );
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(initNodes);
-  const [edges, , onEdgesChange] = useEdgesState(initEdges);
+  // Set containing both index ("TNL-001") and uniqueName ("Ouyos-Aoeuam")
+  // so both old (TNL-xxx) and new (name) portals are styled correctly as orange
+  const avalonZoneSet = useMemo(() => new Set([
+    ...avalonZoneList.map((z) => z.index),
+    ...avalonZoneList.map((z) => z.uniqueName),
+  ]), [avalonZoneList]);
 
-  // Remount when portal/route set changes so new nodes are picked up
-  const graphKey = [
-    ...portals.map((p) => p.id),
-    ...routes.map((r) => r.id),
-  ].sort().join(",");
+  // Map TNL-xxx → uniqueName for backward compat display
+  const indexToName = useMemo(
+    () => new Map(avalonZoneList.map((z) => [z.index, z.uniqueName])),
+    [avalonZoneList],
+  );
+
+  const { nodes: initNodes, edges: initEdges } = useMemo(
+    () => buildGraph(portals, routes, avalonZoneSet, indexToName),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [portals, routes, avalonZoneSet, indexToName],
+  );
+
+  const [nodes, , onNodesChange] = useNodesState(initNodes);
+  const [edges, , onEdgesChange] = useEdgesState(initEdges);
 
   const isEmpty = portals.length === 0 && routes.length === 0;
 
@@ -265,7 +284,7 @@ export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonG
   }
 
   return (
-    <div key={graphKey} style={{ width: "100%", height: "100%", background: "#0D0D0D" }}>
+    <div style={{ width: "100%", height: "100%", background: "#0D0D0D" }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -292,7 +311,7 @@ export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonG
         />
         <MiniMap
           style={{ background: "#111", border: "1px solid #1f1f1f" }}
-          nodeColor={(n) => (isAvalonZone(String(n.id)) ? "#FFB347" : "#4499ff")}
+          nodeColor={(n) => (avalonZoneSet.has(String(n.id)) ? "#FFB347" : "#4499ff")}
           maskColor="rgba(0,0,0,0.6)"
         />
       </ReactFlow>

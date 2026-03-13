@@ -697,6 +697,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
           />
         ) : (
           <AvalonGraph
+            key={[...portals.map((p) => p.id), ...routes.map((r) => r.id)].sort().join(",")}
             portals={portals}
             routes={routes}
             emptyText={t('map.empty_portals')}

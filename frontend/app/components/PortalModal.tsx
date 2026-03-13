@@ -27,7 +27,7 @@ function searchZones(
   const avalon: ZoneSuggestion[] = avalonZones
     .filter((z) => z.index.toLowerCase().includes(ql) || z.uniqueName.toLowerCase().includes(ql))
     .slice(0, LIMIT)
-    .map((z) => ({ type: "avalon" as const, label: z.index, index: z.index }));
+    .map((z) => ({ type: "avalon" as const, label: z.uniqueName, index: z.index }));
   return [...world, ...avalon].slice(0, LIMIT);
 }
 
