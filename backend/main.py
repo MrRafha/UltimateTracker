@@ -22,7 +22,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from constants import TrackerSource, TrackerType
 from database import SessionLocal, create_tables, get_db
-from models import Guild, Tracker, Route, RouteWaypoint, GuildMember, AdminUser
+from models import Guild, Tracker, Route, RouteWaypoint, GuildMember, AdminUser, AvalonPortal
 from sqlalchemy import delete as sa_delete
 from schemas import (
     GuildOut,
@@ -40,6 +40,8 @@ from schemas import (
     AdminUserOut,
     AdminGuildOut,
     AdminStatsOut,
+    AvalonPortalCreate,
+    AvalonPortalOut,
 )
 
 load_dotenv()
@@ -95,7 +97,7 @@ _SESSIONS: Dict[str, Dict[str, Any]] = {}
 # =============================================================================
 
 async def _cleanup_expired_routes() -> None:
-    """Background task: delete routes whose earliest waypoint timer has expired."""
+    """Background task: delete expired routes and avalon portals."""
     import logging
     log = logging.getLogger("uvicorn.error")
     while True:
@@ -118,8 +120,17 @@ async def _cleanup_expired_routes() -> None:
                     await db.execute(
                         sa_delete(Route).where(Route.id.in_(expired_ids))
                     )
-                    await db.commit()
                     log.info("🧹 Deleted %d expired Avalon route(s)", len(expired_ids))
+
+                # Delete expired non-Royal avalon portals
+                await db.execute(
+                    sa_delete(AvalonPortal).where(
+                        AvalonPortal.size != 0,
+                        AvalonPortal.expires_at.is_not(None),
+                        AvalonPortal.expires_at <= now,
+                    )
+                )
+                await db.commit()
         except asyncio.CancelledError:
             break
         except Exception as exc:
@@ -817,8 +828,121 @@ async def delete_route(
 
 
 # =============================================================================
-# Discord OAuth2 routes
+# Avalon Portals
 # =============================================================================
+
+def _portal_to_out(portal: AvalonPortal, now: datetime) -> AvalonPortalOut:
+    if portal.expires_at is None or portal.size == 0:
+        time_left = 999999
+    else:
+        delta = (portal.expires_at - now).total_seconds()
+        time_left = max(0, int(delta))
+    return AvalonPortalOut(
+        id=portal.id,
+        conn1=portal.conn1,
+        conn2=portal.conn2,
+        size=portal.size,
+        expires_at=portal.expires_at,
+        time_left=time_left,
+        reported_by_name=portal.reported_by_name,
+        created_at=portal.created_at,
+    )
+
+
+@app.post("/avalon-portals", response_model=AvalonPortalOut)
+async def create_avalon_portal(
+    payload: AvalonPortalCreate,
+    session: Dict[str, Any] = Depends(_require_session),
+    db: AsyncSession = Depends(get_db),
+):
+    """Create (or update) an Avalonian road portal connection."""
+    if payload.guild_id not in _user_guild_ids(session):
+        raise HTTPException(status_code=403, detail="You don't have access to this guild")
+
+    result_guild = await db.execute(select(Guild).where(Guild.guild_id == payload.guild_id))
+    if not result_guild.scalar_one_or_none():
+        raise HTTPException(status_code=404, detail="Guild not found")
+
+    # Always store conn1/conn2 sorted alphabetically (Portaler pattern)
+    c1, c2 = sorted([payload.conn1.strip(), payload.conn2.strip()])
+    now = datetime.now(timezone.utc)
+    expires_at = None if payload.size == 0 else now + timedelta(hours=payload.hours, minutes=payload.minutes)
+
+    # Upsert: update existing connection between same two zones for this guild
+    result_existing = await db.execute(
+        select(AvalonPortal).where(
+            AvalonPortal.guild_id == payload.guild_id,
+            AvalonPortal.conn1 == c1,
+            AvalonPortal.conn2 == c2,
+        )
+    )
+    portal = result_existing.scalar_one_or_none()
+
+    if portal:
+        portal.size = payload.size
+        portal.expires_at = expires_at
+        portal.reported_by_name = session.get("username", payload.reported_by_name)
+    else:
+        portal = AvalonPortal(
+            guild_id=payload.guild_id,
+            conn1=c1,
+            conn2=c2,
+            size=payload.size,
+            expires_at=expires_at,
+            reported_by_name=session.get("username", payload.reported_by_name),
+        )
+        db.add(portal)
+
+    await db.commit()
+    await db.refresh(portal)
+    return _portal_to_out(portal, datetime.now(timezone.utc))
+
+
+@app.get("/avalon-portals", response_model=List[AvalonPortalOut])
+async def list_avalon_portals(
+    guild_id: str,
+    session: Dict[str, Any] = Depends(_require_session),
+    db: AsyncSession = Depends(get_db),
+):
+    """List active Avalonian portal connections for a guild."""
+    if guild_id not in _user_guild_ids(session):
+        raise HTTPException(status_code=403, detail="You don't have access to this guild's map")
+
+    result_g = await db.execute(select(Guild).where(Guild.guild_id == guild_id))
+    if not result_g.scalar_one_or_none():
+        raise HTTPException(status_code=404, detail="Guild not found")
+
+    result = await db.execute(
+        select(AvalonPortal)
+        .where(AvalonPortal.guild_id == guild_id)
+        .order_by(AvalonPortal.created_at.desc())
+    )
+    portals = result.scalars().all()
+
+    now = datetime.now(timezone.utc)
+    active = [
+        p for p in portals
+        if p.size == 0 or p.expires_at is None or p.expires_at > now
+    ]
+    return [_portal_to_out(p, now) for p in active]
+
+
+@app.delete("/avalon-portals/{portal_id}")
+async def delete_avalon_portal(
+    portal_id: str,
+    session: Dict[str, Any] = Depends(_require_session),
+    db: AsyncSession = Depends(get_db),
+):
+    """Delete an Avalonian portal connection."""
+    result = await db.execute(select(AvalonPortal).where(AvalonPortal.id == portal_id))
+    portal = result.scalar_one_or_none()
+    if not portal:
+        raise HTTPException(status_code=404, detail="Portal not found")
+    if portal.guild_id not in _user_guild_ids(session):
+        raise HTTPException(status_code=403, detail="Access denied")
+    await db.delete(portal)
+    await db.commit()
+    return {"ok": True}
 
 @app.get("/auth/discord")
 async def auth_discord(guild_id: Optional[str] = None):

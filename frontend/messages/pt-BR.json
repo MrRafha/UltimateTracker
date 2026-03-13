@@ -102,7 +102,14 @@
     "timer_no_timer": "sem timer",
     "route_delete": "Deletar rota",
     "reported_by": "por {name} · {count} zonas",
-    "zones_count": "{count} zonas"
+    "zones_count": "{count} zonas",
+    "tab_portals": "🕸️ Teia",
+    "section_portals": "Portais Avalonicos",
+    "empty_portals": "Nenhum portal. Use o + para reportar.",
+    "layer_world": "Mapa",
+    "layer_avalon": "Teia Avalon",
+    "report_portal": "Portal Avalon",
+    "portal_delete": "Excluir portal"
   },
   "admin": {
     "badge": "ADMIN",
@@ -171,7 +178,18 @@
     "route_error_fill_zones": "Preencha todos os nomes de zona.",
     "route_error_connection": "Falha na conex\u00e3o.",
     "route_entry_placeholder": "Zona de entrada \u2014 mundo ou TNL\u2026",
-    "route_next_placeholder": "Pr\u00f3xima zona \u2014 mundo ou TNL\u2026"
+    "route_next_placeholder": "Pr\u00f3xima zona \u2014 mundo ou TNL\u2026",
+    "portal_title": "Novo Portal Avalonico",
+    "portal_subtitle": "Registre uma conexão entre duas zonas avalonianas",
+    "portal_zone_a": "Zona de Origem",
+    "portal_zone_b": "Zona de Destino",
+    "portal_size": "Tamanho",
+    "portal_size_2": "2 jogadores",
+    "portal_size_7": "7 jogadores",
+    "portal_size_20": "20 jogadores",
+    "portal_size_royal": "Royal (sem expirar)",
+    "portal_error_fill": "Preencha as duas zonas.",
+    "portal_error_same": "As zonas devem ser diferentes."
   },
   "objectives": {
     "couro": "Couro",

@@ -102,7 +102,14 @@
     "timer_no_timer": "无计时器",
     "route_delete": "删除路线",
     "reported_by": "由 {name} · {count} 个区域",
-    "zones_count": "{count} 个区域"
+    "zones_count": "{count} 个区域",
+    "tab_portals": "🕸️ 传送网",
+    "section_portals": "阿瓦隆传送门",
+    "empty_portals": "没有传送门。使用 + 按钮报告。",
+    "layer_world": "地图",
+    "layer_avalon": "阿瓦隆传送网",
+    "report_portal": "阿瓦隆传送门",
+    "portal_delete": "删除传送门"
   },
   "admin": {
     "badge": "管理员",
@@ -171,7 +178,18 @@
     "route_error_fill_zones": "请填写所有地区名称。",
     "route_error_connection": "连接失败。",
     "route_entry_placeholder": "入口地区 — 世界或 TNL…",
-    "route_next_placeholder": "下一个地区 — 世界或 TNL…"
+    "route_next_placeholder": "下一个地区 — 世界或 TNL…",
+    "portal_title": "新阿瓦隆传送门",
+    "portal_subtitle": "注册两个阿瓦隆区域之间的连接",
+    "portal_zone_a": "起始区域",
+    "portal_zone_b": "目标区域",
+    "portal_size": "大小",
+    "portal_size_2": "2人",
+    "portal_size_7": "7人",
+    "portal_size_20": "20人",
+    "portal_size_royal": "皇家（永久）",
+    "portal_error_fill": "请填写两个区域。",
+    "portal_error_same": "区域必须不同。"
   },
   "objectives": {
     "couro": "皮革",

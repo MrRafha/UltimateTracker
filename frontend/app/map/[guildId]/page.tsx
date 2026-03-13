@@ -1,22 +1,27 @@
 ﻿"use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { use, useState, useEffect, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { Inter } from "next/font/google";
 import useSWR from "swr";
 import { useMe } from "../../components/useMe";
-import FloatingLangSwitcher from "../../components/FloatingLangSwitcher";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 import { useMyGuilds } from "../../components/useMyGuilds";
 import { useTrackers } from "../../components/useTrackers";
 import { useTimers } from "../../components/useTimers";
 import { useRoutes } from "../../components/useRoutes";
-import type { GuildTracker, Ping, ZoneData, TimerItem, Route } from "../../types";
+import { useAvalonPortals } from "../../components/useAvalonPortals";
+import LayerToggle from "../../components/LayerToggle";
+import type { GuildTracker, Ping, ZoneData, TimerItem, Route, AvalonPortal } from "../../types";
 
-const WorldMap = dynamic(() => import("../../components/WorldMap"), { ssr: false });
+const WorldMap    = dynamic(() => import("../../components/WorldMap"),    { ssr: false });
 const ReportModal = dynamic(() => import("../../components/ReportModal"), { ssr: false });
-const RouteModal = dynamic(() => import("../../components/RouteModal"), { ssr: false });
+const RouteModal  = dynamic(() => import("../../components/RouteModal"),  { ssr: false });
+const AvalonGraph = dynamic(() => import("../../components/AvalonGraph"), { ssr: false });
+const PortalModal = dynamic(() => import("../../components/PortalModal"), { ssr: false });
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800", "900"] });
@@ -306,6 +311,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   const { trackers, mutate }  = useTrackers(guildId);
   const { data: timersData }  = useTimers(guildId);
   const { routes, mutate: mutateRoutes } = useRoutes(guildId);
+  const { portals, mutate: mutatePortals } = useAvalonPortals(guildId);
 
   // Admin bypass: when the user is an admin but not a regular guild member,
   // fetch guild data directly from the admin endpoint to allow map access.
@@ -325,12 +331,14 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   const [selectedPingId, setSelectedPingId] = useState<string | null>(null);
   const [showReport, setShowReport]         = useState(false);
   const [showRouteModal, setShowRouteModal] = useState(false);
+  const [showPortalModal, setShowPortalModal] = useState(false);
   const [showFabMenu, setShowFabMenu]       = useState(false);
   const [now, setNow]                       = useState(Date.now());
   const [search, setSearch]                 = useState("");
   const [timeFilter, setTimeFilter]         = useState<"all" | "10m" | "30m" | "1h">("all");
-  const [tab, setTab]                       = useState<"nodes" | "routes">("nodes");
+  const [tab, setTab]                       = useState<"nodes" | "routes" | "portals">("nodes");
   const [detailRouteId, setDetailRouteId]   = useState<string | null>(null);
+  const [mapMode, setMapMode]               = useState<"world" | "avalon">("world");
 
   useEffect(() => {
     fetch(`${API_BASE}/zones`).then((r) => r.json()).then(setZones).catch(() => {});
@@ -416,20 +424,45 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
   const guildAccess = guilds.find((g) => g.guild_id === guildId);
 
   return (
-    <div className={inter.className} style={{ display: "flex", height: "100vh", background: "#0D0D0D" }}>
+    <div className={inter.className} style={{ display: "flex", flexDirection: "column", height: "100vh", background: "#0D0D0D" }}>
+
+      {/* TOPBAR */}
+      <div style={{
+        height: 48, flexShrink: 0,
+        display: "flex", alignItems: "center",
+        padding: "0 16px", gap: 12,
+        background: "#0D0D0D",
+        borderBottom: "1px solid #1F1F1F",
+      }}>
+        <img src="/brand/icon.png" alt="" height={22} style={{ display: "block", width: "auto" }} />
+        <span style={{ fontSize: 14, fontWeight: 800, color: "#eee", letterSpacing: 0.2 }}>UltimateTracker</span>
+        {(guildAccess?.guild_name || user?.guildName) && (
+          <span style={{
+            fontSize: 11, fontWeight: 700, color: "#8a93f5",
+            background: "rgba(88,101,242,0.12)", border: "1px solid rgba(88,101,242,0.25)",
+            borderRadius: 999, padding: "2px 10px",
+          }}>
+            {guildAccess?.guild_name ?? user?.guildName}
+          </span>
+        )}
+        <div style={{ flex: 1 }} />
+        <Link
+          href="/dashboard"
+          style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 12, fontWeight: 600, color: "#8A8A8A", textDecoration: "none" }}
+        >
+          <span className="material-icons" style={{ fontSize: 15, lineHeight: 1 }}>arrow_back</span>
+          Dashboard
+        </Link>
+      </div>
+
+      {/* MAIN CONTENT */}
+      <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
 
       {/* SIDEBAR */}
       <aside style={{ width: 340, flexShrink: 0, borderRight: "1px solid #1F1F1F", background: "#111111", display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
         {/* Header */}
-        <div style={{ padding: "14px 14px 10px", borderBottom: "1px solid #1F1F1F", background: "#111111", flexShrink: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-            <img src="/brand/icon.png" alt="" height={20} style={{ display: 'block', width: 'auto' }} />
-            <span style={{ fontWeight: 800, fontSize: 15, color: "#eee", letterSpacing: 0.3 }}>Ultimate Tracker</span>
-            {user?.guildName && (
-              <span style={{ marginLeft: "auto", fontSize: 11, color: "#8A8A8A" }}>{user.guildName}</span>
-            )}
-          </div>
+        <div style={{ padding: "10px 14px 10px", borderBottom: "1px solid #1F1F1F", background: "#111111", flexShrink: 0 }}>
           <div style={{ fontSize: 11, color: "#555", display: "flex", gap: 10, marginBottom: 10 }}>
             <span style={{ color: "#66dd88" }}>{t('map.scouts_active', { count: activeGuildCount })}</span>
             <span>&bull;</span>
@@ -437,7 +470,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
           </div>
           {/* Tabs */}
           <div style={{ display: "flex", gap: 4 }}>
-            {(["nodes", "routes"] as const).map((tabKey) => (
+            {(["nodes", "routes", "portals"] as const).map((tabKey) => (
               <button
                 key={tabKey}
                 onClick={() => setTab(tabKey)}
@@ -455,7 +488,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
                   letterSpacing: 0.4,
                 }}
               >
-                {tabKey === "nodes" ? t('map.tab_nodes') : t('map.tab_routes')}
+                {tabKey === "nodes" ? t('map.tab_nodes') : tabKey === "routes" ? t('map.tab_routes') : t('map.tab_portals')}
               </button>
             ))}
           </div>
@@ -520,7 +553,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
                 })
               )}
             </>
-          ) : (
+          ) : tab === "routes" ? (
             <>
               {/* Routes tab */}
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8, padding: "0 2px" }}>
@@ -550,12 +583,70 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
                 ))
               )}
             </>
+          ) : (
+            <>
+              {/* Portals tab */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8, padding: "0 2px" }}>
+                <span style={{ fontSize: 11, fontWeight: 700, color: "#555", letterSpacing: 0.5, textTransform: "uppercase" }}>{t('map.section_portals')}</span>
+                <span style={{ fontSize: 11, color: "#444", background: "rgba(255,255,255,0.06)", borderRadius: 999, padding: "1px 8px" }}>{portals.length}</span>
+              </div>
+
+              {portals.length === 0 ? (
+                <div style={{ fontSize: 12, color: "#444", padding: "16px 4px", textAlign: "center" }}>
+                  {t('map.empty_portals')}
+                </div>
+              ) : (
+                portals.map((portal) => {
+                  const expired = portal.timeLeft <= 0 && portal.size !== 0;
+                  const urgent  = !expired && portal.size !== 0 && portal.timeLeft < 3600;
+                  const PORTAL_COLOR: Record<number, string> = { 0: "#CC44FF", 2: "#44dd88", 7: "#4499ff", 20: "#FFB347" };
+                  const color = expired ? "#444" : PORTAL_COLOR[portal.size] ?? "#888";
+                  const timeLabel = portal.size === 0 ? "Royal" : expired ? t('map.timer_expired') : fmtMs(portal.timeLeft * 1000);
+                  return (
+                    <div
+                      key={portal.id}
+                      style={{
+                        background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)",
+                        borderLeft: `3px solid ${color}`, borderRadius: 8, padding: "9px 10px", marginBottom: 4,
+                        display: "flex", alignItems: "center", gap: 8, opacity: expired ? 0.5 : 1,
+                      }}
+                    >
+                      <MIcon name="hub" size={15} color={expired ? "#333" : "#CC44FF"} />
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontSize: 12, fontWeight: 700, color: expired ? "#444" : "#ccc", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                          {portal.conn1} <span style={{ color: "#555" }}>↔</span> {portal.conn2}
+                        </div>
+                        <div style={{ fontSize: 10, color: "#444", marginTop: 2 }}>
+                          <span style={{ color, fontWeight: 700 }}>{portal.size === 0 ? "Royal" : `${portal.size}-man`}</span>
+                          {" · "}por {portal.reportedByName}
+                        </div>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
+                        <span style={{ fontSize: 12, fontWeight: 700, color: urgent ? "#FFD700" : expired ? "#555" : "#66dd88", fontVariantNumeric: "tabular-nums" }}>
+                          {timeLabel}
+                        </span>
+                        <button
+                          onClick={async () => {
+                            await fetch(`${API_BASE}/avalon-portals/${portal.id}`, { method: "DELETE", credentials: "include" });
+                            mutatePortals();
+                          }}
+                          style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex", lineHeight: 1 }}
+                          title={t('map.portal_delete')}
+                        >
+                          <MIcon name="delete_outline" size={14} color="#444" />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </>
           )}
         </div>
 
         {/* User footer */}
         {user && (
-          <div style={{ padding: "10px 12px", borderTop: "1px solid #1F1F1F", display: "flex", alignItems: "center", gap: 8, flexShrink: 0, background: "#111111" }}>
+          <div style={{ padding: "8px 12px", borderTop: "1px solid #1F1F1F", display: "flex", alignItems: "center", gap: 6, flexShrink: 0, background: "#111111" }}>
             {user.id && user.avatar ? (
               <img
                 src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`}
@@ -570,30 +661,48 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
               </div>
             )}
             <span style={{ fontSize: 12, color: "#8A8A8A", flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{user.username}</span>
+            <LanguageSwitcher />
             <button
               onClick={async () => {
                 await fetch(`${API_BASE}/auth/logout`, { method: "POST", credentials: "include" });
                 window.location.href = "/login";
               }}
-              style={{ fontSize: 11, color: "#8A8A8A", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+              style={{ fontSize: 11, color: "#8A8A8A", background: "none", border: "none", cursor: "pointer", padding: 0, flexShrink: 0 }}
             >{t('common.logout')}</button>
           </div>
         )}
       </aside>
 
-      {/* MAP */}
-      <main style={{ flex: 1, position: "relative" }}>
-        <WorldMap
-          pings={filteredPings}
-          zones={zones}
-          routes={routes}
-          selectedPingId={selectedPingId ?? undefined}
-          selectedCenter={selectedCenter ?? undefined}
-          onSelectPing={setSelectedPingId}
-          onRouteClick={setDetailRouteId}
+      {/* MAP / GRAPH */}
+      <main style={{ flex: 1, position: "relative", overflow: "hidden" }}>
+        {/* Layer toggle */}
+        <LayerToggle
+          mode={mapMode}
+          onChange={(m) => { setMapMode(m); if (m === "avalon") setTab("portals"); else if (tab === "portals") setTab("nodes"); }}
+          worldLabel={t('map.layer_world')}
+          avalonLabel={t('map.layer_avalon')}
         />
 
-        {/* FAB submenu */}
+        {/* Main view */}
+        {mapMode === "world" ? (
+          <WorldMap
+            pings={filteredPings}
+            zones={zones}
+            routes={routes}
+            selectedPingId={selectedPingId ?? undefined}
+            selectedCenter={selectedCenter ?? undefined}
+            onSelectPing={setSelectedPingId}
+            onRouteClick={setDetailRouteId}
+          />
+        ) : (
+          <AvalonGraph
+            portals={portals}
+            routes={routes}
+            emptyText={t('map.empty_portals')}
+          />
+        )}
+
+        {/* FAB submenu — contextual by mode */}
         {showFabMenu && (
           <div
             style={{
@@ -602,10 +711,15 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
               zIndex: 1001,
             }}
           >
-            {[
-              { label: t('map.report_node'), icon: "sword_rose", action: () => { setShowFabMenu(false); setShowReport(true); } },
-              { label: t('map.report_route'), icon: "filter_tilt_shift", action: () => { setShowFabMenu(false); setShowRouteModal(true); } },
-            ].map(({ label, icon, action }) => (
+            {(mapMode === "world"
+              ? [
+                  { label: t('map.report_node'),  icon: "sword_rose",        action: () => { setShowFabMenu(false); setShowReport(true); } },
+                  { label: t('map.report_route'),  icon: "filter_tilt_shift", action: () => { setShowFabMenu(false); setShowRouteModal(true); } },
+                ]
+              : [
+                  { label: t('map.report_portal'), icon: "hub",               action: () => { setShowFabMenu(false); setShowPortalModal(true); } },
+                ]
+            ).map(({ label, icon, action }) => (
               <button
                 key={label}
                 onClick={action}
@@ -625,7 +739,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
                   boxShadow: "0 4px 16px rgba(0,0,0,0.6)",
                 }}
               >
-                <MIcon name={icon} size={16} color="#88aadd" />
+                <MIcon name={icon} size={16} color={icon === "hub" ? "#CC44FF" : "#88aadd"} />
                 {label}
               </button>
             ))}
@@ -661,6 +775,8 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
         )}
       </main>
 
+      </div>{/* end MAIN CONTENT wrapper */}
+
       {showReport && (
         <ReportModal
           guildId={guildId}
@@ -695,8 +811,16 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
           onClose={() => setShowRouteModal(false)}
           onSuccess={() => { setShowRouteModal(false); mutateRoutes(); setTab("routes"); }}
         />
-      )} 
-      <FloatingLangSwitcher />
+      )}
+
+      {showPortalModal && (
+        <PortalModal
+          guildId={guildId}
+          zones={zones}
+          onClose={() => setShowPortalModal(false)}
+          onSuccess={() => { setShowPortalModal(false); mutatePortals(); setTab("portals"); }}
+        />
+      )}
     </div>
   );
 }

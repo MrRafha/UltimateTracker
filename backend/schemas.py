@@ -193,6 +193,46 @@ class AdminGuildOut(BaseModel):
         from_attributes = True
 
 
+# ── Avalon Portals ────────────────────────────────────────────
+
+class AvalonPortalCreate(BaseModel):
+    guild_id: str
+    conn1: str
+    conn2: str
+    size: int   # 0, 2, 7, 20
+    hours: int = 0
+    minutes: int = 0
+    reported_by_name: str
+
+    @field_validator("size")
+    @classmethod
+    def validate_size(cls, v: int) -> int:
+        if v not in (0, 2, 7, 20):
+            raise ValueError("size must be 0 (Royal), 2, 7, or 20")
+        return v
+
+    @field_validator("hours", "minutes")
+    @classmethod
+    def validate_time(cls, v: int) -> int:
+        if v < 0:
+            raise ValueError("Time values must be >= 0")
+        return v
+
+
+class AvalonPortalOut(BaseModel):
+    id: str
+    conn1: str
+    conn2: str
+    size: int
+    expires_at: Optional[datetime]
+    time_left: int          # seconds remaining; 999999 for Royal
+    reported_by_name: str
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
 # ── Admin Stats ───────────────────────────────────────────────
 
 class AdminStatsOut(BaseModel):

@@ -39,6 +39,14 @@ class TrackerSource(str, Enum):
     web = "web"
 
 
+# Portal sizes for Avalonian Roads (0 = Royal/permanent, 2/7/20 = player cap)
+class PortalSize(int, Enum):
+    royal  = 0
+    two    = 2
+    seven  = 7
+    twenty = 20
+
+
 # Server regions
 SERVER_REGIONS: list[str] = ["WEST", "EAST", "ASIA"]
 

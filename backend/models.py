@@ -7,7 +7,7 @@ from sqlalchemy import String, DateTime, ForeignKey, Enum as SAEnum, Boolean, In
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from database import Base
-from constants import TrackerType, TrackerSource
+from constants import TrackerType, TrackerSource, PortalSize
 
 
 def _now() -> datetime:
@@ -37,6 +37,7 @@ class Guild(Base):
 
     trackers: Mapped[list["Tracker"]] = relationship(back_populates="guild", cascade="all, delete-orphan")
     routes: Mapped[list["Route"]] = relationship(back_populates="guild", cascade="all, delete-orphan")
+    avalon_portals: Mapped[list["AvalonPortal"]] = relationship(back_populates="guild", cascade="all, delete-orphan")
     members: Mapped[list["GuildMember"]] = relationship(back_populates="guild", cascade="all, delete-orphan")
 
 
@@ -91,6 +92,22 @@ class RouteWaypoint(Base):
     expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     route: Mapped["Route"] = relationship(back_populates="waypoints")
+
+
+class AvalonPortal(Base):
+    __tablename__ = "avalon_portals"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=_uuid)
+    guild_id: Mapped[str] = mapped_column(String, ForeignKey("guilds.guild_id", ondelete="CASCADE"), nullable=False)
+    # conn1/conn2 are always stored in alphabetical order (Portaler pattern)
+    conn1: Mapped[str] = mapped_column(String(150), nullable=False)
+    conn2: Mapped[str] = mapped_column(String(150), nullable=False)
+    size: Mapped[int] = mapped_column(nullable=False)   # 0=Royal, 2, 7, 20
+    expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)  # None = Royal (permanent)
+    reported_by_name: Mapped[str] = mapped_column(String, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+
+    guild: Mapped["Guild"] = relationship(back_populates="avalon_portals")
 
 
 # =============================================================================

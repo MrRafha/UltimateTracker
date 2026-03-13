@@ -118,6 +118,34 @@ export type Route = {
   waypoints: RouteWaypoint[];
 };
 
+// ── Avalon Portals ───────────────────────────────────────────
+export type PortalSize = 0 | 2 | 7 | 20;
+
+export type AvalonPortal = {
+  id: string;
+  conn1: string;
+  conn2: string;
+  size: PortalSize;
+  expiresAt: string | null;   // null = Royal (permanent)
+  timeLeft: number;            // seconds; 999999 = Royal
+  reportedByName: string;
+  createdAt: string;
+};
+
+export const PORTAL_SIZE_COLOR: Record<PortalSize, string> = {
+  0:  "#CC44FF",  // Royal
+  2:  "#44dd88",  // 2-man
+  7:  "#4499ff",  // 7-man
+  20: "#FFB347",  // 20-man
+};
+
+export const PORTAL_SIZE_LABEL: Record<PortalSize, string> = {
+  0:  "Royal",
+  2:  "2-man",
+  7:  "7-man",
+  20: "20-man",
+};
+
 export const OBJECTIVE_EMOJI: Record<string, string> = {
   // nodes
   couro: "🐂",

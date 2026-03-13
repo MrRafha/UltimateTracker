@@ -102,7 +102,14 @@
     "timer_no_timer": "sin temporizador",
     "route_delete": "Eliminar ruta",
     "reported_by": "por {name} · {count} zonas",
-    "zones_count": "{count} zonas"
+    "zones_count": "{count} zonas",
+    "tab_portals": "🕸️ Red",
+    "section_portals": "Portales Avalónicos",
+    "empty_portals": "Sin portales. Usa + para reportar.",
+    "layer_world": "Mapa",
+    "layer_avalon": "Red Avalon",
+    "report_portal": "Portal Avalon",
+    "portal_delete": "Eliminar portal"
   },
   "admin": {
     "badge": "ADMIN",
@@ -171,7 +178,18 @@
     "route_error_fill_zones": "Por favor completa todos los nombres de zona.",
     "route_error_connection": "Error de conexi\u00f3n.",
     "route_entry_placeholder": "Zona de entrada \u2014 mundo o TNL\u2026",
-    "route_next_placeholder": "Pr\u00f3xima zona \u2014 mundo o TNL\u2026"
+    "route_next_placeholder": "Pr\u00f3xima zona \u2014 mundo o TNL\u2026",
+    "portal_title": "Nuevo Portal Avalonico",
+    "portal_subtitle": "Registra una conexión entre dos zonas avalonicas",
+    "portal_zone_a": "Zona de Origen",
+    "portal_zone_b": "Zona de Destino",
+    "portal_size": "Tamaño",
+    "portal_size_2": "2 jugadores",
+    "portal_size_7": "7 jugadores",
+    "portal_size_20": "20 jugadores",
+    "portal_size_royal": "Royal (sin expirar)",
+    "portal_error_fill": "Completa las dos zonas.",
+    "portal_error_same": "Las zonas deben ser diferentes."
   },
   "objectives": {
     "couro": "Cuero",

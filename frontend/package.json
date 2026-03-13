@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@xyflow/react": "^12.10.1",
     "leaflet": "^1.9.4",
     "next": "^15.1.6",
     "next-intl": "^4.8.3",
