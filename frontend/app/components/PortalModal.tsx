@@ -268,11 +268,11 @@ export default function PortalModal({ guildId, zones, onClose, onSuccess }: Port
             onClick={submit}
             disabled={submitting}
             style={{
-              padding: "7px 18px", borderRadius: 8, border: "none",
+              padding: "7px 18px", borderRadius: 8,
               background: submitting ? "#333" : "rgba(204,68,255,0.2)",
               color: submitting ? "#555" : "#CC44FF",
               fontSize: 12, fontWeight: 700, cursor: submitting ? "not-allowed" : "pointer",
-              border: `1px solid ${submitting ? "transparent" : "rgba(204,68,255,0.35)"}` as string,
+              border: `1px solid ${submitting ? "transparent" : "rgba(204,68,255,0.35)"}`,
             }}
           >
             {submitting ? t("modal.submitting") : t("modal.register")}
