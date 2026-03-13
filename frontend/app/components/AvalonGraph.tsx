@@ -15,7 +15,7 @@ import {
   Panel,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import * as dagre from "@dagrejs/dagre";
+import dagre from "@dagrejs/dagre";
 import type { AvalonPortal, PortalSize, Route } from "../types";
 import { PORTAL_SIZE_COLOR, PORTAL_SIZE_LABEL } from "../types";
 
