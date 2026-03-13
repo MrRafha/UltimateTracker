@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, Header, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
+from prometheus_fastapi_instrumentator import Instrumentator
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -174,6 +175,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Instrumentação Prometheus – expõe /metrics
+Instrumentator().instrument(app).expose(app, include_in_schema=False, tags=["observability"])
 
 cache = TTLCache(maxsize=1, ttl=CACHE_TTL_SECONDS)
 

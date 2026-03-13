@@ -24,7 +24,9 @@ bot/.env
 .DS_Store
 Thumbs.db
 
-# Misc
-*.db
-*.sqlite
-*.log
+# docker-compose
+.env
+nginx/certs/*.pem
+nginx/certs/*.crt
+nginx/certs/*.key
+

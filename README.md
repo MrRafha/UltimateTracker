@@ -202,6 +202,88 @@ npm run start
 
 ---
 
+## 6. Stack de Monitoramento com Docker Compose
+
+O projeto inclui uma stack completa de observabilidade que pode ser executada com um único comando:
+
+| Serviço | Função | URL local |
+|---|---|---|
+| **Nginx** | Reverse proxy (porta 80) | `http://localhost` |
+| **Prometheus** | Coleta de métricas | interno (porta 9090) |
+| **Loki** | Agregação de logs | interno (porta 3100) |
+| **Grafana** | Dashboards e visualização | `http://localhost/grafana` |
+
+### 6.1 Pré-requisitos
+
+- [Docker](https://docs.docker.com/get-docker/) 24+  
+- [Docker Compose](https://docs.docker.com/compose/) V2+
+- Plugin Loki para Docker (para coleta de logs dos contêineres):
+
+```bash
+docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
+```
+
+### 6.2 Configurar variáveis de ambiente
+
+```bash
+# Raiz do projeto
+cp .env.example .env
+
+# Backend
+cp backend/.env.example backend/.env
+
+# Bot
+cp bot/.env.example bot/.env
+
+# Frontend (crie o arquivo com as variáveis necessárias)
+cp frontend/.env.production.example frontend/.env.local
+```
+
+Edite cada `.env` com as credenciais reais.
+
+### 6.3 Subir a stack completa
+
+```bash
+docker compose up -d
+```
+
+Aguarde os serviços subirem (~30 s) e acesse:
+
+- **Aplicação:** `http://localhost`
+- **Grafana:** `http://localhost/grafana` (usuário/senha: `admin` / valor de `GRAFANA_PASSWORD` no `.env`)
+
+### 6.4 Visualizar logs
+
+```bash
+# Todos os serviços
+docker compose logs -f
+
+# Somente backend
+docker compose logs -f backend
+```
+
+Os logs também ficam disponíveis no Grafana em **Explore → Loki**.
+
+### 6.5 Acessar métricas
+
+O endpoint `/metrics` do backend é exposto automaticamente pelo Prometheus.  
+No Grafana, o dashboard **UltimateTracker – Overview** já vem pré-configurado com:
+
+- Requisições por segundo e latência (p50/p95)
+- Taxa de erros 5xx
+- Logs em tempo real (todos os serviços)
+- CPU e memória do backend
+- Conexões ativas do Nginx
+
+### 6.6 Derrubar a stack
+
+```bash
+docker compose down          # mantém volumes
+docker compose down -v       # remove também os volumes (dados)
+```
+
+---
+
 ## Resumo rápido
 
 ```powershell
