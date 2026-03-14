@@ -5,7 +5,8 @@ import L from 'leaflet';
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Tooltip, Polyline, useMap, useMapEvents } from 'react-leaflet';
 import { useEffect, useState } from 'react';
-import type { Route } from '../types';
+import type { Route, AvalonPortal } from '../types';
+import { PORTAL_SIZE_COLOR, PORTAL_SIZE_LABEL } from '../types';
 
 // ── Coordenadas de jogo → CRS.Simple (fórmula do widget oficial da wiki) ──
 const ANGLE = -45 * (Math.PI / 180);
@@ -55,7 +56,7 @@ const PULSE_CSS = `
 // ── Tipos ──
 type ZoneCenter = { x: number; y: number };
 type Ping = { id: string; zoneId: string; label: string; objective: string; center: ZoneCenter };
-export type ZoneData = { zoneId: string; displayName: string; center: ZoneCenter };
+export type ZoneData = { zoneId: string; displayName: string; center: ZoneCenter; color?: 'blue' | 'yellow' | 'red' | 'black' };
 
 // ── Mapeamento objetivo → emoji + cor ──
 function getObjectiveStyle(objective: string): { emoji: string; color: string } {
@@ -97,13 +98,19 @@ function makePingIcon(objective: string, selected: boolean): L.DivIcon {
   });
 }
 
-function makeLabelIcon(name: string): L.DivIcon {
-  // Use a wider iconSize to avoid clipping long names; anchor is centered horizontally
-  // and negative-Y so the pill renders below the zone center (under the ping icon)
+function makeLabelIcon(name: string, zoneColor?: string): L.DivIcon {
   const approxW = Math.max(80, name.length * 8);
+
+  let bg          = 'rgba(0,0,0,0.6)';
+  let borderLeft  = '';
+  if (zoneColor === 'blue')   { bg = 'rgba(30,80,200,0.50)';  borderLeft = 'border-left:3px solid #4499ff;padding-left:5px;'; }
+  if (zoneColor === 'yellow') { bg = 'rgba(150,110,0,0.55)';  borderLeft = 'border-left:3px solid #FFD700;padding-left:5px;'; }
+  if (zoneColor === 'red')    { bg = 'rgba(150,30,30,0.55)';  borderLeft = 'border-left:3px solid #FF4444;padding-left:5px;'; }
+  if (zoneColor === 'black')  { bg = 'rgba(8,8,8,0.80)';      borderLeft = 'border-left:3px solid #555555;padding-left:5px;'; }
+
   return L.divIcon({
     className: '',
-    html: `<div class="ao-label">${name}</div>`,
+    html: `<div class="ao-label" style="background:${bg};${borderLeft}">${name}</div>`,
     iconSize:   [approxW, 18],
     iconAnchor: [approxW / 2, -20],
   });
@@ -134,6 +141,95 @@ function makeRestIcon(): L.DivIcon {
   });
 }
 
+function makeCityIcon(color: string): L.DivIcon {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:34px;height:34px;border-radius:8px;background:rgba(0,0,0,0.82);border:2.5px solid ${color};box-shadow:0 0 14px ${color}, 0 0 5px ${color};display:flex;align-items:center;justify-content:center;">
+      <span class="material-icons" style="font-size:18px;color:${color};line-height:1;">location_city</span>
+    </div>`,
+    iconSize:   [34, 34],
+    iconAnchor: [17, 17],
+    tooltipAnchor: [0, -21],
+  });
+}
+
+function makeAvalonPortalEntryIcon(color: string, urgent: boolean): L.DivIcon {
+  const sz = urgent ? 32 : 28;
+  const pulse = urgent ? 'ao-ping' : '';
+  return L.divIcon({
+    className: '',
+    html: `<div class="${pulse}" style="width:${sz}px;height:${sz}px;border-radius:50%;background:rgba(0,0,0,0.82);border:2.5px solid ${color};box-shadow:0 0 16px ${color}, 0 0 6px ${color};display:flex;align-items:center;justify-content:center;">
+      <span class="material-icons" style="font-size:15px;color:${color};line-height:1;">blur_circular</span>
+    </div>`,
+    iconSize:      [sz, sz],
+    iconAnchor:    [sz / 2, sz / 2],
+    tooltipAnchor: [0, -(sz / 2 + 5)],
+  });
+}
+
+// ── Portais Avalonianos ativos sobre o mapa do Royal Continent ──
+function AvalonPortalLandmarks({ portals, zones }: { portals: AvalonPortal[]; zones: ZoneData[] }) {
+  const [now, setNow] = useState(Date.now());
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 10_000);
+    return () => clearInterval(id);
+  }, []);
+
+  // Lookup rápido: displayName lowercase → ZoneData
+  const zoneByName = new Map(zones.map((z) => [z.displayName.toLowerCase(), z]));
+
+  const items: { portal: AvalonPortal; zone: ZoneData; avalonName: string }[] = [];
+  for (const p of portals) {
+    const z1 = zoneByName.get(p.conn1.toLowerCase());
+    const z2 = zoneByName.get(p.conn2.toLowerCase());
+    // Exatamente um dos conns deve ser zona Royal (com coordenadas)
+    if (z1 && !z2) items.push({ portal: p, zone: z1, avalonName: p.conn2 });
+    else if (z2 && !z1) items.push({ portal: p, zone: z2, avalonName: p.conn1 });
+    // Se ambos tiverem coordenadas (ex.: dois mapas reais), mostra o primeiro
+    else if (z1 && z2) items.push({ portal: p, zone: z1, avalonName: p.conn2 });
+  }
+
+  if (items.length === 0) return null;
+
+  return (
+    <>
+      {items.map(({ portal: p, zone: z, avalonName }) => {
+        const color   = PORTAL_SIZE_COLOR[p.size as keyof typeof PORTAL_SIZE_COLOR] ?? '#CC44FF';
+        const label   = PORTAL_SIZE_LABEL[p.size as keyof typeof PORTAL_SIZE_LABEL] ?? 'Portal';
+        const msLeft  = p.size === 0 ? null
+                      : p.expiresAt ? new Date(p.expiresAt).getTime() - now
+                      : p.timeLeft * 1_000;
+        const expired = msLeft !== null && msLeft <= 0;
+        const urgent  = !expired && msLeft !== null && msLeft < 3_600_000;
+        const timeStr = p.size === 0 ? 'Royal'
+                      : expired ? 'EXPIRADO'
+                      : fmtMs(msLeft!);
+        const chargesStr = p.charges != null ? ` · ${p.charges}⚡` : '';
+        return (
+          <Marker
+            key={`avalon-entry-${p.id}`}
+            position={[z.center.y, z.center.x]}
+            icon={makeAvalonPortalEntryIcon(expired ? '#444' : color, urgent)}
+            zIndexOffset={700}
+          >
+            <Tooltip direction="top" offset={[0, -6]} opacity={0.97} permanent={false}>
+              <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: 1.6, minWidth: 140 }}>
+                <div style={{ fontWeight: 800, fontSize: 12, color: expired ? '#666' : color }}>
+                  Portal Avalon — {label}{chargesStr}
+                </div>
+                <div style={{ fontSize: 11, color: '#bbb' }}>↔ {avalonName}</div>
+                <div style={{ fontSize: 11, color: expired ? '#555' : urgent ? '#FF4444' : '#aaa', fontVariantNumeric: 'tabular-nums' }}>
+                  {timeStr}
+                </div>
+              </div>
+            </Tooltip>
+          </Marker>
+        );
+      })}
+    </>
+  );
+}
+
 // ── Zonas especiais fixas (portais + rests) ──
 const PORTAL_ZONE_RULES: { matches: string[]; color: string; label: string }[] = [
   { matches: ['thetford',     'portal'], color: '#CC44FF', label: 'Thetford Portal'     },
@@ -144,13 +240,25 @@ const PORTAL_ZONE_RULES: { matches: string[]; color: string; label: string }[] =
 ];
 const REST_ZONE_MATCHES = ["morgana\'s rest", "arthur\'s rest", "merlyn\'s rest", "merlin\'s rest", 'morgana rest', 'arthur rest', 'merlyn rest'];
 
+const CITY_RULES: { name: string; color: string; label: string }[] = [
+  { name: 'lymhurst',      color: '#44FF88', label: 'Lymhurst'      },
+  { name: 'bridgewatch',   color: '#FFD700', label: 'Bridgewatch'   },
+  { name: 'martlock',      color: '#44AAFF', label: 'Martlock'      },
+  { name: 'thetford',      color: '#CC44FF', label: 'Thetford'      },
+  { name: 'fort sterling', color: '#A0A0A0', label: 'Fort Sterling' },
+  { name: 'caerleon',      color: '#CC2222', label: 'Caerleon'      },
+];
+
 function SpecialZoneMarkers({ zones }: { zones: ZoneData[] }) {
   if (zones.length === 0) return null;
   const portals: { zone: ZoneData; color: string; label: string }[] = [];
   const rests: ZoneData[] = [];
+  const cities: { zone: ZoneData; color: string; label: string }[] = [];
 
   for (const z of zones) {
     const dn = z.displayName.toLowerCase();
+    const cityRule = CITY_RULES.find(r => dn === r.name);
+    if (cityRule) { cities.push({ zone: z, color: cityRule.color, label: cityRule.label }); continue; }
     const portalRule = PORTAL_ZONE_RULES.find(r => r.matches.every(m => dn.includes(m)));
     if (portalRule) { portals.push({ zone: z, color: portalRule.color, label: portalRule.label }); continue; }
     if (REST_ZONE_MATCHES.some(m => dn.includes(m))) { rests.push(z); }
@@ -158,6 +266,13 @@ function SpecialZoneMarkers({ zones }: { zones: ZoneData[] }) {
 
   return (
     <>
+      {cities.map(({ zone: z, color, label }) => (
+        <Marker key={`city-${z.zoneId}`} position={[z.center.y, z.center.x]} icon={makeCityIcon(color)} zIndexOffset={600}>
+          <Tooltip direction="top" offset={[0, -5]} opacity={0.97} permanent={false}>
+            <span style={{ fontSize: 13, fontWeight: 700, color }}>{label}</span>
+          </Tooltip>
+        </Marker>
+      ))}
       {portals.map(({ zone: z, color, label }) => (
         <Marker key={`portal-${z.zoneId}`} position={[z.center.y, z.center.x]} icon={makePortalIcon(color)} zIndexOffset={500}>
           <Tooltip direction="top" offset={[0, -4]} opacity={0.95} permanent={false}>
@@ -211,7 +326,7 @@ function ZoneLabels({ zones }: { zones: ZoneData[] }) {
         <Marker
           key={z.zoneId}
           position={[z.center.y, z.center.x]}
-          icon={makeLabelIcon(z.displayName)}
+          icon={makeLabelIcon(z.displayName, z.color)}
           interactive={false}
           zIndexOffset={-1000}
         />
@@ -310,6 +425,7 @@ export default function WorldMap({
   pings,
   zones = [],
   routes = [],
+  portals = [],
   selectedPingId,
   selectedCenter,
   onSelectPing,
@@ -318,6 +434,7 @@ export default function WorldMap({
   pings: Ping[];
   zones?: ZoneData[];
   routes?: Route[];
+  portals?: AvalonPortal[];
   selectedPingId?: string;
   selectedCenter?: ZoneCenter;
   onSelectPing?: (id: string) => void;
@@ -350,6 +467,7 @@ export default function WorldMap({
       <FlyTo center={selectedCenter} />
       <ZoneLabels zones={zones} />
       <SpecialZoneMarkers zones={zones} />
+      <AvalonPortalLandmarks portals={portals} zones={zones} />
       <RouteLayer routes={routes} onRouteClick={onRouteClick} />
 
       {pings.map((p) => (

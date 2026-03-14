@@ -24,6 +24,29 @@ function MIcon({ name, size = 18, color }: { name: string; size?: number; color?
   );
 }
 
+// ── Excluded world zones (no nodes/orbs/vortex spawn there) ──────────────
+const EXCLUDED_EXACT = [
+  "caerleon", "bridgewatch", "lymhurst", "martlock", "thetford", "fort sterling",
+];
+const EXCLUDED_MULTI: string[][] = [
+  ["thetford",      "portal"],
+  ["bridgewatch",   "portal"],
+  ["martlock",      "portal"],
+  ["fort sterling", "portal"],
+  ["lymhurst",      "portal"],
+];
+const EXCLUDED_SINGLE = [
+  "morgana's rest", "arthur's rest", "merlyn's rest", "merlin's rest",
+  "morgana rest",   "arthur rest",   "merlyn rest",
+];
+function isExcludedWorldZone(displayName: string): boolean {
+  const dn = displayName.toLowerCase();
+  if (EXCLUDED_EXACT.includes(dn)) return true;
+  if (EXCLUDED_SINGLE.some((m) => dn.includes(m))) return true;
+  if (EXCLUDED_MULTI.some((kws) => kws.every((kw) => dn.includes(kw)))) return true;
+  return false;
+}
+
 export default function ReportModal({ guildId, zones, user, onClose, onSuccess }: Props) {
   const t = useTranslations();
   const [zoneName, setZoneName]   = useState("");
@@ -46,7 +69,7 @@ export default function ReportModal({ guildId, zones, user, onClose, onSuccess }
   }, [onClose]);
 
   const suggestions = zoneQuery.length > 1
-    ? zones.filter((z) => z.displayName.toLowerCase().includes(zoneQuery.toLowerCase())).slice(0, 7)
+    ? zones.filter((z) => !isExcludedWorldZone(z.displayName) && z.displayName.toLowerCase().includes(zoneQuery.toLowerCase())).slice(0, 7)
     : [];
 
   const objectives = type ? OBJECTIVES_BY_TYPE[type] : [];

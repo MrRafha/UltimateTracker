@@ -17,7 +17,7 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import dagre from "@dagrejs/dagre";
-import type { AvalonPortal, PortalSize, Route } from "../types";
+import type { AvalonPortal, PortalSize, Route, ZoneData } from "../types";
 import { PORTAL_SIZE_COLOR, PORTAL_SIZE_LABEL } from "../types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
@@ -62,11 +62,20 @@ function applyDagreLayout(nodes: Node[], edges: Edge[]): Node[] {
 
 type RoutePair = { count: number; earliestExpiry: number | null };
 
+// Zone conflict color → node bg / border
+const ZONE_COLOR_STYLE: Record<string, { bg: string; border: string; minimap: string }> = {
+  blue:   { bg: 'rgba(30,80,200,0.18)',  border: '#4499ff', minimap: '#4499ff' },
+  yellow: { bg: 'rgba(150,110,0,0.20)',  border: '#FFD700', minimap: '#FFD700' },
+  red:    { bg: 'rgba(150,30,30,0.20)',  border: '#FF4444', minimap: '#FF4444' },
+  black:  { bg: 'rgba(8,8,8,0.55)',      border: '#555555', minimap: '#555555' },
+};
+
 function buildGraph(
   portals: AvalonPortal[],
   routes: Route[],
   avalonZoneSet: Set<string>,
   indexToName: Map<string, string>,
+  zoneColorMap: Map<string, string>,
 ): { nodes: Node[]; edges: Edge[] } {
   const now = Date.now() / 1000;
 
@@ -108,8 +117,13 @@ function buildGraph(
   const nodes: Node[] = zoneList.map((name, i) => {
     const angle = (2 * Math.PI * i) / total - Math.PI / 2;
     const isAvalon = avalonZoneSet.has(name);
-    // Show human-readable name; backward-compat for old TNL-xxx portals
     const label = indexToName.get(name) ?? name;
+    const zColor = zoneColorMap.get(label);
+    const style = isAvalon
+      ? { bg: 'rgba(255,179,71,0.15)', border: '#FFB347' }
+      : zColor && ZONE_COLOR_STYLE[zColor]
+        ? { bg: ZONE_COLOR_STYLE[zColor].bg, border: ZONE_COLOR_STYLE[zColor].border }
+        : { bg: 'rgba(68,153,255,0.12)', border: '#4499ff' };
     return {
       id: name,
       position: {
@@ -118,8 +132,8 @@ function buildGraph(
       },
       data: { label },
       style: {
-        background: isAvalon ? "rgba(255,179,71,0.15)" : "rgba(68,153,255,0.12)",
-        border: `1.5px solid ${isAvalon ? "#FFB347" : "#4499ff"}`,
+        background: style.bg,
+        border: `1.5px solid ${style.border}`,
         borderRadius: 8,
         color: "#ddd",
         fontSize: 11,
@@ -231,11 +245,12 @@ interface AvalonGraphProps {
   portals: AvalonPortal[];
   routes?: Route[];
   emptyText: string;
+  zones?: ZoneData[];
 }
 
 type AvalonZone = { index: string; uniqueName: string };
 
-export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonGraphProps) {
+export default function AvalonGraph({ portals, routes = [], emptyText, zones = [] }: AvalonGraphProps) {
   // Fetch static zone list for name lookup and avalon zone identification
   const { data: avalonZoneList = [] } = useSWR<AvalonZone[]>(
     `${API_BASE}/avalon-zones`,
@@ -256,10 +271,16 @@ export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonG
     [avalonZoneList],
   );
 
+  // displayName → conflict color (from /zones endpoint)
+  const zoneColorMap = useMemo(
+    () => new Map(zones.filter((z) => z.color).map((z) => [z.displayName, z.color as string])),
+    [zones],
+  );
+
   const { nodes: initNodes, edges: initEdges } = useMemo(
-    () => buildGraph(portals, routes, avalonZoneSet, indexToName),
+    () => buildGraph(portals, routes, avalonZoneSet, indexToName, zoneColorMap),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [portals, routes, avalonZoneSet, indexToName],
+    [portals, routes, avalonZoneSet, indexToName, zoneColorMap],
   );
 
   const [nodes, , onNodesChange] = useNodesState(initNodes);
@@ -311,7 +332,12 @@ export default function AvalonGraph({ portals, routes = [], emptyText }: AvalonG
         />
         <MiniMap
           style={{ background: "#111", border: "1px solid #1f1f1f" }}
-          nodeColor={(n) => (avalonZoneSet.has(String(n.id)) ? "#FFB347" : "#4499ff")}
+          nodeColor={(n) => {
+            if (avalonZoneSet.has(String(n.id))) return "#FFB347";
+            const name = indexToName.get(String(n.id)) ?? String(n.id);
+            const c = zoneColorMap.get(name);
+            return c ? (ZONE_COLOR_STYLE[c]?.minimap ?? "#4499ff") : "#4499ff";
+          }}
           maskColor="rgba(0,0,0,0.6)"
         />
       </ReactFlow>

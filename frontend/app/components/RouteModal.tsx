@@ -24,6 +24,9 @@ interface WaypointForm {
 }
 
 // ── Excluded world zones (no Avalon spawns there) ─────────────────────────
+const EXCLUDED_EXACT = [
+  "caerleon", "bridgewatch", "lymhurst", "martlock", "thetford", "fort sterling",
+];
 const EXCLUDED_MULTI: string[][] = [
   ["thetford",      "portal"],
   ["bridgewatch",   "portal"],
@@ -38,6 +41,7 @@ const EXCLUDED_SINGLE = [
 
 function isExcludedWorldZone(displayName: string): boolean {
   const dn = displayName.toLowerCase();
+  if (EXCLUDED_EXACT.includes(dn)) return true;
   if (EXCLUDED_SINGLE.some((m) => dn.includes(m))) return true;
   if (EXCLUDED_MULTI.some((kws) => kws.every((kw) => dn.includes(kw)))) return true;
   return false;

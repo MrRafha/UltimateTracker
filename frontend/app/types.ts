@@ -8,6 +8,7 @@ export type ZoneData = {
   zoneId: string;
   displayName: string;
   center: ZoneCenter;
+  color?: 'blue' | 'yellow' | 'red' | 'black';
 };
 
 // ── Timers (scraped from unslave.online) ─────────────────────

@@ -1,12 +1,52 @@
-# Ultimate Tracker — Tutorial de Execução
+<div align="center">
 
-Guia para rodar o projeto localmente: backend FastAPI + frontend Next.js + bot Discord.
+# Ultimate Tracker
+
+**Real-time collaborative map for Albion Online guilds.**
+Track resources, routes, and Avalon portals — all in one place, shared with your guild.
+
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110-009688?logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Discord](https://img.shields.io/badge/Discord-Bot-5865F2?logo=discord&logoColor=white)](https://discord.com/developers/docs/intro)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+
+</div>
 
 ---
 
-## Pré-requisitos
+## What is it?
 
-| Ferramenta | Versão recomendada |
+Ultimate Tracker is a guild tool that brings your Albion Online coordination to a new level.
+Your scouts report nodes, routes, and Avalon portals — and every guild member sees it live on an interactive map.
+
+**Key features:**
+
+- **Interactive World Map** — zone labels color-coded by PvP level (blue / yellow / red / black)
+- **Avalon Web** — visual graph of all active Avalon Road connections, with timers
+- **Node & Orb Tracker** — report resource spawns and objectives via web or Discord `/scout`
+- **Route Planner** — draw and share collection routes across the map
+- **Avalon Portal Landmarks** — Royal Continent zones with active Avalon portals highlighted on the world map
+- **Discord Integration** — slash commands for setup, scouting, and map sharing
+- **Multi-language** — English, Português, Español, 中文
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js 15 (App Router), React 19, Leaflet, React Flow, SWR |
+| Backend | Python FastAPI (async), SQLAlchemy, Alembic, PostgreSQL |
+| Bot | discord.py (slash commands) |
+| Auth | Discord OAuth2 |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+| Tool | Version |
 |---|---|
 | Python | 3.10+ |
 | Node.js | 18+ |
@@ -15,9 +55,7 @@ Guia para rodar o projeto localmente: backend FastAPI + frontend Next.js + bot D
 
 ---
 
-## 1. PostgreSQL — Banco de Dados
-
-Crie o banco antes de subir o backend:
+### 1. Database
 
 ```sql
 CREATE DATABASE ultimatetracker;
@@ -25,35 +63,28 @@ CREATE DATABASE ultimatetracker;
 
 ---
 
-## 2. Backend (FastAPI)
-
-Abra um terminal na pasta `backend/`:
+### 2. Backend
 
 ```bash
 cd backend
 ```
 
-### 2.1 Criar e ativar ambiente virtual
-
-**Windows (PowerShell)**
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-```
-
-**Linux / macOS**
 ```bash
+# Create and activate virtual environment
 python -m venv .venv
+
+# Windows
+.venv\Scripts\Activate.ps1
+
+# Linux / macOS
 source .venv/bin/activate
 ```
-
-### 2.2 Instalar dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2.3 Configurar variáveis de ambiente
+Copy and configure environment variables:
 
 ```bash
 # Windows
@@ -63,157 +94,117 @@ copy .env.example .env
 cp .env.example .env
 ```
 
-Edite o `.env` com suas credenciais:
-
 ```env
-DATABASE_URL=postgresql+asyncpg://seu_usuario:sua_senha@localhost:5432/ultimatetracker
-DISCORD_CLIENT_ID=seu_client_id
-DISCORD_CLIENT_SECRET=seu_client_secret
-SESSION_SECRET=string_aleatoria_longa
+DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/ultimatetracker
+DISCORD_CLIENT_ID=your_client_id
+DISCORD_CLIENT_SECRET=your_client_secret
+SESSION_SECRET=a_long_random_string
 SITE_URL=http://localhost:3000
 ```
 
-> Para obter `DISCORD_CLIENT_ID` e `DISCORD_CLIENT_SECRET`, crie um app em https://discord.com/developers/applications  
-> e configure o Redirect URI como: `http://localhost:8000/auth/discord/callback`  
-> ⚠️ O callback é tratado pelo **backend** (porta 8000), não pelo frontend.
-
-### 2.4 Executar migrations do banco
+> Create your Discord app at https://discord.com/developers/applications
+> Set the Redirect URI to: `http://localhost:8000/auth/discord/callback`
 
 ```bash
+# Run migrations
 alembic upgrade head
-```
 
-### 2.5 Iniciar o servidor
-
-```bash
+# Start the API
 uvicorn main:app --reload --port 8000
 ```
 
-A API ficará disponível em: `http://localhost:8000`  
-Documentação automática (Swagger): `http://localhost:8000/docs`
+API available at `http://localhost:8000` · Swagger docs at `http://localhost:8000/docs`
 
 ---
 
-## 3. Frontend (Next.js)
-
-Abra **outro terminal** na pasta `frontend/`:
+### 3. Frontend
 
 ```bash
 cd frontend
-```
-
-### 3.1 Instalar dependências
-
-```bash
 npm install
 ```
 
-### 3.2 Configurar variáveis de ambiente
-
-O arquivo `.env.local` já está criado. Ajuste se necessário:
+Adjust `.env.local` if needed:
 
 ```env
 NEXT_PUBLIC_API_BASE=http://localhost:8000
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-# Modo preview para testar páginas sem login (somente desenvolvimento)
-NEXT_PUBLIC_DEV_PREVIEW_AUTH=false
 ```
-
-Quando quiser testar o frontend sem autenticação, altere para `NEXT_PUBLIC_DEV_PREVIEW_AUTH=true` e reinicie o frontend.
-
-### 3.3 Iniciar em modo desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-A aplicação ficará disponível em: `http://localhost:3000`
+App available at `http://localhost:3000`
 
 ---
 
-## 4. Bot Discord
-
-Abra **outro terminal** na pasta `bot/`:
+### 4. Discord Bot
 
 ```bash
 cd bot
-```
-
-### 4.1 Criar e ativar ambiente virtual
-
-```powershell
-# Windows
 python -m venv .venv
+
+# Windows
 .venv\Scripts\Activate.ps1
-```
 
-### 4.2 Instalar dependências
+# Linux / macOS
+source .venv/bin/activate
 
-```bash
 pip install -r requirements.txt
 ```
 
-### 4.3 Configurar variáveis de ambiente
-
-```bash
-# Windows
-copy .env.example .env
-
-# Linux / macOS
-cp .env.example .env
-```
-
-Edite o `.env`:
-
 ```env
-DISCORD_TOKEN=token_do_seu_bot
+DISCORD_TOKEN=your_bot_token
 API_BASE_URL=http://localhost:8000
 SITE_URL=http://localhost:3000
 ```
-
-> Para obter o `DISCORD_TOKEN`, no painel do desenvolvedor Discord: Bot → Reset Token.  
-> Permissões necessárias: `applications.commands`, `bot` com `Send Messages`.
-
-### 4.4 Iniciar o bot
 
 ```bash
 python main.py
 ```
 
-### 4.5 Configurar no Discord
+**Bot slash commands:**
 
-No servidor Discord, use os comandos:
-1. `/setup` — registra a guilda (admin)
-2. `/role @suarole` — define a role com acesso ao tracker (admin)
-3. `/scout` — reporta um objetivo no mapa
-4. `/mapa` — retorna o link do mapa
-5. `/role` — (re)configura a role de acesso
+| Command | Description |
+|---|---|
+| `/setup` | Register your guild (admin) |
+| `/role @role` | Set the role with map access (admin) |
+| `/scout` | Report a node or objective |
+| `/mapa` | Get the map link |
 
 ---
 
-## 5. Build de produção (opcional)
+### Quick Start (all at once)
 
 ```bash
-# Frontend
-cd frontend
-npm run build
-npm run start
+# Terminal 1 — Backend
+cd backend && source .venv/bin/activate && alembic upgrade head && uvicorn main:app --reload --port 8000
+
+# Terminal 2 — Frontend
+cd frontend && npm run dev
+
+# Terminal 3 — Bot
+cd bot && source .venv/bin/activate && python main.py
 ```
+
+> The backend must be running **before** the frontend and the bot.
 
 ---
 
-## Resumo rápido
+## Contributing
 
-```powershell
-# Terminal 1 — Backend
-cd backend; .venv\Scripts\Activate.ps1; alembic upgrade head; uvicorn main:app --reload --port 8000
+Pull requests are welcome. For major changes, open an issue first to discuss what you'd like to change.
 
-# Terminal 2 — Frontend
-cd frontend; npm run dev
+1. Fork the repo
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'feat: add my feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
 
-# Terminal 3 — Bot
-cd bot; .venv\Scripts\Activate.ps1; python main.py
-```
+---
 
-> **Atenção:** o backend deve estar rodando **antes** do frontend e do bot.  
-> O banco PostgreSQL deve estar ativo e migrado antes de iniciar o backend.
+## Acknowledgements
+
+- Map tiles and data from [Albion Online Wiki](https://wiki.albiononline.com)
+- Built with love for the Albion Online community

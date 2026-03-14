@@ -690,6 +690,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
             pings={filteredPings}
             zones={zones}
             routes={routes}
+            portals={portals}
             selectedPingId={selectedPingId ?? undefined}
             selectedCenter={selectedCenter ?? undefined}
             onSelectPing={setSelectedPingId}
@@ -700,6 +701,7 @@ export default function GuildMapPage({ params }: { params: Promise<{ guildId: st
             key={[...portals.map((p) => p.id), ...routes.map((r) => r.id)].sort().join(",")}
             portals={portals}
             routes={routes}
+            zones={zones}
             emptyText={t('map.empty_portals')}
           />
         )}

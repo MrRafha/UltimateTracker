@@ -196,6 +196,17 @@ with open(BASE_DIR / "zone_aliases.json", "r", encoding="utf-8") as f:
 with open(BASE_DIR / "zones.json", "r", encoding="utf-8") as f:
     ZONES_LIST: List[Dict[str, Any]] = json.load(f)
 
+# Merge zone conflict colors (blue/yellow/red/black) gerado por scripts/fetch_zone_colors.py
+_zone_colors_path = BASE_DIR / "zone_colors.json"
+if _zone_colors_path.exists():
+    with open(_zone_colors_path, "r", encoding="utf-8") as f:
+        _ZONE_COLORS: Dict[str, str] = json.load(f)
+    for _z in ZONES_LIST:
+        _z["color"] = _ZONE_COLORS.get(_z["displayName"])
+else:
+    for _z in ZONES_LIST:
+        _z["color"] = None
+
 # Index por zoneId para lookup rápido
 ZONES: Dict[str, Dict[str, Any]] = {z["zoneId"]: z for z in ZONES_LIST}
 
