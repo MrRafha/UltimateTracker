@@ -15,6 +15,9 @@
   },
   "landing": {
     "badge": "Albion Online · Node Tracking",
+    "paused_badge": "Project status",
+    "paused_title": "Project paused indefinitely",
+    "paused_desc": "Ultimate Tracker is temporarily paused. We are working to come back as soon as possible with more stability and improvements.",
     "hero_h1_a": "Your visual tracker for",
     "hero_h1_b": "Albion Online.",
     "hero_p": "Track Nodes, Avalonian roads, vortex and colors for your entire guild, in the most efficient way possible.",

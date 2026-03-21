@@ -15,6 +15,9 @@
   },
   "landing": {
     "badge": "奥比昂传说 · 节点追踪",
+    "paused_badge": "项目状态",
+    "paused_title": "项目已无限期暂停",
+    "paused_desc": "Ultimate Tracker 目前暂时暂停。我们正在努力尽快以更稳定和更完善的状态回归。",
     "hero_h1_a": "你的可视化追踪器，",
     "hero_h1_b": "奥比昂传说。",
     "hero_p": "以最高效的方式为你的公会追踪节点、亚瓦洛尼安道路、漩涡和颜色。",

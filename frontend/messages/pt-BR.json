@@ -15,6 +15,9 @@
   },
   "landing": {
     "badge": "Albion Online · Tracking de Nodes",
+    "paused_badge": "Status do projeto",
+    "paused_title": "Projeto pausado por tempo indeterminado",
+    "paused_desc": "O Ultimate Tracker esta temporariamente pausado. Estamos trabalhando para voltar o quanto antes com estabilidade e melhorias.",
     "hero_h1_a": "Seu tracker visual para",
     "hero_h1_b": "Albion Online.",
     "hero_p": "Rastreie Nodes, Rotas avalionianas, vortex e cores para toda sua guilda, da maneira mais eficiente possível.",

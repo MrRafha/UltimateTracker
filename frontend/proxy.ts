@@ -1,12 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-// NOTE: Session cookie is set by the backend (different domain in production).
-// The Next.js middleware cannot read cross-domain cookies, so route protection
-// is handled entirely client-side via the useMe / useMyGuilds hooks.
-export function proxy(_request: NextRequest) {
+const FRONTEND_PAUSED = process.env.NEXT_PUBLIC_FRONTEND_PAUSED !== "false";
+
+export function proxy(request: NextRequest) {
+  if (FRONTEND_PAUSED && request.nextUrl.pathname !== "/") {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/map/:path*", "/dashboard/:path*", "/admin/:path*"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };
