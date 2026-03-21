@@ -1,12 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-const FRONTEND_PAUSED = process.env.NEXT_PUBLIC_FRONTEND_PAUSED !== "false";
+// Legacy file kept for compatibility. Route redirection now lives in middleware.ts.
 
-export function proxy(request: NextRequest) {
-  if (FRONTEND_PAUSED && request.nextUrl.pathname !== "/") {
-    return NextResponse.redirect(new URL("/", request.url));
-  }
-
+export function proxy(_request: NextRequest) {
   return NextResponse.next();
 }
 
